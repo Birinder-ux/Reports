@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quarterly Slot Analysis — Q2 & Q3 FY26</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',Arial,sans-serif;background:#F8FAFC;color:#0F172A;line-height:1.5}
+  .page-header{background:#0D1B2A;padding:26px 36px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+  .page-header h1{font-size:20px;font-weight:600;color:#fff;letter-spacing:-0.02em}
+  .page-header .sub{font-size:11px;color:#94A3B8;margin-top:4px;font-family:'DM Mono',monospace}
+  .badge{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace}
+  .badge-q2{background:rgba(37,99,235,.25);color:#93C5FD;border:1px solid rgba(147,197,253,.3)}
+  .badge-q3{background:rgba(22,163,74,.25);color:#86EFAC;border:1px solid rgba(134,239,172,.3)}
+  .content{padding:24px 36px 48px;max-width:1280px;margin:0 auto}
+  .kpi-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:28px}
+  .kpi{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+  .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+  .kpi.q2::before{background:#2563EB}
+  .kpi.q3::before{background:#16A34A}
+  .kpi-label{font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+  .kpi-value{font-size:24px;font-weight:600;color:#0F172A;letter-spacing:-0.02em;font-family:'DM Mono',monospace;line-height:1}
+  .kpi-value.pos{color:#16A34A}
+  .kpi-meta{font-size:10px;color:#94A3B8;margin-top:5px}
+  .chip{display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;font-family:'DM Mono',monospace;margin-right:3px}
+  .chip-q2{background:#DBEAFE;color:#1E3A5F}
+  .chip-q3{background:#DCFCE7;color:#14532D}
+  .section-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#94A3B8;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .section-label::after{content:'';flex:1;height:1px;background:#E2E8F0}
+  .tab-bar{display:flex;gap:6px;margin-bottom:14px}
+  .tab-btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;border:1px solid #CBD5E1;background:#fff;color:#475569;cursor:pointer;transition:all .15s}
+  .tab-btn.active-q2{background:#DBEAFE;color:#1E3A5F;border-color:#93C5FD}
+  .tab-btn.active-q3{background:#DCFCE7;color:#16A34A;border-color:#86EFAC}
+  .tab-pane{display:none}
+  .tab-pane.active{display:block}
+  .table-card{background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;margin-bottom:16px}
+  .table-card-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;border-bottom:1px solid #E2E8F0}
+  .table-card-hdr h3{font-size:13px;font-weight:500;color:#0F172A}
+  .table-card-hdr span{font-size:10px;color:#94A3B8;font-family:'DM Mono',monospace}
+  .tbl-outer{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  thead th{background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap}
+  thead th:first-child,thead th:nth-child(2){text-align:left}
+  tbody td{padding:7px 12px;text-align:right;border-bottom:1px solid #F1F5F9;color:#0F172A;font-family:'DM Mono',monospace;font-size:12px}
+  tbody td:first-child,tbody td:nth-child(2){text-align:left;font-family:'DM Sans',sans-serif}
+  tbody td:first-child{font-weight:500;color:#1E3A5F}
+  tbody td:nth-child(2){color:#475569}
+  tbody tr:hover td{background:#F8FAFC}
+  tbody tr:last-of-type td{border-bottom:none}
+  .total-row td{background:#F1F5F9!important;font-weight:600!important;font-family:'DM Mono',monospace!important;border-top:1.5px solid #CBD5E1!important;color:#0F172A!important}
+  .total-row td:first-child{font-family:'DM Sans',sans-serif!important}
+  .bal-pos{color:#16A34A!important;font-weight:600!important}
+  .bal-neg{color:#DC2626!important;font-weight:600!important}
+  .pct-inner{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+  .pct-bar-wrap{width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden}
+  .pct-bar{height:100%;border-radius:2px}
+  .new-geo td:first-child{border-top:1px solid #CBD5E1}
+  .footnote{font-size:10.5px;color:#94A3B8;margin-top:4px;padding:10px 14px;background:#fff;border:1px solid #E2E8F0;border-radius:8px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div>
+    <h1>Quarterly Slot Analysis</h1>
+    <div class="sub">As on 09 Jun'26 &nbsp;·&nbsp; FY26 &nbsp;·&nbsp; All values in headcount</div>
+  </div>
+  <div style="display:flex;gap:8px">
+    <span class="badge badge-q2">Q2 FY26</span>
+    <span class="badge badge-q3">Q3 FY26</span>
+  </div>
+</header>
+
+<main class="content">
+
+  <div class="kpi-grid" style="margin-top:24px">
+    <div class="kpi q2"><div class="kpi-label">Q2 Target</div><div class="kpi-value">2,100</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>Total slots</div></div>
+    <div class="kpi q2"><div class="kpi-label">Q2 Slots Utilized</div><div class="kpi-value">1,977</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>94% of target</div></div>
+    <div class="kpi q2"><div class="kpi-label">Q2 Balance</div><div class="kpi-value pos">+123</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>Remaining slots</div></div>
+    <div class="kpi q3"><div class="kpi-label">Q3 Target</div><div class="kpi-value">1,474</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>Total slots</div></div>
+    <div class="kpi q3"><div class="kpi-label">Q3 Slots Utilized</div><div class="kpi-value">170</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>12% of target</div></div>
+    <div class="kpi q3"><div class="kpi-label">Q3 Balance</div><div class="kpi-value pos">+1,304</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>Remaining slots</div></div>
+  </div>
+
+  <div class="section-label">Geo × service line detail</div>
+  <div class="tab-bar">
+    <button class="tab-btn active-q2" id="btnQ2" onclick="showTab('q2')">Q2'26 &nbsp;—&nbsp; Apr · May · Jun</button>
+    <button class="tab-btn" id="btnQ3" onclick="showTab('q3')">Q3'26 &nbsp;—&nbsp; Jul · Aug · Sep</button>
+  </div>
+
+  <div id="tabQ2" class="tab-pane active">
+    <div class="table-card">
+      <div class="table-card-hdr">
+        <h3>Q2'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</h3>
+        <span>Data as of 09 Jun'26</span>
+      </div>
+      <div class="tbl-outer">
+        <table>
+          <thead><tr>
+            <th style="text-align:left">Geography</th>
+            <th style="text-align:left">SL</th>
+            <th>Target</th>
+            <th>Apr'26 Joiners</th>
+            <th>May'26 Pipeline</th>
+            <th>Jun'26 Pipeline</th>
+            <th>Slots Utilized</th>
+            <th>Balance</th>
+            <th>Pipeline %</th>
+          </tr></thead>
+          <tbody id="q2tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="tabQ3" class="tab-pane">
+    <div class="table-card">
+      <div class="table-card-hdr">
+        <h3>Q3'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</h3>
+        <span>Data as of 09 Jun'26</span>
+      </div>
+      <div class="tbl-outer">
+        <table>
+          <thead><tr>
+            <th style="text-align:left">Geography</th>
+            <th style="text-align:left">SL</th>
+            <th>Target</th>
+            <th>Jul'26 Pipeline</th>
+            <th>Aug'26 Pipeline</th>
+            <th>Sep'26 Pipeline</th>
+            <th>Slots Utilized</th>
+            <th>Balance</th>
+            <th>Pipeline %</th>
+          </tr></thead>
+          <tbody id="q3tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <strong>Notes:</strong>&nbsp;
+    Slots Utilized = sum of monthly joiners / pipeline. &nbsp;·&nbsp;
+    Pipeline % = Slots Utilized &divide; Target. &nbsp;·&nbsp;
+    Balance = Target &minus; Slots Utilized. &nbsp;·&nbsp;
+    <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized. &nbsp;·&nbsp;
+    <span style="color:#16A34A;font-weight:600">Green</span> = surplus.
+  </div>
+</main>
+
+<script>
+const q2Data=[
+  {geo:'India',    sl:'DE',  target:653, m1:318,m2:167,m3:142},
+  {geo:'India',    sl:'ADM', target:370, m1:186,m2:107,m3:58},
+  {geo:'India',    sl:'QEA', target:360, m1:187,m2:112,m3:47},
+  {geo:'Americas', sl:'DE',  target:186, m1:84, m2:57, m3:37},
+  {geo:'Americas', sl:'ADM', target:109, m1:54, m2:52, m3:19},
+  {geo:'Americas', sl:'QEA', target:182, m1:53, m2:49, m3:37},
+  {geo:'APJ',      sl:'DE',  target:14,  m1:3,  m2:8,  m3:6},
+  {geo:'APJ',      sl:'ADM', target:43,  m1:16, m2:17, m3:10},
+  {geo:'APJ',      sl:'QEA', target:73,  m1:18, m2:10, m3:10},
+  {geo:'EMEA',     sl:'DE',  target:76,  m1:26, m2:40, m3:15},
+  {geo:'EMEA',     sl:'ADM', target:3,   m1:0,  m2:9,  m3:3},
+  {geo:'EMEA',     sl:'QEA', target:31,  m1:8,  m2:4,  m3:8},
+];
+const q3Data=[
+  {geo:'India',    sl:'DE',  target:492, m1:37,m2:20,m3:5},
+  {geo:'India',    sl:'ADM', target:100, m1:11,m2:7, m3:1},
+  {geo:'India',    sl:'QEA', target:319, m1:22,m2:16,m3:4},
+  {geo:'Americas', sl:'DE',  target:175, m1:3, m2:0, m3:0},
+  {geo:'Americas', sl:'ADM', target:100, m1:2, m2:0, m3:0},
+  {geo:'Americas', sl:'QEA', target:130, m1:0, m2:0, m3:0},
+  {geo:'APJ',      sl:'DE',  target:8,   m1:1, m2:0, m3:0},
+  {geo:'APJ',      sl:'ADM', target:2,   m1:7, m2:3, m3:0},
+  {geo:'APJ',      sl:'QEA', target:33,  m1:4, m2:3, m3:0},
+  {geo:'EMEA',     sl:'DE',  target:80,  m1:13,m2:0, m3:1},
+  {geo:'EMEA',     sl:'ADM', target:10,  m1:0, m2:0, m3:0},
+  {geo:'EMEA',     sl:'QEA', target:25,  m1:10,m2:0, m3:0},
+];
+
+function fmt(n){return Math.round(n).toLocaleString('en-IN')}
+function pctStr(p,t){return t===0?'--':Math.round(p/t*100)+'%'}
+function pctNum(p,t){return t===0?0:Math.min(Math.round(p/t*100),150)}
+
+function buildTable(data,tbodyId,pctColor){
+  const tb=document.getElementById(tbodyId);
+  let tot={target:0,m1:0,m2:0,m3:0,util:0,bal:0};
+  let prevGeo='',html='';
+  data.forEach((r,i)=>{
+    const util=r.m1+r.m2+r.m3,bal=r.target-util;
+    tot.target+=r.target;tot.m1+=r.m1;tot.m2+=r.m2;tot.m3+=r.m3;tot.util+=util;tot.bal+=bal;
+    const isNew=r.geo!==prevGeo;prevGeo=r.geo;
+    const bg=i%2===0?'background:#F8FAFC':'';
+    const balCls=bal<0?'bal-neg':'bal-pos';
+    const pp=pctNum(util,r.target);
+    html+=`<tr style="${bg}" class="${isNew&&i>0?'new-geo':''}">
+      <td>${isNew?r.geo:''}</td><td>${r.sl}</td>
+      <td>${fmt(r.target)}</td><td>${fmt(r.m1)}</td><td>${fmt(r.m2)}</td><td>${fmt(r.m3)}</td>
+      <td>${fmt(util)}</td>
+      <td class="${balCls}">${bal>=0?'+':''}${fmt(bal)}</td>
+      <td><div class="pct-inner"><span>${pctStr(util,r.target)}</span>
+        <div class="pct-bar-wrap"><div class="pct-bar" style="width:${Math.min(pp,100)}%;background:${pctColor}"></div></div>
+      </div></td></tr>`;
+  });
+  const totBalCls=tot.bal<0?'bal-neg':'bal-pos';
+  html+=`<tr class="total-row">
+    <td colspan="2">Total</td>
+    <td>${fmt(tot.target)}</td><td>${fmt(tot.m1)}</td><td>${fmt(tot.m2)}</td><td>${fmt(tot.m3)}</td>
+    <td>${fmt(tot.util)}</td>
+    <td class="${totBalCls}">${tot.bal>=0?'+':''}${fmt(tot.bal)}</td>
+    <td>${pctStr(tot.util,tot.target)}</td></tr>`;
+  tb.innerHTML=html;
+}
+
+buildTable(q2Data,'q2tbody','#2563EB');
+buildTable(q3Data,'q3tbody','#16A34A');
+
+function showTab(tab){
+  document.getElementById('tabQ2').classList.toggle('active',tab==='q2');
+  document.getElementById('tabQ3').classList.toggle('active',tab==='q3');
+  document.getElementById('btnQ2').className='tab-btn'+(tab==='q2'?' active-q2':'');
+  document.getElementById('btnQ3').className='tab-btn'+(tab==='q3'?' active-q3':'');
+}
+</script>
+</body>
+</html>

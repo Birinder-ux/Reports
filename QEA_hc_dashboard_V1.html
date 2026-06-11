@@ -1,0 +1,386 @@
+
+<h2 class="sr-only">QEA Headcount Dashboard — professional corporate theme</h2>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.dash{background:#f4f6fb;min-height:100vh;padding:16px;font-family:'Inter',sans-serif}
+
+/* ── HEADER ──────────────────────────────────────────────── */
+.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding:12px 16px;background:#fff;border-radius:10px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.hdr-left{display:flex;align-items:center;gap:10px}
+.hdr-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#1e40af,#3b82f6);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hdr-icon svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.hdr-title{font-size:14px;font-weight:700;color:#0f172a;letter-spacing:-0.2px}
+.hdr-sub{font-size:10px;color:#94a3b8;font-family:'JetBrains Mono',monospace;margin-top:1px}
+.pseg{display:flex;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:7px;overflow:hidden}
+.pseg button{font-size:9.5px;padding:4px 12px;border:none;cursor:pointer;background:transparent;color:#64748b;font-family:'Inter',sans-serif;font-weight:600}
+.pseg button.active{background:#1e40af;color:#fff;border-radius:5px;margin:2px}
+
+/* ── FILTER BAR ──────────────────────────────────────────── */
+.filter-bar{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;margin-bottom:12px;display:flex;flex-direction:column;gap:7px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.frow{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;overflow-x:auto}
+.frow::-webkit-scrollbar{display:none}
+.sep{width:1px;height:14px;background:#e2e8f0;margin:0 4px;flex-shrink:0}
+.flbl{font-size:9px;font-weight:700;color:#94a3b8;letter-spacing:0.1em;text-transform:uppercase;flex-shrink:0;white-space:nowrap}
+.p{font-size:9.5px;padding:3px 9px;border:1px solid #e2e8f0;border-radius:6px;cursor:pointer;background:#f8fafc;color:#475569;font-family:'Inter',sans-serif;font-weight:500;line-height:1.5;transition:all .12s;white-space:nowrap;flex-shrink:0}
+.p:hover{border-color:#93c5fd;color:#1e40af;background:#eff6ff}
+.p.on{color:#fff!important;border-color:transparent!important;box-shadow:0 1px 3px rgba(0,0,0,0.12)}
+.tseg{display:flex;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden;flex-shrink:0}
+.tseg button{font-size:9.5px;padding:3px 10px;border:none;cursor:pointer;background:transparent;color:#64748b;font-family:'Inter',sans-serif;font-weight:600;line-height:1.5}
+.tseg button.active{background:#1e40af;color:#fff;border-radius:4px;margin:2px}
+
+/* ── KPI ROW ─────────────────────────────────────────────── */
+.kpi-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.kpi{border-radius:10px;padding:12px 14px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07)}
+.kpi-india{background:linear-gradient(135deg,#1e3a8a,#2563eb)}
+.kpi-na{background:linear-gradient(135deg,#065f46,#059669)}
+.kpi-ggm{background:linear-gradient(135deg,#92400e,#d97706)}
+.kpi-qea{background:linear-gradient(135deg,#4c1d95,#7c3aed)}
+.kpi-glow{position:absolute;top:-20px;right:-20px;width:60px;height:60px;border-radius:50%;opacity:0.2;filter:blur(18px)}
+.kpi-l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.65);margin-bottom:5px}
+.kpi-v{font-size:21px;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace;letter-spacing:-0.5px}
+.kpi-d{font-size:9px;margin-top:4px;font-weight:500;color:rgba(255,255,255,0.5)}
+.kpi-d span{font-weight:700}
+
+/* ── MAIN GRID ───────────────────────────────────────────── */
+.charts-row{display:grid;grid-template-columns:1fr 290px;gap:12px}
+.pie-col{display:flex;flex-direction:column;gap:12px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.card-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.card-title{font-size:11.5px;font-weight:700;color:#0f172a}
+.card-sub{font-size:9px;color:#94a3b8;margin-top:1px;font-family:'JetBrains Mono',monospace}
+.leg{display:flex;flex-wrap:wrap;gap:8px;font-size:9px;color:#64748b;align-items:center}
+.ld{width:16px;height:2px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
+.pie-legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:10px}
+.pie-leg-item{display:flex;align-items:center;gap:5px;font-size:9px}
+.pie-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pie-leg-name{color:#334155;font-weight:600}
+.pie-leg-pct{color:#64748b;font-family:'JetBrains Mono',monospace;margin-left:auto}
+
+/* ── DATA TABLE ──────────────────────────────────────────── */
+.tbl-card{background:#fff;border:1px solid #e2e8f0;border-radius:8px;margin-top:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.tbl-hdr{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;background:#f8fafc;border-bottom:1px solid #e2e8f0}
+.tbl-title{font-size:8px;font-weight:700;color:#475569;letter-spacing:0.07em;text-transform:uppercase}
+.tbl-meta{font-size:7.5px;color:#94a3b8;font-family:'JetBrains Mono',monospace}
+.tbl-scroll{overflow-x:auto;max-height:130px;overflow-y:auto}
+.tbl-scroll::-webkit-scrollbar{width:3px;height:3px}
+.tbl-scroll::-webkit-scrollbar-track{background:#f8fafc}
+.tbl-scroll::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px}
+table{width:100%;border-collapse:collapse}
+thead{position:sticky;top:0;z-index:3}
+thead tr{background:#f1f5f9}
+thead th{padding:4px 6px;font-size:7px;font-weight:700;color:#64748b;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;border-bottom:1px solid #e2e8f0;text-align:right;line-height:1.4}
+thead th:first-child{text-align:left;position:sticky;left:0;background:#f1f5f9;z-index:4;min-width:56px}
+thead th.chg{border-left:1px solid #e2e8f0}
+tbody tr{border-bottom:1px solid #f1f5f9}
+tbody tr:hover{background:#f8fafc}
+tbody tr.tot{background:#eff6ff;border-top:1px solid #bfdbfe}
+tbody tr.tot td{font-weight:700;color:#1e40af!important}
+tbody tr.tot td:first-child{color:#1e40af!important;background:#eff6ff}
+td{padding:2px 6px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:7.5px;white-space:nowrap;color:#94a3b8;line-height:1.5}
+td:first-child{text-align:left;font-family:'Inter',sans-serif;font-weight:600;font-size:8px;color:#334155;position:sticky;left:0;background:#fff;z-index:2;padding-left:8px}
+td.p{color:#334155}
+td.up{color:#059669}
+td.dn{color:#dc2626}
+td.nu{color:#94a3b8}
+td.chg{border-left:1px solid #f1f5f9;font-weight:600}
+
+/* ── INFERENCES ──────────────────────────────────────────── */
+.inf-box{background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid #3b82f6;border-radius:0 8px 8px 0;padding:9px 12px;margin-top:10px}
+.inf-ttl{font-size:8px;font-weight:700;color:#3b82f6;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:7px}
+.inf-item{font-size:9px;line-height:1.55;color:#334155;margin-bottom:5px}
+.inf-item:last-child{margin-bottom:0}
+.ib{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:3px;font-size:7px;font-weight:700;margin-right:3px;vertical-align:middle}
+.iu{background:#dcfce7;color:#16a34a}
+.id{background:#fee2e2;color:#dc2626}
+.in{background:#f1f5f9;color:#64748b}
+.ih{background:#fef9c3;color:#ca8a04}
+</style>
+
+<div class="dash">
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg>
+      </div>
+      <div>
+        <div class="hdr-title">QEA Headcount Analytics</div>
+        <div class="hdr-sub">JAN 2021 — MAY 2026 · INDIA · NA · GGM</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="font-size:9px;color:#94a3b8;font-family:'JetBrains Mono',monospace">Last updated: May 13, 2026</span>
+      <div class="pseg" id="pSeg">
+        <button class="active" onclick="setPeriod('M',this)">Monthly</button>
+        <button onclick="setPeriod('Q',this)">Quarterly</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <div class="frow">
+      <span class="flbl">Geo</span>
+      <button class="p" data-geo="All" onclick="tog('geo','All',this)">All</button>
+      <button class="p" data-geo="India" onclick="tog('geo','India',this)">India</button>
+      <button class="p" data-geo="NA" onclick="tog('geo','NA',this)">NA</button>
+      <button class="p" data-geo="GGM" onclick="tog('geo','GGM',this)">GGM</button>
+      <div class="sep"></div>
+      <span class="flbl">Year</span>
+      <button class="p" data-y="All" onclick="tog('year','All',this)">All</button>
+      <button class="p" data-y="21" onclick="tog('year','21',this)">2021</button>
+      <button class="p" data-y="22" onclick="tog('year','22',this)">2022</button>
+      <button class="p" data-y="23" onclick="tog('year','23',this)">2023</button>
+      <button class="p" data-y="24" onclick="tog('year','24',this)">2024</button>
+      <button class="p" data-y="25" onclick="tog('year','25',this)">2025</button>
+      <button class="p" data-y="26" onclick="tog('year','26',this)">2026</button>
+      <div class="sep"></div>
+      <span class="flbl">Qtr</span>
+      <button class="p" data-qtr="All" onclick="tog('qtr','All',this)">All</button>
+      <button class="p" data-qtr="Q1" onclick="tog('qtr','Q1',this)">Q1</button>
+      <button class="p" data-qtr="Q2" onclick="tog('qtr','Q2',this)">Q2</button>
+      <button class="p" data-qtr="Q3" onclick="tog('qtr','Q3',this)">Q3</button>
+      <button class="p" data-qtr="Q4" onclick="tog('qtr','Q4',this)">Q4</button>
+      <div class="sep"></div>
+      <div class="tseg" id="tSeg">
+        <button class="active" onclick="setQ('all',this)">All</button>
+        <button onclick="setQ('3y',this)">3Y</button>
+        <button onclick="setQ('1y',this)">1Y</button>
+      </div>
+    </div>
+    <div class="frow">
+      <span class="flbl">Grade</span>
+      <button class="p" data-g="All" onclick="tog('grade','All',this)">All</button>
+      <button class="p" data-g="PA-" onclick="tog('grade','PA-',this)">PA-</button>
+      <button class="p" data-g="A" onclick="tog('grade','A',this)">A</button>
+      <button class="p" data-g="SA" onclick="tog('grade','SA',this)">SA</button>
+      <button class="p" data-g="M" onclick="tog('grade','M',this)">M</button>
+      <button class="p" data-g="SM" onclick="tog('grade','SM',this)">SM</button>
+      <button class="p" data-g="AD" onclick="tog('grade','AD',this)">AD</button>
+      <button class="p" data-g="D+" onclick="tog('grade','D+',this)">D+</button>
+      <button class="p" data-g="Subcon" onclick="tog('grade','Subcon',this)">Subcon</button>
+    </div>
+  </div>
+
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <div class="charts-row">
+    <div>
+      <div class="card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-title" id="ctitle">QEA Total Headcount</div>
+            <div class="card-sub" id="csub">ALL GEO · ALL GRADES</div>
+          </div>
+          <div class="leg" id="legRow"></div>
+        </div>
+        <div style="position:relative;width:100%;height:230px">
+          <canvas id="mc" role="img" aria-label="QEA headcount trend"></canvas>
+        </div>
+      </div>
+
+      <div class="tbl-card">
+        <div class="tbl-hdr">
+          <span class="tbl-title">Data Table</span>
+          <span class="tbl-meta" id="tblMeta"></span>
+        </div>
+        <div class="tbl-scroll">
+          <table><thead id="tblHead"></thead><tbody id="tblBody"></tbody></table>
+        </div>
+      </div>
+
+      <div class="inf-box">
+        <div class="inf-ttl">Key Inferences</div>
+        <div id="infList"></div>
+      </div>
+    </div>
+
+    <div class="pie-col">
+      <div class="card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-title">Grade Pyramid</div>
+            <div class="card-sub" id="pieSub">LATEST · ALL GEO</div>
+          </div>
+        </div>
+        <div style="position:relative;width:100%;height:145px">
+          <canvas id="pieGrade" role="img" aria-label="Grade mix donut"></canvas>
+        </div>
+        <div class="pie-legend" id="gradeLeg"></div>
+      </div>
+      <div class="card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-title">Geo Split</div>
+            <div class="card-sub" id="geoSub">LATEST · ALL GRADES</div>
+          </div>
+        </div>
+        <div style="position:relative;width:100%;height:120px">
+          <canvas id="pieGeo" role="img" aria-label="Geo split donut"></canvas>
+        </div>
+        <div class="pie-legend" id="geoLeg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script>
+const D=(function(){
+  const ML=["Jan'21","Feb'21","Mar'21","Apr'21","May'21","Jun'21","Jul'21","Aug'21","Sep'21","Oct'21","Nov'21","Dec'21","Jan'22","Feb'22","Mar'22","Apr'22","May'22","Jun'22","Jul'22","Aug'22","Sep'22","Oct'22","Nov'22","Dec'22","Jan'23","Feb'23","Mar'23","Apr'23","May'23","Jun'23","Jul'23","Aug'23","Sep'23","Oct'23","Nov'23","Dec'23","Jan'24","Feb'24","Mar'24","Apr'24","May'24","Jun'24","Jul'24","Aug'24","Sep'24","Oct'24","Nov'24","Dec'24","Jan'25","Feb'25","Mar'25","Apr'25","May'25","Jun'25","Jul'25","Aug'25","Sep'25","Oct'25","Nov'25","Dec'25","Jan'26","Feb'26","Mar'26","Apr'26","May'26*"];
+  const QL=["Q1'21","Q2'21","Q3'21","Q4'21","Q1'22","Q2'22","Q3'22","Q4'22","Q1'23","Q2'23","Q3'23","Q4'23","Q1'24","Q2'24","Q3'24","Q4'24","Q1'25","Q2'25","Q3'25","Q4'25","Q1'26","Q2'26"];
+  const M={QEA:[32725,32944,33706,33780,33874,34139,34403,34776,35584,35558,35570,35519,36046,36635,36980,37302,37849,38134,38635,38233,38650,38722,39411,39058,38692,38416,37970,37879,37596,37254,37254,37017,37331,37317,37289,37130,37048,36895,36630,36366,35790,35302,34959,34689,34527,34272,34355,34150,33960,34023,34049,33988,33837,33880,34219,34648,35056,35278,35329,35095,34907,34885,34868,34681,34652],India:{Total:[24224,24456,25218,25407,25673,25948,26292,26573,27370,27343,27332,27353,27926,28485,28848,29228,29797,30098,30643,30191,30576,30617,31245,30970,30643,30425,30066,30018,29753,29425,29397,29173,29522,29442,29384,29270,29159,29067,28838,28620,28140,27702,27430,27237,27078,26785,26821,26649,26482,26561,26594,26553,26439,26527,26875,27365,27807,28064,28128,27922,27752,27820,27893,27715,27701],"PA-":[9266,9487,10104,10333,10577,9617,9995,10456,11281,11071,10944,10808,9218,9817,9984,9758,10616,11155,12041,12080,12889,12506,13385,13331,12554,12575,12643,12337,12275,12185,12086,11983,12396,10667,10609,10530,9467,9384,9398,8702,8579,8495,8516,8590,8683,7976,8118,8062,7987,8098,7627,6678,6588,6594,6144,6733,7405,7318,7561,7521,6925,7139,7398,6726,6778],A:[9447,8490,8466,8285,8139,9257,9061,8776,8477,8349,7995,7937,9913,9762,9743,10256,10003,9699,9358,9024,8742,9218,9075,8892,9385,9241,8933,9300,9166,9024,9164,9070,9026,10701,10664,10620,11568,11518,11290,11798,11478,11186,10977,10728,10543,10976,10806,10645,10496,10427,10826,11625,11489,11442,12152,12028,11842,12219,11946,11788,12192,12077,11916,12409,12339],SA:[3837,4503,4543,4540,4565,4583,4604,4607,4732,4919,5165,5268,5402,5498,5644,5724,5795,5922,5976,5889,5799,5759,5691,5700,5667,5626,5557,5503,5472,5417,5381,5378,5374,5356,5384,5392,5402,5438,5417,5391,5365,5325,5305,5284,5226,5215,5257,5283,5290,5314,5358,5434,5500,5585,5635,5629,5620,5605,5622,5607,5599,5583,5583,5616,5615],M:[1228,1384,1398,1397,1406,1399,1389,1379,1403,1416,1460,1487,1537,1559,1626,1647,1709,1758,1780,1784,1788,1798,1800,1797,1817,1805,1809,1799,1777,1752,1753,1749,1740,1745,1757,1781,1787,1802,1829,1839,1832,1832,1814,1815,1808,1806,1812,1818,1839,1855,1879,1907,1954,1992,2034,2074,2065,2064,2131,2124,2115,2108,2094,2095,2098],SM:[259,338,340,339,336,330,334,327,324,323,314,330,346,357,369,362,368,375,384,388,390,403,402,429,437,437,433,432,440,446,438,436,437,438,440,444,445,450,449,440,444,440,421,436,433,429,435,440,435,430,438,443,432,439,446,448,449,446,451,448,452,452,451,446,444],AD:[96,111,110,108,107,105,104,102,104,102,100,106,113,123,129,137,138,143,147,149,146,154,156,155,153,152,151,152,151,149,152,152,153,152,154,156,156,152,153,152,154,153,139,137,136,133,134,135,136,140,138,137,134,134,135,135,134,132,139,136,135,135,133,135,136],"D+":[53,66,66,64,65,64,59,58,58,58,58,58,57,58,57,60,60,58,58,58,57,55,54,53,61,61,60,59,59,59,59,60,59,59,59,59,58,58,58,57,57,58,57,59,59,59,59,59,59,59,58,58,55,55,54,53,53,53,53,51,50,50,49,49,50],Subcon:[38,77,191,341,478,593,746,868,991,1105,1296,1359,1340,1311,1296,1284,1108,988,899,819,765,724,682,613,569,528,480,436,413,393,364,345,337,324,317,288,276,265,244,241,231,213,201,188,190,191,200,207,240,238,270,271,287,286,275,265,239,227,225,247,284,276,269,239,241]},NA:{Total:[5501,5497,5516,5545,5452,5456,5368,5396,5388,5382,5401,5335,5258,5266,5222,5157,5135,5133,5080,5122,5136,5163,5184,5112,5265,5194,5109,5069,5026,5024,5054,5056,5046,5101,5125,5101,5112,5036,5009,4965,4892,4853,4822,4774,4776,4822,4849,4835,4784,4777,4773,4778,4748,4745,4751,4716,4697,4680,4694,4672,4659,4580,4522,4499,4476],"PA-":[51,50,49,49,47,38,36,34,32,29,31,31,23,25,27,23,23,26,24,22,22,21,22,21,64,63,63,59,57,55,46,50,44,42,42,41,38,35,34,29,30,31,30,28,29,30,31,32,29,27,26,25,32,34,33,33,34,35,39,42,52,52,52,50,49],A:[1397,1185,1188,1172,1137,1114,1072,1059,1049,993,947,894,873,849,783,765,749,723,696,702,696,685,679,657,735,710,681,669,649,640,662,676,661,664,660,647,650,625,613,603,579,573,568,551,548,548,543,538,525,516,502,508,503,497,493,490,482,482,480,481,476,453,442,429,430],SA:[1996,1994,1982,1961,1933,1910,1854,1829,1835,1880,1889,1892,1863,1865,1858,1844,1873,1860,1892,1926,1970,2017,2035,2024,2083,2067,2041,2025,2014,2022,2048,2038,2048,2064,2071,2070,2077,2041,2034,2007,1985,1982,1963,1935,1933,1936,1948,1949,1946,1947,1963,1960,1921,1917,1908,1891,1892,1884,1858,1844,1841,1808,1798,1794,1780],M:[1141,1244,1232,1227,1210,1189,1168,1137,1116,1107,1113,1097,1097,1104,1126,1107,1105,1131,1119,1160,1159,1169,1174,1183,1188,1193,1198,1223,1234,1249,1270,1278,1289,1304,1311,1316,1319,1309,1303,1301,1292,1292,1285,1282,1269,1282,1275,1281,1277,1278,1275,1272,1274,1267,1272,1270,1269,1268,1293,1293,1277,1269,1258,1263,1259],SM:[273,315,310,300,289,282,267,261,251,244,239,242,252,252,263,275,278,285,302,309,315,318,325,332,341,346,342,344,343,346,348,352,346,354,357,359,363,360,361,364,358,355,349,352,352,357,356,353,346,348,348,345,345,346,347,343,338,334,337,338,331,326,324,317,311],AD:[95,110,111,110,93,89,88,86,83,80,82,82,89,93,90,93,94,102,100,101,104,105,107,108,107,110,108,109,105,108,106,106,107,109,112,112,114,114,113,113,114,112,112,106,106,104,103,105,109,108,106,107,107,109,107,107,104,103,108,108,108,108,108,107,107],"D+":[49,61,60,60,28,26,25,23,20,21,20,20,20,21,21,21,20,19,17,18,19,19,17,17,20,20,20,21,21,19,18,18,18,18,18,19,19,19,19,19,19,18,16,18,15,15,15,14,13,13,12,12,11,11,12,12,11,11,11,11,11,10,10,10,10],Subcon:[499,538,584,666,715,808,858,967,1002,1028,1080,1077,1041,1057,1054,1029,993,987,930,884,851,829,825,770,727,685,656,619,603,585,556,538,533,546,554,537,532,533,532,529,515,490,499,502,524,550,578,563,539,540,541,549,555,564,579,570,567,563,568,555,563,554,530,529,530]},GGM:{Total:[3000,2991,2972,2828,2749,2735,2743,2807,2826,2833,2837,2831,2862,2884,2910,2917,2917,2903,2912,2920,2938,2942,2982,2976,2784,2797,2795,2792,2817,2805,2803,2788,2763,2774,2780,2759,2777,2792,2783,2781,2758,2747,2707,2678,2673,2665,2685,2666,2694,2685,2682,2657,2650,2608,2593,2567,2552,2534,2507,2501,2496,2485,2453,2467,2475],"PA-":[304,302,305,287,292,279,297,313,316,293,300,293,265,267,272,255,257,266,276,277,281,272,287,288,230,270,265,251,261,254,255,252,245,244,250,253,241,245,249,210,202,200,175,174,177,172,183,181,200,208,201,182,196,195,188,183,184,162,158,160,167,167,162,159,161],A:[1049,903,898,848,844,862,862,896,924,927,931,914,939,927,902,894,880,832,810,805,789,795,782,768,689,665,669,648,645,639,639,633,623,636,637,619,621,621,617,647,642,641,662,648,648,640,638,633,626,620,620,611,600,584,579,570,566,579,566,564,566,570,562,581,586],SA:[980,1037,1027,978,949,938,928,933,933,966,970,986,1004,1017,1052,1078,1078,1106,1122,1124,1142,1135,1152,1153,1095,1086,1074,1079,1075,1087,1082,1077,1069,1066,1060,1064,1067,1070,1065,1065,1054,1042,1011,1005,1003,1006,1005,1002,1000,987,984,984,972,961,963,956,947,940,922,915,907,903,892,890,892],M:[416,463,454,432,419,411,405,406,406,405,400,404,412,421,427,428,441,445,457,458,460,473,486,494,493,494,503,524,543,536,538,541,539,540,538,535,546,548,546,556,554,558,555,554,546,542,541,539,544,543,549,555,551,543,545,542,541,538,546,548,537,530,527,524,523],SM:[129,150,150,146,136,132,130,133,128,125,125,120,124,129,128,131,129,127,122,129,134,141,146,144,141,147,145,146,148,146,148,146,145,146,148,147,150,148,144,142,141,142,143,139,138,139,137,138,143,146,145,146,149,147,146,145,146,144,147,147,143,143,144,141,142],AD:[52,53,54,52,42,42,38,37,35,34,32,33,34,36,42,40,38,38,40,43,48,48,49,49,48,49,49,50,51,50,48,48,49,51,49,50,55,56,56,57,58,59,59,58,57,59,57,54,54,54,55,56,55,56,54,54,55,54,54,54,54,52,51,48,48],"D+":[22,28,29,29,11,12,14,20,20,19,17,17,16,18,18,17,17,17,17,17,18,16,16,19,20,20,20,20,21,20,19,18,18,19,20,20,20,20,20,20,20,20,17,15,14,14,14,13,12,11,10,9,9,9,9,9,9,9,9,9,9,9,9,9,8],Subcon:[48,55,55,56,56,59,69,69,64,64,62,64,68,69,69,74,77,72,68,67,66,62,64,61,68,66,70,74,73,73,74,73,75,72,78,71,77,84,86,84,87,85,85,85,90,93,110,106,115,116,118,114,118,113,109,108,104,108,105,104,113,111,106,115,115]}};
+  const Q={QEA:[33706,34139,35584,35519,36980,38134,38650,39058,37970,37254,37331,37130,36630,35302,34527,34150,34049,33880,35056,35095,34868,34652],India:{Total:[25218,25948,27370,27353,28848,30098,30576,30970,30066,29425,29522,29270,28838,27702,27078,26649,26594,26527,27807,27922,27893,27701],"PA-":[10104,9617,11281,10808,9984,11155,12889,13331,12643,12185,12396,10530,9398,8495,8683,8062,7627,6594,7405,7521,7398,6778],A:[8466,9257,8477,7937,9743,9699,8742,8892,8933,9024,9026,10620,11290,11186,10543,10645,10826,11442,11842,11788,11916,12339],SA:[4543,4583,4732,5268,5644,5922,5799,5700,5557,5417,5374,5392,5417,5325,5226,5283,5358,5585,5620,5607,5583,5615],M:[1398,1399,1403,1487,1626,1758,1788,1797,1809,1752,1740,1781,1829,1832,1808,1818,1879,1992,2065,2124,2094,2098],SM:[340,330,324,330,369,375,390,429,433,446,437,444,449,440,433,440,438,439,449,448,451,444],AD:[110,105,104,106,129,143,146,155,151,149,153,156,153,153,136,135,138,134,134,136,133,136],"D+":[66,64,58,58,57,58,57,53,60,59,59,59,58,58,59,59,58,55,53,51,49,50],Subcon:[191,593,991,1359,1296,988,765,613,480,393,337,288,244,213,190,207,270,286,239,247,269,241]},NA:{Total:[5516,5456,5388,5335,5222,5133,5136,5112,5109,5024,5046,5101,5009,4853,4776,4835,4773,4745,4697,4672,4522,4476],"PA-":[49,38,32,31,27,26,22,21,63,55,44,41,34,31,29,32,26,34,34,42,52,49],A:[1188,1114,1049,894,783,723,696,657,681,640,661,647,613,573,548,538,502,497,482,481,442,430],SA:[1982,1910,1835,1892,1858,1860,1970,2024,2041,2022,2048,2070,2034,1982,1933,1949,1963,1917,1892,1844,1798,1780],M:[1232,1189,1116,1097,1126,1131,1159,1183,1198,1249,1289,1316,1303,1292,1269,1281,1275,1267,1269,1293,1258,1259],SM:[310,282,251,242,263,285,315,332,342,346,346,359,361,355,352,353,348,346,338,338,324,311],AD:[111,89,83,82,90,102,104,108,108,108,107,112,113,112,106,105,106,109,104,108,108,107],"D+":[60,26,20,20,21,19,19,17,20,19,18,19,19,18,15,14,12,11,11,11,10,10],Subcon:[584,808,1002,1077,1054,987,851,770,656,585,533,537,532,490,524,563,541,564,567,555,530,530]},GGM:{Total:[2972,2735,2826,2831,2910,2903,2938,2976,2795,2805,2763,2759,2783,2747,2673,2666,2682,2608,2552,2501,2453,2475],"PA-":[305,279,316,293,272,266,281,288,265,254,245,253,249,200,177,181,201,195,184,160,162,161],A:[898,862,924,914,902,832,789,768,669,639,623,619,617,641,648,633,620,584,566,564,562,586],SA:[1027,938,933,986,1052,1106,1142,1153,1074,1087,1069,1064,1065,1042,1003,1002,984,961,947,915,892,892],M:[454,411,406,404,427,445,460,494,503,536,539,535,546,558,546,539,549,543,541,548,527,523],SM:[150,132,128,120,128,127,134,144,145,146,145,147,144,142,138,138,145,147,146,147,144,142],AD:[54,42,35,33,42,38,48,49,49,50,49,50,56,59,57,54,55,56,55,54,51,48],"D+":[29,12,20,17,18,17,18,19,20,20,18,20,20,20,14,13,10,9,9,9,9,8],Subcon:[55,59,64,64,69,72,66,61,70,73,75,71,86,85,90,106,118,113,104,104,106,115]}};
+  return{M:{L:ML,...M},Q:{L:QL,...Q}};
+})();
+
+const GEO_NAMES=['India','NA','GGM'];
+const GC={India:'#2563eb',NA:'#059669',GGM:'#d97706',QEA:'#7c3aed'};
+const GEO_COLORS=['#2563eb','#059669','#d97706'];
+const GD={India:[],NA:[6,3],GGM:[2,3]};
+const GRADES=['PA-','A','SA','M','SM','AD','D+','Subcon'];
+const RC={"PA-":"#3b82f6","A":"#0891b2","SA":"#16a34a","M":"#9333ea","SM":"#ea580c","AD":"#ca8a04","D+":"#dc2626","Subcon":"#64748b"};
+const RD={"PA-":[],"A":[5,3],"SA":[2,2],"M":[8,3],"SM":[4,2,1,2],"AD":[6,2],"D+":[3,3],"Subcon":[10,4]};
+const KC={India:{cls:'kpi-india',glow:'#60a5fa'},NA:{cls:'kpi-na',glow:'#34d399'},GGM:{cls:'kpi-ggm',glow:'#fb923c'},QEA:{cls:'kpi-qea',glow:'#a78bfa'}};
+const gC='rgba(0,0,0,0.05)',tC='#94a3b8';
+let st={geo:null,year:null,qtr:null,grade:null,period:'M',quick:'all'};
+let trendChart,gradeChart,geoChart;
+
+function src(){return st.period==='M'?D.M:D.Q;}
+function gArr(geo,grade){const s=src();if(!geo||geo==='QEA')return s.QEA;return s[geo][grade||'Total'];}
+function ly(l){const m=l.match(/'(\d{2})/);return m?m[1]:null;}
+function lq(l){const m=l.match(/^(Q\d)/);return m?m[1]:null;}
+function lmo(l){const m=l.match(/^([A-Za-z]+)'/);return m?m[1]:null;}
+const MQ={Jan:'Q1',Feb:'Q1',Mar:'Q1',Apr:'Q2',May:'Q2',Jun:'Q2',Jul:'Q3',Aug:'Q3',Sep:'Q3',Oct:'Q4',Nov:'Q4',Dec:'Q4'};
+function getQ(l){const q=lq(l);if(q)return q;const mo=lmo(l);return mo?MQ[mo]:null;}
+function idxs(){
+  const lbls=src().L;let ii=lbls.map((_,i)=>i);
+  if(st.year&&st.year.length)ii=ii.filter(i=>{const y=ly(lbls[i]);return y&&st.year.includes(y);});
+  else{if(st.quick==='3y')ii=st.period==='M'?ii.slice(-36):ii.slice(-12);else if(st.quick==='1y')ii=st.period==='M'?ii.slice(-12):ii.slice(-4);}
+  if(st.qtr&&st.qtr.length)ii=ii.filter(i=>st.qtr.includes(getQ(lbls[i])));
+  return ii;
+}
+function aGeos(){return st.geo&&st.geo.length?st.geo:['India','NA','GGM'];}
+function sLbl(i,n){if(st.period==='Q'||n<=12)return true;if(n<=24)return i===0||i===n-1||(i+1)%3===0;if(n<=65)return i===0||i===n-1||(i+1)%6===0;return i===0||i===n-1||(i+1)%12===0;}
+function mkDL(col,n){return{display:c=>sLbl(c.dataIndex,n),formatter:v=>v>=1000?(v/1000).toFixed(1)+'k':v,color:col,font:{size:9,weight:'600',family:"'JetBrains Mono'"},anchor:'end',align:'top',offset:2,padding:0};}
+function mkDS(lbl,vals,col,dash,fill,n){return{label:lbl,data:vals,borderColor:col,backgroundColor:fill?col+'18':'transparent',fill:!!fill,tension:0.3,pointRadius:n<=22?3:0,pointHoverRadius:5,pointBackgroundColor:col,borderWidth:fill?2:1.5,borderDash:dash,datalabels:mkDL(col,n)};}
+function series(){
+  const ii=idxs(),vis=ii.map(i=>src().L[i]),n=vis.length,geos=aGeos();let ds=[];
+  if(!st.grade){
+    if(!st.geo){ds.push(mkDS('QEA',ii.map(i=>src().QEA[i]),GC.QEA,[],true,n));GEO_NAMES.forEach(g=>ds.push(mkDS(g,ii.map(i=>gArr(g,null)[i]),GC[g],GD[g]||[],false,n)));}
+    else if(geos.length===1){ds.push(mkDS(geos[0],ii.map(i=>gArr(geos[0],null)[i]),GC[geos[0]],[],true,n));}
+    else{geos.forEach(g=>ds.push(mkDS(g,ii.map(i=>gArr(g,null)[i]),GC[g],GD[g]||[],false,n)));}
+  }else{st.grade.forEach(gr=>{geos.forEach(geo=>{const arr=gArr(geo,gr);if(!arr)return;const lbl=geos.length>1?`${geo} ${gr}`:gr;ds.push(mkDS(lbl,ii.map(i=>arr[i]),geos.length>1?GC[geo]:RC[gr],geos.length>1?GD[geo]||[]:RD[gr],false,n));});});}
+  return{vis,ds,ii};
+}
+function buildTable(ii){
+  const s=src(),geos=aGeos(),vis=ii.map(i=>s.L[i]);
+  let rows=[];
+  if(st.grade&&st.grade.length){rows=st.grade.map(g=>({lbl:g,col:RC[g],data:ii.map(i=>geos.reduce((sum,geo)=>sum+(s[geo][g]?s[geo][g][i]:0),0)),tot:false}));}
+  else{rows=geos.map(geo=>({lbl:geo,col:GC[geo],data:ii.map(i=>gArr(geo,null)[i]),tot:false}));rows.push({lbl:'QEA',col:GC.QEA,data:ii.map(i=>s.QEA[i]),tot:true});}
+  const maxCols=14,step=vis.length>maxCols?Math.ceil(vis.length/maxCols):1;
+  const show=vis.map((_,i)=>i%step===0||i===vis.length-1);
+  const ths=vis.map((v,i)=>show[i]?`<th title="${v}">${v}</th>`:'').filter(Boolean).join('');
+  document.getElementById('tblHead').innerHTML=`<tr><th>Row</th>${ths}<th class="chg">Δ</th><th class="chg">Δ%</th></tr>`;
+  document.getElementById('tblBody').innerHTML=rows.map(r=>{
+    const v=r.data,last=v[v.length-1]??0,prev=v.length>1?v[v.length-2]??0:last;
+    const d=last-prev,pct=prev>0?((d/prev)*100).toFixed(1):0,cc=d>0?'up':d<0?'dn':'nu';
+    const cells=v.map((val,vi)=>{if(!show[vi])return'';const pv=vi>0?v[vi-1]:val,dv=val-pv;return`<td class="${vi===0?'p':dv>0?'up':dv<0?'dn':'p'}">${(val/1000).toFixed(1)}k</td>`;}).join('');
+    const dot=`<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${r.col};margin-right:4px;vertical-align:middle"></span>`;
+    return`<tr class="${r.tot?'tot':''}"><td>${dot}${r.lbl}</td>${cells}<td class="chg ${cc}">${d>=0?'+':''}${d.toLocaleString()}</td><td class="chg ${cc}">${d>=0?'+':''}${pct}%</td></tr>`;
+  }).join('');
+  document.getElementById('tblMeta').textContent=`${vis.length} periods · ${rows.length} rows`;
+}
+function kpis(ii){
+  const li=ii[ii.length-1],pi=ii.length>1?ii[ii.length-2]:li,pl=src().L[pi],geos=aGeos();
+  const items=geos.slice(0,4).map(geo=>{
+    const cfg=KC[geo]||KC.QEA,arr=gArr(geo,null),cur=arr[li],pv=arr[pi],diff=cur-pv,up=diff>=0,pct=pv>0?((diff/pv)*100).toFixed(1):0;
+    return`<div class="kpi ${cfg.cls}"><div class="kpi-glow" style="background:${cfg.glow}"></div><div class="kpi-l">${geo}</div><div class="kpi-v">${cur.toLocaleString()}</div><div class="kpi-d"><span style="color:${up?'#86efac':'#fca5a5'}">${up?'▲':'▼'} ${Math.abs(diff).toLocaleString()} (${up?'+':''}${pct}%)</span> vs ${pl}</div></div>`;
+  });
+  while(items.length<4)items.push('<div></div>');
+  document.getElementById('kpiRow').innerHTML=items.join('');
+}
+function legend(ds){document.getElementById('legRow').innerHTML=ds.map(d=>`<span style="display:flex;align-items:center"><span class="ld" style="background:${d.borderColor}"></span>${d.label}</span>`).join('');}
+function buildGradePie(li){
+  const s=src(),geos=aGeos();
+  const vals=GRADES.map(g=>geos.reduce((sum,geo)=>{const a=s[geo][g];return sum+(a?a[li]:0);},0));
+  const total=vals.reduce((a,b)=>a+b,0);const pcts=vals.map(v=>+(v/total*100).toFixed(1));
+  gradeChart.data.datasets[0].data=pcts;gradeChart.update();
+  document.getElementById('pieSub').textContent=`${s.L[li].toUpperCase()} · ${geos.join('+').toUpperCase()}`;
+  document.getElementById('gradeLeg').innerHTML=GRADES.map((g,i)=>`<div class="pie-leg-item"><div class="pie-dot" style="background:${RC[g]}"></div><span class="pie-leg-name">${g}</span><span class="pie-leg-pct">${pcts[i]}%</span></div>`).join('');
+}
+function buildGeoPie(li){
+  const s=src();const vals=GEO_NAMES.map(geo=>s[geo].Total[li]||0);
+  const total=vals.reduce((a,b)=>a+b,0);const pcts=vals.map(v=>+(v/total*100).toFixed(1));
+  geoChart.data.datasets[0].data=pcts;geoChart.update();
+  document.getElementById('geoSub').textContent=`${s.L[li].toUpperCase()} · ${(st.grade?st.grade.join(', '):'all grades').toUpperCase()}`;
+  document.getElementById('geoLeg').innerHTML=GEO_NAMES.map((g,i)=>`<div class="pie-leg-item"><div class="pie-dot" style="background:${GEO_COLORS[i]}"></div><span class="pie-leg-name">${g}</span><span class="pie-leg-pct">${pcts[i]}%</span></div>`).join('');
+}
+function buildInferences(ii){
+  const s=src(),geos=aGeos();
+  const li=ii[ii.length-1],fi=ii[0],pi=ii.length>1?ii[ii.length-2]:li;
+  function getT(i){return geos.reduce((s,g)=>s+(gArr(g,null)[i]||0),0);}
+  function fmt(n){return n.toLocaleString();}function pct(a,b){return b>0?((a-b)/b*100).toFixed(1):0;}
+  const cur=getT(li),prev=getT(pi),first=getT(fi);
+  const allV=ii.map(i=>getT(i)),pk=Math.max(...allV),pkI=ii[allV.indexOf(pk)];
+  const uB='<span class="ib iu">↑</span>',dB='<span class="ib id">↓</span>',nB='<span class="ib in">→</span>',hB='<span class="ib ih">★</span>';
+  const items=[];
+  const d1=cur-prev;items.push(`${d1>=0?uB:dB}Latest (${s.L[li]}): <b>${fmt(cur)}</b> — ${d1>=0?'up':'down'} ${fmt(Math.abs(d1))} (${d1>=0?'+':''}${pct(cur,prev)}%) vs ${s.L[pi]}.`);
+  if(ii.length>1){const d2=cur-first;items.push(`${d2>=0?uB:dB}Range (${s.L[fi]} → ${s.L[li]}): ${d2>=0?'grew':'fell'} by ${fmt(Math.abs(d2))} (${d2>=0?'+':''}${pct(cur,first)}%).`);}
+  if(pkI!==li&&ii.length>2)items.push(`${hB}Peak: <b>${fmt(pk)}</b> at ${s.L[pkI]} — currently ${fmt(pk-cur)} below peak.`);
+  if(geos.length===3&&!st.geo){const gv=GEO_NAMES.map(g=>gArr(g,null)[li]);const gt=gv.reduce((a,b)=>a+b,0);const tg=GEO_NAMES[gv.indexOf(Math.max(...gv))];items.push(`${nB}${tg} = ${(Math.max(...gv)/gt*100).toFixed(1)}% of QEA headcount at ${s.L[li]}.`);}
+  if(!st.grade){const gv=GRADES.map(g=>geos.reduce((sum,geo)=>{const a=s[geo][g];return sum+(a?a[li]:0);},0));const gt=gv.reduce((a,b)=>a+b,0);const ti=gv.indexOf(Math.max(...gv));items.push(`${nB}<b>${GRADES[ti]}</b> is the largest grade cohort at ${(gv[ti]/gt*100).toFixed(1)}%.`);}
+  document.getElementById('infList').innerHTML=items.map(t=>`<div class="inf-item">${t}</div>`).join('');
+}
+function render(){
+  const{vis,ds,ii}=series();const li=ii[ii.length-1];
+  const allV=ds.flatMap(d=>d.data.filter(v=>v>0));
+  const minV=allV.length?Math.floor(Math.min(...allV)*0.93/1000)*1000:0;
+  trendChart.data.labels=vis;trendChart.data.datasets=ds;
+  trendChart.options.scales.y.min=minV;trendChart.options.scales.x.ticks.maxTicksLimit=st.period==='Q'?22:10;
+  trendChart.update();kpis(ii);legend(ds);buildTable(ii);buildGradePie(li);buildGeoPie(li);buildInferences(ii);
+  const gl=st.geo?st.geo.join('+'):'All Geo',grl=st.grade?st.grade.join(', '):'All Grades';
+  const yl=st.year?st.year.map(y=>'20'+y).join(', '):'All Years',ql=st.qtr?st.qtr.join('+'):'All Qtrs';
+  document.getElementById('ctitle').textContent='QEA Total Headcount — '+gl;
+  document.getElementById('csub').textContent=`${grl.toUpperCase()} · ${yl.toUpperCase()} · ${ql.toUpperCase()} · ${st.period==='M'?'MONTHLY':'QUARTERLY'}`;
+}
+function mkDonut(id,labels,pcts,colors,cutout,minPct){
+  return new Chart(document.getElementById(id),{type:'doughnut',data:{labels,datasets:[{data:pcts,backgroundColor:colors,borderColor:'#fff',borderWidth:2,hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:false,cutout,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(15,23,42,0.9)',borderColor:'#e2e8f0',borderWidth:1,titleColor:'#e2e8f0',bodyColor:'#cbd5e1',callbacks:{label:c=>` ${c.label}: ${c.parsed.toFixed(1)}%`}},datalabels:{display:c=>c.dataset.data[c.dataIndex]>=4,formatter:v=>v.toFixed(1)+'%',color:'#fff',font:{size:8,weight:'700'},anchor:'center',align:'center'}}}});
+}
+function init(){
+  Chart.register(ChartDataLabels);
+  apill('data-geo','All');apill('data-y','All');apill('data-qtr','All');apill('data-g','All');
+  const{vis,ds,ii}=series();const li=ii[ii.length-1];const s=src();
+  trendChart=new Chart(document.getElementById('mc'),{type:'line',data:{labels:vis,datasets:ds},options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,right:10}},plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(15,23,42,0.9)',borderColor:'#e2e8f0',borderWidth:1,titleColor:'#e2e8f0',bodyColor:'#94a3b8',callbacks:{label:c=>' '+c.dataset.label+': '+c.parsed.y.toLocaleString()}},datalabels:{display:false}},scales:{x:{grid:{color:gC},border:{color:'transparent'},ticks:{color:tC,font:{size:9,family:"'Inter'"},maxTicksLimit:10,maxRotation:0}},y:{grid:{color:gC},border:{color:'transparent'},ticks:{color:tC,font:{size:9,family:"'Inter'"},callback:v=>v>=1000?(v/1000).toFixed(0)+'k':v},min:0}}}});
+  const gv=GRADES.map(g=>GEO_NAMES.reduce((sum,geo)=>{const a=s[geo][g];return sum+(a?a[li]:0);},0));const gt=gv.reduce((a,b)=>a+b,0);
+  gradeChart=mkDonut('pieGrade',GRADES,gv.map(v=>+(v/gt*100).toFixed(1)),GRADES.map(g=>RC[g]),'55%',4);
+  const geoV=GEO_NAMES.map(geo=>s[geo].Total[li]||0);const geoT=geoV.reduce((a,b)=>a+b,0);
+  geoChart=mkDonut('pieGeo',GEO_NAMES,geoV.map(v=>+(v/geoT*100).toFixed(1)),GEO_COLORS,'52%',5);
+  kpis(ii);legend(ds);buildTable(ii);buildGradePie(li);buildGeoPie(li);buildInferences(ii);
+}
+function apill(attr,val,col){
+  const b=document.querySelector(`[${attr}="${val}"]`);if(!b)return;b.classList.add('on');
+  if(col){b.style.background=col;b.style.color='#fff';b.style.borderColor=col;}
+  else{b.style.background='#1e40af';b.style.color='#fff';b.style.borderColor='#1e40af';}
+}
+function dpill(attr){document.querySelectorAll(`[${attr}]`).forEach(b=>{b.classList.remove('on');b.style.cssText=''});}
+function atog(arr,v){const i=arr.indexOf(v);if(i>-1){arr.splice(i,1);return false;}arr.push(v);return true;}
+const aMap={geo:'data-geo',grade:'data-g',year:'data-y',qtr:'data-qtr'};
+const cMap={geo:GC,grade:RC,year:null,qtr:null};
+function tog(type,val,btn){
+  const attr=aMap[type],allB=document.querySelector(`[${attr}="All"]`);
+  if(val==='All'){st[type]=null;dpill(attr);apill(attr,'All');}
+  else{
+    if(type==='year'){st.quick='all';document.querySelectorAll('#tSeg button').forEach(b=>b.classList.remove('active'));document.querySelector('#tSeg button').classList.add('active');}
+    allB.classList.remove('on');allB.style.cssText='';
+    if(!st[type])st[type]=[];
+    const added=atog(st[type],val),col=cMap[type]?cMap[type][val]:null;
+    if(added){apill(attr,val,col);}else{btn.classList.remove('on');btn.style.cssText='';}
+    if(!st[type].length){st[type]=null;dpill(attr);apill(attr,'All');}
+  }
+  render();
+}
+function setPeriod(p,btn){st.period=p;document.querySelectorAll('#pSeg button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
+function setQ(t,btn){st.quick=t;st.year=null;dpill('data-y');apill('data-y','All');document.querySelectorAll('#tSeg button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
+init();
+</script>
