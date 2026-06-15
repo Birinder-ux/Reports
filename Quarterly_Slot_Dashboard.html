@@ -61,11 +61,10 @@
 </style>
 </head>
 <body>
-
 <header class="page-header">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 10 Jun'26 &nbsp;·&nbsp; FY26 &nbsp;·&nbsp; All values in headcount</div>
+    <div class="sub">As on 11 Jun'26 &nbsp;·&nbsp; FY26 &nbsp;·&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
     <span class="badge badge-q2">Q2 FY26</span>
@@ -74,14 +73,13 @@
 </header>
 
 <main class="content">
-
   <div class="kpi-grid" style="margin-top:24px">
-    <div class="kpi q2"><div class="kpi-label">Q2 Target</div><div class="kpi-value">2,100</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>Total slots</div></div>
-    <div class="kpi q2"><div class="kpi-label">Q2 Slots Utilized</div><div class="kpi-value">1,994</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>95% of target</div></div>
-    <div class="kpi q2"><div class="kpi-label">Q2 Balance</div><div class="kpi-value pos">+106</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>Remaining slots</div></div>
+    <div class="kpi q2"><div class="kpi-label">Q2 Target</div><div class="kpi-value">2,102</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>Total slots</div></div>
+    <div class="kpi q2"><div class="kpi-label">Q2 Slots Utilized</div><div class="kpi-value">1,998</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>95% of target</div></div>
+    <div class="kpi q2"><div class="kpi-label">Q2 Balance</div><div class="kpi-value pos">+104</div><div class="kpi-meta"><span class="chip chip-q2">Q2</span>Remaining slots</div></div>
     <div class="kpi q3"><div class="kpi-label">Q3 Target</div><div class="kpi-value">1,474</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>Total slots</div></div>
-    <div class="kpi q3"><div class="kpi-label">Q3 Slots Utilized</div><div class="kpi-value">177</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>12% of target</div></div>
-    <div class="kpi q3"><div class="kpi-label">Q3 Balance</div><div class="kpi-value pos">+1,297</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>Remaining slots</div></div>
+    <div class="kpi q3"><div class="kpi-label">Q3 Slots Utilized</div><div class="kpi-value">183</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>12% of target</div></div>
+    <div class="kpi q3"><div class="kpi-label">Q3 Balance</div><div class="kpi-value pos">+1,291</div><div class="kpi-meta"><span class="chip chip-q3">Q3</span>Remaining slots</div></div>
   </div>
 
   <div class="section-label">Geo × service line detail</div>
@@ -94,20 +92,15 @@
     <div class="table-card">
       <div class="table-card-hdr">
         <h3>Q2'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</h3>
-        <span>Data as of 10 Jun'26</span>
+        <span>Data as of 11 Jun'26</span>
       </div>
       <div class="tbl-outer">
         <table>
           <thead><tr>
             <th style="text-align:left">Geography</th>
             <th style="text-align:left">SL</th>
-            <th>Target</th>
-            <th>Apr'26 Joiners</th>
-            <th>May'26 Pipeline</th>
-            <th>Jun'26 Pipeline</th>
-            <th>Slots Utilized</th>
-            <th>Balance</th>
-            <th>Pipeline %</th>
+            <th>Target</th><th>Apr'26 Joiners</th><th>May'26 Pipeline</th><th>Jun'26 Pipeline</th>
+            <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
           </tr></thead>
           <tbody id="q2tbody"></tbody>
         </table>
@@ -119,20 +112,15 @@
     <div class="table-card">
       <div class="table-card-hdr">
         <h3>Q3'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</h3>
-        <span>Data as of 10 Jun'26</span>
+        <span>Data as of 11 Jun'26</span>
       </div>
       <div class="tbl-outer">
         <table>
           <thead><tr>
             <th style="text-align:left">Geography</th>
             <th style="text-align:left">SL</th>
-            <th>Target</th>
-            <th>Jul'26 Pipeline</th>
-            <th>Aug'26 Pipeline</th>
-            <th>Sep'26 Pipeline</th>
-            <th>Slots Utilized</th>
-            <th>Balance</th>
-            <th>Pipeline %</th>
+            <th>Target</th><th>Jul'26 Pipeline</th><th>Aug'26 Pipeline</th><th>Sep'26 Pipeline</th>
+            <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
           </tr></thead>
           <tbody id="q3tbody"></tbody>
         </table>
@@ -145,7 +133,7 @@
     Slots Utilized = sum of monthly joiners / pipeline. &nbsp;·&nbsp;
     Pipeline % = Slots Utilized &divide; Target. &nbsp;·&nbsp;
     Balance = Target &minus; Slots Utilized. &nbsp;·&nbsp;
-    <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized / shortfall. &nbsp;·&nbsp;
+    <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized. &nbsp;·&nbsp;
     <span style="color:#16A34A;font-weight:600">Green</span> = surplus. &nbsp;·&nbsp;
     All values in headcount.
   </div>
@@ -153,25 +141,25 @@
 
 <script>
 const q2Data=[
-  {geo:'India',    sl:'DE',  target:653, m1:318,m2:167,m3:134},
-  {geo:'India',    sl:'ADM', target:370, m1:186,m2:107,m3:58},
-  {geo:'India',    sl:'QEA', target:360, m1:187,m2:112,m3:49},
-  {geo:'Americas', sl:'DE',  target:186, m1:84, m2:57, m3:39},
-  {geo:'Americas', sl:'ADM', target:109, m1:54, m2:52, m3:21},
-  {geo:'Americas', sl:'QEA', target:182, m1:53, m2:49, m3:50},
-  {geo:'APJ',      sl:'DE',  target:14,  m1:3,  m2:8,  m3:6},
-  {geo:'APJ',      sl:'ADM', target:43,  m1:16, m2:17, m3:11},
+  {geo:'India',    sl:'DE',  target:653, m1:311,m2:168,m3:140},
+  {geo:'India',    sl:'ADM', target:370, m1:186,m2:104,m3:58},
+  {geo:'India',    sl:'QEA', target:360, m1:187,m2:105,m3:49},
+  {geo:'Americas', sl:'DE',  target:186, m1:84, m2:56, m3:44},
+  {geo:'Americas', sl:'ADM', target:111, m1:54, m2:52, m3:22},
+  {geo:'Americas', sl:'QEA', target:182, m1:53, m2:50, m3:55},
+  {geo:'APJ',      sl:'DE',  target:14,  m1:3,  m2:8,  m3:11},
+  {geo:'APJ',      sl:'ADM', target:43,  m1:16, m2:12, m3:11},
   {geo:'APJ',      sl:'QEA', target:73,  m1:18, m2:10, m3:13},
-  {geo:'EMEA',     sl:'DE',  target:76,  m1:26, m2:40, m3:17},
+  {geo:'EMEA',     sl:'DE',  target:76,  m1:26, m2:43, m3:17},
   {geo:'EMEA',     sl:'ADM', target:3,   m1:0,  m2:9,  m3:3},
   {geo:'EMEA',     sl:'QEA', target:31,  m1:8,  m2:4,  m3:8},
 ];
 const q3Data=[
-  {geo:'India',    sl:'DE',  target:492, m1:38,m2:21,m3:6},
+  {geo:'India',    sl:'DE',  target:492, m1:38,m2:21,m3:7},
   {geo:'India',    sl:'ADM', target:100, m1:12,m2:7, m3:1},
-  {geo:'India',    sl:'QEA', target:319, m1:23,m2:17,m3:4},
+  {geo:'India',    sl:'QEA', target:319, m1:24,m2:17,m3:6},
   {geo:'Americas', sl:'DE',  target:175, m1:4, m2:0, m3:0},
-  {geo:'Americas', sl:'ADM', target:100, m1:2, m2:0, m3:0},
+  {geo:'Americas', sl:'ADM', target:100, m1:3, m2:0, m3:0},
   {geo:'Americas', sl:'QEA', target:130, m1:0, m2:0, m3:0},
   {geo:'APJ',      sl:'DE',  target:8,   m1:1, m2:0, m3:0},
   {geo:'APJ',      sl:'ADM', target:2,   m1:7, m2:3, m3:0},
