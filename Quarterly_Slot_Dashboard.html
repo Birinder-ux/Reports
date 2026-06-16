@@ -15,8 +15,6 @@
   .badge-q2{background:rgba(37,99,235,.25);color:#93C5FD;border:1px solid rgba(147,197,253,.3)}
   .badge-q3{background:rgba(22,163,74,.25);color:#86EFAC;border:1px solid rgba(134,239,172,.3)}
   .content{padding:24px 36px 48px;max-width:1280px;margin:0 auto}
-
-  /* Filter bar */
   .filter-bar{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
   .filter-group{display:flex;align-items:center;gap:10px}
   .filter-label{font-size:11px;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
@@ -28,10 +26,8 @@
   .filter-divider{width:1px;height:28px;background:#E2E8F0}
   .filter-reset{font-size:11px;color:#94A3B8;cursor:pointer;padding:4px 8px;border-radius:6px;border:none;background:none;font-family:'DM Sans',sans-serif}
   .filter-reset:hover{color:#DC2626;background:#FEE2E2}
-
-  /* KPI */
   .kpi-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:20px}
-  .kpi{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;transition:all .2s}
+  .kpi{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
   .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
   .kpi.q2::before{background:#2563EB}
   .kpi.q3::before{background:#16A34A}
@@ -43,8 +39,6 @@
   .chip-sm{display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;font-family:'DM Mono',monospace;margin-right:3px}
   .chip-q2{background:#DBEAFE;color:#1E3A5F}
   .chip-q3{background:#DCFCE7;color:#14532D}
-
-  /* Tabs */
   .section-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#94A3B8;margin-bottom:10px;display:flex;align-items:center;gap:8px}
   .section-label::after{content:'';flex:1;height:1px;background:#E2E8F0}
   .tab-bar{display:flex;gap:6px;margin-bottom:14px}
@@ -53,8 +47,6 @@
   .tab-btn.active-q3{background:#DCFCE7;color:#16A34A;border-color:#86EFAC}
   .tab-pane{display:none}
   .tab-pane.active{display:block}
-
-  /* Table */
   .table-card{background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;margin-bottom:16px}
   .table-card-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;border-bottom:1px solid #E2E8F0}
   .table-card-hdr h3{font-size:13px;font-weight:500;color:#0F172A}
@@ -82,11 +74,10 @@
 </style>
 </head>
 <body>
-
 <header class="page-header">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 11 Jun'26 &nbsp;·&nbsp; FY26 &nbsp;·&nbsp; All values in headcount</div>
+    <div class="sub">As on 16 Jun'26 &nbsp;·&nbsp; FY26 &nbsp;·&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
     <span class="badge badge-q2">Q2 FY26</span>
@@ -95,8 +86,6 @@
 </header>
 
 <main class="content">
-
-  <!-- Filter Bar -->
   <div class="filter-bar" style="margin-top:24px">
     <div class="filter-group">
       <span class="filter-label">Service Line</span>
@@ -122,17 +111,15 @@
     <button class="filter-reset" onclick="resetFilters()">&#x21BA; Reset</button>
   </div>
 
-  <!-- KPI Cards -->
-  <div class="kpi-grid" id="kpiGrid">
+  <div class="kpi-grid">
     <div class="kpi q2"><div class="kpi-label">Q2 Target</div><div class="kpi-value" id="k-q2-target">2,102</div><div class="kpi-meta"><span class="chip-sm chip-q2">Q2</span>Total slots</div></div>
-    <div class="kpi q2"><div class="kpi-label">Q2 Slots Utilized</div><div class="kpi-value" id="k-q2-util">1,998</div><div class="kpi-meta"><span class="chip-sm chip-q2">Q2</span><span id="k-q2-pct">95%</span> of target</div></div>
-    <div class="kpi q2"><div class="kpi-label">Q2 Balance</div><div class="kpi-value pos" id="k-q2-bal">+104</div><div class="kpi-meta"><span class="chip-sm chip-q2">Q2</span>Remaining slots</div></div>
+    <div class="kpi q2"><div class="kpi-label">Q2 Slots Utilized</div><div class="kpi-value" id="k-q2-util">2,039</div><div class="kpi-meta"><span class="chip-sm chip-q2">Q2</span><span id="k-q2-pct">97%</span> of target</div></div>
+    <div class="kpi q2"><div class="kpi-label">Q2 Balance</div><div class="kpi-value pos" id="k-q2-bal">+63</div><div class="kpi-meta"><span class="chip-sm chip-q2">Q2</span>Remaining slots</div></div>
     <div class="kpi q3"><div class="kpi-label">Q3 Target</div><div class="kpi-value" id="k-q3-target">1,474</div><div class="kpi-meta"><span class="chip-sm chip-q3">Q3</span>Total slots</div></div>
-    <div class="kpi q3"><div class="kpi-label">Q3 Slots Utilized</div><div class="kpi-value" id="k-q3-util">183</div><div class="kpi-meta"><span class="chip-sm chip-q3">Q3</span><span id="k-q3-pct">12%</span> of target</div></div>
-    <div class="kpi q3"><div class="kpi-label">Q3 Balance</div><div class="kpi-value pos" id="k-q3-bal">+1,291</div><div class="kpi-meta"><span class="chip-sm chip-q3">Q3</span>Remaining slots</div></div>
+    <div class="kpi q3"><div class="kpi-label">Q3 Slots Utilized</div><div class="kpi-value" id="k-q3-util">215</div><div class="kpi-meta"><span class="chip-sm chip-q3">Q3</span><span id="k-q3-pct">15%</span> of target</div></div>
+    <div class="kpi q3"><div class="kpi-label">Q3 Balance</div><div class="kpi-value pos" id="k-q3-bal">+1,259</div><div class="kpi-meta"><span class="chip-sm chip-q3">Q3</span>Remaining slots</div></div>
   </div>
 
-  <!-- Tables -->
   <div class="section-label">Geo × service line detail</div>
   <div class="tab-bar">
     <button class="tab-btn active-q2" id="btnQ2" onclick="showTab('q2')">Q2'26 &nbsp;—&nbsp; Apr · May · Jun</button>
@@ -143,14 +130,14 @@
     <div class="table-card">
       <div class="table-card-hdr">
         <h3>Q2'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</h3>
-        <span id="q2-filter-tag">All SL · All Geo &nbsp;|&nbsp; Data as of 11 Jun'26</span>
+        <span id="q2-filter-tag">All SL · All Geo &nbsp;|&nbsp; Data as of 16 Jun'26</span>
       </div>
       <div class="tbl-outer">
         <table>
           <thead><tr>
             <th style="text-align:left">Geography</th>
             <th style="text-align:left">SL</th>
-            <th>Target</th><th>Apr'26 Joiners</th><th>May'26 Pipeline</th><th>Jun'26 Pipeline</th>
+            <th>Target</th><th>Apr'26 Joiners</th><th>May'26 Joiners</th><th>Jun'26 Pipeline</th>
             <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
           </tr></thead>
           <tbody id="q2tbody"></tbody>
@@ -163,7 +150,7 @@
     <div class="table-card">
       <div class="table-card-hdr">
         <h3>Q3'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</h3>
-        <span id="q3-filter-tag">All SL · All Geo &nbsp;|&nbsp; Data as of 11 Jun'26</span>
+        <span id="q3-filter-tag">All SL · All Geo &nbsp;|&nbsp; Data as of 16 Jun'26</span>
       </div>
       <div class="tbl-outer">
         <table>
@@ -181,65 +168,56 @@
 
   <div class="footnote">
     <strong>Notes:</strong>&nbsp;
-    Slots Utilized = sum of monthly joiners / pipeline. &nbsp;·&nbsp;
+    Q2 Slots Utilized = Apr Joiners + May Joiners + Jun Pipeline. &nbsp;·&nbsp;
+    Q3 Slots Utilized = Jul + Aug + Sep Pipeline. &nbsp;·&nbsp;
     Pipeline % = Slots Utilized &divide; Target. &nbsp;·&nbsp;
     Balance = Target &minus; Slots Utilized. &nbsp;·&nbsp;
     <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized. &nbsp;·&nbsp;
-    <span style="color:#16A34A;font-weight:600">Green</span> = surplus.
+    <span style="color:#16A34A;font-weight:600">Green</span> = surplus. &nbsp;·&nbsp;
+    Data as of 16 Jun'26.
   </div>
 </main>
 
 <script>
 const q2Data=[
-  {geo:'India',    sl:'DE',  target:653, m1:311,m2:168,m3:140},
-  {geo:'India',    sl:'ADM', target:370, m1:186,m2:104,m3:58},
-  {geo:'India',    sl:'QEA', target:360, m1:187,m2:105,m3:49},
-  {geo:'Americas', sl:'DE',  target:186, m1:84, m2:56, m3:44},
-  {geo:'Americas', sl:'ADM', target:111, m1:54, m2:52, m3:22},
-  {geo:'Americas', sl:'QEA', target:182, m1:53, m2:50, m3:55},
+  {geo:'India',    sl:'DE',  target:653, m1:311,m2:168,m3:159},
+  {geo:'India',    sl:'ADM', target:370, m1:186,m2:104,m3:61},
+  {geo:'India',    sl:'QEA', target:360, m1:187,m2:105,m3:51},
+  {geo:'Americas', sl:'DE',  target:186, m1:84, m2:56, m3:48},
+  {geo:'Americas', sl:'ADM', target:111, m1:54, m2:52, m3:27},
+  {geo:'Americas', sl:'QEA', target:182, m1:53, m2:50, m3:63},
   {geo:'APJ',      sl:'DE',  target:14,  m1:3,  m2:8,  m3:11},
-  {geo:'APJ',      sl:'ADM', target:43,  m1:16, m2:12, m3:11},
+  {geo:'APJ',      sl:'ADM', target:43,  m1:16, m2:12, m3:12},
   {geo:'APJ',      sl:'QEA', target:73,  m1:18, m2:10, m3:13},
-  {geo:'EMEA',     sl:'DE',  target:76,  m1:26, m2:43, m3:17},
+  {geo:'EMEA',     sl:'DE',  target:76,  m1:26, m2:43, m3:16},
   {geo:'EMEA',     sl:'ADM', target:3,   m1:0,  m2:9,  m3:3},
   {geo:'EMEA',     sl:'QEA', target:31,  m1:8,  m2:4,  m3:8},
 ];
 const q3Data=[
-  {geo:'India',    sl:'DE',  target:492, m1:38,m2:21,m3:7},
-  {geo:'India',    sl:'ADM', target:100, m1:12,m2:7, m3:1},
-  {geo:'India',    sl:'QEA', target:319, m1:24,m2:17,m3:6},
-  {geo:'Americas', sl:'DE',  target:175, m1:4, m2:0, m3:0},
-  {geo:'Americas', sl:'ADM', target:100, m1:3, m2:0, m3:0},
-  {geo:'Americas', sl:'QEA', target:130, m1:0, m2:0, m3:0},
-  {geo:'APJ',      sl:'DE',  target:8,   m1:1, m2:0, m3:0},
-  {geo:'APJ',      sl:'ADM', target:2,   m1:7, m2:3, m3:0},
-  {geo:'APJ',      sl:'QEA', target:33,  m1:4, m2:3, m3:0},
-  {geo:'EMEA',     sl:'DE',  target:80,  m1:13,m2:0, m3:1},
-  {geo:'EMEA',     sl:'ADM', target:10,  m1:0, m2:0, m3:0},
-  {geo:'EMEA',     sl:'QEA', target:25,  m1:10,m2:0, m3:0},
+  {geo:'India',    sl:'DE',  target:492, m1:48, m2:24, m3:11},
+  {geo:'India',    sl:'ADM', target:100, m1:14, m2:7,  m3:5},
+  {geo:'India',    sl:'QEA', target:319, m1:27, m2:19, m3:8},
+  {geo:'Americas', sl:'DE',  target:175, m1:5,  m2:0,  m3:0},
+  {geo:'Americas', sl:'ADM', target:100, m1:5,  m2:0,  m3:0},
+  {geo:'Americas', sl:'QEA', target:130, m1:0,  m2:0,  m3:0},
+  {geo:'APJ',      sl:'DE',  target:8,   m1:1,  m2:0,  m3:0},
+  {geo:'APJ',      sl:'ADM', target:2,   m1:5,  m2:3,  m3:1},
+  {geo:'APJ',      sl:'QEA', target:33,  m1:4,  m2:3,  m3:0},
+  {geo:'EMEA',     sl:'DE',  target:80,  m1:14, m2:0,  m3:1},
+  {geo:'EMEA',     sl:'ADM', target:10,  m1:0,  m2:0,  m3:0},
+  {geo:'EMEA',     sl:'QEA', target:25,  m1:10, m2:0,  m3:0},
 ];
 
-let activesl='All', activegeo='All';
-
+let activesl='All',activegeo='All';
 function fmt(n){return Math.round(n).toLocaleString('en-IN')}
 function pctStr(p,t){return t===0?'--':Math.round(p/t*100)+'%'}
 function pctNum(p,t){return t===0?0:Math.min(Math.round(p/t*100),100)}
-
-function filterData(data){
-  return data.filter(r=>{
-    const slOk  = activesl==='All'  || r.sl===activesl;
-    const geoOk = activegeo==='All' || r.geo===activegeo;
-    return slOk && geoOk;
-  });
-}
+function filterData(data){return data.filter(r=>(activesl==='All'||r.sl===activesl)&&(activegeo==='All'||r.geo===activegeo))}
 
 function buildTable(data,tbodyId,pctColor){
   const tb=document.getElementById(tbodyId);
   const filtered=filterData(data);
-  if(filtered.length===0){
-    tb.innerHTML=`<tr><td colspan="9" class="no-data">No data for the selected filters</td></tr>`;
-    return {target:0,util:0,bal:0};
-  }
+  if(filtered.length===0){tb.innerHTML=`<tr><td colspan="9" class="no-data">No data for selected filters</td></tr>`;return {target:0,util:0,bal:0}}
   let tot={target:0,m1:0,m2:0,m3:0,util:0,bal:0};
   let prevGeo='',html='';
   filtered.forEach((r,i)=>{
@@ -259,8 +237,7 @@ function buildTable(data,tbodyId,pctColor){
       </div></td></tr>`;
   });
   const totBalCls=tot.bal<0?'bal-neg':'bal-pos';
-  html+=`<tr class="total-row">
-    <td colspan="2">Total</td>
+  html+=`<tr class="total-row"><td colspan="2">Total</td>
     <td>${fmt(tot.target)}</td><td>${fmt(tot.m1)}</td><td>${fmt(tot.m2)}</td><td>${fmt(tot.m3)}</td>
     <td>${fmt(tot.util)}</td>
     <td class="${totBalCls}">${tot.bal>=0?'+':''}${fmt(tot.bal)}</td>
@@ -272,54 +249,35 @@ function buildTable(data,tbodyId,pctColor){
 function updateKPIs(){
   const q2t=buildTable(q2Data,'q2tbody','#2563EB');
   const q3t=buildTable(q3Data,'q3tbody','#16A34A');
-
-  // Q2 KPIs
   document.getElementById('k-q2-target').textContent=fmt(q2t.target);
   document.getElementById('k-q2-util').textContent=fmt(q2t.util);
   document.getElementById('k-q2-pct').textContent=pctStr(q2t.util,q2t.target);
   const q2bal=document.getElementById('k-q2-bal');
   q2bal.textContent=(q2t.bal>=0?'+':'')+fmt(q2t.bal);
   q2bal.className='kpi-value '+(q2t.bal>=0?'pos':'neg');
-
-  // Q3 KPIs
   document.getElementById('k-q3-target').textContent=fmt(q3t.target);
   document.getElementById('k-q3-util').textContent=fmt(q3t.util);
   document.getElementById('k-q3-pct').textContent=pctStr(q3t.util,q3t.target);
   const q3bal=document.getElementById('k-q3-bal');
   q3bal.textContent=(q3t.bal>=0?'+':'')+fmt(q3t.bal);
   q3bal.className='kpi-value '+(q3t.bal>=0?'pos':'neg');
-
-  // Filter tag
   const slTag=activesl==='All'?'All SL':activesl;
   const geoTag=activegeo==='All'?'All Geo':activegeo;
-  const tag=`${slTag} · ${geoTag} &nbsp;|&nbsp; Data as of 11 Jun'26`;
+  const tag=`${slTag} · ${geoTag} &nbsp;|&nbsp; Data as of 16 Jun'26`;
   document.getElementById('q2-filter-tag').innerHTML=tag;
   document.getElementById('q3-filter-tag').innerHTML=tag;
 }
 
 function toggleFilter(type,val){
-  if(type==='sl'){
-    activesl=val;
-    document.querySelectorAll('#slFilters .chip-btn').forEach(b=>{
-      b.classList.toggle('active-sl', b.textContent.trim()===val);
-    });
-  } else {
-    activegeo=val;
-    document.querySelectorAll('#geoFilters .chip-btn').forEach(b=>{
-      b.classList.toggle('active-geo', b.textContent.trim()===val);
-    });
-  }
+  if(type==='sl'){activesl=val;document.querySelectorAll('#slFilters .chip-btn').forEach(b=>{b.classList.toggle('active-sl',b.textContent.trim()===val)})}
+  else{activegeo=val;document.querySelectorAll('#geoFilters .chip-btn').forEach(b=>{b.classList.toggle('active-geo',b.textContent.trim()===val)})}
   updateKPIs();
 }
 
 function resetFilters(){
-  activesl='All'; activegeo='All';
-  document.querySelectorAll('#slFilters .chip-btn').forEach(b=>{
-    b.classList.toggle('active-sl', b.textContent.trim()==='All');
-  });
-  document.querySelectorAll('#geoFilters .chip-btn').forEach(b=>{
-    b.classList.toggle('active-geo', b.textContent.trim()==='All');
-  });
+  activesl='All';activegeo='All';
+  document.querySelectorAll('#slFilters .chip-btn').forEach(b=>{b.classList.toggle('active-sl',b.textContent.trim()==='All')});
+  document.querySelectorAll('#geoFilters .chip-btn').forEach(b=>{b.classList.toggle('active-geo',b.textContent.trim()==='All')});
   updateKPIs();
 }
 
@@ -330,7 +288,6 @@ function showTab(tab){
   document.getElementById('btnQ3').className='tab-btn'+(tab==='q3'?' active-q3':'');
 }
 
-// Initial render
 updateKPIs();
 </script>
 </body>
