@@ -1,79 +1,56 @@
 <!DOCTYPE html>
-<!-- saved from url=(0063)file:///C:/Users/574897/Downloads/M2S_Joiners_Dashboard_16.html -->
+<!-- saved from url=(0063)file:///C:/Users/574897/Downloads/M2S_Joiners_Dashboard_28.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDP Hires: Move in Move Out — JUN 2026</title>
-<link href="./PDP Hires_ Move in Move Out — JUN 2026_files/css2" rel="stylesheet">
-<script src="./PDP Hires_ Move in Move Out — JUN 2026_files/html2canvas.min.js.download"></script>
+<title>PDP Hires: Move in Move Out — 2026</title>
+<link href="./PDP Hires_ Move in Move Out — June 18th 2026_files/css2" rel="stylesheet">
 <style>
 :root{
-  --bg:#f0f2f5;
-  --surface:#ffffff;
-  --surface2:#f7f8fa;
-  --surface3:#eef0f4;
-  --border:#dde1e9;
-  --border2:#c4cad6;
-  --navy:#0d2137;
-  --navy2:#1a3a5c;
-  --blue:#1558d6;
-  --blue-l:#e8effe;
-  --teal:#0b7285;
-  --teal-l:#e0f5f8;
-  --orange:#c75000;
-  --orange-l:#fef0e6;
-  --green:#1a7a3c;
-  --green-l:#e6f4ec;
-  --purple:#5b21b6;
-  --purple-l:#f0ecff;
-  --red:#b91c1c;
-  --sky:#0369a1;
-  --sky-l:#e0f2fe;
-  --text:#111827;
-  --text2:#374151;
-  --muted:#6b7280;
-  --muted2:#9ca3af;
+  --bg:#f0f2f5; --surface:#fff; --surface2:#f7f8fa; --surface3:#eef0f4;
+  --border:#dde1e9; --border2:#c4cad6;
+  --navy:#0d2137; --navy2:#1a3a5c; --blue:#1558d6; --blue-l:#e8effe;
+  --orange:#c75000; --orange-l:#fef0e6; --green:#1a7a3c; --green-l:#e6f4ec;
+  --purple:#5b21b6; --purple-l:#f0ecff; --red:#b91c1c;
+  --sky:#0369a1; --sky-l:#e0f2fe; --teal:#0b7285; --teal-l:#e0f5f8;
+  --text:#111827; --text2:#374151; --muted:#6b7280; --muted2:#9ca3af;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:11px;overflow-x:hidden}
-.wrap{max-width:1480px;margin:0 auto;padding:12px 16px 20px}
+.wrap{max-width:1480px;margin:0 auto;padding:10px 16px 20px}
 
-/* ── HEADER ── */
-.topbar{
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--navy);border-radius:6px 6px 0 0;
-  padding:10px 18px;margin-bottom:0;
-  border-bottom:3px solid var(--blue);
-}
+/* HEADER */
+.topbar{display:flex;justify-content:space-between;align-items:center;background:var(--navy);
+  border-radius:6px 6px 0 0;padding:10px 18px;border-bottom:3px solid var(--blue)}
 .topbar-left{display:flex;align-items:center;gap:14px}
-.logo-block{width:36px;height:36px;background:var(--blue);border-radius:4px;
+.logo-block{width:34px;height:34px;background:var(--blue);border-radius:4px;
   display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.logo-block svg{width:20px;height:20px}
-.title-block{}
-.eyebrow{font-size:9px;font-weight:500;letter-spacing:.18em;color:#94a3b8;
-  text-transform:uppercase;margin-bottom:2px}
+.logo-block svg{width:18px;height:18px}
+.eyebrow{font-size:9px;font-weight:500;letter-spacing:.18em;color:#94a3b8;text-transform:uppercase;margin-bottom:2px}
 h1{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.01em}
 h1 span{color:#60a5fa}
-.topbar-right{display:flex;align-items:center;gap:20px}
+.topbar-right{display:flex;align-items:center;gap:16px}
 .meta-item{text-align:right}
 .meta-label{font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#64748b;display:block}
 .meta-val{font-size:11px;font-weight:600;color:#cbd5e1;display:block;margin-top:1px}
-.divider-v{width:1px;height:28px;background:#1e3a5c}
+.divider-v{width:1px;height:26px;background:#1e3a5c}
 
-/* Sub-header band */
-.subbar{background:var(--navy2);padding:5px 18px;border-radius:0 0 6px 6px;
-  display:flex;align-items:center;gap:6px;margin-bottom:10px}
-.subbar-tag{font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  padding:2px 8px;border-radius:3px;background:rgba(255,255,255,.08);color:#94a3b8}
-.subbar-tag.active{background:var(--blue);color:#fff}
+/* MONTH TABS */
+.month-tabs-bar{background:var(--navy2);padding:0 18px;border-radius:0 0 6px 6px;
+  display:flex;align-items:center;gap:2px;margin-bottom:10px;overflow-x:auto}
+.month-tab{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:8px 18px;cursor:pointer;color:#94a3b8;border-bottom:3px solid transparent;
+  white-space:nowrap;transition:all .15s;font-family:'Inter',sans-serif;background:none;border-top:none;border-left:none;border-right:none}
+.month-tab:hover{color:#fff;background:rgba(255,255,255,.05)}
+.month-tab.active{color:#fff;border-bottom-color:var(--blue);background:rgba(255,255,255,.08)}
 
-/* ── SECTION LABEL ── */
+/* SECTION LABEL */
 .slabel{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .slabel::after{content:'';flex:1;height:1px;background:var(--border)}
 
-/* ── CLOSING COUNT CARDS ── */
-.cards-row{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-bottom:10px}
+/* CLOSING COUNT CARDS */
+.cards-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-bottom:10px}
 .cc{background:var(--surface);border:1px solid var(--border);border-radius:5px;
   padding:8px 9px;position:relative;transition:box-shadow .15s,border-color .15s}
 .cc:hover{box-shadow:0 2px 12px rgba(0,0,0,.1);border-color:var(--border2)}
@@ -81,20 +58,20 @@ h1 span{color:#60a5fa}
 .cc.latest::before{content:'LATEST';position:absolute;top:4px;right:5px;
   font-size:7px;font-weight:700;letter-spacing:.1em;color:var(--blue);
   background:var(--blue-l);padding:1px 5px;border-radius:2px}
-.cc-date{font-size:8px;font-weight:600;color:var(--muted);margin-bottom:5px;letter-spacing:.05em}
-.cc-num{font-size:20px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:6px}
-.cc-sub{display:flex;gap:6px;padding-top:6px;border-top:1px solid var(--border)}
-.cs{flex:1}
-.cs-v{font-size:12px;font-weight:700;display:block;line-height:1}
-.cs-l{font-size:8px;color:var(--muted);margin-top:2px;display:block;font-weight:500}
-.mini-bar{height:3px;background:var(--surface3);border-radius:2px;margin-top:6px;overflow:hidden}
+.cc-date{font-size:8px;font-weight:600;color:var(--muted);margin-bottom:4px}
+.cc-num{font-size:20px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:5px}
+.cc-sub{display:flex;gap:6px;padding-top:5px;border-top:1px solid var(--border);flex-wrap:wrap}
+.cs{flex:1;min-width:30px}
+.cs-v{font-size:11px;font-weight:700;display:block;line-height:1}
+.cs-l{font-size:7px;color:var(--muted);margin-top:2px;display:block;font-weight:500}
+.mini-bar{height:3px;background:var(--surface3);border-radius:2px;margin-top:5px;overflow:hidden}
 .mini-fill{height:100%;border-radius:2px;background:var(--blue);width:0;
   transition:width 1.2s cubic-bezier(.4,0,.2,1)}
 
-/* ── TWO COLUMN ROW ── */
+/* TWO COL */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 
-/* ── VERTICAL TABLE ── */
+/* VERTICAL TABLE */
 .vt-wrap{background:var(--surface);border:1px solid var(--border);border-radius:5px;
   overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .vt-head{display:flex;justify-content:space-between;align-items:center;
@@ -113,23 +90,23 @@ table.vt{width:100%;border-collapse:collapse}
   padding:6px 10px;text-align:center;border-bottom:2px solid var(--border);border-right:1px solid var(--border)}
 .vt th:last-child{border-right:none}
 .vt th.tl{text-align:left}
-.vt td{padding:6px 10px;font-size:11px;border-bottom:1px solid var(--border);
+.vt td{padding:5px 10px;font-size:11px;border-bottom:1px solid var(--border);
   border-right:1px solid var(--border);text-align:center;vertical-align:middle}
 .vt td:last-child{border-right:none}
 .vt td.tl{text-align:left}
 .vt tbody tr:hover{background:#f8f9ff}
-.vt tbody tr.total-row{background:var(--navy);color:#fff}
-.vt tbody tr.total-row td{border-color:rgba(255,255,255,.1);font-weight:700;font-size:11px}
+.vt tbody tr.total-row{background:var(--navy)}
+.vt tbody tr.total-row td{border-color:rgba(255,255,255,.1);font-weight:700;font-size:11px;color:#fff}
 .vt tbody tr.total-row td.tl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8}
 .vt tbody tr:last-child td{border-bottom:none}
 .nc{font-weight:700}
 .nc-o{color:var(--sky)}.nc-mi{color:#0369a1}.nc-n{color:var(--green)}.nc-d{color:var(--orange)}
 .nc-r{color:var(--red)}.nc-c{color:var(--purple)}.nc-z{color:var(--muted2)}
-.vt tbody tr.total-row .nc-o,.vt tbody tr.total-row .nc-n,
-.vt tbody tr.total-row .nc-d,.vt tbody tr.total-row .nc-c{color:#fff}
+.vt tbody tr.total-row .nc-o,.vt tbody tr.total-row .nc-mi,.vt tbody tr.total-row .nc-n,
+.vt tbody tr.total-row .nc-d,.vt tbody tr.total-row .nc-r,.vt tbody tr.total-row .nc-c{color:#fff}
 .vtag{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500}
 .vdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.pill{display:inline-block;padding:2px 7px;border-radius:3px;font-size:9px;font-weight:600;white-space:nowrap;letter-spacing:.02em}
+.pill{display:inline-block;padding:2px 7px;border-radius:3px;font-size:9px;font-weight:600;white-space:nowrap}
 .v-bfs{background:var(--blue-l);color:var(--blue)}
 .v-ins{background:var(--orange-l);color:var(--orange)}
 .v-hc{background:var(--purple-l);color:var(--purple)}
@@ -137,20 +114,21 @@ table.vt{width:100%;border-collapse:collapse}
 .v-nft{background:#fdf2f8;color:#9d174d}
 .v-eps{background:var(--green-l);color:var(--green)}
 .v-tech{background:var(--sky-l);color:var(--sky)}
-.v-tech2{background:#e0f2fe;color:#0369a1}
-.v-ls{background:#f0fdf4;color:#065f46}
 .v-rcg{background:var(--teal-l);color:var(--teal)}
+.v-ls{background:#f0fdf4;color:#065f46}
+.v-tnh{background:#f0fdf4;color:#0f766e}
+.v-mleu{background:#fef9ec;color:#b45309}
+.v-tech2{background:var(--sky-l);color:#0369a1}
 .formula-row{font-size:9px;font-weight:500;color:var(--muted);text-align:right;
   padding:5px 12px;border-top:1px solid var(--border);background:var(--surface2)}
 .formula-row span{color:var(--text2);font-weight:600}
 
-/* ── CHARTS CARD ── */
+/* CHART CARD */
 .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:5px;
   padding:10px 12px 8px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.chart-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;
-  padding-bottom:8px;border-bottom:1px solid var(--border)}
-.chart-card-header h3{font-size:10px;font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--navy)}
+.chart-card-header{display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.chart-card-header h3{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
 .chart-badge{font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   padding:2px 7px;border-radius:3px;background:var(--navy);color:#fff}
 .tlegend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
@@ -162,15 +140,14 @@ table.vt{width:100%;border-collapse:collapse}
 .chart-scroll::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 svg{display:block;overflow:visible}
 
-/* ── ASSOCIATE TABLE ── */
+/* ASSOC TABLE */
 .assoc-wrap{background:var(--surface);border:1px solid var(--border);border-radius:5px;
   overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:10px}
 .assoc-head{display:flex;justify-content:space-between;align-items:center;gap:10px;
-  padding:7px 12px;background:var(--navy);border-bottom:1px solid var(--border);flex-wrap:wrap}
+  padding:7px 12px;background:var(--navy);flex-wrap:wrap}
 .assoc-head h3{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e2e8f0}
 .assoc-head-right{display:flex;align-items:center;gap:8px}
-.assoc-count{font-size:9px;font-weight:700;color:#fff;background:var(--blue);
-  padding:2px 10px;border-radius:10px}
+.assoc-count{font-size:9px;font-weight:700;color:#fff;background:var(--blue);padding:2px 10px;border-radius:10px}
 .assoc-search{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
   border-radius:3px;padding:4px 10px;color:#fff;font-family:'Inter',sans-serif;
   font-size:9px;width:180px;outline:none}
@@ -179,7 +156,7 @@ svg{display:block;overflow:visible}
 table.at{width:100%;border-collapse:collapse}
 .at thead th{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--muted);padding:5px 10px;text-align:left;background:var(--surface2);
-  border-bottom:2px solid var(--border);border-right:1px solid var(--border);white-space:nowrap}
+  border-bottom:2px solid var(--border);border-right:1px solid var(--border)}
 .at thead th:last-child{border-right:none}
 .at tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
 .at tbody tr:last-child{border-bottom:none}
@@ -190,17 +167,16 @@ table.at{width:100%;border-collapse:collapse}
   font-size:8px;padding:1px 7px;border-radius:10px;font-weight:700}
 .at td{padding:5px 10px;font-size:10px;color:var(--text2);border-right:1px solid var(--border);vertical-align:middle}
 .at td:last-child{border-right:none}
-.at td.id-cell{color:var(--muted);font-size:9px;font-weight:500}
-.at td.name-cell{font-weight:600;color:var(--text);min-width:160px}
+.at td.name-cell{font-weight:600;color:var(--text)}
 .grade-badge{display:inline-block;padding:1px 7px;border-radius:3px;font-size:9px;font-weight:700}
 .grade-a{background:#e0f2fe;color:#0369a1}
 .grade-sa{background:#fef3c7;color:#92400e}
 .grade-m{background:#f0ecff;color:#5b21b6}
 .no-res{padding:24px;text-align:center;color:var(--muted);font-size:10px}
 
-/* ── FOOTER ── */
-.footer{display:flex;justify-content:space-between;align-items:center;
-  margin-top:10px;padding:6px 12px;background:var(--surface);border:1px solid var(--border);
+/* FOOTER */
+.footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;
+  padding:6px 12px;background:var(--surface);border:1px solid var(--border);
   border-radius:5px;font-size:8px;color:var(--muted)}
 .footer strong{color:var(--navy);font-weight:600}
 </style>
@@ -216,326 +192,181 @@ table.at{width:100%;border-collapse:collapse}
         <rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path>
       </svg>
     </div>
-    <div class="title-block">
-      <div class="eyebrow">QEA · Quality Engineering &amp; Assurance · JUN 2026</div>
+    <div>
+      <div class="eyebrow">QEA · Quality Engineering &amp; Assurance · 2026</div>
       <h1>PDP Hires: <span>Move in Move Out</span></h1>
     </div>
   </div>
   <div class="topbar-right">
     <div class="meta-item">
-      <span class="meta-label">Report Period</span>
-      <span class="meta-val">June 2026 MTD</span>
+      <span class="meta-label">Programme</span>
+      <span class="meta-val">M2S PDP</span>
     </div>
     <div class="divider-v"></div>
     <div class="meta-item">
       <span class="meta-label">Data as of</span>
-      <span class="meta-val">16-Jun-2026</span>
+      <span class="meta-val" id="data-as-of">18-Jun-2026</span>
     </div>
     <div class="divider-v"></div>
     <div class="meta-item">
-      <span class="meta-label">Programme</span>
-      <span class="meta-val">M2S PDP</span>
+      <span class="meta-label">Active Month</span>
+      <span class="meta-val" id="active-month-label">June 26</span>
     </div>
   </div>
 </div>
-<div class="subbar">
-  <span class="subbar-tag active">M2S</span>
-  <span class="subbar-tag">New Hire Tracking</span>
-  <span class="subbar-tag">Vertical Movement</span>
-  <span class="subbar-tag">Skill Cluster Analysis</span>
+
+<!-- MONTH TABS -->
+<div class="month-tabs-bar">
+  <button class="month-tab" onclick="selectMonth(&#39;Jan&#39;)">January 2026</button>
+  <button class="month-tab" onclick="selectMonth(&#39;Feb&#39;)">February 2026</button>
+  <button class="month-tab" onclick="selectMonth(&#39;Mar&#39;)">March 2026</button>
+  <button class="month-tab" onclick="selectMonth(&#39;Apr&#39;)">April 2026</button>
+  <button class="month-tab" onclick="selectMonth(&#39;May&#39;)">May 2026</button>
+  <button class="month-tab active" onclick="selectMonth(&#39;Jun&#39;)">June 2026</button>
 </div>
 
 <!-- CLOSING COUNT CARDS -->
 <div class="slabel">Still in PDP — Date-wise Closing Count</div>
-<div class="cards-row" id="cc-row"><div class="cc ">
-      <div class="cc-date">01-Jun</div>
-      <div class="cc-num">19</div>
+<div class="cards-row" id="cc-row"><div class="cc latest">
+      <div class="cc-date">Jun-26</div>
+      <div class="cc-num">8</div>
       <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">6</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">0</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 95%;" data-p="95.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">02-Jun</div>
-      <div class="cc-num">20</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">7</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">6</span><span class="cs-l">Joiners</span></div>
+        <div class="cs"><span class="cs-v" style="color:var(--orange)">16</span><span class="cs-l">Deployed</span></div>
+        <div class="cs"><span class="cs-v" style="color:var(--blue)">11</span><span class="cs-l">Joiners</span></div>
         
       </div>
       <div class="mini-bar"><div class="mini-fill" style="width: 100%;" data-p="100.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">03-Jun</div>
-      <div class="cc-num">20</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">7</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">6</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 100%;" data-p="100.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">04-Jun</div>
-      <div class="cc-num">19</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">8</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">6</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 95%;" data-p="95.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">05-Jun</div>
-      <div class="cc-num">17</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">10</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">6</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 85%;" data-p="85.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">08-Jun</div>
-      <div class="cc-num">16</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">11</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">8</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 80%;" data-p="80.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">09-Jun</div>
-      <div class="cc-num">16</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">11</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">8</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 80%;" data-p="80.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">10-Jun</div>
-      <div class="cc-num">14</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">12</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">8</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 70%;" data-p="70.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">11-Jun</div>
-      <div class="cc-num">13</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">12</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">8</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 65%;" data-p="65.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">12-Jun</div>
-      <div class="cc-num">9</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">14</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">8</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 45%;" data-p="45.0"></div></div>
-    </div><div class="cc ">
-      <div class="cc-date">15-Jun</div>
-      <div class="cc-num">7</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">16</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">8</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 35%;" data-p="35.0"></div></div>
-    </div><div class="cc latest">
-      <div class="cc-date">16-Jun</div>
-      <div class="cc-num">7</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">16</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">8</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 35%;" data-p="35.0"></div></div>
     </div></div>
 
-<!-- TABLE + SKILL CLUSTER -->
+<!-- VERTICAL TABLE + SKILL CLUSTER -->
 <div class="two-col">
-
   <div>
     <div class="slabel">Vertical-wise Movement</div>
     <div class="vt-wrap">
       <div class="vt-head">
         <span class="vt-head-title">In / Out Movement by Vertical</span>
-        <div class="dtabs" id="dtabs"><button class="dtab " onclick="selDate(0)">01</button><button class="dtab " onclick="selDate(1)">02</button><button class="dtab " onclick="selDate(2)">03</button><button class="dtab " onclick="selDate(3)">04</button><button class="dtab " onclick="selDate(4)">05</button><button class="dtab " onclick="selDate(5)">08</button><button class="dtab " onclick="selDate(6)">09</button><button class="dtab " onclick="selDate(7)">10</button><button class="dtab " onclick="selDate(8)">11</button><button class="dtab " onclick="selDate(9)">12</button><button class="dtab " onclick="selDate(10)">15</button><button class="dtab active" onclick="selDate(11)">16</button></div>
+        <div class="dtabs" id="dtabs"><button class="dtab active" onclick="selDate(0)">Jun</button></div>
       </div>
       <table class="vt">
         <thead>
           <tr>
             <th class="tl" rowspan="2" style="vertical-align:middle;width:120px">Vertical</th>
-            <th colspan="3" style="background:#f0f4ff;color:var(--sky)">IN MOVEMENT</th>
+            <th colspan="2" style="background:#f0f4ff;color:var(--sky)">IN MOVEMENT</th>
             <th colspan="2" style="background:#fff4ee;color:var(--orange)">OUT MOVEMENT</th>
-            <th rowspan="2" style="background:#f5f0ff;color:var(--purple);vertical-align:middle">Closing Count</th>
+            <th rowspan="2" style="background:#f5f0ff;color:var(--purple);vertical-align:middle">Closing</th>
           </tr>
           <tr>
             <th style="background:#f0f4ff;color:var(--sky)">Opening</th>
-            <th style="background:#e8f5ff;color:#0369a1">Moved In</th>
             <th style="background:#f0faff;color:var(--green)">New Joiners</th>
             <th style="background:#fff4ee;color:var(--orange)">Deployed</th>
             <th style="background:#fff0f0;color:var(--red)">Resigned</th>
           </tr>
         </thead>
         <tbody id="vt-body"><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#c75000"></span><span class="pill v-ins">Insurance</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-n">7</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">4</td>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:#c75000"></span>
+      <span class="pill v-ins">Insurance</span></span></td>
+    <td class="nc nc-o">1</td><td class="nc nc-n">8</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
+    <td class="nc nc-c">5</td>
   </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#1558d6"></span><span class="pill v-bfs">BFS</span></span></td>
-    <td class="nc nc-o">4</td><td class="nc nc-mi">2</td><td class="nc nc-n">1</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:#1558d6"></span>
+      <span class="pill v-bfs">BFS</span></span></td>
+    <td class="nc nc-o">4</td><td class="nc nc-n">3</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
     <td class="nc nc-c">3</td>
   </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#92400e"></span><span class="pill v-comm">Comm Media</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:#92400e"></span>
+      <span class="pill v-comm">Communications Media</span></span></td>
+    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
     <td class="nc nc-c">0</td>
   </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#5b21b6"></span><span class="pill v-hc">Healthcare</span></span></td>
-    <td class="nc nc-o">4</td><td class="nc nc-z">—</td><td class="nc nc-z">—</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:#5b21b6"></span>
+      <span class="pill v-hc">Healthcare- Plans &amp; Providers</span></span></td>
+    <td class="nc nc-o">4</td><td class="nc nc-z">—</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
     <td class="nc nc-c">0</td>
   </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#065f46"></span><span class="pill v-ls">LS</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:#065f46"></span>
+      <span class="pill v-ls">LS</span></span></td>
+    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
     <td class="nc nc-c">0</td>
   </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#9d174d"></span><span class="pill v-nft">NFT</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:#9d174d"></span>
+      <span class="pill v-nft">NFT</span></span></td>
+    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
     <td class="nc nc-c">0</td>
   </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#0f766e"></span><span class="pill v-tnh">T&amp;H</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:#0f766e"></span>
+      <span class="pill v-tnh">T&amp;H</span></span></td>
+    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
     <td class="nc nc-c">0</td>
   </tr><tr class="total-row">
     <td class="tl">TOTAL</td>
-    <td class="nc nc-o">13</td><td class="nc nc-mi">2</td>
-    <td class="nc nc-n">8</td><td class="nc nc-d">16</td>
-    <td class="nc nc-r">—</td>
-    <td class="nc nc-c">7</td>
+    <td class="nc nc-o">13</td>
+    <td class="nc nc-n">11</td><td class="nc nc-d">16</td>
+    <td class="nc nc-r">—</td><td class="nc nc-c">8</td>
   </tr></tbody>
       </table>
-      <div class="formula-row">Closing Count = <span>Opening + Moved In + New Joiners − Deployed − Resigned</span></div>
+      <div class="formula-row">Closing = <span>Opening + New Joiners − Deployed − Resigned</span></div>
     </div>
   </div>
-
   <div>
     <div class="slabel">Skill Cluster View</div>
     <div class="chart-card">
       <div class="chart-card-header">
         <h3>PDP – Skill Cluster Distribution</h3>
-        <span class="chart-badge">Still in PDP</span>
+        <span class="chart-badge" id="cluster-badge">Still in PDP</span>
       </div>
-      <div class="chart-scroll"><svg id="scsv" width="248" height="308" viewBox="0 0 248 308" style="min-width: 248px;"><rect x="60" y="28" width="172" height="160" fill="#fafbff" rx="2"></rect><line x1="60" y1="188" x2="232" y2="188" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="52" y="192" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">0</text><line x1="60" y1="108" x2="232" y2="108" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="52" y="112" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">5</text><line x1="60" y1="28" x2="232" y2="28" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="52" y="32" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">10</text><polygon points="108,140 116,134 116,182 108,188" fill="#0b3a9e"></polygon><polygon points="60,140 68,134 116,134 108,140" fill="#4d80f0"></polygon><rect x="60" y="140" width="48" height="48" fill="#1558d6"></rect><text x="84" y="130" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">3</text><text transform="rotate(-45,84,198)" x="84" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">QEA-Automation</text><polygon points="170,140 178,134 178,182 170,188" fill="#0b3a9e"></polygon><polygon points="122,140 130,134 178,134 170,140" fill="#4d80f0"></polygon><rect x="122" y="140" width="48" height="48" fill="#1558d6"></rect><text x="146" y="130" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">3</text><text transform="rotate(-45,146,198)" x="146" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">QEA-SDET</text><polygon points="232,172 240,166 240,182 232,188" fill="#0b3a9e"></polygon><polygon points="184,172 192,166 240,166 232,172" fill="#4d80f0"></polygon><rect x="184" y="172" width="48" height="16" fill="#1558d6"></rect><text x="208" y="162" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">1</text><text transform="rotate(-45,208,198)" x="208" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">QEA-Domain Skills</text><line x1="60" y1="188" x2="232" y2="188" stroke="#d1d5db" stroke-width="1.5"></line></svg></div>
+      <div class="chart-scroll"><svg id="scsv" width="216" height="298" viewBox="0 0 216 298" style="min-width: 216px;"><rect x="28" y="28" width="172" height="160" fill="#fafbff" rx="2"></rect><line x1="28" y1="188" x2="200" y2="188" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="23" y="192" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">0</text><line x1="28" y1="108" x2="200" y2="108" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="23" y="112" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">5</text><line x1="28" y1="28" x2="200" y2="28" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="23" y="32" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">10</text><polygon points="76,124 84,118 84,182 76,188" fill="#0b3a9e"></polygon><polygon points="28,124 36,118 84,118 76,124" fill="#4d80f0"></polygon><rect x="28" y="124" width="48" height="64" fill="#1558d6"></rect><text x="52" y="114" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">4</text><text transform="rotate(-45,52,198)" x="52" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">QEA-Automation</text><polygon points="138,140 146,134 146,182 138,188" fill="#0b3a9e"></polygon><polygon points="90,140 98,134 146,134 138,140" fill="#4d80f0"></polygon><rect x="90" y="140" width="48" height="48" fill="#1558d6"></rect><text x="114" y="130" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">3</text><text transform="rotate(-45,114,198)" x="114" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">QEA-SDET</text><polygon points="200,172 208,166 208,182 200,188" fill="#0b3a9e"></polygon><polygon points="152,172 160,166 208,166 200,172" fill="#4d80f0"></polygon><rect x="152" y="172" width="48" height="16" fill="#1558d6"></rect><text x="176" y="162" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">1</text><text transform="rotate(-45,176,198)" x="176" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">QEA-Domain Skills</text><line x1="28" y1="188" x2="200" y2="188" stroke="#d1d5db" stroke-width="1.5"></line></svg></div>
     </div>
   </div>
-
 </div>
 
 <!-- WATERFALL -->
 <div class="slabel">M2S Joiners Tracking</div>
 <div class="chart-card" style="margin-bottom:10px">
   <div class="chart-card-header">
-    <h3>PDP – M2S Joiners Tracking — June 2026</h3>
+    <h3 id="wf-title">PDP – M2S Joiners Tracking — June 2026</h3>
     <div class="tlegend">
       <div class="tleg"><div class="tleg-sw" style="background:#1558d6"></div>Joiners</div>
       <div class="tleg"><div class="tleg-sw" style="background:#c75000"></div>Deployed</div>
       <div class="tleg"><div class="tleg-sw" style="background:#1a7a3c"></div>CFWD / Closing</div>
     </div>
   </div>
-  <div class="chart-scroll"><svg id="tsv" width="1342" height="312" viewBox="0 0 1342 312" style="min-width: 1342px;"><rect x="36" y="32" width="1290" height="200" fill="#fafbff" rx="2"></rect><line x1="36" y1="232" x2="1326" y2="232" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="30" y="236" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">0</text><line x1="36" y1="182" x2="1326" y2="182" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="30" y="186" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">10</text><line x1="36" y1="132" x2="1326" y2="132" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="30" y="136" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">20</text><line x1="36" y1="82" x2="1326" y2="82" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="30" y="86" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">30</text><line x1="36" y1="32" x2="1326" y2="32" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="30" y="36" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">40</text><polygon points="76,117 84,111 84,226 76,232" fill="#0d4a23"></polygon><polygon points="36,117 44,111 84,111 76,117" fill="#4caf71"></polygon><rect x="36" y="117" width="40" height="115" fill="#1a7a3c"></rect><text x="56" y="107" fill="#0d4a23" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">23</text><text transform="rotate(-45,56,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="56" y="244">CFWD</tspan>
-      <tspan x="56" dy="11">from May</tspan></text><polygon points="126,222 134,216 134,226 126,232" fill="#0b3a9e"></polygon><polygon points="86,222 94,216 134,216 126,222" fill="#4d80f0"></polygon><rect x="86" y="222" width="40" height="10" fill="#1558d6"></rect><text x="106" y="212" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">2</text><text transform="rotate(-45,106,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="106" y="244">Joiners</tspan>
-      <tspan x="106" dy="11">01-Jun</tspan></text><polygon points="176,202 184,196 184,226 176,232" fill="#7a2f00"></polygon><polygon points="136,202 144,196 184,196 176,202" fill="#f07030"></polygon><rect x="136" y="202" width="40" height="30" fill="#c75000"></rect><text x="156" y="192" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-6</text><text transform="rotate(-45,156,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="156" y="244">Deployed</tspan>
-      <tspan x="156" dy="11">01-Jun</tspan></text><polygon points="226,192 234,186 234,226 226,232" fill="#0b3a9e"></polygon><polygon points="186,192 194,186 234,186 226,192" fill="#4d80f0"></polygon><rect x="186" y="192" width="40" height="40" fill="#1558d6"></rect><text x="206" y="182" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">8</text><text transform="rotate(-45,206,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="206" y="244">Joiners</tspan>
-      <tspan x="206" dy="11">02-Jun</tspan></text><polygon points="276,197 284,191 284,226 276,232" fill="#7a2f00"></polygon><polygon points="236,197 244,191 284,191 276,197" fill="#f07030"></polygon><rect x="236" y="197" width="40" height="35" fill="#c75000"></rect><text x="256" y="187" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-7</text><text transform="rotate(-45,256,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="256" y="244">Deployed</tspan>
-      <tspan x="256" dy="11">02-Jun</tspan></text><polygon points="326,192 334,186 334,226 326,232" fill="#0b3a9e"></polygon><polygon points="286,192 294,186 334,186 326,192" fill="#4d80f0"></polygon><rect x="286" y="192" width="40" height="40" fill="#1558d6"></rect><text x="306" y="182" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">8</text><text transform="rotate(-45,306,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="306" y="244">Joiners</tspan>
-      <tspan x="306" dy="11">03-Jun</tspan></text><polygon points="376,197 384,191 384,226 376,232" fill="#7a2f00"></polygon><polygon points="336,197 344,191 384,191 376,197" fill="#f07030"></polygon><rect x="336" y="197" width="40" height="35" fill="#c75000"></rect><text x="356" y="187" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-7</text><text transform="rotate(-45,356,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="356" y="244">Deployed</tspan>
-      <tspan x="356" dy="11">03-Jun</tspan></text><polygon points="426,192 434,186 434,226 426,232" fill="#0b3a9e"></polygon><polygon points="386,192 394,186 434,186 426,192" fill="#4d80f0"></polygon><rect x="386" y="192" width="40" height="40" fill="#1558d6"></rect><text x="406" y="182" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">8</text><text transform="rotate(-45,406,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="406" y="244">Joiners</tspan>
-      <tspan x="406" dy="11">04-Jun</tspan></text><polygon points="476,192 484,186 484,226 476,232" fill="#7a2f00"></polygon><polygon points="436,192 444,186 484,186 476,192" fill="#f07030"></polygon><rect x="436" y="192" width="40" height="40" fill="#c75000"></rect><text x="456" y="182" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-8</text><text transform="rotate(-45,456,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="456" y="244">Deployed</tspan>
-      <tspan x="456" dy="11">04-Jun</tspan></text><polygon points="526,192 534,186 534,226 526,232" fill="#0b3a9e"></polygon><polygon points="486,192 494,186 534,186 526,192" fill="#4d80f0"></polygon><rect x="486" y="192" width="40" height="40" fill="#1558d6"></rect><text x="506" y="182" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">8</text><text transform="rotate(-45,506,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="506" y="244">Joiners</tspan>
-      <tspan x="506" dy="11">05-Jun</tspan></text><polygon points="576,182 584,176 584,226 576,232" fill="#7a2f00"></polygon><polygon points="536,182 544,176 584,176 576,182" fill="#f07030"></polygon><rect x="536" y="182" width="40" height="50" fill="#c75000"></rect><text x="556" y="172" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-10</text><text transform="rotate(-45,556,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="556" y="244">Deployed</tspan>
-      <tspan x="556" dy="11">05-Jun</tspan></text><polygon points="626,182 634,176 634,226 626,232" fill="#0b3a9e"></polygon><polygon points="586,182 594,176 634,176 626,182" fill="#4d80f0"></polygon><rect x="586" y="182" width="40" height="50" fill="#1558d6"></rect><text x="606" y="172" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">10</text><text transform="rotate(-45,606,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="606" y="244">Joiners</tspan>
-      <tspan x="606" dy="11">08-Jun</tspan></text><polygon points="676,177 684,171 684,226 676,232" fill="#7a2f00"></polygon><polygon points="636,177 644,171 684,171 676,177" fill="#f07030"></polygon><rect x="636" y="177" width="40" height="55" fill="#c75000"></rect><text x="656" y="167" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-11</text><text transform="rotate(-45,656,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="656" y="244">Deployed</tspan>
-      <tspan x="656" dy="11">08-Jun</tspan></text><polygon points="726,182 734,176 734,226 726,232" fill="#0b3a9e"></polygon><polygon points="686,182 694,176 734,176 726,182" fill="#4d80f0"></polygon><rect x="686" y="182" width="40" height="50" fill="#1558d6"></rect><text x="706" y="172" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">10</text><text transform="rotate(-45,706,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="706" y="244">Joiners</tspan>
-      <tspan x="706" dy="11">09-Jun</tspan></text><polygon points="776,177 784,171 784,226 776,232" fill="#7a2f00"></polygon><polygon points="736,177 744,171 784,171 776,177" fill="#f07030"></polygon><rect x="736" y="177" width="40" height="55" fill="#c75000"></rect><text x="756" y="167" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-11</text><text transform="rotate(-45,756,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="756" y="244">Deployed</tspan>
-      <tspan x="756" dy="11">09-Jun</tspan></text><polygon points="826,182 834,176 834,226 826,232" fill="#0b3a9e"></polygon><polygon points="786,182 794,176 834,176 826,182" fill="#4d80f0"></polygon><rect x="786" y="182" width="40" height="50" fill="#1558d6"></rect><text x="806" y="172" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">10</text><text transform="rotate(-45,806,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="806" y="244">Joiners</tspan>
-      <tspan x="806" dy="11">10-Jun</tspan></text><polygon points="876,172 884,166 884,226 876,232" fill="#7a2f00"></polygon><polygon points="836,172 844,166 884,166 876,172" fill="#f07030"></polygon><rect x="836" y="172" width="40" height="60" fill="#c75000"></rect><text x="856" y="162" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-12</text><text transform="rotate(-45,856,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="856" y="244">Deployed</tspan>
-      <tspan x="856" dy="11">10-Jun</tspan></text><polygon points="926,182 934,176 934,226 926,232" fill="#0b3a9e"></polygon><polygon points="886,182 894,176 934,176 926,182" fill="#4d80f0"></polygon><rect x="886" y="182" width="40" height="50" fill="#1558d6"></rect><text x="906" y="172" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">10</text><text transform="rotate(-45,906,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="906" y="244">Joiners</tspan>
-      <tspan x="906" dy="11">11-Jun</tspan></text><polygon points="976,172 984,166 984,226 976,232" fill="#7a2f00"></polygon><polygon points="936,172 944,166 984,166 976,172" fill="#f07030"></polygon><rect x="936" y="172" width="40" height="60" fill="#c75000"></rect><text x="956" y="162" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-12</text><text transform="rotate(-45,956,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="956" y="244">Deployed</tspan>
-      <tspan x="956" dy="11">11-Jun</tspan></text><polygon points="1026,182 1034,176 1034,226 1026,232" fill="#0b3a9e"></polygon><polygon points="986,182 994,176 1034,176 1026,182" fill="#4d80f0"></polygon><rect x="986" y="182" width="40" height="50" fill="#1558d6"></rect><text x="1006" y="172" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">10</text><text transform="rotate(-45,1006,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="1006" y="244">Joiners</tspan>
-      <tspan x="1006" dy="11">12-Jun</tspan></text><polygon points="1076,162 1084,156 1084,226 1076,232" fill="#7a2f00"></polygon><polygon points="1036,162 1044,156 1084,156 1076,162" fill="#f07030"></polygon><rect x="1036" y="162" width="40" height="70" fill="#c75000"></rect><text x="1056" y="152" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-14</text><text transform="rotate(-45,1056,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="1056" y="244">Deployed</tspan>
-      <tspan x="1056" dy="11">12-Jun</tspan></text><polygon points="1126,182 1134,176 1134,226 1126,232" fill="#0b3a9e"></polygon><polygon points="1086,182 1094,176 1134,176 1126,182" fill="#4d80f0"></polygon><rect x="1086" y="182" width="40" height="50" fill="#1558d6"></rect><text x="1106" y="172" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">10</text><text transform="rotate(-45,1106,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="1106" y="244">Joiners</tspan>
-      <tspan x="1106" dy="11">15-Jun</tspan></text><polygon points="1176,152 1184,146 1184,226 1176,232" fill="#7a2f00"></polygon><polygon points="1136,152 1144,146 1184,146 1176,152" fill="#f07030"></polygon><rect x="1136" y="152" width="40" height="80" fill="#c75000"></rect><text x="1156" y="142" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-16</text><text transform="rotate(-45,1156,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="1156" y="244">Deployed</tspan>
-      <tspan x="1156" dy="11">15-Jun</tspan></text><polygon points="1226,182 1234,176 1234,226 1226,232" fill="#0b3a9e"></polygon><polygon points="1186,182 1194,176 1234,176 1226,182" fill="#4d80f0"></polygon><rect x="1186" y="182" width="40" height="50" fill="#1558d6"></rect><text x="1206" y="172" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">10</text><text transform="rotate(-45,1206,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="1206" y="244">Joiners</tspan>
-      <tspan x="1206" dy="11">16-Jun</tspan></text><polygon points="1276,152 1284,146 1284,226 1276,232" fill="#7a2f00"></polygon><polygon points="1236,152 1244,146 1284,146 1276,152" fill="#f07030"></polygon><rect x="1236" y="152" width="40" height="80" fill="#c75000"></rect><text x="1256" y="142" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-16</text><text transform="rotate(-45,1256,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="1256" y="244">Deployed</tspan>
-      <tspan x="1256" dy="11">16-Jun</tspan></text><polygon points="1326,197 1334,191 1334,226 1326,232" fill="#0d4a23"></polygon><polygon points="1286,197 1294,191 1334,191 1326,197" fill="#4caf71"></polygon><rect x="1286" y="197" width="40" height="35" fill="#1a7a3c"></rect><text x="1306" y="187" fill="#0d4a23" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">7</text><text transform="rotate(-45,1306,244)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
-      <tspan x="1306" y="244">Closing</tspan>
-      <tspan x="1306" dy="11">16-Jun</tspan></text><line x1="36" y1="232" x2="1326" y2="232" stroke="#d1d5db" stroke-width="1.5"></line></svg></div>
+  <div class="chart-scroll"><svg id="tsv" width="227" height="302" viewBox="0 0 227 302" style="min-width: 227px;"><rect x="34" y="32" width="179" height="190" fill="#fafbff" rx="2"></rect><line x1="34" y1="222" x2="213" y2="222" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="29" y="226" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">0</text><line x1="34" y1="174.5" x2="213" y2="174.5" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="29" y="178.5" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">10</text><line x1="34" y1="127" x2="213" y2="127" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="29" y="131" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">20</text><line x1="34" y1="79.5" x2="213" y2="79.5" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="29" y="83.5" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">30</text><line x1="34" y1="32" x2="213" y2="32" stroke="#e5e7eb" stroke-width="1"></line>
+      <text x="29" y="36" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">40</text><polygon points="72,112.75 79,107.75 79,217 72,222" fill="#0d4a23"></polygon><polygon points="34,112.75 41,107.75 79,107.75 72,112.75" fill="#4caf71"></polygon><rect x="34" y="112.75" width="38" height="109.25" fill="#1a7a3c"></rect><text x="53" y="103.75" fill="#0d4a23" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">23</text><text transform="rotate(-45,53,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
+      <tspan x="53" y="234">CFWD</tspan>
+      <tspan x="53" dy="10">from May</tspan></text><polygon points="119,169.75 126,164.75 126,217 119,222" fill="#0b3a9e"></polygon><polygon points="81,169.75 88,164.75 126,164.75 119,169.75" fill="#4d80f0"></polygon><rect x="81" y="169.75" width="38" height="52.25" fill="#1558d6"></rect><text x="100" y="160.75" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">11</text><text transform="rotate(-45,100,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
+      <tspan x="100" y="234">Joiners</tspan>
+      <tspan x="100" dy="10">Jun-26</tspan></text><polygon points="166,146 173,141 173,217 166,222" fill="#7a2f00"></polygon><polygon points="128,146 135,141 173,141 166,146" fill="#f07030"></polygon><rect x="128" y="146" width="38" height="76" fill="#c75000"></rect><text x="147" y="137" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-16</text><text transform="rotate(-45,147,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
+      <tspan x="147" y="234">Deployed</tspan>
+      <tspan x="147" dy="10">Jun-26</tspan></text><polygon points="213,184 220,179 220,217 213,222" fill="#0d4a23"></polygon><polygon points="175,184 182,179 220,179 213,184" fill="#4caf71"></polygon><rect x="175" y="184" width="38" height="38" fill="#1a7a3c"></rect><text x="194" y="175" fill="#0d4a23" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">8</text><text transform="rotate(-45,194,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
+      <tspan x="194" y="234">Closing</tspan>
+      <tspan x="194" dy="10">Jun-26</tspan></text><line x1="34" y1="222" x2="213" y2="222" stroke="#d1d5db" stroke-width="1.5"></line></svg></div>
 </div>
 
-<!-- STILL IN PDP — ASSOCIATE TABLE -->
-<div class="slabel">Still in PDP — Associate &amp; Vertical Detail (as of 16-Jun-2026)</div>
+<!-- ASSOC TABLE -->
+<div class="slabel" id="assoc-slabel">Still in PDP — Associate &amp; Vertical Detail (as of 18-Jun-2026)</div>
 <div class="assoc-wrap">
   <div class="assoc-head">
     <h3>Still in PDP — Associate Wise &amp; Vertical Wise</h3>
     <div class="assoc-head-right">
-      <span class="assoc-count" id="assoc-count">7 Associates</span>
+      <span class="assoc-count" id="assoc-count">8 Associates</span>
       <input class="assoc-search" type="text" placeholder="Search name / vertical…" oninput="filterAssoc(this.value)">
     </div>
   </div>
   <div style="overflow-x:auto">
     <table class="at">
-      <thead>
-        <tr>
-          <th>Associate ID</th>
-          <th>Name</th>
-          <th>Grade</th>
-          <th>Vertical</th>
-          <th>Skills Cluster</th>
-          <th>Location</th>
-          <th>PDP Entry Date</th>
-          <th>Project</th>
-        </tr>
-      </thead>
+      <thead><tr>
+        <th>Associate ID</th><th>Name</th><th>Grade</th><th>Vertical</th>
+        <th>Skills Cluster</th><th>Location</th><th>PDP Entry Date</th><th>Project</th>
+      </tr></thead>
       <tbody id="assoc-body"><tr class="vg"><td colspan="8"><span class="pill v-bfs">BFS</span><span class="vcount">3</span></td></tr><tr>
-        <td class="id-cell">2512169</td>
+        <td style="color:var(--muted);font-size:9px">2512169</td>
         <td class="name-cell">M, Sachin</td>
         <td><span class="grade-badge grade-a">A</span></td>
         <td><span class="pill v-bfs">BFS</span></td>
@@ -544,7 +375,7 @@ table.at{width:100%;border-collapse:collapse}
         <td style="font-size:9px">27-May-26</td>
         <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_BFS</td>
       </tr><tr>
-        <td class="id-cell">2512678</td>
+        <td style="color:var(--muted);font-size:9px">2512678</td>
         <td class="name-cell">Sekar, Arjun</td>
         <td><span class="grade-badge grade-a">A</span></td>
         <td><span class="pill v-bfs">BFS</span></td>
@@ -553,7 +384,7 @@ table.at{width:100%;border-collapse:collapse}
         <td style="font-size:9px">29-May-26</td>
         <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_BFS</td>
       </tr><tr>
-        <td class="id-cell">2513004</td>
+        <td style="color:var(--muted);font-size:9px">2513004</td>
         <td class="name-cell">Padwal, Pratiksha Shankar</td>
         <td><span class="grade-badge grade-a">A</span></td>
         <td><span class="pill v-bfs">BFS</span></td>
@@ -561,8 +392,8 @@ table.at{width:100%;border-collapse:collapse}
         <td>Pune</td>
         <td style="font-size:9px">01-Jun-26</td>
         <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_BFS</td>
-      </tr><tr class="vg"><td colspan="8"><span class="pill v-ins">Insurance</span><span class="vcount">4</span></td></tr><tr>
-        <td class="id-cell">2512930</td>
+      </tr><tr class="vg"><td colspan="8"><span class="pill v-ins">Insurance</span><span class="vcount">5</span></td></tr><tr>
+        <td style="color:var(--muted);font-size:9px">2512930</td>
         <td class="name-cell">Nellaiappan, Nisha V.</td>
         <td><span class="grade-badge grade-a">A</span></td>
         <td><span class="pill v-ins">Insurance</span></td>
@@ -571,7 +402,7 @@ table.at{width:100%;border-collapse:collapse}
         <td style="font-size:9px">01-Jun-26</td>
         <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
       </tr><tr>
-        <td class="id-cell">2513043</td>
+        <td style="color:var(--muted);font-size:9px">2513043</td>
         <td class="name-cell">Bakhade, Neha Dnyaneshwar</td>
         <td><span class="grade-badge grade-a">A</span></td>
         <td><span class="pill v-ins">Insurance</span></td>
@@ -580,7 +411,7 @@ table.at{width:100%;border-collapse:collapse}
         <td style="font-size:9px">01-Jun-26</td>
         <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
       </tr><tr>
-        <td class="id-cell">2513378</td>
+        <td style="color:var(--muted);font-size:9px">2513378</td>
         <td class="name-cell">Murugan, Ajithkumar</td>
         <td><span class="grade-badge grade-a">A</span></td>
         <td><span class="pill v-ins">Insurance</span></td>
@@ -589,13 +420,22 @@ table.at{width:100%;border-collapse:collapse}
         <td style="font-size:9px">01-Jun-26</td>
         <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
       </tr><tr>
-        <td class="id-cell">2514455</td>
+        <td style="color:var(--muted);font-size:9px">2514455</td>
         <td class="name-cell">Priyanka, C</td>
         <td><span class="grade-badge grade-a">A</span></td>
         <td><span class="pill v-ins">Insurance</span></td>
         <td style="font-size:9px;color:var(--muted2)">QEA-SDET</td>
         <td>Chennai</td>
         <td style="font-size:9px">05-Jun-26</td>
+        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
+      </tr><tr>
+        <td style="color:var(--muted);font-size:9px">2516421</td>
+        <td class="name-cell">Warulkar, Pallavi</td>
+        <td><span class="grade-badge grade-a">A</span></td>
+        <td><span class="pill v-ins">Insurance</span></td>
+        <td style="font-size:9px;color:var(--muted2)">QEA-Automation</td>
+        <td>Pune</td>
+        <td style="font-size:9px">16-Jun-26</td>
         <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
       </tr></tbody>
     </table>
@@ -605,145 +445,575 @@ table.at{width:100%;border-collapse:collapse}
 <!-- FOOTER -->
 <div class="footer">
   <span><strong>QEA · PDP M2S Dashboard</strong> · Confidential — Internal Use Only</span>
-  <span>Generated: June 2026 &nbsp;|&nbsp; Data Source: JUNE PDP MTD Report &nbsp;|&nbsp; <strong>Closing = Opening + Moved In + New Joiners − Deployed − Resigned</strong></span>
+  <span>Data Source: PDP MTD Report 2026 &nbsp;|&nbsp; <strong>Closing = Opening + New Joiners − Deployed − Resigned</strong></span>
 </div>
 
 </div>
+
 <script>
-// ── DATA ──────────────────────────────────────
-const DATES=['01-Jun','02-Jun','03-Jun','04-Jun','05-Jun','08-Jun','09-Jun','10-Jun','11-Jun','12-Jun','15-Jun','16-Jun'];
-const TOTALS=[
-  {d:'01-Jun',opening:23,movedIn:2,newHire:0,deployed:6, resigned:0,still:19},
-  {d:'02-Jun',opening:19,movedIn:2,newHire:6,deployed:7, resigned:0,still:20},
-  {d:'03-Jun',opening:19,movedIn:2,newHire:6,deployed:7, resigned:0,still:20},
-  {d:'04-Jun',opening:19,movedIn:2,newHire:6,deployed:8, resigned:0,still:19},
-  {d:'05-Jun',opening:19,movedIn:2,newHire:6,deployed:10,resigned:0,still:17},
-  {d:'08-Jun',opening:17,movedIn:2,newHire:8,deployed:11,resigned:0,still:16},
-  {d:'09-Jun',opening:17,movedIn:2,newHire:8,deployed:11,resigned:0,still:15},
-  {d:'10-Jun',opening:16,movedIn:2,newHire:8,deployed:12,resigned:0,still:14},
-  {d:'11-Jun',opening:15,movedIn:2,newHire:8,deployed:12,resigned:0,still:13},
-  {d:'12-Jun',opening:13,movedIn:2,newHire:8,deployed:14,resigned:0,still:9},
-  {d:'15-Jun',opening:13,movedIn:2,newHire:8,deployed:16,resigned:0,still:7},
-  {d:'16-Jun',opening:13,movedIn:2,newHire:8,deployed:16,resigned:0,still:7},
-];
-const VERTS=[
-  {name:'BFS',       cls:'v-bfs', dot:'#1558d6',
-   rows:[{o:7,mi:2,n:0,d:0,r:0},{o:7,mi:2,n:1,d:0,r:0},{o:7,mi:2,n:1,d:0,r:0},{o:7,mi:2,n:1,d:0,r:0},{o:7,mi:2,n:1,d:1,r:0},
-         {o:6,mi:2,n:1,d:1,r:0},{o:6,mi:2,n:1,d:1,r:0},{o:6,mi:2,n:1,d:1,r:0},{o:6,mi:2,n:1,d:1,r:0},{o:4,mi:2,n:1,d:3,r:0},
-         {o:4,mi:2,n:1,d:4,r:0},{o:4,mi:2,n:1,d:4,r:0}]},
-  {name:'Comm Media',cls:'v-comm',dot:'#92400e',
-   rows:[{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},
-         {o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},
-         {o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0}]},
-  {name:'Healthcare',cls:'v-hc',  dot:'#5b21b6',
-   rows:[{o:10,mi:0,n:0,d:4,r:0},{o:6,mi:0,n:0,d:4,r:0},{o:6,mi:0,n:0,d:4,r:0},{o:6,mi:0,n:0,d:4,r:0},{o:6,mi:0,n:0,d:4,r:0},
-         {o:5,mi:0,n:0,d:4,r:0},{o:5,mi:0,n:0,d:4,r:0},{o:5,mi:0,n:0,d:4,r:0},{o:4,mi:0,n:0,d:4,r:0},{o:4,mi:0,n:0,d:4,r:0},
-         {o:4,mi:0,n:0,d:4,r:0},{o:4,mi:0,n:0,d:4,r:0}]},
-  {name:'Insurance', cls:'v-ins', dot:'#c75000',
-   rows:[{o:2,mi:0,n:0,d:1,r:0},{o:2,mi:0,n:5,d:1,r:0},{o:2,mi:0,n:5,d:1,r:0},{o:2,mi:0,n:5,d:2,r:0},{o:2,mi:0,n:5,d:3,r:0},
-         {o:2,mi:0,n:7,d:3,r:0},{o:2,mi:0,n:7,d:3,r:0},{o:1,mi:0,n:7,d:4,r:0},{o:1,mi:0,n:7,d:4,r:0},{o:1,mi:0,n:7,d:4,r:0},
-         {o:1,mi:0,n:7,d:4,r:0},{o:1,mi:0,n:7,d:4,r:0}]},
-  {name:'LS',        cls:'v-ls',  dot:'#065f46',
-   rows:[{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},
-         {o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},
-         {o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0}]},
-  {name:'NFT',       cls:'v-nft', dot:'#9d174d',
-   rows:[{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},
-         {o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:0,r:0},
-         {o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0}]},
-  {name:'T&H',       cls:'v-tnh', dot:'#0f766e',
-   rows:[{o:1,mi:0,n:0,d:0,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},
-         {o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0},
-         {o:1,mi:0,n:0,d:1,r:0},{o:1,mi:0,n:0,d:1,r:0}]},
-];
-const CLUSTERS_BY_DATE={
-  '01-Jun':[{l:'QEA-Automation',c:9},{l:'QEA-API & Webservices',c:3},{l:'QEA-Cypress, Playwright',c:2},{l:'QEA-SDET',c:2},{l:'QEA-Domain Skills',c:1},{l:'QEA-Mobile testing',c:1},{l:'QEA-NFT Skills',c:1}],
-  '02-Jun':[{l:'QEA-Automation',c:7},{l:'QEA-SDET',c:4},{l:'QEA-API & Webservices',c:3},{l:'QEA-Domain Skills',c:3},{l:'QEA-Cypress, Playwright',c:2},{l:'QEA-NFT Skills',c:1}],
-  '03-Jun':[{l:'QEA-Automation',c:7},{l:'QEA-SDET',c:4},{l:'QEA-API & Webservices',c:3},{l:'QEA-Domain Skills',c:3},{l:'QEA-Cypress, Playwright',c:2},{l:'QEA-NFT Skills',c:1}],
-  '04-Jun':[{l:'QEA-Automation',c:7},{l:'QEA-SDET',c:4},{l:'QEA-API & Webservices',c:3},{l:'QEA-Cypress, Playwright',c:2},{l:'QEA-Domain Skills',c:2},{l:'QEA-NFT Skills',c:1}],
-  '08-Jun':[{l:'QEA-SDET',c:6},{l:'QEA-Automation',c:5},{l:'QEA-Domain Skills',c:2},{l:'QEA-API & Webservices',c:1},{l:'QEA-Cypress, Playwright',c:1},{l:'QEA-NFT Skills',c:1}],
-  '09-Jun':[{l:'QEA-SDET',c:6},{l:'QEA-Automation',c:5},{l:'QEA-API & Webservices',c:1},{l:'QEA-Cypress, Playwright',c:1},{l:'QEA-Domain Skills',c:1},{l:'QEA-NFT Skills',c:1}],
-  '11-Jun':[{l:'QEA-SDET',c:5},{l:'QEA-Automation',c:4},{l:'QEA-API & Webservices',c:1},{l:'QEA-Cypress, Playwright',c:1},{l:'QEA-Domain Skills',c:1},{l:'QEA-NFT Skills',c:1}],
-  '15-Jun':[{l:'QEA-Automation',c:3},{l:'QEA-SDET',c:3},{l:'QEA-Domain Skills',c:1}],
-  '16-Jun':[{l:'QEA-Automation',c:3},{l:'QEA-SDET',c:3},{l:'QEA-Domain Skills',c:1}],
+// ═══════════════════════════════════════════════════════════════
+// ALL MONTHLY DATA
+// ═══════════════════════════════════════════════════════════════
+const MONTH_DATA = {
+
+  'Jan': {
+    label:'January 2026', asOf:'31-Jan-2026',
+    dates:['Jan-26'],
+    totals:[{d:'Jan-26',opening:13,movedIn:0,newHire:102,deployed:53,resigned:1,still:61}],
+    verts:[
+      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:10,mi:0,n:41,d:21,r:1}]},
+      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:1, mi:0,n:7, d:5, r:0}]},
+      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:0, mi:0,n:2, d:2, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:0, mi:0,n:12,d:8, r:0}]},
+      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:2, mi:0,n:18,d:9, r:0}]},
+      {name:'LS',        cls:'v-ls',  dot:'#065f46', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
+      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:0, mi:0,n:3, d:1, r:0}]},
+      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:0, mi:0,n:7, d:4, r:0}]},
+      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:0, mi:0,n:6, d:3, r:0}]},
+      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:0, mi:0,n:3, d:0, r:0}]},
+      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:0, mi:0,n:2, d:0, r:0}]},
+    ],
+    clusters:{'Jan-26':[{l:'QEA-Automation',c:22},{l:'QEA-Cypress, Playwright',c:8},{l:'QEA-SDET',c:7},{l:'QEA-API & Webservices',c:6},{l:'QEA-Product Testing',c:4},{l:'QEA-EPS - SAP Skills',c:3},{l:'QEA-NFT Skills',c:3},{l:'QEA-Robot Automation',c:3},{l:'QEA-Functional Testing',c:2},{l:'QEA-Mobile testing',c:2},{l:'QEA-Database',c:1}]},
+    assoc:[
+      {id:'2475851', name:'Anantbhat, Pavaman',             grade:'A', vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Bangalore',   entry:'2026-01-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2472962', name:'B L, Vidya',                     grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-08', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2476545', name:'Bandlapalli, Noorulla',          grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Bangalore',   entry:'2026-01-22', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2475318', name:'C, Harshitha',                   grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Bangalore',   entry:'2026-01-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2476627', name:'Deshmukh, Vishakha Mukundrao',   grade:'SA',vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Pune',        entry:'2026-01-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2473471', name:'G, Aswin',                       grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Bangalore',   entry:'2026-01-12', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2474185', name:'G, Premkumar',                   grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Bangalore',   entry:'2026-01-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2474326', name:'J, Gnanamuthu',                  grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-01-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2476706', name:'Kumar U S, Rohith',              grade:'A', vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Chennai',     entry:'2026-01-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2474030', name:'LNU, Praveenkumar',              grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2397599', name:'Marimuthu, Rajaram',             grade:'SA',vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-01-29', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2476502', name:'Murugan, Beula',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-01-22', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'461953',  name:'Nandi, Krishnendu',              grade:'M', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Kolkata',     entry:'2026-01-21', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2476414', name:'P, Nikhil',                      grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Bangalore',   entry:'2026-01-22', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2479050', name:'PV, Divyalakshmi',               grade:'A', vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Chennai',     entry:'2026-01-30', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2477923', name:'R, Anbuselvi',                   grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Chennai',     entry:'2026-01-28', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2477757', name:'Rajendran, Anagha',              grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2475437', name:'Reddy, Reshma S',                grade:'A', vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Bangalore',   entry:'2026-01-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2476550', name:'S, Rama Lakshmi',                grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Coimbatore',  entry:'2026-01-22', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2475295', name:'SV, Megala',                     grade:'SA',vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2475549', name:'Senthilkumar, Vetrivel',         grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Chennai',     entry:'2026-01-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2475314', name:'Shahbazul Quadri, Mohd',         grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2479030', name:'Suresh, Sathish',                grade:'A', vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Chennai',     entry:'2026-01-30', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2475860', name:'Swamy, Vrushab',                 grade:'SA',vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Bangalore',   entry:'2026-01-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2473465', name:'T N., Sowmya Sree',              grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-12', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2473469', name:'T, Kaleeshwaran',                grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Chennai',     entry:'2026-01-12', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2474183', name:'Tangirala, Tarun',               grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2474031', name:'Umare, Anand P',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Mobile testing',      loc:'Bangalore',   entry:'2026-01-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2477802', name:'Yeleti, Yogitha Chowdary',       grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Hyderabad',   entry:'2026-01-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2473591', name:'C, Abinaya',                     grade:'A', vertical:'Communications Media',         cluster:'QEA-Cypress, Playwright', loc:'Chennai',     entry:'2026-01-12', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2478303', name:'R, Annamalai',                   grade:'A', vertical:'Communications Media',         cluster:'QEA-Cypress, Playwright', loc:'Bangalore',   entry:'2026-01-29', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2478296', name:'Raj, Kushal',                    grade:'A', vertical:'Communications Media',         cluster:'QEA-Robot Automation',    loc:'Bangalore',   entry:'2026-01-29', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2475282', name:'Farozan, Meher',                 grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-19', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2477888', name:'Jha, Madhuri Kumari',            grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Database',            loc:'Bangalore',   entry:'2026-01-28', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2474427', name:'K K, Pallavi',                   grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-14', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2477489', name:'LNU, Janani',                    grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-01-27', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2476696', name:'A S, Antonymarshan',             grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Chennai',     entry:'2026-01-23', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2475441', name:'B, Indhumathi',                  grade:'A', vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Coimbatore',  entry:'2026-01-19', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2478227', name:'Bhutada, Surabhi Chiranjilal',   grade:'A', vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Hyderabad',   entry:'2026-01-29', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2475586', name:'Manoharan, Saranya',             grade:'SA',vertical:'Insurance',                    cluster:'QEA-Functional Testing',  loc:'Chennai',     entry:'2026-01-19', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2473344', name:'Nallagorla, Poorna Sekhar',      grade:'SA',vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Hyderabad',   entry:'2026-01-12', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2473478', name:'R, Janani',                      grade:'A', vertical:'Insurance',                    cluster:'QEA-Mobile testing',      loc:'Coimbatore',  entry:'2026-01-12', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2475452', name:'R, Murugeshwaran',               grade:'SA',vertical:'Insurance',                    cluster:'QEA-SDET',                loc:'Coimbatore',  entry:'2026-01-19', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2479045', name:'R, Raghul',                      grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Chennai',     entry:'2026-01-30', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2476210', name:'Rani, Sandhya',                  grade:'A', vertical:'Insurance',                    cluster:'QEA-SDET',                loc:'Kolkata',     entry:'2026-01-21', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2477584', name:'Sekar, Vinotha',                 grade:'A', vertical:'Insurance',                    cluster:'QEA-Cypress, Playwright', loc:'Chennai',     entry:'2026-01-27', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2479004', name:'TB, Karthikeyan',                grade:'A', vertical:'Insurance',                    cluster:'QEA-Functional Testing',  loc:'Chennai',     entry:'2026-01-30', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2477893', name:'Gadekar, Santosh D.',            grade:'A', vertical:'LS',                           cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-01-28', proj:'QEA_D_PDP_M2S_LS'},
+      {id:'2473371', name:'Felix, Praveena',                grade:'A', vertical:'MLEU',                         cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-01-12', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2477574', name:'Kathiravan, Vidyananth',         grade:'A', vertical:'MLEU',                         cluster:'QEA-Cypress, Playwright', loc:'Chennai',     entry:'2026-01-27', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2478469', name:'Satapathy, Lopamudra',           grade:'SA',vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Bhubaneswar', entry:'2026-01-29', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2476061', name:'Selvaraj, Nitheesh',             grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Chennai',     entry:'2026-01-21', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2476063', name:'Suryamurthy, Rahul Krishna',     grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Chennai',     entry:'2026-01-21', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2474685', name:'K, Praveen',                     grade:'A', vertical:'RCG',                          cluster:'QEA-Product Testing',     loc:'Chennai',     entry:'2026-01-16', proj:'QEA_D_PDP_M2S_RCG'},
+      {id:'2473456', name:'Murugan, Siva Kumar',            grade:'A', vertical:'RCG',                          cluster:'QEA-Automation',          loc:'Coimbatore',  entry:'2026-01-12', proj:'QEA_D_PDP_M2S_RCG'},
+      {id:'2473556', name:'Suma Srivalli, Morapakala',      grade:'A', vertical:'RCG',                          cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-01-12', proj:'QEA_D_PDP_M2S_RCG'},
+      {id:'2473536', name:'Archana, Gaddam',                grade:'SA',vertical:'T&H',                          cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-01-12', proj:'QEA_D_PDP_M2S_TH'},
+      {id:'2474182', name:'Chandrakala, Appani',            grade:'A', vertical:'T&H',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-13', proj:'QEA_D_PDP_M2S_TH'},
+      {id:'2476783', name:'Paruchuri, Kavya',               grade:'SA',vertical:'T&H',                          cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-01-23', proj:'QEA_D_PDP_M2S_TH'},
+      {id:'2475289', name:'A R, Chinnappa',                 grade:'A', vertical:'TECH',                         cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-19', proj:'QEA_D_PDP_M2S_TECH-NA'},
+      {id:'2477476', name:'Vineeth Kumar Reddy, Bhumi Reddy',grade:'A',vertical:'TECH',                         cluster:'QEA-API & Webservices',   loc:'Hyderabad',   entry:'2026-01-27', proj:'QEA_D_PDP_M2S_TECH-NA'},
+    ],
+    cfwd:13
+  },
+
+  'Feb': {
+    label:'February 2026', asOf:'28-Feb-2026',
+    dates:['Feb-26'],
+    totals:[{d:'Feb-26',opening:24,movedIn:0,newHire:102,deployed:64,resigned:0,still:62}],
+    verts:[
+      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:10,mi:0,n:42,d:24,r:0}]},
+      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:2, mi:0,n:4, d:2, r:0}]},
+      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:0, mi:0,n:6, d:3, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:1, mi:0,n:11,d:6, r:0}]},
+      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:5, mi:0,n:20,d:15,r:0}]},
+      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:1, mi:0,n:3, d:1, r:0}]},
+      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:3, mi:0,n:11,d:8, r:0}]},
+      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:1, mi:0,n:1, d:2, r:0}]},
+      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:0, mi:0,n:2, d:1, r:0}]},
+      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:1, mi:0,n:2, d:2, r:0}]},
+    ],
+    clusters:{'Feb-26':[{l:'QEA-Automation',c:19},{l:'QEA-API & Webservices',c:14},{l:'QEA-SDET',c:5},{l:'QEA-NFT Skills',c:5},{l:'QEA-Robot Automation',c:4},{l:'QEA-Cypress, Playwright',c:3},{l:'QEA-EPS - BPM Skills',c:2},{l:'QEA-EPS - SAP Skills',c:2},{l:'QEA-EPS - CRM Skills',c:2},{l:'QEA-Product Testing',c:2},{l:'QEA-Mobile testing',c:2},{l:'QEA-Database',c:1},{l:'QEA-Functional Testing',c:1}]},
+    assoc:[
+      {id:'2483737', name:'A Sattikar, Promod',             grade:'A', vertical:'BFS',                          cluster:'QEA-EPS - CRM Skills',    loc:'Bangalore',  entry:'2026-02-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2472962', name:'B L, Vidya',                     grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-01-08', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2485336', name:'B, Praveen Kumar',               grade:'A', vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Chennai',    entry:'2026-02-17', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2485663', name:'Bhagwat, Neha',                  grade:'A', vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Pune',       entry:'2026-02-18', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486252', name:'Bhavsar, Sandeep Sanjay',        grade:'SA',vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Pune',       entry:'2026-02-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2488000', name:'Borra, Prasanth',                grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Hyderabad',  entry:'2026-02-25', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2488015', name:'C R, Giriraj',                   grade:'A', vertical:'BFS',                          cluster:'QEA-Mobile testing',      loc:'Bangalore',  entry:'2026-02-25', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2485664', name:'C, Naveen Kumar',                grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-02-18', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2488159', name:'D, Dharmadurai',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-02-25', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486981', name:'Das, Suvam',                     grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Kolkata',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2483198', name:'Deve G, Harene Rajathe',         grade:'SA',vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Chennai',    entry:'2026-02-11', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486270', name:'Dey, Swarnadeep',                grade:'A', vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Kolkata',    entry:'2026-02-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2488030', name:'Gavali, Ajay Mahadu',            grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Pune',       entry:'2026-02-25', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2483508', name:'Ghosh, Srabana',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Kolkata',    entry:'2026-02-12', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2484346', name:'Hiremath, Naveenkumar',          grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-02-16', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486271', name:'Jana, Subhadip',                 grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Kolkata',    entry:'2026-02-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486655', name:'Kosanam, Renuka',                grade:'A', vertical:'BFS',                          cluster:'QEA-Functional Testing',  loc:'Bangalore',  entry:'2026-02-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2484268', name:'N, Lokesh',                      grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Bangalore',  entry:'2026-02-16', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2488154', name:'N, Sivaraman',                   grade:'A', vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Chennai',    entry:'2026-02-25', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2483535', name:'P, Jothikrishna',                grade:'A', vertical:'BFS',                          cluster:'QEA-Mobile testing',      loc:'Chennai',    entry:'2026-02-12', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486311', name:'Pal, Koushik',                   grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Kolkata',    entry:'2026-02-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486669', name:'Pendota, Pavani',                grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Hyderabad',  entry:'2026-02-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486314', name:'Prakash, Akshay',                grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Kolkata',    entry:'2026-02-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486673', name:'Rahul, Kothapally',              grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Hyderabad',  entry:'2026-02-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486294', name:'S, Vishwa',                      grade:'A', vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Chennai',    entry:'2026-02-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2483847', name:'Soni, Aashi',                    grade:'SA',vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-02-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2486262', name:'Tiwari, Aayushi',                grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Pune',       entry:'2026-02-19', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2483536', name:'Venkata Prasanna, Kanchumati',   grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Hyderabad',  entry:'2026-02-12', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2485372', name:'Hegde, Bhavana Satish',          grade:'A', vertical:'Communications Media',         cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-02-17', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2483617', name:'K, Nandakumar',                  grade:'SA',vertical:'Communications Media',         cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-02-12', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2484440', name:'Sagarla, Sowmya',                grade:'A', vertical:'Communications Media',         cluster:'QEA-Automation',          loc:'Hyderabad',  entry:'2026-02-16', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2482950', name:'Subramaniyan, Mangaiyarkarasi',  grade:'SA',vertical:'Communications Media',         cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-02-10', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2486420', name:'C, Chaithra',                    grade:'SA',vertical:'EPS',                          cluster:'QEA-EPS - BPM Skills',    loc:'Bangalore',  entry:'2026-02-20', proj:'QEA_D_PDP_M2S_BPM'},
+      {id:'2483071', name:'Mondal, Sonali',                 grade:'A', vertical:'EPS',                          cluster:'QEA-EPS - BPM Skills',    loc:'Kolkata',    entry:'2026-02-10', proj:'QEA_D_PDP_M2S_BPM'},
+      {id:'2483229', name:'Reddy, Shashank Reddy Jayarami', grade:'A', vertical:'EPS',                          cluster:'QEA-EPS - CRM Skills',    loc:'Bangalore',  entry:'2026-02-11', proj:'QEA_D_PDP_M2S_CRM'},
+      {id:'2487028', name:'B K, Naresh Kumar',              grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Coimbatore', entry:'2026-02-23', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2486988', name:'Devadiga, Rajesh',               grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-EPS - SAP Skills',    loc:'Bangalore',  entry:'2026-02-23', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2485211', name:'Noufal I, Mohamed',              grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Coimbatore', entry:'2026-02-17', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2484646', name:'Panigrahi, Sasmita',             grade:'SA',vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-02-16', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2486778', name:'Selvakumar, Rakshana',           grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Cypress, Playwright', loc:'Chennai',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2486968', name:'Venkatesan, Thilagavathi',       grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Database',            loc:'Chennai',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2483714', name:'Allam, Nikhila',                 grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Hyderabad',  entry:'2026-02-13', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'221564',  name:'Chandrasekaran, Saranya',        grade:'SA',vertical:'Insurance',                    cluster:'QEA-SDET',                loc:'Coimbatore', entry:'2026-02-12', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2487777', name:'Devram Thange, Prasad',          grade:'SA',vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Pune',       entry:'2026-02-24', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2486475', name:'Durga Bhavani, Pandiripalli Leela',grade:'A',vertical:'Insurance',                   cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-02-20', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2487778', name:'G, Johnjebash',                  grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Coimbatore', entry:'2026-02-24', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2487054', name:'Joddar, Ritika',                 grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Kolkata',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2486997', name:'Prajapati, Roushan Kumar',       grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Kolkata',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2486740', name:'R, Niranjana',                   grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2483741', name:'S, Srinivasan',                  grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-02-13', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2488029', name:'Subramanian, Selvakumar',        grade:'A', vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Chennai',    entry:'2026-02-25', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2484412', name:'Kommuri, Gowri Kalyani',         grade:'A', vertical:'MLEU',                         cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-02-16', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2486749', name:'Miraclin, Vency',                grade:'A', vertical:'MLEU',                         cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2485322', name:'V A, Kamali',                    grade:'A', vertical:'MLEU',                         cluster:'QEA-API & Webservices',   loc:'Bangalore',  entry:'2026-02-17', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2486751', name:'Badavath, Sai',                  grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Hyderabad',  entry:'2026-02-23', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2488952', name:'Manohar, Venkatesh Balaji',      grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Chennai',    entry:'2026-02-26', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2315810', name:'Singh, Deepak',                  grade:'M', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Noida',      entry:'2026-02-20', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2486991', name:'V, Vijayakumar',                 grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Chennai',    entry:'2026-02-23', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2488981', name:'Venkata Sai Chinnakkagari, Naveen',grade:'SA',vertical:'NFT',                        cluster:'QEA-NFT Skills',          loc:'Hyderabad',  entry:'2026-02-26', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2483594', name:'Venugopal, Sanjeevi',            grade:'M', vertical:'NFT',                          cluster:'QEA-SDET',                loc:'Chennai',    entry:'2026-02-12', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2488992', name:'Sharma, Navnidhi',               grade:'A', vertical:'T&H',                          cluster:'QEA-Automation',          loc:'Noida',      entry:'2026-02-26', proj:'QEA_D_PDP_M2S_TH'},
+      {id:'2486763', name:'Darshanam, Sandeep',             grade:'A', vertical:'TECH',                         cluster:'QEA-Automation',          loc:'Hyderabad',  entry:'2026-02-23', proj:'QEA_D_PDP_M2S_TECH-NA'},
+    ],
+    cfwd:24
+  },
+
+  'Mar': {
+    label:'March 2026', asOf:'31-Mar-2026',
+    dates:['Mar-26'],
+    totals:[{d:'Mar-26',opening:40,movedIn:4,newHire:92,deployed:83,resigned:0,still:53}],
+    verts:[
+      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:18,mi:1,n:34,d:29,r:0}]},
+      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:3, mi:0,n:11,d:9, r:0}]},
+      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:1, mi:0,n:3, d:2, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:4, mi:0,n:12,d:7, r:0}]},
+      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:6, mi:1,n:14,d:17,r:0}]},
+      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:2, mi:0,n:6, d:4, r:0}]},
+      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:4, mi:2,n:7, d:12,r:0}]},
+      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:0, mi:0,n:3, d:0, r:0}]},
+      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:1, mi:0,n:2, d:2, r:0}]},
+      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:1, mi:0,n:0, d:1, r:0}]},
+    ],
+    clusters:{'Mar-26':[{l:'QEA-Automation',c:21},{l:'QEA-Cypress, Playwright',c:8},{l:'QEA-Mobile testing',c:5},{l:'QEA-API & Webservices',c:4},{l:'QEA-SDET',c:4},{l:'QEA-Product Testing',c:3},{l:'QEA-EPS - SAP Skills',c:3},{l:'QEA-EPS - CRM Skills',c:2},{l:'QEA-Database',c:1},{l:'QEA-NFT Skills',c:1},{l:'QEA-Robot Automation',c:1}]},
+    assoc:[
+      {id:'2497173', name:'A, Jagan',                       grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-03-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2493505', name:'Aekunde, Mahesh Kashinath',      grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Pune',        entry:'2026-03-16', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2492964', name:'Agrawal, Shubham',               grade:'SA',vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Bangalore',   entry:'2026-03-12', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2472962', name:'B L, Vidya',                     grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-01-08', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2496078', name:'Bonthu, Akhila',                 grade:'SA',vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Hyderabad',   entry:'2026-03-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2496446', name:'Chavan, Suraj Jalindar',         grade:'A', vertical:'BFS',                          cluster:'QEA-Mobile testing',      loc:'Pune',        entry:'2026-03-24', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2491797', name:'Guduru, Sivapriya Reddy',        grade:'A', vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Hyderabad',   entry:'2026-03-09', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2491067', name:'H R, Vishwas Gowda',             grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Bangalore',   entry:'2026-03-05', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2494909', name:'K B, Reshmi',                    grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Bangalore',   entry:'2026-03-18', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2494110', name:'K, Suganthan',                   grade:'A', vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Chennai',     entry:'2026-03-16', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2495511', name:'Kesarkar, Sourabh Shashikant',   grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Pune',        entry:'2026-03-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2494887', name:'Kuppala, Devakanth',             grade:'SA',vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Bangalore',   entry:'2026-03-18', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2493719', name:'P, Lavanya',                     grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-03-16', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2491794', name:'P, Venkata Nitish',              grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-03-09', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2497134', name:'Palthya, Shashikanth',           grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-03-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2496406', name:'Patel, Sohel',                   grade:'SA',vertical:'BFS',                          cluster:'QEA-Product Testing',     loc:'Bangalore',   entry:'2026-03-24', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2496993', name:'Pawar, Gargi',                   grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Gurgaon',     entry:'2026-03-26', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2494899', name:'Ramesh, Pradeepa',               grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-03-18', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2495542', name:'Rohokale, Kavita Santosh',       grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Pune',        entry:'2026-03-23', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2493716', name:'Roy, Sumanta',                   grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Kolkata',     entry:'2026-03-16', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2494877', name:'Sai Kumar, Allu',                grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-03-18', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2494910', name:'Sonti, Suresh',                  grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-03-18', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2492627', name:'Tajane, Samiksha',               grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Pune',        entry:'2026-03-11', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2493646', name:'VP, Hariprasad',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-03-16', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2493260', name:'Anusha, Goli',                   grade:'A', vertical:'Communications Media',         cluster:'QEA-Cypress, Playwright', loc:'Hyderabad',   entry:'2026-03-13', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2494006', name:'Boddukuri, Krishna Sai',         grade:'A', vertical:'Communications Media',         cluster:'QEA-Cypress, Playwright', loc:'Hyderabad',   entry:'2026-03-16', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2494512', name:'Karanam, Mary Prathyusha',       grade:'A', vertical:'Communications Media',         cluster:'QEA-Mobile testing',      loc:'Hyderabad',   entry:'2026-03-17', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2493682', name:'M, Amrutha',                     grade:'A', vertical:'Communications Media',         cluster:'QEA-Cypress, Playwright', loc:'Bangalore',   entry:'2026-03-16', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2494641', name:'Thatikonda, Sai Manisha',        grade:'A', vertical:'Communications Media',         cluster:'QEA-Mobile testing',      loc:'Hyderabad',   entry:'2026-03-17', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2493693', name:'Katta, Mounika',                 grade:'A', vertical:'EPS',                          cluster:'QEA-EPS - CRM Skills',    loc:'Bangalore',   entry:'2026-03-16', proj:'QEA_D_PDP_M2S_CRM'},
+      {id:'2493211', name:'Y, Reshma',                      grade:'A', vertical:'EPS',                          cluster:'QEA-EPS - CRM Skills',    loc:'Bangalore',   entry:'2026-03-13', proj:'QEA_D_PDP_M2S_CRM'},
+      {id:'2494010', name:'Chandana, Sodisetty',            grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-EPS - SAP Skills',    loc:'Hyderabad',   entry:'2026-03-16', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2494518', name:'Chandrakumar, Naveen Kumar',     grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-API & Webservices',   loc:'Coimbatore',  entry:'2026-03-17', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2494519', name:'Chemalamari, Aruna',             grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-03-17', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2496996', name:'HD, Prajwal',                    grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Database',            loc:'Bangalore',   entry:'2026-03-26', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2496998', name:'Maradana, Sai Teja',             grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-API & Webservices',   loc:'Bangalore',   entry:'2026-03-26', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2494011', name:'N, Anil Kumar',                  grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-03-16', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2494898', name:'Praveen, Cheera',                grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Mobile testing',      loc:'Hyderabad',   entry:'2026-03-18', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2493769', name:'R, Dinesh',                      grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Coimbatore',  entry:'2026-03-16', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2493279', name:'U, Hema Nageswari',              grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-EPS - SAP Skills',    loc:'Chennai',     entry:'2026-03-13', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2493209', name:'A, Nandhini',                    grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Coimbatore',  entry:'2026-03-13', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2493608', name:'M R, Vineeta',                   grade:'A', vertical:'Insurance',                    cluster:'QEA-Cypress, Playwright', loc:'Chennai',     entry:'2026-03-16', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2495590', name:'Prasath S, Deva',                grade:'A', vertical:'Insurance',                    cluster:'QEA-SDET',                loc:'Chennai',     entry:'2026-03-23', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2492675', name:'R, Vigneshwaran',                grade:'A', vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Chennai',     entry:'2026-03-11', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2491121', name:'Kundu, Sayak',                   grade:'A', vertical:'MLEU',                         cluster:'QEA-SDET',                loc:'Kolkata',     entry:'2026-03-05', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2494608', name:'LNU, Guruprasath',               grade:'A', vertical:'MLEU',                         cluster:'QEA-Mobile testing',      loc:'Chennai',     entry:'2026-03-17', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2494525', name:'Praveen, Killana',               grade:'A', vertical:'MLEU',                         cluster:'QEA-SDET',                loc:'Hyderabad',   entry:'2026-03-17', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2495126', name:'Singha, Shreyas',                grade:'A', vertical:'MLEU',                         cluster:'QEA-Automation',          loc:'Kolkata',     entry:'2026-03-19', proj:'QEA_D_PDP_M2S_MLEU'},
+      {id:'2493202', name:'Sabarinathan, Sai',              grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Chennai',     entry:'2026-03-13', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2494511', name:'H U, Sreedhara',                 grade:'A', vertical:'RCG',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-03-17', proj:'QEA_D_PDP_M2S_RCG'},
+      {id:'2494889', name:'Manaswini, Valivarthi Sai',      grade:'A', vertical:'RCG',                          cluster:'QEA-SDET',                loc:'Hyderabad',   entry:'2026-03-18', proj:'QEA_D_PDP_M2S_RCG'},
+      {id:'2495131', name:'Pandua, Ankita',                 grade:'A', vertical:'RCG',                          cluster:'QEA-Automation',          loc:'Bhubaneswar', entry:'2026-03-19', proj:'QEA_D_PDP_M2S_RCG'},
+      {id:'2491782', name:'Dharmireddy, Rajesh',            grade:'A', vertical:'T&H',                          cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-03-09', proj:'QEA_D_PDP_M2S_TH'},
+    ],
+    cfwd:40
+  },
+
+  'Apr': {
+    label:'April 2026', asOf:'30-Apr-2026',
+    dates:['Apr-26'],
+    totals:[{d:'Apr-26',opening:22,movedIn:1,newHire:80,deployed:63,resigned:0,still:40}],
+    verts:[
+      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:13,mi:0,n:26,d:21,r:0}]},
+      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:1, mi:0,n:18,d:12,r:0}]},
+      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:2, mi:0,n:18,d:12,r:0}]},
+      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
+      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:1, mi:1,n:12,d:8, r:0}]},
+      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:1, mi:0,n:3, d:4, r:0}]},
+      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
+    ],
+    clusters:{'Apr-26':[{l:'QEA-Automation',c:13},{l:'QEA-API & Webservices',c:8},{l:'QEA-EPS - SAP Skills',c:6},{l:'QEA-NFT Skills',c:6},{l:'QEA-Cypress, Playwright',c:4},{l:'QEA-Database',c:2},{l:'QEA-Robot Automation',c:1}]},
+    assoc:[
+      {id:'2505857', name:'A, Shreedevi',                   grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-04-24', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2504072', name:'Divya, Nuvvuru',                 grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-04-17', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'818622',  name:'Durga, Jaya',                    grade:'SA',vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-04-17', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2505980', name:'Gadekar, Akshay Vishnu',         grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Pune',       entry:'2026-04-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2504481', name:'Honnalli, Abhay S',              grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-04-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2504463', name:'K, Daarshanik',                  grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-04-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2502885', name:'Kagalkar, Swati Devidas',        grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Bangalore',  entry:'2026-04-14', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2502427', name:'LNU, Mallappa',                  grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Pune',       entry:'2026-04-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2505461', name:'LNU, Premi',                     grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-04-22', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2506201', name:'Mandal, Soumyadeep',             grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Kolkata',    entry:'2026-04-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2504392', name:'P, Divya',                       grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-04-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2505791', name:'Pranav, Kota Veeravenkatasai',   grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Hyderabad',  entry:'2026-04-24', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2502032', name:'R, Parameswari',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-04-10', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2504467', name:'S, Kavinprasad',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Robot Automation',    loc:'Bangalore',  entry:'2026-04-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2504408', name:'Sai Sri, Mallipudi',             grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Hyderabad',  entry:'2026-04-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2502508', name:'Shinde, Rohit Madhavrao',        grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Pune',       entry:'2026-04-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2504488', name:'V, Koushik',                     grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-04-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2506209', name:'Verma, Kanhaiya Kumar',          grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Kolkata',    entry:'2026-04-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2505805', name:'Balajothi, Manoj Prabhakar',     grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Database',            loc:'Chennai',    entry:'2026-04-24', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2503890', name:'Bhyravi, Shasi Kiran',           grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Database',            loc:'Bangalore',  entry:'2026-04-16', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2505462', name:'Manoharan, Gayathri',            grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-EPS - SAP Skills',    loc:'Chennai',    entry:'2026-04-22', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2503019', name:'R, Aswathi',                     grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-EPS - SAP Skills',    loc:'Coimbatore', entry:'2026-04-15', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2500866', name:'R, Prasanth',                    grade:'SA',vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-04-07', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2503013', name:'Shanmugam, Harisushma',          grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-EPS - SAP Skills',    loc:'Chennai',    entry:'2026-04-15', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2505464', name:'T H R, Nishanthi',               grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',    entry:'2026-04-22', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2504076', name:'B S, Mullai Malar',              grade:'SA',vertical:'Insurance',                    cluster:'QEA-Cypress, Playwright', loc:'Chennai',    entry:'2026-04-17', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2015685', name:'Dasaradha Ramaiah, Muli',        grade:'A', vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Hyderabad',  entry:'2026-04-13', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2503843', name:'Latha, Pushpa',                  grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-04-16', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2504947', name:'P, Gowrisankar',                 grade:'A', vertical:'Insurance',                    cluster:'QEA-Cypress, Playwright', loc:'Chennai',    entry:'2026-04-21', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2507015', name:'R, Prabu',                       grade:'A', vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Chennai',    entry:'2026-04-29', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2503034', name:'T, Dinesh',                      grade:'A', vertical:'Insurance',                    cluster:'QEA-EPS - SAP Skills',    loc:'Chennai',    entry:'2026-04-15', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2506715', name:'Takte, Madhura Amit',            grade:'A', vertical:'Insurance',                    cluster:'QEA-Cypress, Playwright', loc:'Pune',       entry:'2026-04-28', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2504417', name:'V, Logeshwar',                   grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices',   loc:'Chennai',    entry:'2026-04-20', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2502471', name:'Banagar, Prem Kumar S',          grade:'SA',vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Bangalore',  entry:'2026-04-13', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2502693', name:'Dharavath, Mounika',             grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Hyderabad',  entry:'2026-04-13', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2505505', name:'Loganathan, Pavithran Vignesh',  grade:'M', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Chennai',    entry:'2026-04-22', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2505889', name:'Munshi, Ankita',                 grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Kolkata',    entry:'2026-04-24', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2504402', name:'Neelam, Sumanjali',              grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Chennai',    entry:'2026-04-20', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2507029', name:'Rebbavarapu, Vignesh',           grade:'A', vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Hyderabad',  entry:'2026-04-29', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2502886', name:'Rufiya, Peeranna Gari',          grade:'A', vertical:'TECH',                         cluster:'QEA-Automation',          loc:'Bangalore',  entry:'2026-04-14', proj:'QEA_D_PDP_M2S_TECH-NA'},
+    ],
+    cfwd:22
+  },
+
+  'May': {
+    label:'May 2026', asOf:'25-May-2026',
+    dates:['May-26'],
+    totals:[{d:'May-26',opening:17,movedIn:0,newHire:44,deployed:36,resigned:2,still:23}],
+    verts:[
+      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:3,mi:0,n:15,d:10,r:1}]},
+      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:0,mi:0,n:3, d:2, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:5,mi:0,n:11,d:6, r:0}]},
+      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:6,mi:0,n:10,d:13,r:1}]},
+      {name:'LS',        cls:'v-ls',  dot:'#065f46', rows:[{o:0,mi:0,n:1, d:0, r:0}]},
+      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:3,mi:0,n:3, d:5, r:0}]},
+      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:0,mi:0,n:1, d:0, r:0}]},
+    ],
+    clusters:{
+      'May-26':[{l:'QEA-Automation',c:15},{l:'QEA-API & Webservices',c:2},{l:'QEA-SDET',c:2},{l:'QEA-Cypress, Playwright',c:1},{l:'QEA-Domain Skills',c:1},{l:'QEA-Mobile testing',c:1},{l:'QEA-NFT Skills',c:1}],
+    },
+    assoc:[
+      {id:'2511770', name:'., Priya',                  grade:'A', vertical:'BFS',                          cluster:'QEA-Cypress, Playwright', loc:'Chennai',     entry:'2026-05-25', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2511977', name:'Deore, Snehal Pratik',      grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Pune',        entry:'2026-05-26', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2511417', name:'E, Vinay Kumar',            grade:'SA',vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-05-21', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2512167', name:'HS, Shubhashree',           grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Bangalore',   entry:'2026-05-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2511769', name:'K S, Kavinilavu',           grade:'A', vertical:'BFS',                          cluster:'QEA-SDET',                loc:'Chennai',     entry:'2026-05-25', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2512169', name:'M, Sachin',                 grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-05-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2510987', name:'SA, Ganavi',                grade:'A', vertical:'BFS',                          cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-05-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2509452', name:'Siddi, Yuvasri',            grade:'A', vertical:'Communications Media',         cluster:'QEA-Automation',          loc:'Bangalore',   entry:'2026-05-08', proj:'QEA_D_PDP_M2S_COMM-NA'},
+      {id:'2510679', name:'Imran, Mohammed',           grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-05-18', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2509816', name:'K, Shanmugaarasu',          grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-05-11', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2509703', name:'Kani, K Chithirai',         grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-API & Webservices',   loc:'Chennai',     entry:'2026-05-11', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2511384', name:'LNU, Arshiya',              grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-05-21', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2509690', name:'Natarajan, Sarojjini',      grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-API & Webservices',   loc:'Chennai',     entry:'2026-05-11', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2509711', name:'P, Bhuvanesh',              grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Mobile testing',      loc:'Chennai',     entry:'2026-05-11', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2509778', name:'Salman, Mohammed',          grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-05-11', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2509689', name:'Solomon, Stella John',      grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-05-11', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2509815', name:'T, Praveen',                grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-05-11', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2511642', name:'Terli, Hari Krishna',       grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-Automation',          loc:'Hyderabad',   entry:'2026-05-22', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'172497',  name:'B N, Vidya Priyadarshini',  grade:'A', vertical:'Insurance',                    cluster:'QEA-Domain Skills',       loc:'Coimbatore',  entry:'2026-05-27', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2510428', name:'M, Harikrishna',            grade:'A', vertical:'Insurance',                    cluster:'QEA-Automation',          loc:'Kochi',       entry:'2026-05-15', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2510626', name:'Kollipara, Lalitha Mahalakshmi',grade:'A',vertical:'LS',                        cluster:'QEA-Automation',          loc:'Chennai',     entry:'2026-05-18', proj:'QEA_D_PDP_M2S_LS'},
+      {id:'2511809', name:'Das Barman, Arnab',         grade:'SA',vertical:'NFT',                          cluster:'QEA-NFT Skills',          loc:'Kolkata',     entry:'2026-05-25', proj:'QEA_D_PDP_M2S_NFT'},
+      {id:'2510157', name:'Kumar, Anand',              grade:'A', vertical:'T&H',                          cluster:'QEA-Automation',          loc:'Kolkata',     entry:'2026-05-13', proj:'QEA_D_PDP_M2S_TH'},
+    ],
+    cfwd:40
+  },
+
+  'Jun': {
+    label:'June 2026', asOf:'18-Jun-2026',
+    dates:['Jun-26'],
+    totals:[{d:'Jun-26',opening:13,movedIn:0,newHire:11,deployed:16,resigned:0,still:8}],
+    verts:[
+      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:4,mi:0,n:3,d:4,r:0}]},
+      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:4,mi:0,n:0,d:4,r:0}]},
+      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:8,d:4,r:0}]},
+      {name:'LS',        cls:'v-ls',  dot:'#065f46', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+    ],
+    clusters:{
+      'Jun-26':[{l:'QEA-Automation',c:4},{l:'QEA-SDET',c:3},{l:'QEA-Domain Skills',c:1}],
+    },
+    assoc:[
+      {id:'2512169', name:'M, Sachin',                 grade:'A', vertical:'BFS',       cluster:'QEA-Automation',   loc:'Bangalore', entry:'27-May-26',proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2512678', name:'Sekar, Arjun',              grade:'A', vertical:'BFS',       cluster:'QEA-Automation',   loc:'Chennai',   entry:'29-May-26',proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2513004', name:'Padwal, Pratiksha Shankar', grade:'A', vertical:'BFS',       cluster:'QEA-Automation',   loc:'Pune',      entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2512930', name:'Nellaiappan, Nisha V.',     grade:'A', vertical:'Insurance', cluster:'QEA-SDET',         loc:'Chennai',   entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2513043', name:'Bakhade, Neha Dnyaneshwar', grade:'A', vertical:'Insurance', cluster:'QEA-SDET',         loc:'Pune',      entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2513378', name:'Murugan, Ajithkumar',       grade:'A', vertical:'Insurance', cluster:'QEA-Domain Skills',loc:'Chennai',   entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2514455', name:'Priyanka, C',               grade:'A', vertical:'Insurance', cluster:'QEA-SDET',         loc:'Chennai',   entry:'05-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2516421', name:'Warulkar, Pallavi',         grade:'A', vertical:'Insurance', cluster:'QEA-Automation',   loc:'Pune',      entry:'16-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
+    ],
+    cfwd:23
+  }
 };
 
-// ── CLOSING COUNT CARDS ────────────────────────
-(()=>{
-  const maxC=Math.max(...TOTALS.map(t=>t.opening+t.movedIn+t.newHire-t.deployed-t.resigned));
-  document.getElementById('cc-row').innerHTML=TOTALS.map((t,i)=>{
-    const c=t.opening+t.movedIn+t.newHire-t.deployed-t.resigned, isLast=i===TOTALS.length-1;
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+let activeMonth = 'Jun';
+let activeDateIdx = 0;
+let currentAssoc = [];
+
+const V_PILL={
+  'BFS':'v-bfs',
+  'Comm Media':'v-comm','Communications Media':'v-comm',
+  'EPS':'v-eps',
+  'Healthcare':'v-hc','Healthcare- Plans & Providers':'v-hc',
+  'Insurance':'v-ins',
+  'LS':'v-ls',
+  'MLEU':'v-mleu',
+  'NFT':'v-nft',
+  'RCG':'v-rcg',
+  'T&H':'v-tnh',
+  'TECH':'v-tech','TechCoE':'v-tech2'
+};
+const G_BADGE={'A':'grade-a','SA':'grade-sa','M':'grade-m'};
+
+// ═══════════════════════════════════════════════════════════════
+// MONTH SELECT
+// ═══════════════════════════════════════════════════════════════
+function selectMonth(m){
+  activeMonth = m;
+  activeDateIdx = MONTH_DATA[m].dates.length - 1;
+  document.querySelectorAll('.month-tab').forEach((t,i)=>{
+    const months=['Jan','Feb','Mar','Apr','May','Jun'];
+    t.classList.toggle('active', months[i]===m);
+  });
+  document.getElementById('active-month-label').textContent = MONTH_DATA[m].label.replace(' 2026',' 26');
+  document.getElementById('data-as-of').textContent = MONTH_DATA[m].asOf;
+  document.getElementById('wf-title').textContent = `PDP – M2S Joiners Tracking — ${MONTH_DATA[m].label}`;
+  document.getElementById('assoc-slabel').textContent = `Still in PDP — Associate & Vertical Detail (as of ${MONTH_DATA[m].asOf})`;
+  buildCards();
+  buildTabs();
+  buildVT();
+  drawSkillChart();
+  drawWaterfall();
+  renderAssoc(MONTH_DATA[m].assoc);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CLOSING COUNT CARDS
+// ═══════════════════════════════════════════════════════════════
+function buildCards(){
+  const md = MONTH_DATA[activeMonth];
+  const maxC = Math.max(...md.totals.map(t=>t.opening+t.movedIn+t.newHire-t.deployed-t.resigned));
+  document.getElementById('cc-row').innerHTML = md.totals.map((t,i)=>{
+    const c = t.opening+t.movedIn+t.newHire-t.deployed-t.resigned;
+    const isLast = i===md.totals.length-1;
+    const resignedBit = t.resigned>0 ? `<div class="cs"><span class="cs-v" style="color:var(--red)">${t.resigned}</span><span class="cs-l">Resigned</span></div>` : '';
     return `<div class="cc ${isLast?'latest':''}">
       <div class="cc-date">${t.d}</div>
       <div class="cc-num">${c}</div>
       <div class="cc-sub">
         <div class="cs"><span class="cs-v" style="color:var(--orange)">${t.deployed}</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">${t.newHire}</span><span class="cs-l">Joiners</span></div>
-        ${t.resigned>0?`<div class="cs"><span class="cs-v" style="color:var(--red)">${t.resigned}</span><span class="cs-l">Resigned</span></div>`:''}
+        <div class="cs"><span class="cs-v" style="color:var(--blue)">${t.movedIn+t.newHire}</span><span class="cs-l">Joiners</span></div>
+        ${resignedBit}
       </div>
-      <div class="mini-bar"><div class="mini-fill" style="width:0" data-p="${(c/maxC*100).toFixed(1)}"></div></div>
+      <div class="mini-bar"><div class="mini-fill" style="width:0" data-p="${maxC?((c/maxC)*100).toFixed(1):0}"></div></div>
     </div>`;
   }).join('');
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
     document.querySelectorAll('.mini-fill').forEach(b=>b.style.width=b.dataset.p+'%');
   }));
-})();
+}
 
-// ── VERTICAL TABLE ─────────────────────────────
-let activeIdx=DATES.length-1;
+// ═══════════════════════════════════════════════════════════════
+// DATE TABS + VERTICAL TABLE
+// ═══════════════════════════════════════════════════════════════
 function buildTabs(){
-  document.getElementById('dtabs').innerHTML=DATES.map((d,i)=>
-    `<button class="dtab ${i===activeIdx?'active':''}" onclick="selDate(${i})">${d.split('-')[0]}</button>`
+  const md = MONTH_DATA[activeMonth];
+  document.getElementById('dtabs').innerHTML = md.dates.map((d,i)=>
+    `<button class="dtab ${i===activeDateIdx?'active':''}" onclick="selDate(${i})">${d.split('-')[0]}</button>`
   ).join('');
 }
-function selDate(i){activeIdx=i;buildTabs();buildVT();drawSkillChart(DATES[i]);}
+
+function selDate(i){
+  activeDateIdx=i; buildTabs(); buildVT(); drawSkillChart();
+}
+
 function nc(v,cls){
   if(v===0) return `<td class="nc nc-z">—</td>`;
   return `<td class="nc ${cls}">${v}</td>`;
 }
+
 function buildVT(){
-  const di=activeIdx; let to=0,tmi=0,tn=0,td=0,tr=0;
-  const mapped=VERTS.map(v=>{const r=v.rows[di];const c=r.o+r.mi+r.n-r.d-r.r;return{v,r,c};})
-    .filter(({r})=>!(r.o===0&&r.mi===0&&r.n===0&&r.d===0&&r.r===0));
+  const md = MONTH_DATA[activeMonth];
+  const di = activeDateIdx;
+  let to=0,tmi=0,tn=0,td=0,tr=0;
+  const mapped = md.verts.map(v=>{
+    const r=v.rows[di]||{o:0,mi:0,n:0,d:0,r:0};
+    const c=r.o+r.mi+r.n-r.d-r.r;
+    return{v,r,c};
+  }).filter(({r})=>!(r.o===0&&r.mi===0&&r.n===0&&r.d===0&&r.r===0));
   mapped.sort((a,b)=>b.c-a.c);
   mapped.forEach(({r})=>{to+=r.o;tmi+=r.mi;tn+=r.n;td+=r.d;tr+=r.r;});
-  const rows=mapped.map(({v,r,c})=>`<tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:${v.dot}"></span><span class="pill ${v.cls}">${v.name}</span></span></td>
-    ${nc(r.o,'nc-o')}${nc(r.mi,'nc-mi')}${nc(r.n,'nc-n')}${nc(r.d,'nc-d')}${nc(r.r,'nc-r')}
+  const rows = mapped.map(({v,r,c})=>`<tr>
+    <td class="tl"><span class="vtag"><span class="vdot" style="background:${v.dot}"></span>
+      <span class="pill ${v.cls}">${v.name}</span></span></td>
+    ${nc(r.o,'nc-o')}${nc(r.n,'nc-n')}${nc(r.d,'nc-d')}${nc(r.r,'nc-r')}
     <td class="nc nc-c">${c}</td>
   </tr>`).join('');
   const tc=to+tmi+tn-td-tr;
   const tot=`<tr class="total-row">
     <td class="tl">TOTAL</td>
-    <td class="nc nc-o">${to}</td><td class="nc nc-mi">${tmi||'—'}</td>
+    <td class="nc nc-o">${to}</td>
     <td class="nc nc-n">${tn}</td><td class="nc nc-d">${td}</td>
-    <td class="nc nc-r">${tr||'—'}</td>
-    <td class="nc nc-c">${tc}</td>
+    <td class="nc nc-r">${tr||'—'}</td><td class="nc nc-c">${tc}</td>
   </tr>`;
-  document.getElementById('vt-body').innerHTML=rows+tot;
+  document.getElementById('vt-body').innerHTML = rows+tot;
 }
-buildTabs();buildVT();
 
-// ── WATERFALL CHART (3D) ───────────────────────
-(()=>{
-  const CFWD=23,lastT=TOTALS[TOTALS.length-1];
-  const closingVal=lastT.still;
-  const seq=[{label:'CFWD\nfrom May',value:CFWD,type:'cfwd'}];
-  TOTALS.forEach(t=>{
+// ═══════════════════════════════════════════════════════════════
+// SKILL CLUSTER CHART (3D)
+// ═══════════════════════════════════════════════════════════════
+function drawSkillChart(){
+  const md = MONTH_DATA[activeMonth];
+  const dateKey = md.dates[activeDateIdx];
+  const CL = (md.clusters[dateKey]||[]).slice(0,12);
+  const svg = document.getElementById('scsv');
+  if(!CL.length){svg.innerHTML='';return;}
+
+  const barW=48,gap=14,padL=28,padR=16,padT=28,padB=110,chartH=160;
+  const W=padL+CL.length*(barW+gap)-gap+padR, H=chartH+padT+padB;
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.style.minWidth=W+'px';
+
+  const maxVal=Math.max(...CL.map(c=>c.c));
+  const yMax=Math.ceil(maxVal/5)*5+5, scale=chartH/yMax, baseY=padT+chartH;
+  const dx=8,dy=-6, front='#1558d6',top='#4d80f0',side='#0b3a9e';
+  let out='';
+  out+=`<rect x="${padL}" y="${padT}" width="${W-padL-padR}" height="${chartH}" fill="#fafbff" rx="2"/>`;
+  for(let v=0;v<=yMax;v+=5){
+    const gy=baseY-v*scale;
+    out+=`<line x1="${padL}" y1="${gy}" x2="${W-padR}" y2="${gy}" stroke="#e5e7eb" stroke-width="1"/>
+      <text x="${padL-5}" y="${gy+4}" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">${v}</text>`;
+  }
+  CL.forEach((c,i)=>{
+    const x=padL+i*(barW+gap), bh=c.c*scale, by=baseY-bh, x2=x+barW;
+    out+=`<polygon points="${x2},${by} ${x2+dx},${by+dy} ${x2+dx},${baseY+dy} ${x2},${baseY}" fill="${side}"/>`;
+    out+=`<polygon points="${x},${by} ${x+dx},${by+dy} ${x2+dx},${by+dy} ${x2},${by}" fill="${top}"/>`;
+    out+=`<rect x="${x}" y="${by}" width="${barW}" height="${bh}" fill="${front}"/>`;
+    out+=`<text x="${x+barW/2}" y="${by+dy-4}" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">${c.c}</text>`;
+    const lx=x+barW/2, ly=baseY+10;
+    out+=`<text transform="rotate(-45,${lx},${ly})" x="${lx}" y="${ly}" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">${c.l}</text>`;
+  });
+  out+=`<line x1="${padL}" y1="${baseY}" x2="${W-padR}" y2="${baseY}" stroke="#d1d5db" stroke-width="1.5"/>`;
+  svg.innerHTML=out;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// WATERFALL CHART (3D)
+// ═══════════════════════════════════════════════════════════════
+function drawWaterfall(){
+  const md = MONTH_DATA[activeMonth];
+  const lastT = md.totals[md.totals.length-1];
+  const CFWD = md.cfwd;
+  const closingVal = lastT.still;
+  const prevMonth = {Jan:'Start',Feb:'Jan',Mar:'Feb',Apr:'Mar',May:'Apr',Jun:'May'};
+  const seq=[{label:`CFWD\nfrom ${prevMonth[activeMonth]}`,value:CFWD,type:'cfwd'}];
+  md.totals.forEach(t=>{
     seq.push({label:`Joiners\n${t.d}`,value:t.movedIn+t.newHire,type:'joiner'});
     seq.push({label:`Deployed\n${t.d}`,value:t.deployed,type:'deployed'});
   });
   seq.push({label:`Closing\n${lastT.d}`,value:closingVal,type:'closing'});
 
-  const barW=40,gap=10,padL=36,padR=16,padT=32,padB=80,chartH=200;
+  const barW=38,gap=9,padL=34,padR=14,padT=32,padB=80,chartH=190;
   const W=padL+seq.length*(barW+gap)-gap+padR, H=chartH+padT+padB;
   const svg=document.getElementById('tsv');
-  svg.setAttribute('width',W);svg.setAttribute('height',H);
-  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.style.minWidth=W+'px';
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.style.minWidth=W+'px';
 
-  const maxVal=Math.max(CFWD,closingVal,...TOTALS.map(t=>t.newHire),...TOTALS.map(t=>t.deployed));
+  const maxVal=Math.max(CFWD,closingVal,...md.totals.map(t=>t.movedIn+t.newHire),...md.totals.map(t=>t.deployed));
   const yMax=Math.ceil(maxVal/10)*10+10, scale=chartH/yMax, baseY=padT+chartH;
-  const dx=8,dy=-6;
+  const dx=7,dy=-5;
   const COL={
     cfwd:   {front:'#1a7a3c',top:'#4caf71',side:'#0d4a23'},
     joiner: {front:'#1558d6',top:'#4d80f0',side:'#0b3a9e'},
@@ -751,16 +1021,12 @@ buildTabs();buildVT();
     closing:{front:'#1a7a3c',top:'#4caf71',side:'#0d4a23'}
   };
   let out='';
-
-  // Background
   out+=`<rect x="${padL}" y="${padT}" width="${W-padL-padR}" height="${chartH}" fill="#fafbff" rx="2"/>`;
-
   for(let v=0;v<=yMax;v+=10){
     const gy=baseY-v*scale;
     out+=`<line x1="${padL}" y1="${gy}" x2="${W-padR}" y2="${gy}" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="${padL-6}" y="${gy+4}" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">${v}</text>`;
+      <text x="${padL-5}" y="${gy+4}" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">${v}</text>`;
   }
-
   seq.forEach((bar,i)=>{
     const x=padL+i*(barW+gap), bh=Math.max(bar.value*scale,2), by=baseY-bh;
     const c=COL[bar.type], x2=x+barW;
@@ -773,108 +1039,40 @@ buildTabs();buildVT();
       out+=`<text x="${x+barW/2}" y="${by+dy-4}" fill="${lc}" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">${lbl}</text>`;
     }
     const parts=bar.label.split('\n'), lx=x+barW/2, ly=baseY+12;
-    out+=`<text transform="rotate(-45,${lx},${ly})" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">
+    out+=`<text transform="rotate(-45,${lx},${ly})" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
       <tspan x="${lx}" y="${ly}">${parts[0]}</tspan>
-      <tspan x="${lx}" dy="11">${parts[1]}</tspan></text>`;
-  });
-  out+=`<line x1="${padL}" y1="${baseY}" x2="${W-padR}" y2="${baseY}" stroke="#d1d5db" stroke-width="1.5"/>`;
-  svg.innerHTML=out;
-})();
-
-// ── SKILL CLUSTER CHART (3D) ───────────────────
-function drawSkillChart(dateKey){
-  const CL=CLUSTERS_BY_DATE[dateKey]||[];
-  const barW=48,gap=14,padL=60,padR=16,padT=28,padB=120,chartH=160;
-  const W=padL+CL.length*(barW+gap)-gap+padR, H=chartH+padT+padB;
-  const svg=document.getElementById('scsv');
-  svg.setAttribute('width',W);svg.setAttribute('height',H);
-  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.style.minWidth=W+'px';
-
-  const maxVal=Math.max(...CL.map(c=>c.c));
-  const yMax=Math.ceil(maxVal/5)*5+5, scale=chartH/yMax, baseY=padT+chartH;
-  const dx=8,dy=-6;
-  const front='#1558d6',top='#4d80f0',side='#0b3a9e';
-  let out='';
-
-  out+=`<rect x="${padL}" y="${padT}" width="${W-padL-padR}" height="${chartH}" fill="#fafbff" rx="2"/>`;
-
-  for(let v=0;v<=yMax;v+=5){
-    const gy=baseY-v*scale;
-    out+=`<line x1="${padL}" y1="${gy}" x2="${W-padR}" y2="${gy}" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="${padL-8}" y="${gy+4}" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">${v}</text>`;
-  }
-
-  CL.forEach((c,i)=>{
-    const x=padL+i*(barW+gap), bh=c.c*scale, by=baseY-bh, x2=x+barW;
-    out+=`<polygon points="${x2},${by} ${x2+dx},${by+dy} ${x2+dx},${baseY+dy} ${x2},${baseY}" fill="${side}"/>`;
-    out+=`<polygon points="${x},${by} ${x+dx},${by+dy} ${x2+dx},${by+dy} ${x2},${by}" fill="${top}"/>`;
-    out+=`<rect x="${x}" y="${by}" width="${barW}" height="${bh}" fill="${front}"/>`;
-    out+=`<text x="${x+barW/2}" y="${by+dy-4}" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">${c.c}</text>`;
-    const lx=x+barW/2, ly=baseY+10;
-    out+=`<text transform="rotate(-45,${lx},${ly})" x="${lx}" y="${ly}" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif" font-weight="500">${c.l}</text>`;
+      <tspan x="${lx}" dy="10">${parts[1]}</tspan></text>`;
   });
   out+=`<line x1="${padL}" y1="${baseY}" x2="${W-padR}" y2="${baseY}" stroke="#d1d5db" stroke-width="1.5"/>`;
   svg.innerHTML=out;
 }
-drawSkillChart(DATES[DATES.length-1]);
 
-// ── STILL IN PDP ASSOCIATE TABLE ──────────────
-const ASSOC_DATA = [
-  // BFS (3)
-  {id:'2512169', name:'M, Sachin',                 grade:'A', vertical:'BFS',        cluster:'QEA-Automation',          loc:'Bangalore', entry:'27-May-26',proj:'QEA_D_PDP_M2S_BFS'},
-  {id:'2512678', name:'Sekar, Arjun',              grade:'A', vertical:'BFS',        cluster:'QEA-Automation',          loc:'Chennai',   entry:'29-May-26',proj:'QEA_D_PDP_M2S_BFS'},
-  {id:'2513004', name:'Padwal, Pratiksha Shankar', grade:'A', vertical:'BFS',        cluster:'QEA-Automation',          loc:'Pune',      entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_BFS'},
-  // Insurance (4)
-  {id:'2512930', name:'Nellaiappan, Nisha V.',     grade:'A', vertical:'Insurance',  cluster:'QEA-SDET',                loc:'Chennai',   entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-  {id:'2513043', name:'Bakhade, Neha Dnyaneshwar', grade:'A', vertical:'Insurance',  cluster:'QEA-SDET',                loc:'Pune',      entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-  {id:'2513378', name:'Murugan, Ajithkumar',       grade:'A', vertical:'Insurance',  cluster:'QEA-Domain Skills',       loc:'Chennai',   entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-  {id:'2514455', name:'Priyanka, C',               grade:'A', vertical:'Insurance',  cluster:'QEA-SDET',                loc:'Chennai',   entry:'05-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-];
-
-const V_PILL={
-  'BFS':'v-bfs','Comm Media':'v-comm','Healthcare':'v-hc',
-  'Insurance':'v-ins','LS':'v-ls','NFT':'v-nft','T&H':'v-tnh'
-};
-const G_BADGE={'A':'grade-a','SA':'grade-sa','M':'grade-m'};
-
+// ═══════════════════════════════════════════════════════════════
+// ASSOCIATE TABLE
+// ═══════════════════════════════════════════════════════════════
 function renderAssoc(data){
-  const body = document.getElementById('assoc-body');
-  document.getElementById('assoc-count').textContent = data.length+' Associates';
-  if(!data.length){body.innerHTML=`<tr><td colspan="8" class="no-res">No results found.</td></tr>`;return;}
+  currentAssoc=data;
+  doRenderAssoc(data);
+}
 
-  // Group by vertical
+function doRenderAssoc(data){
+  const body=document.getElementById('assoc-body');
+  document.getElementById('assoc-count').textContent=data.length+' Associates';
+  if(!data.length){
+    body.innerHTML=`<tr><td colspan="8" class="no-res">No still-in-PDP detail available for this month.</td></tr>`;
+    return;
+  }
+  const order=['BFS','Healthcare- Plans & Providers','Insurance','Communications Media','NFT','EPS','LS','MLEU','RCG','T&H','TECH','TechCoE'];
   const groups={};
-  data.forEach(a=>{
-    if(!groups[a.vertical]) groups[a.vertical]=[];
-    groups[a.vertical].push(a);
-  });
-  const order=['BFS','Healthcare','Insurance','NFT','Comm Media','LS','T&H'];
+  data.forEach(a=>{if(!groups[a.vertical])groups[a.vertical]=[];groups[a.vertical].push(a);});
   let html='';
-  order.forEach(v=>{
-    if(!groups[v]) return;
-    const pill=`<span class="pill ${V_PILL[v]||''}">${v}</span>`;
-    html+=`<tr class="vg"><td colspan="8">${pill}<span class="vcount">${groups[v].length}</span></td></tr>`;
+  const keys=[...order.filter(k=>groups[k]),...Object.keys(groups).filter(k=>!order.includes(k))];
+  keys.forEach(v=>{
+    if(!groups[v])return;
+    html+=`<tr class="vg"><td colspan="8"><span class="pill ${V_PILL[v]||''}">${v}</span><span class="vcount">${groups[v].length}</span></td></tr>`;
     groups[v].forEach(a=>{
       html+=`<tr>
-        <td class="id-cell">${a.id}</td>
-        <td class="name-cell">${a.name}</td>
-        <td><span class="grade-badge ${G_BADGE[a.grade]||''}">${a.grade}</span></td>
-        <td><span class="pill ${V_PILL[a.vertical]||''}">${a.vertical}</span></td>
-        <td style="font-size:9px;color:var(--muted2)">${a.cluster}</td>
-        <td>${a.loc}</td>
-        <td style="font-size:9px">${a.entry}</td>
-        <td style="font-size:9px;color:var(--muted)">${a.proj}</td>
-      </tr>`;
-    });
-  });
-  // any remaining verticals not in order
-  Object.keys(groups).forEach(v=>{
-    if(order.includes(v)) return;
-    const pill=`<span class="pill ${V_PILL[v]||''}">${v}</span>`;
-    html+=`<tr class="vg"><td colspan="8">${pill}<span class="vcount">${groups[v].length}</span></td></tr>`;
-    groups[v].forEach(a=>{
-      html+=`<tr>
-        <td class="id-cell">${a.id}</td>
+        <td style="color:var(--muted);font-size:9px">${a.id}</td>
         <td class="name-cell">${a.name}</td>
         <td><span class="grade-badge ${G_BADGE[a.grade]||''}">${a.grade}</span></td>
         <td><span class="pill ${V_PILL[a.vertical]||''}">${a.vertical}</span></td>
@@ -890,15 +1088,19 @@ function renderAssoc(data){
 
 function filterAssoc(q){
   const lq=q.toLowerCase();
-  renderAssoc(ASSOC_DATA.filter(a=>
+  doRenderAssoc(currentAssoc.filter(a=>
     a.name.toLowerCase().includes(lq)||
     a.vertical.toLowerCase().includes(lq)||
-    a.cluster.toLowerCase().includes(lq)||
-    a.loc.toLowerCase().includes(lq)||
-    a.id.includes(lq)
+    (a.cluster||'').toLowerCase().includes(lq)||
+    (a.loc||'').toLowerCase().includes(lq)||
+    a.id.toString().includes(lq)
   ));
 }
-renderAssoc(ASSOC_DATA);
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+selectMonth('Jun');
 </script>
 
 
