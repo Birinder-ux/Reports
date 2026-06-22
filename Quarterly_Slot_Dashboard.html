@@ -3,724 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quarterly Slot Analysis — Q2 &amp; Q3 FY26</title>
+<title>Quarterly Slot Analysis</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'DM Sans',Arial,sans-serif;background:#F8FAFC;color:#0F172A;line-height:1.5}
-  .tab-pane{display:none}.tab-pane.active{display:block}
-  .chip-btn{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid #CBD5E1;background:#F8FAFC;color:#475569;cursor:pointer;font-family:'DM Sans',sans-serif}
-  .chip-btn:hover{border-color:#94A3B8}
-  .chip-btn.active-sl{background:#DBEAFE;color:#1E3A5F;border-color:#93C5FD;font-weight:600}
-  .chip-btn.active-geo{background:#EDE9FE;color:#4C1D95;border-color:#C4B5FD;font-weight:600}
-  tbody tr:hover td{background:#F8FAFC!important}
-  .tab-btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;border:1px solid #CBD5E1;background:#fff;color:#475569;cursor:pointer}
-  .tab-btn.active-q2{background:#DBEAFE;color:#1E3A5F;border-color:#93C5FD}
-  .tab-btn.active-q3{background:#DCFCE7;color:#16A34A;border-color:#86EFAC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',Arial,sans-serif;background:#F8FAFC;color:#0F172A;line-height:1.5}
+.hdr{background:#0D1B2A;padding:26px 36px;display:flex;align-items:flex-end;justify-content:space-between}
+.hdr h1{font-size:20px;font-weight:600;color:#fff;letter-spacing:-0.02em}
+.hdr .sub{font-size:11px;color:#94A3B8;margin-top:4px;font-family:'DM Mono',monospace}
+.wrap{padding:24px 36px 48px;max-width:1280px;margin:0 auto}
+.bdg{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace}
+.bdg-q2{background:rgba(37,99,235,.25);color:#93C5FD;border:1px solid rgba(147,197,253,.3)}
+.bdg-q3{background:rgba(22,163,74,.25);color:#86EFAC;border:1px solid rgba(134,239,172,.3)}
+.fbar{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 20px;margin-top:24px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.fl{font-size:11px;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.05em}
+.fchips{display:flex;gap:6px}
+.fb{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid #CBD5E1;background:#F8FAFC;color:#475569;cursor:pointer;font-family:'DM Sans',sans-serif}
+.fb:hover{border-color:#94A3B8}
+.fb.asl{background:#DBEAFE;color:#1E3A5F;border-color:#93C5FD;font-weight:600}
+.fb.ageo{background:#EDE9FE;color:#4C1D95;border-color:#C4B5FD;font-weight:600}
+.fdiv{width:1px;height:28px;background:#E2E8F0}
+.frst{font-size:11px;color:#94A3B8;cursor:pointer;padding:4px 8px;border:none;background:none;font-family:'DM Sans',sans-serif}
+.kg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.kc{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;border-top:3px solid transparent}
+.kc.q2{border-top-color:#2563EB}.kc.q3{border-top-color:#16A34A}
+.kl{font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+.kv{font-size:24px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1}
+.kv.pos{color:#16A34A}.kv.neg{color:#DC2626}
+.km{font-size:10px;color:#94A3B8;margin-top:5px}
+.ck{display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;font-family:'DM Mono',monospace;margin-right:3px}
+.ck2{background:#DBEAFE;color:#1E3A5F}.ck3{background:#DCFCE7;color:#14532D}
+.slbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#94A3B8;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.slbl::after{content:'';flex:1;height:1px;background:#E2E8F0}
+.tabs{display:flex;gap:6px;margin-bottom:14px}
+.tb{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;border:1px solid #CBD5E1;background:#fff;color:#475569;cursor:pointer}
+.tb.aq2{background:#DBEAFE;color:#1E3A5F;border-color:#93C5FD}
+.tb.aq3{background:#DCFCE7;color:#16A34A;border-color:#86EFAC}
+.tp{display:none}.tp.act{display:block}
+.tc{background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;margin-bottom:16px}
+.tc-h{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;border-bottom:1px solid #E2E8F0}
+.tc-h h3{font-size:13px;font-weight:500}
+.tc-tag{font-size:10px;color:#94A3B8;font-family:'DM Mono',monospace}
+.tsc{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+thead th{background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;border-bottom:1px solid #E2E8F0;white-space:nowrap;text-align:right}
+thead th:first-child,thead th:nth-child(2){text-align:left}
+tbody td{padding:7px 12px;border-bottom:1px solid #F1F5F9;font-size:12px;text-align:right}
+tbody td:first-child,tbody td:nth-child(2){text-align:left}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#F8FAFC}
+.tr-tot td{background:#F1F5F9!important;font-weight:600!important;border-top:1.5px solid #CBD5E1!important}
+.note{font-size:10.5px;color:#94A3B8;padding:10px 14px;background:#fff;border:1px solid #E2E8F0;border-radius:8px;line-height:1.7}
 </style>
 </head>
 <body>
 
-<div style="background:#0D1B2A;padding:26px 36px;display:flex;align-items:flex-end;justify-content:space-between">
+<div class="hdr">
   <div>
-    <h1 style="font-size:20px;font-weight:600;color:#fff;letter-spacing:-0.02em">Quarterly Slot Analysis</h1>
-    <div style="font-size:11px;color:#94A3B8;margin-top:4px;font-family:'DM Mono',monospace">As on 17 Jun'26 &nbsp;·&nbsp; FY26 &nbsp;·&nbsp; All values in headcount</div>
+    <h1>Quarterly Slot Analysis</h1>
+    <div class="sub">As on 19 Jun'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
-    <span style="font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace;background:rgba(37,99,235,.25);color:#93C5FD;border:1px solid rgba(147,197,253,.3)">Q2 FY26</span>
-    <span style="font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace;background:rgba(22,163,74,.25);color:#86EFAC;border:1px solid rgba(134,239,172,.3)">Q3 FY26</span>
+    <span class="bdg bdg-q2">Q2 FY26</span>
+    <span class="bdg bdg-q3">Q3 FY26</span>
   </div>
 </div>
 
-<div style="padding:24px 36px 48px;max-width:1280px;margin:0 auto">
+<div class="wrap">
 
-  <!-- Filters -->
-  <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:24px">
+  <div class="fbar">
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:11px;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.05em">Service Line</span>
-      <div id="slFilters" style="display:flex;gap:6px">
-        <button class="chip-btn active-sl" onclick="toggleFilter('sl','All')">All</button>
-        <button class="chip-btn" onclick="toggleFilter('sl','DE')">DE</button>
-        <button class="chip-btn" onclick="toggleFilter('sl','ADM')">ADM</button>
-        <button class="chip-btn" onclick="toggleFilter('sl','QEA')">QEA</button>
+      <span class="fl">Service Line</span>
+      <div class="fchips" id="slF">
+        <button class="fb asl" onclick="setSL('All')">All</button>
+        <button class="fb" onclick="setSL('DE')">DE</button>
+        <button class="fb" onclick="setSL('ADM')">ADM</button>
+        <button class="fb" onclick="setSL('QEA')">QEA</button>
       </div>
     </div>
-    <div style="width:1px;height:28px;background:#E2E8F0"></div>
+    <div class="fdiv"></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <span style="font-size:11px;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.05em">Geography</span>
-      <div id="geoFilters" style="display:flex;gap:6px">
-        <button class="chip-btn active-geo" onclick="toggleFilter('geo','All')">All</button>
-        <button class="chip-btn" onclick="toggleFilter('geo','India')">India</button>
-        <button class="chip-btn" onclick="toggleFilter('geo','Americas')">Americas</button>
-        <button class="chip-btn" onclick="toggleFilter('geo','APJ')">APJ</button>
-        <button class="chip-btn" onclick="toggleFilter('geo','EMEA')">EMEA</button>
+      <span class="fl">Geography</span>
+      <div class="fchips" id="geoF">
+        <button class="fb ageo" onclick="setGEO('All')">All</button>
+        <button class="fb" onclick="setGEO('India')">India</button>
+        <button class="fb" onclick="setGEO('Americas')">Americas</button>
+        <button class="fb" onclick="setGEO('APJ')">APJ</button>
+        <button class="fb" onclick="setGEO('EMEA')">EMEA</button>
       </div>
     </div>
-    <div style="width:1px;height:28px;background:#E2E8F0"></div>
-    <button onclick="resetFilters()" style="font-size:11px;color:#94A3B8;cursor:pointer;padding:4px 8px;border-radius:6px;border:none;background:none;font-family:'DM Sans',sans-serif">&#x21BA; Reset</button>
+    <div class="fdiv"></div>
+    <button class="frst" onclick="resetF()">&#x21BA; Reset</button>
   </div>
 
-  <!-- KPI Cards -->
-  <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:20px">
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;border-top:3px solid #2563EB">
-      <div style="font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Q2 Target</div>
-      <div id="k-q2-target" style="font-size:24px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1">2,102</div>
-      <div style="font-size:10px;color:#94A3B8;margin-top:5px"><span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;background:#DBEAFE;color:#1E3A5F;margin-right:3px">Q2</span>Total slots</div>
-    </div>
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;border-top:3px solid #2563EB">
-      <div style="font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Q2 Slots Utilized</div>
-      <div id="k-q2-util" style="font-size:24px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1">2,033</div>
-      <div style="font-size:10px;color:#94A3B8;margin-top:5px"><span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;background:#DBEAFE;color:#1E3A5F;margin-right:3px">Q2</span><span id="k-q2-pct">97%</span> of target</div>
-    </div>
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;border-top:3px solid #2563EB">
-      <div style="font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Q2 Balance</div>
-      <div id="k-q2-bal" style="font-size:24px;font-weight:600;font-family:'DM Mono',monospace;line-height:1;color:#16A34A">+69</div>
-      <div style="font-size:10px;color:#94A3B8;margin-top:5px"><span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;background:#DBEAFE;color:#1E3A5F;margin-right:3px">Q2</span>Remaining slots</div>
-    </div>
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;border-top:3px solid #16A34A">
-      <div style="font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Q3 Target</div>
-      <div id="k-q3-target" style="font-size:24px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1">1,474</div>
-      <div style="font-size:10px;color:#94A3B8;margin-top:5px"><span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;background:#DCFCE7;color:#14532D;margin-right:3px">Q3</span>Total slots</div>
-    </div>
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;border-top:3px solid #16A34A">
-      <div style="font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Q3 Slots Utilized</div>
-      <div id="k-q3-util" style="font-size:24px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1">237</div>
-      <div style="font-size:10px;color:#94A3B8;margin-top:5px"><span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;background:#DCFCE7;color:#14532D;margin-right:3px">Q3</span><span id="k-q3-pct">16%</span> of target</div>
-    </div>
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;border-top:3px solid #16A34A">
-      <div style="font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Q3 Balance</div>
-      <div id="k-q3-bal" style="font-size:24px;font-weight:600;font-family:'DM Mono',monospace;line-height:1;color:#16A34A">+1,237</div>
-      <div style="font-size:10px;color:#94A3B8;margin-top:5px"><span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;background:#DCFCE7;color:#14532D;margin-right:3px">Q3</span>Remaining slots</div>
-    </div>
+  <div class="kg">
+    <div class="kc q2"><div class="kl">Q2 Target</div><div class="kv" id="kq2t">2,102</div><div class="km"><span class="ck ck2">Q2</span>Total slots</div></div>
+    <div class="kc q2"><div class="kl">Q2 Slots Utilized</div><div class="kv" id="kq2u">2,073</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">99%</span> of target</div></div>
+    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv pos" id="kq2b">+29</div><div class="km"><span class="ck ck2">Q2</span>Remaining slots</div></div>
+    <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">1,474</div><div class="km"><span class="ck ck3">Q3</span>Total slots</div></div>
+    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">270</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">18%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv pos" id="kq3b">+1,204</div><div class="km"><span class="ck ck3">Q3</span>Remaining slots</div></div>
   </div>
 
-  <div style="display:none">
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 16px">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:flex;align-items:center;gap:6px">
-        <span style="width:8px;height:8px;border-radius:50%;background:#2563EB;flex-shrink:0;display:inline-block"></span>Q2'26 Overall Status
-      </div>
-      <ul style="list-style:none"><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>📊</span><span>Q2 at <strong>97% of target</strong> with <strong>69 slots remaining</strong>.<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#DCFCE7;color:#16A34A">On track</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🏆</span><span><strong>EMEA</strong> leads Q2 at <strong>106%</strong> coverage.</span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>⚠️</span><span><strong>APJ</strong> has lowest Q2 coverage at <strong>80%</strong>.</span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>✅</span><span><strong>ADM</strong> is best performing SL at <strong>101%</strong> coverage.</span></li></ul>
-    </div><div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 16px">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:flex;align-items:center;gap:6px">
-        <span style="width:8px;height:8px;border-radius:50%;background:#DC2626;flex-shrink:0;display:inline-block"></span>Q2'26 Risk Areas
-      </div>
-      <ul style="list-style:none"><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🔴</span><span><strong>Americas ADM</strong> over-utilized by <strong>23</strong> (121% of target).<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEE2E2;color:#DC2626">Over-utilized</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🔴</span><span><strong>EMEA DE</strong> over-utilized by <strong>9</strong> (112% of target).<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEE2E2;color:#DC2626">Over-utilized</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🔴</span><span><strong>EMEA ADM</strong> over-utilized by <strong>9</strong> (400% of target).<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEE2E2;color:#DC2626">Over-utilized</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🟡</span><span><strong>APJ QEA</strong> only <strong>56%</strong> coverage — <strong>32</strong> slots open.<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEF3C7;color:#92400E">Low coverage</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🟡</span><span><strong>EMEA QEA</strong> only <strong>65%</strong> coverage — <strong>11</strong> slots open.<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEF3C7;color:#92400E">Low coverage</span></span></li></ul>
-    </div><div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 16px">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:flex;align-items:center;gap:6px">
-        <span style="width:8px;height:8px;border-radius:50%;background:#16A34A;flex-shrink:0;display:inline-block"></span>Q3'26 Pipeline Status
-      </div>
-      <ul style="list-style:none"><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>📋</span><span>Q3 at <strong>16% of target</strong> — <strong>1,237</strong> slots to fill.<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#DBEAFE;color:#1E3A5F">Early stage</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🟢</span><span><strong>10 of 12</strong> SL-Geo combinations have started Q3 pipeline.</span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>⏳</span><span><strong>1 SL-Geo combinations</strong> have zero Q3 pipeline — immediate action needed.<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEE2E2;color:#DC2626">No pipeline</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>📌</span><span>India holds <strong>62%</strong> of total Q3 headcount target.</span></li></ul>
-    </div><div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 16px">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:flex;align-items:center;gap:6px">
-        <span style="width:8px;height:8px;border-radius:50%;background:#D97706;flex-shrink:0;display:inline-block"></span>Q3'26 Action Items
-      </div>
-      <ul style="list-style:none"><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🔴</span><span><strong>APJ ADM</strong> already over-plan in Q3 by <strong>7</strong>.<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEE2E2;color:#DC2626">Over-plan</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>🎯</span><span>Prioritise <strong>Americas QEA</strong> — target <strong>130</strong>, zero pipeline.<span style="display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:8px;margin-left:4px;vertical-align:middle;font-family:monospace;background:#FEE2E2;color:#DC2626">No pipeline</span></span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>⚡</span><span><strong>Americas DE</strong> only <strong>3%</strong> Q3 coverage — <strong>169</strong> open slots.</span></li><li style="display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#475569;line-height:1.5;margin-bottom:6px"><span>⚡</span><span><strong>Americas ADM</strong> only <strong>7%</strong> Q3 coverage — <strong>93</strong> open slots.</span></li></ul>
-    </div>
+  <div class="slbl">Geo &times; service line detail</div>
+
+  <div class="tabs">
+    <button class="tb aq2" id="tq2" onclick="showTab('q2')">Q2&apos;26 &mdash; Apr &middot; May &middot; Jun</button>
+    <button class="tb" id="tq3" onclick="showTab('q3')">Q3&apos;26 &mdash; Jul &middot; Aug &middot; Sep</button>
   </div>
 
-  <!-- Tabs -->
-  <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#94A3B8;margin-bottom:10px;display:flex;align-items:center;gap:8px">Geo x service line detail<span style="flex:1;height:1px;background:#E2E8F0;display:block"></span></div>
-  <div style="display:flex;gap:6px;margin-bottom:14px">
-    <button class="tab-btn active-q2" id="btnQ2" onclick="showTab('q2')">Q2'26 &nbsp;—&nbsp; Apr · May · Jun</button>
-    <button class="tab-btn" id="btnQ3" onclick="showTab('q3')">Q3'26 &nbsp;—&nbsp; Jul · Aug · Sep</button>
-  </div>
-
-  <div id="tabQ2" class="tab-pane active">
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;margin-bottom:16px">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;border-bottom:1px solid #E2E8F0">
-        <span style="font-size:13px;font-weight:500">Q2'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</span>
-        <span style="font-size:10px;color:#94A3B8;font-family:'DM Mono',monospace">Data as of 17 Jun'26</span>
+  <div id="pq2" class="tp act">
+    <div class="tc">
+      <div class="tc-h">
+        <h3>Q2&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
+        <span class="tc-tag" id="q2tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 19 Jun&apos;26</span>
       </div>
-      <div style="overflow-x:auto">
-        <table id="q2table" style="width:100%;border-collapse:collapse">
+      <div class="tsc">
+        <table>
           <thead><tr>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap;text-align:left">Geography</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap;text-align:left">SL</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Target</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Apr'26 Joiners</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">May'26 Joiners</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Jun'26 Pipeline</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Slots Utilized</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Balance</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Pipeline %</th>
+            <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
+            <th>Target</th><th>Apr&apos;26 Joiners</th><th>May&apos;26 Joiners</th><th>Jun&apos;26 Pipeline</th>
+            <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
           </tr></thead>
-          <tbody id="q2tbody"><tr style="background:#EFF6FF">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;">India</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">653</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">311</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">168</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">153</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">632</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+21</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>97%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:97%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">370</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">186</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">104</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">55</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">345</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+25</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>93%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:93%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#EFF6FF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">360</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">187</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">105</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">47</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">339</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+21</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>94%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:94%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;border-top:1px solid #CBD5E1;">Americas</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;border-top:1px solid #CBD5E1;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">186</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">84</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">56</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">52</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">192</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#FEE2E2;color:#DC2626;font-weight:600;border-top:1px solid #CBD5E1;">-6</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>103%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:100%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#EFF6FF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">111</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">54</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">52</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">28</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">134</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#FEE2E2;color:#DC2626;font-weight:600;">-23</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>121%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:100%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">182</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">53</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">50</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">67</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">170</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+12</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>93%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:93%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#EFF6FF">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;border-top:1px solid #CBD5E1;">APJ</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;border-top:1px solid #CBD5E1;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">14</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">3</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">8</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">11</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">22</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#FEE2E2;color:#DC2626;font-weight:600;border-top:1px solid #CBD5E1;">-8</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>157%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:100%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">43</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">16</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">12</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">13</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">41</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+2</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>95%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:95%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#EFF6FF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">73</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">18</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">10</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">13</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">41</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+32</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>56%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:56%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;border-top:1px solid #CBD5E1;">EMEA</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;border-top:1px solid #CBD5E1;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">76</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">26</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">43</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">16</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">85</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#FEE2E2;color:#DC2626;font-weight:600;border-top:1px solid #CBD5E1;">-9</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>112%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:100%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#EFF6FF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">3</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">9</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">3</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">12</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#FEE2E2;color:#DC2626;font-weight:600;">-9</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>400%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:100%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">31</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">8</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">4</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">8</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">20</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+11</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>65%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:65%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#F1F5F9;border-top:1.5px solid #CBD5E1">
-      <td colspan="2" style="padding:7px 12px;font-size:12px;font-weight:600;color:#0F172A">Total</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">2,102</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">946</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">621</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">466</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">2,033</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;color:#16A34A;font-weight:600">+69</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">97%</td>
-    </tr></tbody>
+          <tbody id="q2tb"></tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <div id="tabQ3" class="tab-pane">
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;margin-bottom:16px">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;border-bottom:1px solid #E2E8F0">
-        <span style="font-size:13px;font-weight:500">Q3'26 &nbsp;·&nbsp; Geo × Service Line Breakdown</span>
-        <span style="font-size:10px;color:#94A3B8;font-family:'DM Mono',monospace">Data as of 17 Jun'26</span>
+  <div id="pq3" class="tp">
+    <div class="tc">
+      <div class="tc-h">
+        <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 19 Jun&apos;26</span>
       </div>
-      <div style="overflow-x:auto">
-        <table id="q3table" style="width:100%;border-collapse:collapse">
+      <div class="tsc">
+        <table>
           <thead><tr>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap;text-align:left">Geography</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap;text-align:left">SL</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Target</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Jul'26 Pipeline</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Aug'26 Pipeline</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Sep'26 Pipeline</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Slots Utilized</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Balance</th>
-            <th style="background:#F1F5F9;color:#94A3B8;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:right;border-bottom:1px solid #E2E8F0;white-space:nowrap">Pipeline %</th>
+            <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
+            <th>Target</th><th>Jul&apos;26 Pipeline</th><th>Aug&apos;26 Pipeline</th><th>Sep&apos;26 Pipeline</th>
+            <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
           </tr></thead>
-          <tbody id="q3tbody"><tr style="background:#F0FDF4">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;">India</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">492</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">49</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">26</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">11</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">86</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+406</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>17%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:17%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">100</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">14</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">8</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">5</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">27</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+73</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>27%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:27%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#F0FDF4">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">319</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">29</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">20</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">10</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">59</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+260</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>18%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:18%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;border-top:1px solid #CBD5E1;">Americas</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;border-top:1px solid #CBD5E1;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">175</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">5</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">1</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">6</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;border-top:1px solid #CBD5E1;">+169</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>3%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:3%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#F0FDF4">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">100</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">7</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">7</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+93</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>7%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:7%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">130</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+130</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>0%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:0%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#F0FDF4">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;border-top:1px solid #CBD5E1;">APJ</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;border-top:1px solid #CBD5E1;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">8</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">2</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">2</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;border-top:1px solid #CBD5E1;">+6</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>25%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:25%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">2</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">5</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">3</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">1</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">9</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#FEE2E2;color:#DC2626;font-weight:600;">-7</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>450%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:100%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#F0FDF4">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">33</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">4</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">3</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">7</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+26</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>21%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:21%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;font-weight:600;color:#1E3A5F;border-top:1px solid #CBD5E1;">EMEA</td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;border-top:1px solid #CBD5E1;">DE</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">80</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">16</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">1</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">17</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;border-top:1px solid #CBD5E1;">+63</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;border-top:1px solid #CBD5E1;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>21%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:21%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#F0FDF4">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">ADM</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">10</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+10</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>0%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:0%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#FFFFFF">
-          <td style="padding:7px 12px;font-size:12px;color:#475569;"></td>
-          <td style="padding:7px 12px;font-size:12px;color:#475569;">QEA</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">25</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">17</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">0</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">17</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;background:#DCFCE7;color:#16A34A;font-weight:600;">+8</td>
-          <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;">
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-              <span>68%</span>
-              <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-                <div style="height:100%;width:68%;background:#2563EB;border-radius:2px"></div>
-              </div>
-            </div>
-          </td>
-        </tr><tr style="background:#F1F5F9;border-top:1.5px solid #CBD5E1">
-      <td colspan="2" style="padding:7px 12px;font-size:12px;font-weight:600;color:#0F172A">Total</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">1,474</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">148</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">61</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">28</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">237</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;color:#16A34A;font-weight:600">+1,237</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">16%</td>
-    </tr></tbody>
+          <tbody id="q3tb"></tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <div style="font-size:10.5px;color:#94A3B8;margin-top:4px;padding:10px 14px;background:#fff;border:1px solid #E2E8F0;border-radius:8px;line-height:1.7">
+  <div class="note">
     <strong>Notes:</strong>&nbsp;
-    Q2 Slots Utilized = Apr Joiners + May Joiners + Jun Pipeline. &nbsp;·&nbsp;
-    Q3 Slots Utilized = Jul + Aug + Sep Pipeline. &nbsp;·&nbsp;
-    Balance = Target &minus; Slots Utilized. &nbsp;·&nbsp;
-    <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized. &nbsp;·&nbsp;
-    <span style="color:#16A34A;font-weight:600">Green</span> = surplus. &nbsp;·&nbsp;
-    Data as of 17 Jun'26.
+    Q2 Slots Utilized = Apr Joiners + May Joiners + Jun Pipeline. &nbsp;&middot;&nbsp;
+    Q3 Slots Utilized = Jul + Aug + Sep Pipeline. &nbsp;&middot;&nbsp;
+    Balance = Target &minus; Slots Utilized. &nbsp;&middot;&nbsp;
+    <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized. &nbsp;&middot;&nbsp;
+    <span style="color:#16A34A;font-weight:600">Green</span> = surplus. &nbsp;&middot;&nbsp;
+    Data as of 19 Jun&apos;26.
   </div>
+
 </div>
 
 <script>
-const q2All=[
-  {geo:'India',    sl:'DE',  target:653, m1:311,m2:168,m3:153},
-  {geo:'India',    sl:'ADM', target:370, m1:186,m2:104,m3:55},
-  {geo:'India',    sl:'QEA', target:360, m1:187,m2:105,m3:47},
-  {geo:'Americas', sl:'DE',  target:186, m1:84, m2:56, m3:52},
-  {geo:'Americas', sl:'ADM', target:111, m1:54, m2:52, m3:28},
-  {geo:'Americas', sl:'QEA', target:182, m1:53, m2:50, m3:67},
-  {geo:'APJ',      sl:'DE',  target:14,  m1:3,  m2:8,  m3:11},
-  {geo:'APJ',      sl:'ADM', target:43,  m1:16, m2:12, m3:13},
-  {geo:'APJ',      sl:'QEA', target:73,  m1:18, m2:10, m3:13},
-  {geo:'EMEA',     sl:'DE',  target:76,  m1:26, m2:43, m3:16},
-  {geo:'EMEA',     sl:'ADM', target:3,   m1:0,  m2:9,  m3:3},
-  {geo:'EMEA',     sl:'QEA', target:31,  m1:8,  m2:4,  m3:8},
+var Q2 = [
+{geo:"India",sl:"DE",target:653,m1:311,m2:168,m3:167},
+{geo:"India",sl:"ADM",target:370,m1:186,m2:104,m3:63},
+{geo:"India",sl:"QEA",target:360,m1:187,m2:105,m3:52},
+{geo:"Americas",sl:"DE",target:186,m1:84,m2:56,m3:54},
+{geo:"Americas",sl:"ADM",target:111,m1:54,m2:52,m3:30},
+{geo:"Americas",sl:"QEA",target:182,m1:53,m2:50,m3:74},
+{geo:"APJ",sl:"DE",target:14,m1:3,m2:8,m3:11},
+{geo:"APJ",sl:"ADM",target:43,m1:16,m2:12,m3:14},
+{geo:"APJ",sl:"QEA",target:73,m1:18,m2:10,m3:13},
+{geo:"EMEA",sl:"DE",target:76,m1:26,m2:43,m3:17},
+{geo:"EMEA",sl:"ADM",target:3,m1:0,m2:9,m3:3},
+{geo:"EMEA",sl:"QEA",target:31,m1:8,m2:4,m3:8}
 ];
-const q3All=[
-  {geo:'India',    sl:'DE',  target:492, m1:49, m2:26, m3:11},
-  {geo:'India',    sl:'ADM', target:100, m1:14, m2:8,  m3:5},
-  {geo:'India',    sl:'QEA', target:319, m1:29, m2:20, m3:10},
-  {geo:'Americas', sl:'DE',  target:175, m1:5,  m2:1,  m3:0},
-  {geo:'Americas', sl:'ADM', target:100, m1:7,  m2:0,  m3:0},
-  {geo:'Americas', sl:'QEA', target:130, m1:0,  m2:0,  m3:0},
-  {geo:'APJ',      sl:'DE',  target:8,   m1:2,  m2:0,  m3:0},
-  {geo:'APJ',      sl:'ADM', target:2,   m1:5,  m2:3,  m3:1},
-  {geo:'APJ',      sl:'QEA', target:33,  m1:4,  m2:3,  m3:0},
-  {geo:'EMEA',     sl:'DE',  target:80,  m1:16, m2:0,  m3:1},
-  {geo:'EMEA',     sl:'ADM', target:10,  m1:0,  m2:0,  m3:0},
-  {geo:'EMEA',     sl:'QEA', target:25,  m1:17, m2:0,  m3:0},
+var Q3 = [
+{geo:"India",sl:"DE",target:492,m1:54,m2:28,m3:13},
+{geo:"India",sl:"ADM",target:100,m1:14,m2:8,m3:6},
+{geo:"India",sl:"QEA",target:319,m1:31,m2:21,m3:11},
+{geo:"Americas",sl:"DE",target:175,m1:11,m2:1,m3:0},
+{geo:"Americas",sl:"ADM",target:100,m1:9,m2:0,m3:0},
+{geo:"Americas",sl:"QEA",target:130,m1:7,m2:0,m3:0},
+{geo:"APJ",sl:"DE",target:8,m1:2,m2:0,m3:0},
+{geo:"APJ",sl:"ADM",target:2,m1:7,m2:3,m3:1},
+{geo:"APJ",sl:"QEA",target:33,m1:4,m2:3,m3:0},
+{geo:"EMEA",sl:"DE",target:80,m1:17,m2:0,m3:1},
+{geo:"EMEA",sl:"ADM",target:10,m1:0,m2:0,m3:0},
+{geo:"EMEA",sl:"QEA",target:25,m1:18,m2:0,m3:0}
 ];
+var SL = "All", GEO = "All";
 
-let activesl='All', activegeo='All';
+function N(n) { return Math.round(n).toLocaleString("en-IN"); }
+function P(u,t) { return t ? Math.round(u/t*100)+"%" : "--"; }
 
-function fmt(n){return Math.round(n).toLocaleString('en-IN')}
-function pctStr(p,t){return t===0?'--':Math.round(p/t*100)+'%'}
-function pctNum(p,t){return t===0?0:Math.min(Math.round(p/t*100),100)}
-
-function renderTable(data, tbodyId, pctColor){
-  const filtered = data.filter(r=>(activesl==='All'||r.sl===activesl)&&(activegeo==='All'||r.geo===activegeo));
-  const tb = document.getElementById(tbodyId);
-  if(filtered.length===0){tb.innerHTML='<tr><td colspan="9" style="padding:24px;text-align:center;color:#94A3B8">No data for selected filters</td></tr>';return{target:0,util:0,bal:0,pct:0}}
-  let tot={target:0,m1:0,m2:0,m3:0,util:0,bal:0};
-  let prevGeo='', html='';
-  filtered.forEach((r,i)=>{
-    const util=r.m1+r.m2+r.m3, bal=r.target-util;
-    tot.target+=r.target;tot.m1+=r.m1;tot.m2+=r.m2;tot.m3+=r.m3;tot.util+=util;tot.bal+=bal;
-    const isNew=r.geo!==prevGeo; prevGeo=r.geo;
-    const bg=i%2===0?'#F8FAFC':'#FFFFFF';
-    const balBg=bal<0?'#FEE2E2':'#DCFCE7';
-    const balClr=bal<0?'#DC2626':'#16A34A';
-    const bt=isNew&&i>0?'border-top:1px solid #CBD5E1;':'';
-    const pp=pctNum(util,r.target);
-    html+=`<tr style="background:${bg}">
-      <td style="padding:7px 12px;font-size:12px;font-weight:${isNew?600:400};color:${isNew?'#1E3A5F':'#475569'};${bt}">${isNew?r.geo:''}</td>
-      <td style="padding:7px 12px;font-size:12px;color:#475569;${bt}">${r.sl}</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;${bt}">${fmt(r.target)}</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;${bt}">${fmt(r.m1)}</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;${bt}">${fmt(r.m2)}</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;${bt}">${fmt(r.m3)}</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-family:'DM Mono',monospace;${bt}">${fmt(util)}</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;color:${balClr};background:${balBg};${bt}">${bal>=0?'+':''}${fmt(bal)}</td>
-      <td style="padding:7px 12px;font-size:12px;text-align:right;${bt}">
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-          <span style="font-family:'DM Mono',monospace">${pctStr(util,r.target)}</span>
-          <div style="width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden">
-            <div style="height:100%;width:${pp}%;background:${pctColor};border-radius:2px"></div>
-          </div>
-        </div>
-      </td></tr>`;
+function render(data, tbId, pc) {
+  var rows = data.filter(function(r) {
+    return (SL === "All" || r.sl === SL) && (GEO === "All" || r.geo === GEO);
   });
-  const totBal=tot.bal;
-  html+=`<tr style="background:#F1F5F9;border-top:1.5px solid #CBD5E1">
-    <td colspan="2" style="padding:7px 12px;font-size:12px;font-weight:600">Total</td>
-    <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">${fmt(tot.target)}</td>
-    <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">${fmt(tot.m1)}</td>
-    <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">${fmt(tot.m2)}</td>
-    <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">${fmt(tot.m3)}</td>
-    <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">${fmt(tot.util)}</td>
-    <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;color:${totBal>=0?'#16A34A':'#DC2626'}">${totBal>=0?'+':''}${fmt(totBal)}</td>
-    <td style="padding:7px 12px;font-size:12px;text-align:right;font-weight:600;font-family:'DM Mono',monospace">${pctStr(tot.util,tot.target)}</td>
-  </tr>`;
-  tb.innerHTML=html;
-  tot.pct=tot.target?Math.round(tot.util/tot.target*100):0;
-  return tot;
+  var tb = document.getElementById(tbId);
+  if (!rows.length) {
+    tb.innerHTML = "<tr><td colspan='9' style='padding:24px;text-align:center;color:#94A3B8;font-size:13px'>No data for selected filters</td></tr>";
+    return {t:0, u:0, b:0};
+  }
+  var html = "", prev = "";
+  var tt=0, tm1=0, tm2=0, tm3=0, tu=0, totbal=0;
+  for (var i=0; i<rows.length; i++) {
+    var r = rows[i];
+    var util = r.m1+r.m2+r.m3;
+    var bal  = r.target - util;
+    tt+=r.target; tm1+=r.m1; tm2+=r.m2; tm3+=r.m3; tu+=util; totbal+=bal;
+    var isNew = (r.geo !== prev); prev = r.geo;
+    var bg  = (i%2===0) ? "#F8FAFC" : "#fff";
+    var bc  = (bal<0) ? "#DC2626" : "#16A34A";
+    var bb  = (bal<0) ? "#FEE2E2" : "#DCFCE7";
+    var bt  = (isNew && i>0) ? "border-top:1px solid #CBD5E1;" : "";
+    var pp  = Math.min(r.target ? Math.round(util/r.target*100) : 0, 100);
+    var geoCell = isNew ? r.geo : "";
+    var geoW = isNew ? "600" : "400";
+    var geoC = isNew ? "#1E3A5F" : "#475569";
+    html += "<tr style='background:" + bg + "'>";
+    html += "<td style='" + bt + "font-weight:" + geoW + ";color:" + geoC + ";font-family:DM Sans,sans-serif'>" + geoCell + "</td>";
+    html += "<td style='" + bt + "color:#475569;font-family:DM Sans,sans-serif'>" + r.sl + "</td>";
+    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.target) + "</td>";
+    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m1) + "</td>";
+    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m2) + "</td>";
+    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m3) + "</td>";
+    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(util) + "</td>";
+    html += "<td style='" + bt + "text-align:right;font-weight:600;color:" + bc + ";background:" + bb + "'>" + (bal>=0?"+":"") + N(bal) + "</td>";
+    html += "<td style='" + bt + "text-align:right'>";
+    html += "<div style='display:flex;flex-direction:column;align-items:flex-end;gap:3px'>";
+    html += "<span style='font-family:DM Mono,monospace'>" + P(util,r.target) + "</span>";
+    html += "<div style='width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden'>";
+    html += "<div style='height:100%;width:" + pp + "%;background:" + pc + ";border-radius:2px'></div></div>";
+    html += "</div></td></tr>";
+  }
+  var tc = (totbal<0) ? "#DC2626" : "#16A34A";
+  html += "<tr class='tr-tot'>";
+  html += "<td colspan='2' style='font-family:DM Sans,sans-serif'>Total</td>";
+  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tt) + "</td>";
+  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm1) + "</td>";
+  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm2) + "</td>";
+  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm3) + "</td>";
+  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tu) + "</td>";
+  html += "<td style='text-align:right;font-weight:600;color:" + tc + "'>" + (totbal>=0?"+":"") + N(totbal) + "</td>";
+  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + P(tu,tt) + "</td></tr>";
+  tb.innerHTML = html;
+  return {t:tt, u:tu, b:totbal};
 }
 
-function updateAll(){
-  renderTable(q2All,'q2tbody','#2563EB');
-  renderTable(q3All,'q3tbody','#16A34A');
+function updateKPIs(q2, q3) {
+  document.getElementById("kq2t").textContent = N(q2.t);
+  document.getElementById("kq2u").textContent = N(q2.u);
+  document.getElementById("kq2p").textContent = P(q2.u, q2.t);
+  var b2 = document.getElementById("kq2b");
+  b2.textContent = (q2.b>=0?"+":"") + N(q2.b);
+  b2.className = "kv " + (q2.b>=0?"pos":"neg");
+  document.getElementById("kq3t").textContent = N(q3.t);
+  document.getElementById("kq3u").textContent = N(q3.u);
+  document.getElementById("kq3p").textContent = P(q3.u, q3.t);
+  var b3 = document.getElementById("kq3b");
+  b3.textContent = (q3.b>=0?"+":"") + N(q3.b);
+  b3.className = "kv " + (q3.b>=0?"pos":"neg");
 }
 
-function toggleFilter(type,val){
-  if(type==='sl'){activesl=val;document.querySelectorAll('#slFilters .chip-btn').forEach(b=>b.classList.toggle('active-sl',b.textContent.trim()===val))}
-  else{activegeo=val;document.querySelectorAll('#geoFilters .chip-btn').forEach(b=>b.classList.toggle('active-geo',b.textContent.trim()===val))}
-  updateAll();
+function updateTags() {
+  var s = (SL==="All") ? "All SL" : SL;
+  var g = (GEO==="All") ? "All Geo" : GEO;
+  var t = s + " &middot; " + g + " &nbsp;|&nbsp; Data as of 19 Jun'26";
+  document.getElementById("q2tag").innerHTML = t;
+  document.getElementById("q3tag").innerHTML = t;
 }
 
-function resetFilters(){
-  activesl='All';activegeo='All';
-  document.querySelectorAll('#slFilters .chip-btn').forEach(b=>b.classList.toggle('active-sl',b.textContent.trim()==='All'));
-  document.querySelectorAll('#geoFilters .chip-btn').forEach(b=>b.classList.toggle('active-geo',b.textContent.trim()==='All'));
-  updateAll();
+function refresh() {
+  var q2 = render(Q2, "q2tb", "#2563EB");
+  var q3 = render(Q3, "q3tb", "#16A34A");
+  updateKPIs(q2, q3);
+  updateTags();
 }
 
-function showTab(tab){
-  document.getElementById('tabQ2').classList.toggle('active',tab==='q2');
-  document.getElementById('tabQ3').classList.toggle('active',tab==='q3');
-  document.getElementById('btnQ2').className='tab-btn'+(tab==='q2'?' active-q2':'');
-  document.getElementById('btnQ3').className='tab-btn'+(tab==='q3'?' active-q3':'');
+function setSL(val) {
+  SL = val;
+  document.querySelectorAll("#slF .fb").forEach(function(b) {
+    b.classList.toggle("asl", b.textContent.trim() === val);
+  });
+  refresh();
 }
+
+function setGEO(val) {
+  GEO = val;
+  document.querySelectorAll("#geoF .fb").forEach(function(b) {
+    b.classList.toggle("ageo", b.textContent.trim() === val);
+  });
+  refresh();
+}
+
+function resetF() {
+  SL = "All"; GEO = "All";
+  document.querySelectorAll("#slF .fb").forEach(function(b) {
+    b.classList.toggle("asl", b.textContent.trim() === "All");
+  });
+  document.querySelectorAll("#geoF .fb").forEach(function(b) {
+    b.classList.toggle("ageo", b.textContent.trim() === "All");
+  });
+  refresh();
+}
+
+function showTab(t) {
+  document.getElementById("pq2").className = "tp" + (t==="q2" ? " act" : "");
+  document.getElementById("pq3").className = "tp" + (t==="q3" ? " act" : "");
+  document.getElementById("tq2").className = "tb" + (t==="q2" ? " aq2" : "");
+  document.getElementById("tq3").className = "tb" + (t==="q3" ? " aq3" : "");
+}
+
+refresh();
 </script>
 </body>
 </html>
