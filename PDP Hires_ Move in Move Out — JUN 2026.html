@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0063)file:///C:/Users/574897/Downloads/M2S_Joiners_Dashboard_28.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDP Hires: Move in Move Out — 2026</title>
-<link href="./PDP Hires_ Move in Move Out — June 18th 2026_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f0f2f5; --surface:#fff; --surface2:#f7f8fa; --surface3:#eef0f4;
@@ -189,7 +189,7 @@ table.at{width:100%;border-collapse:collapse}
   <div class="topbar-left">
     <div class="logo-block">
       <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path>
+        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
       </svg>
     </div>
     <div>
@@ -205,38 +205,29 @@ table.at{width:100%;border-collapse:collapse}
     <div class="divider-v"></div>
     <div class="meta-item">
       <span class="meta-label">Data as of</span>
-      <span class="meta-val" id="data-as-of">18-Jun-2026</span>
+      <span class="meta-val" id="data-as-of">23-Jun-2026</span>
     </div>
     <div class="divider-v"></div>
     <div class="meta-item">
       <span class="meta-label">Active Month</span>
-      <span class="meta-val" id="active-month-label">June 26</span>
+      <span class="meta-val" id="active-month-label">Jun 2026</span>
     </div>
   </div>
 </div>
 
 <!-- MONTH TABS -->
 <div class="month-tabs-bar">
-  <button class="month-tab" onclick="selectMonth(&#39;Jan&#39;)">January 2026</button>
-  <button class="month-tab" onclick="selectMonth(&#39;Feb&#39;)">February 2026</button>
-  <button class="month-tab" onclick="selectMonth(&#39;Mar&#39;)">March 2026</button>
-  <button class="month-tab" onclick="selectMonth(&#39;Apr&#39;)">April 2026</button>
-  <button class="month-tab" onclick="selectMonth(&#39;May&#39;)">May 2026</button>
-  <button class="month-tab active" onclick="selectMonth(&#39;Jun&#39;)">June 2026</button>
+  <button class="month-tab" onclick="selectMonth('Jan')">January 2026</button>
+  <button class="month-tab" onclick="selectMonth('Feb')">February 2026</button>
+  <button class="month-tab" onclick="selectMonth('Mar')">March 2026</button>
+  <button class="month-tab" onclick="selectMonth('Apr')">April 2026</button>
+  <button class="month-tab" onclick="selectMonth('May')">May 2026</button>
+  <button class="month-tab active" onclick="selectMonth('Jun')">June 2026</button>
 </div>
 
 <!-- CLOSING COUNT CARDS -->
 <div class="slabel">Still in PDP — Date-wise Closing Count</div>
-<div class="cards-row" id="cc-row"><div class="cc latest">
-      <div class="cc-date">Jun-26</div>
-      <div class="cc-num">8</div>
-      <div class="cc-sub">
-        <div class="cs"><span class="cs-v" style="color:var(--orange)">16</span><span class="cs-l">Deployed</span></div>
-        <div class="cs"><span class="cs-v" style="color:var(--blue)">11</span><span class="cs-l">Joiners</span></div>
-        
-      </div>
-      <div class="mini-bar"><div class="mini-fill" style="width: 100%;" data-p="100.0"></div></div>
-    </div></div>
+<div class="cards-row" id="cc-row"></div>
 
 <!-- VERTICAL TABLE + SKILL CLUSTER -->
 <div class="two-col">
@@ -245,7 +236,7 @@ table.at{width:100%;border-collapse:collapse}
     <div class="vt-wrap">
       <div class="vt-head">
         <span class="vt-head-title">In / Out Movement by Vertical</span>
-        <div class="dtabs" id="dtabs"><button class="dtab active" onclick="selDate(0)">Jun</button></div>
+        <div class="dtabs" id="dtabs"></div>
       </div>
       <table class="vt">
         <thead>
@@ -262,47 +253,7 @@ table.at{width:100%;border-collapse:collapse}
             <th style="background:#fff0f0;color:var(--red)">Resigned</th>
           </tr>
         </thead>
-        <tbody id="vt-body"><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#c75000"></span>
-      <span class="pill v-ins">Insurance</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-n">8</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">5</td>
-  </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#1558d6"></span>
-      <span class="pill v-bfs">BFS</span></span></td>
-    <td class="nc nc-o">4</td><td class="nc nc-n">3</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">3</td>
-  </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#92400e"></span>
-      <span class="pill v-comm">Communications Media</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">0</td>
-  </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#5b21b6"></span>
-      <span class="pill v-hc">Healthcare- Plans &amp; Providers</span></span></td>
-    <td class="nc nc-o">4</td><td class="nc nc-z">—</td><td class="nc nc-d">4</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">0</td>
-  </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#065f46"></span>
-      <span class="pill v-ls">LS</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">0</td>
-  </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#9d174d"></span>
-      <span class="pill v-nft">NFT</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">0</td>
-  </tr><tr>
-    <td class="tl"><span class="vtag"><span class="vdot" style="background:#0f766e"></span>
-      <span class="pill v-tnh">T&amp;H</span></span></td>
-    <td class="nc nc-o">1</td><td class="nc nc-z">—</td><td class="nc nc-d">1</td><td class="nc nc-z">—</td>
-    <td class="nc nc-c">0</td>
-  </tr><tr class="total-row">
-    <td class="tl">TOTAL</td>
-    <td class="nc nc-o">13</td>
-    <td class="nc nc-n">11</td><td class="nc nc-d">16</td>
-    <td class="nc nc-r">—</td><td class="nc nc-c">8</td>
-  </tr></tbody>
+        <tbody id="vt-body"></tbody>
       </table>
       <div class="formula-row">Closing = <span>Opening + New Joiners − Deployed − Resigned</span></div>
     </div>
@@ -314,10 +265,7 @@ table.at{width:100%;border-collapse:collapse}
         <h3>PDP – Skill Cluster Distribution</h3>
         <span class="chart-badge" id="cluster-badge">Still in PDP</span>
       </div>
-      <div class="chart-scroll"><svg id="scsv" width="216" height="298" viewBox="0 0 216 298" style="min-width: 216px;"><rect x="28" y="28" width="172" height="160" fill="#fafbff" rx="2"></rect><line x1="28" y1="188" x2="200" y2="188" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="23" y="192" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">0</text><line x1="28" y1="108" x2="200" y2="108" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="23" y="112" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">5</text><line x1="28" y1="28" x2="200" y2="28" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="23" y="32" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">10</text><polygon points="76,124 84,118 84,182 76,188" fill="#0b3a9e"></polygon><polygon points="28,124 36,118 84,118 76,124" fill="#4d80f0"></polygon><rect x="28" y="124" width="48" height="64" fill="#1558d6"></rect><text x="52" y="114" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">4</text><text transform="rotate(-45,52,198)" x="52" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">QEA-Automation</text><polygon points="138,140 146,134 146,182 138,188" fill="#0b3a9e"></polygon><polygon points="90,140 98,134 146,134 138,140" fill="#4d80f0"></polygon><rect x="90" y="140" width="48" height="48" fill="#1558d6"></rect><text x="114" y="130" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">3</text><text transform="rotate(-45,114,198)" x="114" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">QEA-SDET</text><polygon points="200,172 208,166 208,182 200,188" fill="#0b3a9e"></polygon><polygon points="152,172 160,166 208,166 200,172" fill="#4d80f0"></polygon><rect x="152" y="172" width="48" height="16" fill="#1558d6"></rect><text x="176" y="162" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">1</text><text transform="rotate(-45,176,198)" x="176" y="198" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">QEA-Domain Skills</text><line x1="28" y1="188" x2="200" y2="188" stroke="#d1d5db" stroke-width="1.5"></line></svg></div>
+      <div class="chart-scroll"><svg id="scsv"></svg></div>
     </div>
   </div>
 </div>
@@ -326,36 +274,23 @@ table.at{width:100%;border-collapse:collapse}
 <div class="slabel">M2S Joiners Tracking</div>
 <div class="chart-card" style="margin-bottom:10px">
   <div class="chart-card-header">
-    <h3 id="wf-title">PDP – M2S Joiners Tracking — June 2026</h3>
+    <h3 id="wf-title">PDP – M2S Joiners Tracking</h3>
     <div class="tlegend">
       <div class="tleg"><div class="tleg-sw" style="background:#1558d6"></div>Joiners</div>
       <div class="tleg"><div class="tleg-sw" style="background:#c75000"></div>Deployed</div>
       <div class="tleg"><div class="tleg-sw" style="background:#1a7a3c"></div>CFWD / Closing</div>
     </div>
   </div>
-  <div class="chart-scroll"><svg id="tsv" width="227" height="302" viewBox="0 0 227 302" style="min-width: 227px;"><rect x="34" y="32" width="179" height="190" fill="#fafbff" rx="2"></rect><line x1="34" y1="222" x2="213" y2="222" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="29" y="226" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">0</text><line x1="34" y1="174.5" x2="213" y2="174.5" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="29" y="178.5" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">10</text><line x1="34" y1="127" x2="213" y2="127" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="29" y="131" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">20</text><line x1="34" y1="79.5" x2="213" y2="79.5" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="29" y="83.5" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">30</text><line x1="34" y1="32" x2="213" y2="32" stroke="#e5e7eb" stroke-width="1"></line>
-      <text x="29" y="36" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">40</text><polygon points="72,112.75 79,107.75 79,217 72,222" fill="#0d4a23"></polygon><polygon points="34,112.75 41,107.75 79,107.75 72,112.75" fill="#4caf71"></polygon><rect x="34" y="112.75" width="38" height="109.25" fill="#1a7a3c"></rect><text x="53" y="103.75" fill="#0d4a23" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">23</text><text transform="rotate(-45,53,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
-      <tspan x="53" y="234">CFWD</tspan>
-      <tspan x="53" dy="10">from May</tspan></text><polygon points="119,169.75 126,164.75 126,217 119,222" fill="#0b3a9e"></polygon><polygon points="81,169.75 88,164.75 126,164.75 119,169.75" fill="#4d80f0"></polygon><rect x="81" y="169.75" width="38" height="52.25" fill="#1558d6"></rect><text x="100" y="160.75" fill="#0b3a9e" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">11</text><text transform="rotate(-45,100,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
-      <tspan x="100" y="234">Joiners</tspan>
-      <tspan x="100" dy="10">Jun-26</tspan></text><polygon points="166,146 173,141 173,217 166,222" fill="#7a2f00"></polygon><polygon points="128,146 135,141 173,141 166,146" fill="#f07030"></polygon><rect x="128" y="146" width="38" height="76" fill="#c75000"></rect><text x="147" y="137" fill="#7a2f00" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">-16</text><text transform="rotate(-45,147,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
-      <tspan x="147" y="234">Deployed</tspan>
-      <tspan x="147" dy="10">Jun-26</tspan></text><polygon points="213,184 220,179 220,217 213,222" fill="#0d4a23"></polygon><polygon points="175,184 182,179 220,179 213,184" fill="#4caf71"></polygon><rect x="175" y="184" width="38" height="38" fill="#1a7a3c"></rect><text x="194" y="175" fill="#0d4a23" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">8</text><text transform="rotate(-45,194,234)" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
-      <tspan x="194" y="234">Closing</tspan>
-      <tspan x="194" dy="10">Jun-26</tspan></text><line x1="34" y1="222" x2="213" y2="222" stroke="#d1d5db" stroke-width="1.5"></line></svg></div>
+  <div class="chart-scroll"><svg id="tsv"></svg></div>
 </div>
 
 <!-- ASSOC TABLE -->
-<div class="slabel" id="assoc-slabel">Still in PDP — Associate &amp; Vertical Detail (as of 18-Jun-2026)</div>
+<div class="slabel" id="assoc-slabel">Still in PDP — Associate &amp; Vertical Detail</div>
 <div class="assoc-wrap">
   <div class="assoc-head">
     <h3>Still in PDP — Associate Wise &amp; Vertical Wise</h3>
     <div class="assoc-head-right">
-      <span class="assoc-count" id="assoc-count">8 Associates</span>
+      <span class="assoc-count" id="assoc-count">— Associates</span>
       <input class="assoc-search" type="text" placeholder="Search name / vertical…" oninput="filterAssoc(this.value)">
     </div>
   </div>
@@ -365,79 +300,7 @@ table.at{width:100%;border-collapse:collapse}
         <th>Associate ID</th><th>Name</th><th>Grade</th><th>Vertical</th>
         <th>Skills Cluster</th><th>Location</th><th>PDP Entry Date</th><th>Project</th>
       </tr></thead>
-      <tbody id="assoc-body"><tr class="vg"><td colspan="8"><span class="pill v-bfs">BFS</span><span class="vcount">3</span></td></tr><tr>
-        <td style="color:var(--muted);font-size:9px">2512169</td>
-        <td class="name-cell">M, Sachin</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-bfs">BFS</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-Automation</td>
-        <td>Bangalore</td>
-        <td style="font-size:9px">27-May-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_BFS</td>
-      </tr><tr>
-        <td style="color:var(--muted);font-size:9px">2512678</td>
-        <td class="name-cell">Sekar, Arjun</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-bfs">BFS</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-Automation</td>
-        <td>Chennai</td>
-        <td style="font-size:9px">29-May-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_BFS</td>
-      </tr><tr>
-        <td style="color:var(--muted);font-size:9px">2513004</td>
-        <td class="name-cell">Padwal, Pratiksha Shankar</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-bfs">BFS</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-Automation</td>
-        <td>Pune</td>
-        <td style="font-size:9px">01-Jun-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_BFS</td>
-      </tr><tr class="vg"><td colspan="8"><span class="pill v-ins">Insurance</span><span class="vcount">5</span></td></tr><tr>
-        <td style="color:var(--muted);font-size:9px">2512930</td>
-        <td class="name-cell">Nellaiappan, Nisha V.</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-ins">Insurance</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-SDET</td>
-        <td>Chennai</td>
-        <td style="font-size:9px">01-Jun-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
-      </tr><tr>
-        <td style="color:var(--muted);font-size:9px">2513043</td>
-        <td class="name-cell">Bakhade, Neha Dnyaneshwar</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-ins">Insurance</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-SDET</td>
-        <td>Pune</td>
-        <td style="font-size:9px">01-Jun-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
-      </tr><tr>
-        <td style="color:var(--muted);font-size:9px">2513378</td>
-        <td class="name-cell">Murugan, Ajithkumar</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-ins">Insurance</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-Domain Skills</td>
-        <td>Chennai</td>
-        <td style="font-size:9px">01-Jun-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
-      </tr><tr>
-        <td style="color:var(--muted);font-size:9px">2514455</td>
-        <td class="name-cell">Priyanka, C</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-ins">Insurance</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-SDET</td>
-        <td>Chennai</td>
-        <td style="font-size:9px">05-Jun-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
-      </tr><tr>
-        <td style="color:var(--muted);font-size:9px">2516421</td>
-        <td class="name-cell">Warulkar, Pallavi</td>
-        <td><span class="grade-badge grade-a">A</span></td>
-        <td><span class="pill v-ins">Insurance</span></td>
-        <td style="font-size:9px;color:var(--muted2)">QEA-Automation</td>
-        <td>Pune</td>
-        <td style="font-size:9px">16-Jun-26</td>
-        <td style="font-size:9px;color:var(--muted)">QEA_D_PDP_M2S_INS</td>
-      </tr></tbody>
+      <tbody id="assoc-body"></tbody>
     </table>
   </div>
 </div>
@@ -804,30 +667,26 @@ const MONTH_DATA = {
   },
 
   'Jun': {
-    label:'June 2026', asOf:'18-Jun-2026',
+    label:'June 2026', asOf:'23-Jun-2026',
     dates:['Jun-26'],
-    totals:[{d:'Jun-26',opening:13,movedIn:0,newHire:11,deployed:16,resigned:0,still:8}],
+    totals:[{d:'Jun-26',opening:14,movedIn:0,newHire:7,deployed:17,resigned:0,still:4}],
     verts:[
-      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:4,mi:0,n:3,d:4,r:0}]},
-      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:4,mi:0,n:0,d:4,r:0}]},
-      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:8,d:4,r:0}]},
-      {name:'LS',        cls:'v-ls',  dot:'#065f46', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
-      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
-      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:5,mi:0,n:1,d:5,r:0}]},
+      {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:4,mi:0,n:0,d:4,r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:6,d:4,r:0}]},
+      {name:'LS',                           cls:'v-ls',  dot:'#065f46', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'T&H',                          cls:'v-tnh', dot:'#0f766e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
     ],
     clusters:{
-      'Jun-26':[{l:'QEA-Automation',c:4},{l:'QEA-SDET',c:3},{l:'QEA-Domain Skills',c:1}],
+      'Jun-26':[{l:'QEA-Automation',c:3},{l:'QEA-SDET',c:1}],
     },
     assoc:[
-      {id:'2512169', name:'M, Sachin',                 grade:'A', vertical:'BFS',       cluster:'QEA-Automation',   loc:'Bangalore', entry:'27-May-26',proj:'QEA_D_PDP_M2S_BFS'},
-      {id:'2512678', name:'Sekar, Arjun',              grade:'A', vertical:'BFS',       cluster:'QEA-Automation',   loc:'Chennai',   entry:'29-May-26',proj:'QEA_D_PDP_M2S_BFS'},
-      {id:'2513004', name:'Padwal, Pratiksha Shankar', grade:'A', vertical:'BFS',       cluster:'QEA-Automation',   loc:'Pune',      entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_BFS'},
-      {id:'2512930', name:'Nellaiappan, Nisha V.',     grade:'A', vertical:'Insurance', cluster:'QEA-SDET',         loc:'Chennai',   entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2513043', name:'Bakhade, Neha Dnyaneshwar', grade:'A', vertical:'Insurance', cluster:'QEA-SDET',         loc:'Pune',      entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2513378', name:'Murugan, Ajithkumar',       grade:'A', vertical:'Insurance', cluster:'QEA-Domain Skills',loc:'Chennai',   entry:'01-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2514455', name:'Priyanka, C',               grade:'A', vertical:'Insurance', cluster:'QEA-SDET',         loc:'Chennai',   entry:'05-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2516421', name:'Warulkar, Pallavi',         grade:'A', vertical:'Insurance', cluster:'QEA-Automation',   loc:'Pune',      entry:'16-Jun-26',proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2512169', name:'M, Sachin',          grade:'A', vertical:'BFS',       cluster:'QEA-Automation', loc:'Bangalore', entry:'2026-05-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2516954', name:'Bhattacharya, Rima', grade:'SA',vertical:'Insurance', cluster:'QEA-Automation', loc:'Bangalore', entry:'2026-06-18', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2514455', name:'Priyanka, C',        grade:'A', vertical:'Insurance', cluster:'QEA-SDET',       loc:'Chennai',   entry:'2026-06-05', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2516421', name:'Warulkar, Pallavi',  grade:'A', vertical:'Insurance', cluster:'QEA-Automation', loc:'Pune',      entry:'2026-06-16', proj:'QEA_D_PDP_M2S_INS'},
     ],
     cfwd:23
   }
@@ -1102,6 +961,5 @@ function filterAssoc(q){
 // ═══════════════════════════════════════════════════════════════
 selectMonth('Jun');
 </script>
-
-
-</body></html>
+</body>
+</html>
