@@ -57,11 +57,10 @@ tbody tr:hover td{background:#F8FAFC}
 </style>
 </head>
 <body>
-
 <div class="hdr">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 24 Jun'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
+    <div class="sub">As on 26 Jun'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
     <span class="bdg bdg-q2">Q2 FY26</span>
@@ -70,7 +69,6 @@ tbody tr:hover td{background:#F8FAFC}
 </div>
 
 <div class="wrap">
-
   <div class="fbar">
     <div style="display:flex;align-items:center;gap:10px">
       <span class="fl">Service Line</span>
@@ -98,15 +96,14 @@ tbody tr:hover td{background:#F8FAFC}
 
   <div class="kg">
     <div class="kc q2"><div class="kl">Q2 Target</div><div class="kv" id="kq2t">2,102</div><div class="km"><span class="ck ck2">Q2</span>Total slots</div></div>
-    <div class="kc q2"><div class="kl">Q2 Slots Utilized</div><div class="kv" id="kq2u">2,079</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">99%</span> of target</div></div>
-    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv pos" id="kq2b">+23</div><div class="km"><span class="ck ck2">Q2</span>Remaining slots</div></div>
+    <div class="kc q2"><div class="kl">Q2 Slots Utilized</div><div class="kv" id="kq2u">2,109</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">100%</span> of target</div></div>
+    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv neg" id="kq2b">-7</div><div class="km"><span class="ck ck2">Q2</span>Remaining slots</div></div>
     <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">1,474</div><div class="km"><span class="ck ck3">Q3</span>Total slots</div></div>
-    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">344</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">23%</span> of target</div></div>
-    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv pos" id="kq3b">+1,130</div><div class="km"><span class="ck ck3">Q3</span>Remaining slots</div></div>
+    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">397</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">27%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv pos" id="kq3b">+1,077</div><div class="km"><span class="ck ck3">Q3</span>Remaining slots</div></div>
   </div>
 
   <div class="slbl">Geo &times; service line detail</div>
-
   <div class="tabs">
     <button class="tb aq2" id="tq2" onclick="showTab('q2')">Q2&apos;26 &mdash; Apr &middot; May &middot; Jun</button>
     <button class="tb" id="tq3" onclick="showTab('q3')">Q3&apos;26 &mdash; Jul &middot; Aug &middot; Sep</button>
@@ -116,18 +113,16 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q2&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q2tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 24 Jun'26</span>
+        <span class="tc-tag" id="q2tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 26 Jun'26</span>
       </div>
-      <div class="tsc">
-        <table>
-          <thead><tr>
-            <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
-            <th>Target</th><th>Apr&apos;26 Joiners</th><th>May&apos;26 Joiners</th><th>Jun&apos;26 Pipeline</th>
-            <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
-          </tr></thead>
-          <tbody id="q2tb"></tbody>
-        </table>
-      </div>
+      <div class="tsc"><table>
+        <thead><tr>
+          <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
+          <th>Target</th><th>Apr&apos;26 Joiners</th><th>May&apos;26 Joiners</th><th>Jun&apos;26 Pipeline</th>
+          <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
+        </tr></thead>
+        <tbody id="q2tb"></tbody>
+      </table></div>
     </div>
   </div>
 
@@ -135,18 +130,16 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 24 Jun'26</span>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 26 Jun'26</span>
       </div>
-      <div class="tsc">
-        <table>
-          <thead><tr>
-            <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
-            <th>Target</th><th>Jul&apos;26 Pipeline</th><th>Aug&apos;26 Pipeline</th><th>Sep&apos;26 Pipeline</th>
-            <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
-          </tr></thead>
-          <tbody id="q3tb"></tbody>
-        </table>
-      </div>
+      <div class="tsc"><table>
+        <thead><tr>
+          <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
+          <th>Target</th><th>Jul&apos;26 Pipeline</th><th>Aug&apos;26 Pipeline</th><th>Sep&apos;26 Pipeline</th>
+          <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
+        </tr></thead>
+        <tbody id="q3tb"></tbody>
+      </table></div>
     </div>
   </div>
 
@@ -157,20 +150,19 @@ tbody tr:hover td{background:#F8FAFC}
     Balance = Target &minus; Slots Utilized. &nbsp;&middot;&nbsp;
     <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized. &nbsp;&middot;&nbsp;
     <span style="color:#16A34A;font-weight:600">Green</span> = surplus. &nbsp;&middot;&nbsp;
-    Data as of 24 Jun'26.
+    Data as of 26 Jun'26.
   </div>
-
 </div>
 
 <script>
 var Q2 = [
-{geo:"India",sl:"DE",target:653,m1:311,m2:168,m3:174},
-{geo:"India",sl:"ADM",target:370,m1:186,m2:104,m3:62},
-{geo:"India",sl:"QEA",target:360,m1:187,m2:105,m3:53},
-{geo:"Americas",sl:"DE",target:186,m1:84,m2:56,m3:51},
-{geo:"Americas",sl:"ADM",target:111,m1:54,m2:52,m3:34},
-{geo:"Americas",sl:"QEA",target:182,m1:53,m2:50,m3:72},
-{geo:"APJ",sl:"DE",target:14,m1:3,m2:8,m3:11},
+{geo:"India",sl:"DE",target:653,m1:311,m2:168,m3:182},
+{geo:"India",sl:"ADM",target:370,m1:186,m2:104,m3:70},
+{geo:"India",sl:"QEA",target:360,m1:187,m2:105,m3:56},
+{geo:"Americas",sl:"DE",target:186,m1:84,m2:56,m3:55},
+{geo:"Americas",sl:"ADM",target:111,m1:54,m2:52,m3:38},
+{geo:"Americas",sl:"QEA",target:182,m1:53,m2:50,m3:74},
+{geo:"APJ",sl:"DE",target:14,m1:3,m2:8,m3:12},
 {geo:"APJ",sl:"ADM",target:43,m1:16,m2:12,m3:13},
 {geo:"APJ",sl:"QEA",target:73,m1:18,m2:10,m3:14},
 {geo:"EMEA",sl:"DE",target:76,m1:26,m2:43,m3:16},
@@ -178,22 +170,22 @@ var Q2 = [
 {geo:"EMEA",sl:"QEA",target:31,m1:8,m2:4,m3:9}
 ];
 var Q3 = [
-{geo:"India",sl:"DE",target:492,m1:67,m2:30,m3:15},
-{geo:"India",sl:"ADM",target:100,m1:19,m2:9,m3:5},
-{geo:"India",sl:"QEA",target:319,m1:37,m2:22,m3:16},
-{geo:"Americas",sl:"DE",target:175,m1:17,m2:1,m3:0},
-{geo:"Americas",sl:"ADM",target:100,m1:12,m2:0,m3:0},
-{geo:"Americas",sl:"QEA",target:130,m1:17,m2:0,m3:0},
-{geo:"APJ",sl:"DE",target:8,m1:2,m2:1,m3:0},
+{geo:"India",sl:"DE",target:492,m1:71,m2:32,m3:21},
+{geo:"India",sl:"ADM",target:100,m1:23,m2:11,m3:9},
+{geo:"India",sl:"QEA",target:319,m1:41,m2:23,m3:18},
+{geo:"Americas",sl:"DE",target:175,m1:24,m2:1,m3:0},
+{geo:"Americas",sl:"ADM",target:100,m1:13,m2:0,m3:0},
+{geo:"Americas",sl:"QEA",target:130,m1:28,m2:0,m3:0},
+{geo:"APJ",sl:"DE",target:8,m1:2,m2:2,m3:0},
 {geo:"APJ",sl:"ADM",target:2,m1:7,m2:3,m3:1},
-{geo:"APJ",sl:"QEA",target:33,m1:4,m2:3,m3:0},
-{geo:"EMEA",sl:"DE",target:80,m1:20,m2:0,m3:1},
+{geo:"APJ",sl:"QEA",target:33,m1:4,m2:4,m3:0},
+{geo:"EMEA",sl:"DE",target:80,m1:21,m2:0,m3:1},
 {geo:"EMEA",sl:"ADM",target:10,m1:15,m2:0,m3:0},
-{geo:"EMEA",sl:"QEA",target:25,m1:20,m2:0,m3:0}
+{geo:"EMEA",sl:"QEA",target:25,m1:22,m2:0,m3:0}
 ];
 var SL = "All", GEO = "All";
 
-function N(n) { return Math.round(n).toLocaleString("en-IN"); }
+function N(n) { return Math.round(Math.abs(n)).toLocaleString("en-IN"); }
 function P(u,t) { return t ? Math.round(u/t*100)+"%" : "--"; }
 
 function render(data, tbId, pc) {
@@ -229,7 +221,7 @@ function render(data, tbId, pc) {
     html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m2) + "</td>";
     html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m3) + "</td>";
     html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(util) + "</td>";
-    html += "<td style='" + bt + "text-align:right;font-weight:600;color:" + bc + ";background:" + bb + "'>" + (bal>=0?"+":"") + N(bal) + "</td>";
+    html += "<td style='" + bt + "text-align:right;font-weight:600;color:" + bc + ";background:" + bb + "'>" + (bal>=0?"+":"-") + N(bal) + "</td>";
     html += "<td style='" + bt + "text-align:right'>";
     html += "<div style='display:flex;flex-direction:column;align-items:flex-end;gap:3px'>";
     html += "<span style='font-family:DM Mono,monospace'>" + P(util,r.target) + "</span>";
@@ -245,7 +237,7 @@ function render(data, tbId, pc) {
   html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm2) + "</td>";
   html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm3) + "</td>";
   html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tu) + "</td>";
-  html += "<td style='text-align:right;font-weight:600;color:" + tc + "'>" + (totbal>=0?"+":"") + N(totbal) + "</td>";
+  html += "<td style='text-align:right;font-weight:600;color:" + tc + "'>" + (totbal>=0?"+":"-") + N(totbal) + "</td>";
   html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + P(tu,tt) + "</td></tr>";
   tb.innerHTML = html;
   return {t:tt, u:tu, b:totbal};
@@ -256,20 +248,20 @@ function updateKPIs(q2, q3) {
   document.getElementById("kq2u").textContent = N(q2.u);
   document.getElementById("kq2p").textContent = P(q2.u, q2.t);
   var b2 = document.getElementById("kq2b");
-  b2.textContent = (q2.b>=0?"+":"") + N(q2.b);
+  b2.textContent = (q2.b>=0?"+":"-") + N(q2.b);
   b2.className = "kv " + (q2.b>=0?"pos":"neg");
   document.getElementById("kq3t").textContent = N(q3.t);
   document.getElementById("kq3u").textContent = N(q3.u);
   document.getElementById("kq3p").textContent = P(q3.u, q3.t);
   var b3 = document.getElementById("kq3b");
-  b3.textContent = (q3.b>=0?"+":"") + N(q3.b);
+  b3.textContent = (q3.b>=0?"+":"-") + N(q3.b);
   b3.className = "kv " + (q3.b>=0?"pos":"neg");
 }
 
 function updateTags() {
   var s = (SL==="All") ? "All SL" : SL;
   var g = (GEO==="All") ? "All Geo" : GEO;
-  var t = s + " &middot; " + g + " &nbsp;|&nbsp; Data as of 24 Jun'26";
+  var t = s + " &middot; " + g + " &nbsp;|&nbsp; Data as of 26 Jun'26";
   document.getElementById("q2tag").innerHTML = t;
   document.getElementById("q3tag").innerHTML = t;
 }
