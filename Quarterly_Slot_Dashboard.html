@@ -60,14 +60,13 @@ tbody tr:hover td{background:#F8FAFC}
 <div class="hdr">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 29 Jun'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
+    <div class="sub">As on 1 Jul'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
     <span class="bdg bdg-q2">Q2 FY26</span>
     <span class="bdg bdg-q3">Q3 FY26</span>
   </div>
 </div>
-
 <div class="wrap">
   <div class="fbar">
     <div style="display:flex;align-items:center;gap:10px">
@@ -93,27 +92,24 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="fdiv"></div>
     <button class="frst" onclick="resetF()">&#x21BA; Reset</button>
   </div>
-
   <div class="kg">
     <div class="kc q2"><div class="kl">Q2 Target</div><div class="kv" id="kq2t">2,102</div><div class="km"><span class="ck ck2">Q2</span>Total slots</div></div>
-    <div class="kc q2"><div class="kl">Q2 Slots Utilized</div><div class="kv" id="kq2u">2,113</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">101%</span> of target</div></div>
-    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv neg" id="kq2b">-11</div><div class="km"><span class="ck ck2">Q2</span>Remaining slots</div></div>
+    <div class="kc q2"><div class="kl">Q2 Slots Utilized</div><div class="kv" id="kq2u">2,109</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">100%</span> of target</div></div>
+    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv neg" id="kq2b">-7</div><div class="km"><span class="ck ck2">Q2</span>Remaining slots</div></div>
     <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">972</div><div class="km"><span class="ck ck3">Q3</span>Total slots</div></div>
-    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">421</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">43%</span> of target</div></div>
-    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv pos" id="kq3b">+551</div><div class="km"><span class="ck ck3">Q3</span>Remaining slots</div></div>
+    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">485</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">50%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv pos" id="kq3b">+487</div><div class="km"><span class="ck ck3">Q3</span>Remaining slots</div></div>
   </div>
-
   <div class="slbl">Geo &times; service line detail</div>
   <div class="tabs">
     <button class="tb aq2" id="tq2" onclick="showTab('q2')">Q2&apos;26 &mdash; Apr &middot; May &middot; Jun</button>
     <button class="tb" id="tq3" onclick="showTab('q3')">Q3&apos;26 &mdash; Jul &middot; Aug &middot; Sep</button>
   </div>
-
   <div id="pq2" class="tp act">
     <div class="tc">
       <div class="tc-h">
         <h3>Q2&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q2tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 29 Jun'26</span>
+        <span class="tc-tag" id="q2tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 1 Jul'26</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -125,12 +121,11 @@ tbody tr:hover td{background:#F8FAFC}
       </table></div>
     </div>
   </div>
-
   <div id="pq3" class="tp">
     <div class="tc">
       <div class="tc-h">
         <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 29 Jun'26</span>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 1 Jul'26</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -142,7 +137,6 @@ tbody tr:hover td{background:#F8FAFC}
       </table></div>
     </div>
   </div>
-
   <div class="note">
     <strong>Notes:</strong>&nbsp;
     Q2 Slots Utilized = Apr Joiners + May Joiners + Jun Pipeline. &nbsp;&middot;&nbsp;
@@ -150,163 +144,119 @@ tbody tr:hover td{background:#F8FAFC}
     Balance = Target &minus; Slots Utilized. &nbsp;&middot;&nbsp;
     <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized. &nbsp;&middot;&nbsp;
     <span style="color:#16A34A;font-weight:600">Green</span> = surplus. &nbsp;&middot;&nbsp;
-    Data as of 29 Jun'26.
+    Data as of 1 Jul'26.
   </div>
 </div>
-
 <script>
 var Q2 = [
-{geo:"India",sl:"DE",target:653,m1:311,m2:168,m3:183},
-{geo:"India",sl:"ADM",target:370,m1:186,m2:104,m3:70},
-{geo:"India",sl:"QEA",target:360,m1:187,m2:105,m3:58},
-{geo:"Americas",sl:"DE",target:186,m1:84,m2:56,m3:56},
-{geo:"Americas",sl:"ADM",target:111,m1:54,m2:52,m3:39},
-{geo:"Americas",sl:"QEA",target:182,m1:53,m2:50,m3:74},
+{geo:"India",sl:"DE",target:653,m1:311,m2:168,m3:182},
+{geo:"India",sl:"ADM",target:370,m1:186,m2:104,m3:73},
+{geo:"India",sl:"QEA",target:360,m1:187,m2:105,m3:61},
+{geo:"Americas",sl:"DE",target:186,m1:84,m2:56,m3:53},
+{geo:"Americas",sl:"ADM",target:111,m1:54,m2:52,m3:41},
+{geo:"Americas",sl:"QEA",target:182,m1:53,m2:50,m3:68},
 {geo:"APJ",sl:"DE",target:14,m1:3,m2:8,m3:12},
-{geo:"APJ",sl:"ADM",target:43,m1:16,m2:12,m3:13},
-{geo:"APJ",sl:"QEA",target:73,m1:18,m2:10,m3:13},
+{geo:"APJ",sl:"ADM",target:43,m1:16,m2:12,m3:12},
+{geo:"APJ",sl:"QEA",target:73,m1:18,m2:10,m3:12},
 {geo:"EMEA",sl:"DE",target:76,m1:26,m2:43,m3:16},
 {geo:"EMEA",sl:"ADM",target:3,m1:0,m2:9,m3:3},
 {geo:"EMEA",sl:"QEA",target:31,m1:8,m2:4,m3:9}
 ];
 var Q3 = [
-{geo:"India",sl:"DE",target:308,m1:83,m2:32,m3:22},
-{geo:"India",sl:"ADM",target:86,m1:24,m2:11,m3:8},
-{geo:"India",sl:"QEA",target:130,m1:42,m2:22,m3:17},
-{geo:"Americas",sl:"DE",target:123,m1:28,m2:1,m3:0},
-{geo:"Americas",sl:"ADM",target:60,m1:13,m2:0,m3:0},
-{geo:"Americas",sl:"QEA",target:91,m1:32,m2:0,m3:0},
+{geo:"India",sl:"DE",target:308,m1:100,m2:37,m3:28},
+{geo:"India",sl:"ADM",target:86,m1:29,m2:12,m3:12},
+{geo:"India",sl:"QEA",target:130,m1:50,m2:23,m3:20},
+{geo:"Americas",sl:"DE",target:123,m1:33,m2:1,m3:0},
+{geo:"Americas",sl:"ADM",target:60,m1:14,m2:0,m3:0},
+{geo:"Americas",sl:"QEA",target:91,m1:35,m2:0,m3:0},
 {geo:"APJ",sl:"DE",target:21,m1:2,m2:2,m3:0},
-{geo:"APJ",sl:"ADM",target:20,m1:8,m2:3,m3:1},
+{geo:"APJ",sl:"ADM",target:20,m1:9,m2:3,m3:1},
 {geo:"APJ",sl:"QEA",target:23,m1:5,m2:4,m3:0},
 {geo:"EMEA",sl:"DE",target:64,m1:22,m2:0,m3:1},
-{geo:"EMEA",sl:"ADM",target:21,m1:16,m2:0,m3:0},
-{geo:"EMEA",sl:"QEA",target:25,m1:22,m2:0,m3:0}
+{geo:"EMEA",sl:"ADM",target:21,m1:18,m2:0,m3:0},
+{geo:"EMEA",sl:"QEA",target:25,m1:24,m2:0,m3:0}
 ];
 var SL = "All", GEO = "All";
-
 function N(n) { return Math.round(Math.abs(n)).toLocaleString("en-IN"); }
 function P(u,t) { return t ? Math.round(u/t*100)+"%" : "--"; }
-
 function render(data, tbId, pc) {
-  var rows = data.filter(function(r) {
-    return (SL === "All" || r.sl === SL) && (GEO === "All" || r.geo === GEO);
-  });
+  var rows = data.filter(function(r) { return (SL==="All"||r.sl===SL)&&(GEO==="All"||r.geo===GEO); });
   var tb = document.getElementById(tbId);
-  if (!rows.length) {
-    tb.innerHTML = "<tr><td colspan='9' style='padding:24px;text-align:center;color:#94A3B8;font-size:13px'>No data for selected filters</td></tr>";
-    return {t:0, u:0, b:0};
+  if (!rows.length) { tb.innerHTML="<tr><td colspan='9' style='padding:24px;text-align:center;color:#94A3B8;font-size:13px'>No data for selected filters</td></tr>"; return {t:0,u:0,b:0}; }
+  var html="", prev="", tt=0,tm1=0,tm2=0,tm3=0,tu=0,totbal=0;
+  for (var i=0;i<rows.length;i++) {
+    var r=rows[i], util=r.m1+r.m2+r.m3, bal=r.target-util;
+    tt+=r.target;tm1+=r.m1;tm2+=r.m2;tm3+=r.m3;tu+=util;totbal+=bal;
+    var isNew=(r.geo!==prev); prev=r.geo;
+    var bg=(i%2===0)?"#F8FAFC":"#fff";
+    var bc=(bal<0)?"#DC2626":"#16A34A", bb=(bal<0)?"#FEE2E2":"#DCFCE7";
+    var bt=(isNew&&i>0)?"border-top:1px solid #CBD5E1;":"";
+    var pp=r.target?Math.min(Math.round(util/r.target*100),100):0;
+    var geoCell=isNew?r.geo:"", geoW=isNew?"600":"400", geoC=isNew?"#1E3A5F":"#475569";
+    html+="<tr style='background:"+bg+"'>";
+    html+="<td style='"+bt+"font-weight:"+geoW+";color:"+geoC+";font-family:DM Sans,sans-serif'>"+geoCell+"</td>";
+    html+="<td style='"+bt+"color:#475569;font-family:DM Sans,sans-serif'>"+r.sl+"</td>";
+    html+="<td style='"+bt+"text-align:right;font-family:DM Mono,monospace'>"+N(r.target)+"</td>";
+    html+="<td style='"+bt+"text-align:right;font-family:DM Mono,monospace'>"+N(r.m1)+"</td>";
+    html+="<td style='"+bt+"text-align:right;font-family:DM Mono,monospace'>"+N(r.m2)+"</td>";
+    html+="<td style='"+bt+"text-align:right;font-family:DM Mono,monospace'>"+N(r.m3)+"</td>";
+    html+="<td style='"+bt+"text-align:right;font-family:DM Mono,monospace'>"+N(util)+"</td>";
+    html+="<td style='"+bt+"text-align:right;font-weight:600;color:"+bc+";background:"+bb+"'>"+(bal>=0?"+":"-")+N(bal)+"</td>";
+    html+="<td style='"+bt+"text-align:right'><div style='display:flex;flex-direction:column;align-items:flex-end;gap:3px'>";
+    html+="<span style='font-family:DM Mono,monospace'>"+P(util,r.target)+"</span>";
+    html+="<div style='width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden'>";
+    html+="<div style='height:100%;width:"+pp+"%;background:"+pc+";border-radius:2px'></div></div></div></td></tr>";
   }
-  var html = "", prev = "";
-  var tt=0, tm1=0, tm2=0, tm3=0, tu=0, totbal=0;
-  for (var i=0; i<rows.length; i++) {
-    var r = rows[i];
-    var util = r.m1+r.m2+r.m3;
-    var bal  = r.target - util;
-    tt+=r.target; tm1+=r.m1; tm2+=r.m2; tm3+=r.m3; tu+=util; totbal+=bal;
-    var isNew = (r.geo !== prev); prev = r.geo;
-    var bg  = (i%2===0) ? "#F8FAFC" : "#fff";
-    var bc  = (bal<0) ? "#DC2626" : "#16A34A";
-    var bb  = (bal<0) ? "#FEE2E2" : "#DCFCE7";
-    var bt  = (isNew && i>0) ? "border-top:1px solid #CBD5E1;" : "";
-    var pp  = r.target ? Math.min(Math.round(util/r.target*100), 100) : 0;
-    var geoCell = isNew ? r.geo : "";
-    var geoW = isNew ? "600" : "400";
-    var geoC = isNew ? "#1E3A5F" : "#475569";
-    html += "<tr style='background:" + bg + "'>";
-    html += "<td style='" + bt + "font-weight:" + geoW + ";color:" + geoC + ";font-family:DM Sans,sans-serif'>" + geoCell + "</td>";
-    html += "<td style='" + bt + "color:#475569;font-family:DM Sans,sans-serif'>" + r.sl + "</td>";
-    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.target) + "</td>";
-    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m1) + "</td>";
-    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m2) + "</td>";
-    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(r.m3) + "</td>";
-    html += "<td style='" + bt + "text-align:right;font-family:DM Mono,monospace'>" + N(util) + "</td>";
-    html += "<td style='" + bt + "text-align:right;font-weight:600;color:" + bc + ";background:" + bb + "'>" + (bal>=0?"+":"-") + N(bal) + "</td>";
-    html += "<td style='" + bt + "text-align:right'>";
-    html += "<div style='display:flex;flex-direction:column;align-items:flex-end;gap:3px'>";
-    html += "<span style='font-family:DM Mono,monospace'>" + P(util,r.target) + "</span>";
-    html += "<div style='width:56px;height:4px;background:#E2E8F0;border-radius:2px;overflow:hidden'>";
-    html += "<div style='height:100%;width:" + pp + "%;background:" + pc + ";border-radius:2px'></div></div>";
-    html += "</div></td></tr>";
-  }
-  var tc = (totbal<0) ? "#DC2626" : "#16A34A";
-  html += "<tr class='tr-tot'>";
-  html += "<td colspan='2' style='font-family:DM Sans,sans-serif'>Total</td>";
-  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tt) + "</td>";
-  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm1) + "</td>";
-  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm2) + "</td>";
-  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tm3) + "</td>";
-  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + N(tu) + "</td>";
-  html += "<td style='text-align:right;font-weight:600;color:" + tc + "'>" + (totbal>=0?"+":"-") + N(totbal) + "</td>";
-  html += "<td style='text-align:right;font-family:DM Mono,monospace'>" + P(tu,tt) + "</td></tr>";
-  tb.innerHTML = html;
-  return {t:tt, u:tu, b:totbal};
+  var tc=(totbal<0)?"#DC2626":"#16A34A";
+  html+="<tr class='tr-tot'><td colspan='2' style='font-family:DM Sans,sans-serif'>Total</td>";
+  html+="<td style='text-align:right;font-family:DM Mono,monospace'>"+N(tt)+"</td>";
+  html+="<td style='text-align:right;font-family:DM Mono,monospace'>"+N(tm1)+"</td>";
+  html+="<td style='text-align:right;font-family:DM Mono,monospace'>"+N(tm2)+"</td>";
+  html+="<td style='text-align:right;font-family:DM Mono,monospace'>"+N(tm3)+"</td>";
+  html+="<td style='text-align:right;font-family:DM Mono,monospace'>"+N(tu)+"</td>";
+  html+="<td style='text-align:right;font-weight:600;color:"+tc+"'>"+(totbal>=0?"+":"-")+N(totbal)+"</td>";
+  html+="<td style='text-align:right;font-family:DM Mono,monospace'>"+P(tu,tt)+"</td></tr>";
+  tb.innerHTML=html;
+  return {t:tt,u:tu,b:totbal};
 }
-
-function updateKPIs(q2, q3) {
-  document.getElementById("kq2t").textContent = N(q2.t);
-  document.getElementById("kq2u").textContent = N(q2.u);
-  document.getElementById("kq2p").textContent = P(q2.u, q2.t);
-  var b2 = document.getElementById("kq2b");
-  b2.textContent = (q2.b>=0?"+":"-") + N(q2.b);
-  b2.className = "kv " + (q2.b>=0?"pos":"neg");
-  document.getElementById("kq3t").textContent = N(q3.t);
-  document.getElementById("kq3u").textContent = N(q3.u);
-  document.getElementById("kq3p").textContent = P(q3.u, q3.t);
-  var b3 = document.getElementById("kq3b");
-  b3.textContent = (q3.b>=0?"+":"-") + N(q3.b);
-  b3.className = "kv " + (q3.b>=0?"pos":"neg");
+function updateKPIs(q2,q3) {
+  document.getElementById("kq2t").textContent=N(q2.t);
+  document.getElementById("kq2u").textContent=N(q2.u);
+  document.getElementById("kq2p").textContent=P(q2.u,q2.t);
+  var b2=document.getElementById("kq2b"); b2.textContent=(q2.b>=0?"+":"-")+N(q2.b); b2.className="kv "+(q2.b>=0?"pos":"neg");
+  document.getElementById("kq3t").textContent=N(q3.t);
+  document.getElementById("kq3u").textContent=N(q3.u);
+  document.getElementById("kq3p").textContent=P(q3.u,q3.t);
+  var b3=document.getElementById("kq3b"); b3.textContent=(q3.b>=0?"+":"-")+N(q3.b); b3.className="kv "+(q3.b>=0?"pos":"neg");
 }
-
 function updateTags() {
-  var s = (SL==="All") ? "All SL" : SL;
-  var g = (GEO==="All") ? "All Geo" : GEO;
-  var t = s + " &middot; " + g + " &nbsp;|&nbsp; Data as of 29 Jun'26";
-  document.getElementById("q2tag").innerHTML = t;
-  document.getElementById("q3tag").innerHTML = t;
+  var s=(SL==="All")?"All SL":SL, g=(GEO==="All")?"All Geo":GEO;
+  var t=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 1 Jul'26";
+  document.getElementById("q2tag").innerHTML=t;
+  document.getElementById("q3tag").innerHTML=t;
 }
-
 function refresh() {
-  var q2 = render(Q2, "q2tb", "#2563EB");
-  var q3 = render(Q3, "q3tb", "#16A34A");
-  updateKPIs(q2, q3);
-  updateTags();
+  var q2=render(Q2,"q2tb","#2563EB"), q3=render(Q3,"q3tb","#16A34A");
+  updateKPIs(q2,q3); updateTags();
 }
-
 function setSL(val) {
-  SL = val;
-  document.querySelectorAll("#slF .fb").forEach(function(b) {
-    b.classList.toggle("asl", b.textContent.trim() === val);
-  });
-  refresh();
+  SL=val; document.querySelectorAll("#slF .fb").forEach(function(b){b.classList.toggle("asl",b.textContent.trim()===val);}); refresh();
 }
-
 function setGEO(val) {
-  GEO = val;
-  document.querySelectorAll("#geoF .fb").forEach(function(b) {
-    b.classList.toggle("ageo", b.textContent.trim() === val);
-  });
-  refresh();
+  GEO=val; document.querySelectorAll("#geoF .fb").forEach(function(b){b.classList.toggle("ageo",b.textContent.trim()===val);}); refresh();
 }
-
 function resetF() {
-  SL = "All"; GEO = "All";
-  document.querySelectorAll("#slF .fb").forEach(function(b) {
-    b.classList.toggle("asl", b.textContent.trim() === "All");
-  });
-  document.querySelectorAll("#geoF .fb").forEach(function(b) {
-    b.classList.toggle("ageo", b.textContent.trim() === "All");
-  });
+  SL="All"; GEO="All";
+  document.querySelectorAll("#slF .fb").forEach(function(b){b.classList.toggle("asl",b.textContent.trim()==="All");});
+  document.querySelectorAll("#geoF .fb").forEach(function(b){b.classList.toggle("ageo",b.textContent.trim()==="All");});
   refresh();
 }
-
 function showTab(t) {
-  document.getElementById("pq2").className = "tp" + (t==="q2" ? " act" : "");
-  document.getElementById("pq3").className = "tp" + (t==="q3" ? " act" : "");
-  document.getElementById("tq2").className = "tb" + (t==="q2" ? " aq2" : "");
-  document.getElementById("tq3").className = "tb" + (t==="q3" ? " aq3" : "");
+  document.getElementById("pq2").className="tp"+(t==="q2"?" act":"");
+  document.getElementById("pq3").className="tp"+(t==="q3"?" act":"");
+  document.getElementById("tq2").className="tb"+(t==="q2"?" aq2":"");
+  document.getElementById("tq3").className="tb"+(t==="q3"?" aq3":"");
 }
-
 refresh();
 </script>
 </body>
