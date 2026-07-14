@@ -93,12 +93,12 @@ tbody tr:hover td{background:#F8FAFC}
     <button class="frst" onclick="resetF()">&#x21BA; Reset</button>
   </div>
   <div class="kg">
-    <div class="kc q2"><div class="kl">Q2 Target</div><div class="kv" id="kq2t">2,102</div><div class="km"><span class="ck ck2">Q2</span>Total slots</div></div>
+    <div class="kc q2"><div class="kl">Q2 Target</div><div class="kv" id="kq2t">2,102</div><div class="km"><span class="ck ck2">Q2</span>Closed</div></div>
     <div class="kc q2"><div class="kl">Q2 Slots Utilized</div><div class="kv" id="kq2u">2,071</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">99%</span> of target</div></div>
-    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv pos" id="kq2b">+31</div><div class="km"><span class="ck ck2">Q2</span>Closed</div></div>
+    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv pos" id="kq2b">+31</div><div class="km"><span class="ck ck2">Q2</span>Final</div></div>
     <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">972</div><div class="km"><span class="ck ck3">Q3</span>Total slots</div></div>
-    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">728</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">75%</span> of target</div></div>
-    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv pos" id="kq3b">+244</div><div class="km"><span class="ck ck3">Q3</span>Remaining slots</div></div>
+    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">787</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">81%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv pos" id="kq3b">+185</div><div class="km"><span class="ck ck3">Q3</span>Remaining slots</div></div>
   </div>
   <div class="slbl">Geo &times; service line detail</div>
   <div class="tabs">
@@ -162,18 +162,18 @@ var Q2 = [
 {geo:"EMEA",sl:"QEA",target:31,m1:8,m2:4,m3:9}
 ];
 var Q3 = [
-{geo:"India",sl:"DE",target:308,m1:149,m2:50,m3:48},
-{geo:"India",sl:"ADM",target:86,m1:56,m2:14,m3:15},
-{geo:"India",sl:"QEA",target:130,m1:77,m2:29,m3:25},
-{geo:"Americas",sl:"DE",target:123,m1:53,m2:3,m3:0},
-{geo:"Americas",sl:"ADM",target:60,m1:41,m2:0,m3:0},
-{geo:"Americas",sl:"QEA",target:91,m1:64,m2:1,m3:0},
+{geo:"India",sl:"DE",target:308,m1:165,m2:54,m3:51},
+{geo:"India",sl:"ADM",target:86,m1:60,m2:13,m3:17},
+{geo:"India",sl:"QEA",target:130,m1:86,m2:30,m3:28},
+{geo:"Americas",sl:"DE",target:123,m1:57,m2:3,m3:0},
+{geo:"Americas",sl:"ADM",target:60,m1:43,m2:0,m3:0},
+{geo:"Americas",sl:"QEA",target:91,m1:68,m2:2,m3:0},
 {geo:"APJ",sl:"DE",target:21,m1:3,m2:2,m3:0},
-{geo:"APJ",sl:"ADM",target:20,m1:15,m2:5,m3:1},
-{geo:"APJ",sl:"QEA",target:23,m1:8,m2:5,m3:1},
-{geo:"EMEA",sl:"DE",target:64,m1:25,m2:2,m3:3},
+{geo:"APJ",sl:"ADM",target:20,m1:16,m2:8,m3:1},
+{geo:"APJ",sl:"QEA",target:23,m1:10,m2:5,m3:0},
+{geo:"EMEA",sl:"DE",target:64,m1:26,m2:2,m3:3},
 {geo:"EMEA",sl:"ADM",target:21,m1:12,m2:0,m3:0},
-{geo:"EMEA",sl:"QEA",target:25,m1:21,m2:0,m3:0}
+{geo:"EMEA",sl:"QEA",target:25,m1:21,m2:0,m3:1}
 ];
 var SL = "All", GEO = "All";
 function N(n) { return Math.round(Math.abs(n)).toLocaleString("en-IN"); }
