@@ -566,14 +566,14 @@ const MONTH_DATA = {
   'Apr': {
     label:'April 2026', asOf:'30-Apr-2026',
     dates:['Apr-26'],
-    totals:[{d:'Apr-26',opening:23,movedIn:1,newHire:80,deployed:63,resigned:0,still:40}],
+    totals:[{d:'Apr-26',opening:23,movedIn:1,newHire:80,deployed:64,resigned:0,still:40}],
     verts:[
       {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:14,mi:0,n:26,d:21,r:0}]},
       {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
       {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:1, mi:0,n:18,d:12,r:0}]},
       {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:2, mi:0,n:18,d:12,r:0}]},
       {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
-      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:1, mi:1,n:12,d:8, r:0}]},
+      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:1, mi:1,n:12,d:9, r:0}]},
       {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:1, mi:0,n:3, d:4, r:0}]},
       {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
     ],
@@ -670,9 +670,9 @@ const MONTH_DATA = {
   'Jun': {
     label:'June 2026', asOf:'29-Jun-2026',
     dates:['Jun-26'],
-    totals:[{d:'Jun-26',opening:14,movedIn:1,newHire:10,deployed:21,resigned:0,still:3}],
+    totals:[{d:'Jun-26',opening:14,movedIn:0,newHire:10,deployed:21,resigned:0,still:3}],
     verts:[
-      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:5,mi:1,n:2,d:7,r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:5,mi:0,n:2,d:7,r:0}]},
       {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
       {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:4,mi:0,n:0,d:4,r:0}]},
       {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:8,d:6,r:0}]},
@@ -692,19 +692,22 @@ const MONTH_DATA = {
   },
 
   'Jul': {
-    label:'July 2026', asOf:'08-Jul-2026',
+    label:'July 2026', asOf:'15-Jul-2026',
     dates:['Jul-26'],
-    totals:[{d:'Jul-26',opening:2,movedIn:0,newHire:1,deployed:0,resigned:0,still:3}],
+    totals:[{d:'Jul-26',opening:1,movedIn:0,newHire:4,deployed:0,resigned:0,still:5}],
     verts:[
-      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:2,mi:0,n:1,d:0,r:0}]},
+      {name:'BFS',      cls:'v-bfs', dot:'#1558d6', rows:[{o:0,mi:0,n:3,d:0,r:0}]},
+      {name:'Insurance',cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:1,d:0,r:0}]},
     ],
     clusters:{
-      'Jul-26':[{l:'QEA-Automation',c:3}],
+      'Jul-26':[{l:'QEA-API & Webservices',c:3},{l:'QEA-Automation',c:2}],
     },
     assoc:[
-      {id:'257945',  name:'Barveeskhan, Rasika',    grade:'SA',vertical:'Insurance', cluster:'QEA-Automation', loc:'Chennai',   entry:'2026-07-06', proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2518327', name:'Dharmireddi, Syamala',   grade:'A', vertical:'Insurance', cluster:'QEA-Automation', loc:'Hyderabad', entry:'2026-06-26', proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2517862', name:'Subburaj, Kanagavalli',  grade:'SA',vertical:'Insurance', cluster:'QEA-Automation', loc:'Chennai',   entry:'2026-06-24', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2522189', name:'Amarashetti, Savita',   grade:'A', vertical:'BFS',      cluster:'QEA-API & Webservices', loc:'Bangalore', entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2522208', name:'Kumari, Kavita',        grade:'A', vertical:'BFS',      cluster:'QEA-API & Webservices', loc:'Bangalore', entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2522206', name:'L, Vinothini',          grade:'A', vertical:'BFS',      cluster:'QEA-API & Webservices', loc:'Bangalore', entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'257945',  name:'Barveeskhan, Rasika',   grade:'SA',vertical:'Insurance',cluster:'QEA-Automation',        loc:'Chennai',   entry:'2026-07-06', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2518327', name:'Dharmireddi, Syamala',  grade:'A', vertical:'Insurance',cluster:'QEA-Automation',        loc:'Hyderabad', entry:'2026-06-26', proj:'QEA_D_PDP_M2S_INS'},
     ],
     cfwd:3
   }
