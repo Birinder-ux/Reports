@@ -60,7 +60,7 @@ tbody tr:hover td{background:#F8FAFC}
 <div class="hdr">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 24 Jul'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
+    <div class="sub">As on 27 Jul'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
     <span class="bdg bdg-q2">Q2 FY26</span>
@@ -97,8 +97,8 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="kc q2"><div class="kl">Q2 Slots Utilized</div><div class="kv" id="kq2u">2,071</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">99%</span> of target</div></div>
     <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv pos" id="kq2b">+31</div><div class="km"><span class="ck ck2">Q2</span>Final</div></div>
     <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">972</div><div class="km"><span class="ck ck3">Q3</span>Total slots</div></div>
-    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">1,024</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">105%</span> of target</div></div>
-    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-52</div><div class="km"><span class="ck ck3">Q3</span>Over-utilized</div></div>
+    <div class="kc q3"><div class="kl">Q3 Slots Utilized</div><div class="kv" id="kq3u">1,089</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">112%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-117</div><div class="km"><span class="ck ck3">Q3</span>Over-utilized</div></div>
   </div>
   <div class="slbl">Geo &times; service line detail</div>
   <div class="tabs">
@@ -125,7 +125,7 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 24 Jul'26</span>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 27 Jul'26</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -162,16 +162,16 @@ var Q2 = [
 {geo:"EMEA",sl:"QEA",target:31,m1:8,m2:4,m3:9}
 ];
 var Q3 = [
-{geo:"India",sl:"DE",target:308,m1:209,m2:80,m3:67},
-{geo:"India",sl:"ADM",target:86,m1:79,m2:16,m3:22},
-{geo:"India",sl:"QEA",target:130,m1:106,m2:38,m3:36},
-{geo:"Americas",sl:"DE",target:123,m1:75,m2:14,m3:0},
-{geo:"Americas",sl:"ADM",target:60,m1:48,m2:4,m3:0},
-{geo:"Americas",sl:"QEA",target:91,m1:74,m2:23,m3:0},
-{geo:"APJ",sl:"DE",target:21,m1:2,m2:2,m3:0},
-{geo:"APJ",sl:"ADM",target:20,m1:17,m2:9,m3:1},
-{geo:"APJ",sl:"QEA",target:23,m1:8,m2:5,m3:0},
-{geo:"EMEA",sl:"DE",target:64,m1:36,m2:11,m3:3},
+{geo:"India",sl:"DE",target:308,m1:230,m2:84,m3:69},
+{geo:"India",sl:"ADM",target:86,m1:82,m2:18,m3:23},
+{geo:"India",sl:"QEA",target:130,m1:114,m2:42,m3:36},
+{geo:"Americas",sl:"DE",target:123,m1:80,m2:19,m3:0},
+{geo:"Americas",sl:"ADM",target:60,m1:47,m2:7,m3:0},
+{geo:"Americas",sl:"QEA",target:91,m1:75,m2:24,m3:0},
+{geo:"APJ",sl:"DE",target:21,m1:2,m2:3,m3:0},
+{geo:"APJ",sl:"ADM",target:20,m1:17,m2:12,m3:1},
+{geo:"APJ",sl:"QEA",target:23,m1:9,m2:5,m3:0},
+{geo:"EMEA",sl:"DE",target:64,m1:36,m2:11,m3:4},
 {geo:"EMEA",sl:"ADM",target:21,m1:13,m2:4,m3:0},
 {geo:"EMEA",sl:"QEA",target:25,m1:20,m2:1,m3:1}
 ];
@@ -231,7 +231,7 @@ function updateKPIs(q2,q3) {
 function updateTags() {
   var s=(SL==="All")?"All SL":SL, g=(GEO==="All")?"All Geo":GEO;
   document.getElementById("q2tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Q2 closed &mdash; data as of 2 Jul'26";
-  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 24 Jul'26";
+  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 27 Jul'26";
 }
 function refresh() {
   var q2=render(Q2,"q2tb","#2563EB"), q3=render(Q3,"q3tb","#16A34A");
