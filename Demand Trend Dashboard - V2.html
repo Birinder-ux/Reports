@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demand Dashboard</title>
+<style>
+  :root {
+    --bg:#F0F3F7;
+    --surface:#FFFFFF;
+    --surface2:#F7F9FC;
+    --surface3:#EDF1F7;
+    --border:#D1DAE8;
+    --border2:#B8C6DC;
+    --text:#0F1C2E;
+    --text2:#354A63;
+    --text3:#7A90A8;
+    --primary:#1B4F8A;
+    --primary-lt:#2563B0;
+    --primary-bg:#EBF2FB;
+    --green:#0E7C5B;
+    --green-bg:#E5F5EF;
+    --amber:#B86A00;
+    --amber-bg:#FEF5E4;
+    --red:#B02020;
+    --red-bg:#FAEAEA;
+    --teal:#0E6E8A;
+    --teal-bg:#E4F4F8;
+    --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;min-height:100vh;}
+
+  /* ── HEADER ── */
+  .hdr{background:var(--primary);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .hdr-l{display:flex;align-items:center;gap:14px;}
+  .brand{background:rgba(255,255,255,.15);color:#fff;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:3px;border:1px solid rgba(255,255,255,.2);}
+  .hdr h1{font-size:16px;font-weight:600;color:#fff;letter-spacing:.1px;}
+  .hdr-sub{font-size:11px;color:rgba(255,255,255,.6);margin-top:1px;}
+  .hdr-tag{font-size:11px;color:rgba(255,255,255,.7);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:3px;}
+  .hdr-r{display:flex;align-items:center;gap:10px;}
+  .btn-excel{display:flex;align-items:center;gap:7px;background:#1D6F42;border:1px solid rgba(255,255,255,.15);color:#fff;font-size:11.5px;font-weight:600;font-family:var(--font);padding:6px 14px;border-radius:3px;cursor:pointer;transition:background .15s;white-space:nowrap;}
+  .btn-excel:hover{background:#175A36;}
+  .btn-excel svg{flex-shrink:0;}
+
+  /* ── CONTROLS ── */
+  .ctrl{padding:10px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--surface);border-bottom:1px solid var(--border);}
+  .ctrl-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;font-weight:600;}
+  .fgrp{display:flex;gap:3px;}
+  .fbtn{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:5px 13px;border-radius:3px;cursor:pointer;font-size:11.5px;font-family:var(--font);font-weight:500;transition:all .12s;}
+  .fbtn:hover{border-color:var(--primary-lt);color:var(--primary-lt);background:#fff;}
+  .fbtn.active{background:var(--primary);border-color:var(--primary);color:#fff;font-weight:600;}
+  .vdiv{width:1px;height:22px;background:var(--border);}
+
+  /* ── TABS ── */
+  .tabs{display:flex;padding:0 32px;background:var(--surface);border-bottom:2px solid var(--border);}
+  .tab{padding:11px 18px;cursor:pointer;font-size:12px;font-weight:500;color:var(--text3);border-bottom:3px solid transparent;margin-bottom:-2px;display:flex;align-items:center;gap:7px;transition:all .12s;white-space:nowrap;}
+  .tab:hover{color:var(--text2);}
+  .pip{width:7px;height:7px;border-radius:50%;}
+  .tab.opening  .pip{background:var(--primary);}     .tab.active.opening  {color:var(--primary);    border-bottom-color:var(--primary);}
+  .tab.internal .pip{background:var(--green);}        .tab.active.internal {color:var(--green);     border-bottom-color:var(--green);}
+  .tab.external .pip{background:var(--amber);}        .tab.active.external {color:var(--amber);     border-bottom-color:var(--amber);}
+  .tab.cancelled .pip{background:var(--red);}         .tab.active.cancelled{color:var(--red);       border-bottom-color:var(--red);}
+  .tab.closing  .pip{background:var(--teal);}         .tab.active.closing  {color:var(--teal);      border-bottom-color:var(--teal);}
+  .tab.trends   .pip{background:#6B48A8;}              .tab.active.trends   {color:#6B48A8;          border-bottom-color:#6B48A8;}
+
+  /* ── CONTENT ── */
+  .content{padding:20px 32px 36px;}
+  .panel{display:none;}.panel.active{display:block;}
+  .sec-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+  .sec-title{font-size:14px;font-weight:700;color:var(--text);}
+  .sec-sub{font-size:11px;color:var(--text3);margin-top:2px;}
+  .badge{font-size:10px;padding:3px 10px;border-radius:3px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;border:1px solid;}
+  .badge-opening  {background:var(--primary-bg);color:var(--primary);   border-color:rgba(27,79,138,.2);}
+  .badge-internal {background:var(--green-bg);  color:var(--green);      border-color:rgba(14,124,91,.2);}
+  .badge-external {background:var(--amber-bg);  color:var(--amber);      border-color:rgba(184,106,0,.2);}
+  .badge-cancelled{background:var(--red-bg);    color:var(--red);        border-color:rgba(176,32,32,.2);}
+  .badge-closing  {background:var(--teal-bg);   color:var(--teal);       border-color:rgba(14,110,138,.2);}
+
+  /* ── TABLE ── */
+  .twrap{border:1px solid var(--border);border-radius:6px;overflow:auto;background:var(--surface);box-shadow:0 1px 3px rgba(15,28,46,.06);}
+  table{width:100%;border-collapse:collapse;font-size:12px;}
+
+  thead tr.yr-row th{background:var(--primary);color:#fff;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.12);white-space:nowrap;}
+  thead tr.yr-row th.geo-hd{text-align:left;min-width:170px;position:sticky;left:0;z-index:3;background:var(--primary);}
+  thead tr.yr-row th.y24{background:#163E70;}
+  thead tr.yr-row th.y25{background:var(--primary);}
+  thead tr.yr-row th.y26{background:var(--primary-lt);}
+
+  thead tr.mo-row th{background:#2D4E70;color:#A8BDD0;padding:6px 9px;text-align:center;font-size:10px;font-weight:600;letter-spacing:.2px;border-bottom:2px solid var(--border2);border-right:1px solid rgba(255,255,255,.07);white-space:nowrap;}
+  thead tr.mo-row th.geo-hd{text-align:left;color:#7A9AB8;position:sticky;left:0;z-index:3;background:#2D4E70;}
+  thead tr.mo-row th.ysep{border-left:2px solid rgba(255,255,255,.18)!important;}
+
+  tbody tr{border-bottom:1px solid var(--border);transition:background .08s;}
+  tbody tr:hover{background:#F2F6FB;}
+  tbody tr:nth-child(even){background:var(--surface2);}
+  tbody tr:nth-child(even):hover{background:#EBF2FA;}
+
+  tbody tr.geo-row td{background:var(--surface3);font-weight:700;color:var(--text);padding:8px 10px;border-bottom:1px solid var(--border2);font-size:12px;}
+  tbody tr.geo-row td.gcell{position:sticky;left:0;z-index:1;background:var(--surface3);}
+  tbody tr.geo-row:hover td{background:#E2EAF5;}
+  tbody tr.geo-row:hover td.gcell{background:#E2EAF5;}
+
+  tbody td{padding:6px 10px;text-align:right;color:var(--text2);border-right:1px solid var(--border);font-variant-numeric:tabular-nums;}
+  td.gcell{text-align:left;color:var(--text);padding-left:22px;position:sticky;left:0;z-index:1;background:var(--surface);font-size:11.5px;}
+  tbody tr:nth-child(even) td.gcell{background:var(--surface2);}
+  tbody tr:hover td.gcell{background:#F2F6FB;}
+  tbody tr:nth-child(even):hover td.gcell{background:#EBF2FA;}
+  td.ysep{border-left:2px solid var(--border2)!important;}
+  td.zero{color:var(--text3);}
+  tbody tr.grand-total-row{border-top:2px solid var(--primary);background:#1B4F8A;}
+  tbody tr.grand-total-row td{font-weight:700;color:#fff;padding:7px 10px;text-align:right;border-right:1px solid rgba(255,255,255,.15);font-variant-numeric:tabular-nums;}
+  tbody tr.grand-total-row td.gt-label{text-align:left;color:#fff;position:sticky;left:0;z-index:1;background:#1B4F8A;font-size:12px;letter-spacing:.2px;}
+  tbody tr.grand-total-row td.gt-month-cell{background:#1B4F8A;}
+  tbody tr.grand-total-row td.ysep{border-left:2px solid rgba(255,255,255,.25)!important;}
+
+  .scroll-hint{font-size:10px;color:var(--text3);text-align:right;padding:5px 0 0;}
+
+  /* ── TRENDS ── */
+  .tcat-btn{padding:5px 14px;border-radius:3px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);font-size:11px;font-family:var(--font);cursor:pointer;transition:all .12s;font-weight:500;}
+  .tcat-btn:hover{border-color:var(--tc,var(--primary));color:var(--tc,var(--primary));}
+  .tcat-active{background:var(--tc,var(--primary))!important;border-color:var(--tc,var(--primary))!important;color:#fff!important;font-weight:700!important;}
+  .tr-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 20px;box-shadow:0 1px 3px rgba(15,28,46,.05);}
+  .tr-card-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+  .tr-card-title{font-size:13px;font-weight:700;color:var(--text);}
+  .tr-card-sub{font-size:10.5px;color:var(--text3);margin-top:2px;}
+  .tr-tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+  .tr-tbl th{background:var(--surface3);padding:7px 10px;text-align:left;font-size:10px;font-weight:700;color:var(--text2);letter-spacing:.3px;border-bottom:2px solid var(--border2);white-space:nowrap;}
+  .tr-tbl th:not(:first-child){text-align:right;}
+  .tr-tbl td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text2);}
+  .tr-tbl td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums;}
+  .tr-tbl tr:last-child td{border-bottom:none;}
+  .tr-tbl td.rn{font-weight:700;color:var(--text);}
+  .gp{color:var(--green);font-weight:600;} .gn{color:var(--red);font-weight:600;} .gz{color:var(--text3);}
+  .growth-pos{color:var(--green);font-weight:600;} .growth-neg{color:var(--red);font-weight:600;}
+  .heat-tbl{border-collapse:collapse;font-size:10.5px;min-width:600px;}
+  .heat-tbl th{background:var(--primary);color:rgba(255,255,255,.75);padding:6px 8px;font-size:9.5px;font-weight:600;letter-spacing:.3px;white-space:nowrap;text-align:center;}
+  .heat-tbl th.rhd{text-align:left;min-width:70px;}
+  .heat-tbl td{padding:5px 7px;text-align:center;font-size:10px;font-weight:600;border:1px solid rgba(255,255,255,.2);border-radius:2px;min-width:46px;}
+  .heat-yr{background:#2D4E70;color:#A8BDD0;font-weight:700;font-size:10px;padding:5px 8px;text-align:left;}
+
+  /* ── FOOTER ── */
+  .footer{padding:11px 32px;border-top:1px solid var(--border);background:var(--surface);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text3);}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-l">
+    <span class="brand">WFM</span>
+    <div>
+      <h1>Demand Trend Dashboard</h1>
+      <div class="hdr-sub">Workforce Demand Analytics · FY 2024 – 2026</div>
+    </div>
+  </div>
+  <div class="hdr-r">
+    <div class="hdr-tag">Source: Demands_trend.xlsb &nbsp;|&nbsp; Live Data</div>
+    <button class="btn-excel" onclick="downloadExcel()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+        <line x1="12" y1="11" x2="12" y2="17"/><polyline points="9 14 12 17 15 14"/>
+      </svg>
+      Download Excel
+    </button>
+  </div>
+</div>
+
+<div class="ctrl">
+  <span class="ctrl-lbl">Year</span>
+  <div class="fgrp">
+    <button class="fbtn active" onclick="setFY('all',this)">All Years</button>
+    <button class="fbtn" onclick="setFY('2024',this)">2024</button>
+    <button class="fbtn" onclick="setFY('2025',this)">2025</button>
+    <button class="fbtn" onclick="setFY('2026',this)">2026</button>
+  </div>
+  <div class="vdiv"></div>
+  <span class="ctrl-lbl">Geo</span>
+  <div class="fgrp">
+    <button class="fbtn active" onclick="setGeo('all',this)">All Geos</button>
+    <button class="fbtn" onclick="setGeo('India',this)">India</button>
+    <button class="fbtn" onclick="setGeo('Americas',this)">Americas</button>
+    <button class="fbtn" onclick="setGeo('APJ',this)">APJ</button>
+    <button class="fbtn" onclick="setGeo('EMEA',this)">EMEA</button>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab opening active"  onclick="switchTab('opening',null)"><span class="pip"></span>Opening Demand</div>
+  <div class="tab internal"        onclick="switchTab('internal',null)"><span class="pip"></span>Internal Fulfilment</div>
+  <div class="tab external"        onclick="switchTab('external',null)"><span class="pip"></span>External Fulfilment</div>
+  <div class="tab cancelled"       onclick="switchTab('cancelled',null)"><span class="pip"></span>Cancelled</div>
+  <div class="tab closing"         onclick="switchTab('closing',null)"><span class="pip"></span>Closing Demand</div>
+  <div class="tab trends"          onclick="switchTab('trends',null)"><span class="pip"></span>Trends</div>
+</div>
+
+<div class="content">
+  <div id="panel-opening"  class="panel active"><div class="sec-hd"><div><div class="sec-title">Opening Demand View</div><div class="sec-sub">Active demand pipeline by Geo / Project Type</div></div><span class="badge badge-opening">Opening</span></div><div class="twrap" id="tbl-opening"></div><div class="scroll-hint">Scroll right to see all months →</div></div>
+  <div id="panel-internal" class="panel"><div class="sec-hd"><div><div class="sec-title">Internal Fulfilment View</div><div class="sec-sub">Demand fulfilled through internal resources</div></div><span class="badge badge-internal">Internal</span></div><div class="twrap" id="tbl-internal"></div><div class="scroll-hint">Scroll right to see all months →</div></div>
+  <div id="panel-external" class="panel"><div class="sec-hd"><div><div class="sec-title">External Fulfilment View</div><div class="sec-sub">Demand fulfilled through external sourcing</div></div><span class="badge badge-external">External</span></div><div class="twrap" id="tbl-external"></div><div class="scroll-hint">Scroll right to see all months →</div></div>
+  <div id="panel-cancelled" class="panel"><div class="sec-hd"><div><div class="sec-title">Cancelled Demands View</div><div class="sec-sub">Demands withdrawn or cancelled</div></div><span class="badge badge-cancelled">Cancelled</span></div><div class="twrap" id="tbl-cancelled"></div><div class="scroll-hint">Scroll right to see all months →</div></div>
+  <div id="panel-closing"  class="panel"><div class="sec-hd"><div><div class="sec-title">Closing Demand View</div><div class="sec-sub">Closing demand by Geo / Project Type</div></div><span class="badge badge-closing">Closing</span></div><div class="twrap" id="tbl-closing"></div><div class="scroll-hint">Scroll right to see all months →</div></div>
+
+  <div id="panel-trends" class="panel">
+    <div class="sec-hd">
+      <div><div class="sec-title">Demand Trends</div>
+      <div class="sec-sub">YoY · QoQ · MoM · Geo · Project Type trends for Internal Fulfilment, External Fulfilment &amp; Cancelled</div></div>
+      <span class="badge" style="background:#F2EEFB;color:#6B48A8;border-color:rgba(107,72,168,.2);">Trends</span>
+    </div>
+    <div style="display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;">
+      <span style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;font-weight:600;align-self:center;margin-right:4px;">View</span>
+      <button id="tcat-Internal Fulfilment" onclick="setTCat('Internal Fulfilment')" class="tcat-btn tcat-active" style="--tc:var(--green)">Internal Fulfilment</button>
+      <button id="tcat-External Fulfilment" onclick="setTCat('External Fulfilment')" class="tcat-btn" style="--tc:var(--amber)">External Fulfilment</button>
+      <button id="tcat-Cancelled"           onclick="setTCat('Cancelled')"           class="tcat-btn" style="--tc:var(--red)">Cancelled</button>
+    </div>
+    <div class="tr-card" style="margin-bottom:14px;"><div class="tr-card-hd"><div><div class="tr-card-title">Year-over-Year (YoY)</div><div class="tr-card-sub">Annual totals — 2024 vs 2025 vs 2026 (Jan–Jun comparable)</div></div></div><div id="tr-yoy-bar"></div><div id="tr-yoy-tbl" style="margin-top:12px;"></div></div>
+    <div class="tr-card" style="margin-bottom:14px;"><div class="tr-card-hd"><div><div class="tr-card-title">Month-over-Month (MoM) Heatmap</div><div class="tr-card-sub">Each cell shows the value; colour intensity reflects volume — darker = higher</div></div></div><div id="tr-mom-heat" style="overflow-x:auto;"></div></div>
+    <div class="tr-card" style="margin-bottom:14px;"><div class="tr-card-hd"><div><div class="tr-card-title">Quarter-over-Quarter (QoQ)</div><div class="tr-card-sub">Quarterly totals &amp; % change per year</div></div></div><div id="tr-qoq-tbl"></div></div>
+    <div class="tr-card" style="margin-bottom:14px;"><div class="tr-card-hd"><div><div class="tr-card-title">Geo-wise Trend</div><div class="tr-card-sub">Annual totals by geography with YoY % change</div></div></div><div id="tr-geo-tbl"></div></div>
+    <div class="tr-card"><div class="tr-card-hd"><div><div class="tr-card-title">Project Type Trend (EXANT / EXTN / PDP / Others)</div><div class="tr-card-sub">Annual totals by project type with YoY % change</div></div></div><div id="tr-pt-tbl"></div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>Source: Demands_trend.xlsb &nbsp;·&nbsp; Geos: India · Americas · APJ · EMEA</span>
+  <span>Values represent headcount demand units</span>
+</div>
+
+<script>
+const RAW = {"Opening": {"India": {"_total": {"2024": {"Jan": 3121, "Feb": 2793, "Mar": 2102, "Apr": 2288, "May": 2141, "Jun": 1703, "Jul": 1990, "Aug": 2119, "Sep": 2199, "Oct": 2451, "Nov": 2844, "Dec": 3437}, "2025": {"Jan": 3736, "Feb": 4028, "Mar": 5141, "Apr": 5377, "May": 5807, "Jun": 5385, "Jul": 3988, "Aug": 3132, "Sep": 2493, "Oct": 2457, "Nov": 2628, "Dec": 3782}, "2026": {"Jan": 3724, "Feb": 3362, "Mar": 3295, "Apr": 2502, "May": 2484, "Jun": 2448, "Jul": 2559, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 479, "Feb": 460, "Mar": 513, "Apr": 908, "May": 781, "Jun": 556, "Jul": 683, "Aug": 519, "Sep": 576, "Oct": 614, "Nov": 595, "Dec": 773}, "2025": {"Jan": 768, "Feb": 827, "Mar": 854, "Apr": 1079, "May": 1060, "Jun": 1181, "Jul": 989, "Aug": 665, "Sep": 318, "Oct": 514, "Nov": 404, "Dec": 612}, "2026": {"Jan": 667, "Feb": 511, "Mar": 695, "Apr": 583, "May": 734, "Jun": 484, "Jul": 423, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 1460, "Feb": 1282, "Mar": 1100, "Apr": 1076, "May": 1185, "Jun": 1096, "Jul": 1241, "Aug": 1547, "Sep": 1480, "Oct": 1686, "Nov": 2024, "Dec": 2279}, "2025": {"Jan": 2418, "Feb": 2531, "Mar": 2634, "Apr": 2544, "May": 2518, "Jun": 2481, "Jul": 2433, "Aug": 2122, "Sep": 1973, "Oct": 1894, "Nov": 1869, "Dec": 2036}, "2026": {"Jan": 1969, "Feb": 1891, "Mar": 1740, "Apr": 1533, "May": 1566, "Jun": 1874, "Jul": 2045, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 1068, "Feb": 911, "Mar": 352, "Apr": 192, "May": 119, "Jun": 34, "Jul": 14, "Aug": 11, "Sep": 95, "Oct": 96, "Nov": 175, "Dec": 341}, "2025": {"Jan": 507, "Feb": 627, "Mar": 1590, "Apr": 1696, "May": 2172, "Jun": 1676, "Jul": 522, "Aug": 289, "Sep": 171, "Oct": 20, "Nov": 335, "Dec": 1112}, "2026": {"Jan": 1071, "Feb": 937, "Mar": 805, "Apr": 332, "May": 129, "Jun": 43, "Jul": 55, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 114, "Feb": 140, "Mar": 137, "Apr": 112, "May": 56, "Jun": 17, "Jul": 52, "Aug": 42, "Sep": 48, "Oct": 55, "Nov": 50, "Dec": 44}, "2025": {"Jan": 43, "Feb": 43, "Mar": 63, "Apr": 58, "May": 57, "Jun": 47, "Jul": 44, "Aug": 56, "Sep": 31, "Oct": 29, "Nov": 20, "Dec": 22}, "2026": {"Jan": 17, "Feb": 23, "Mar": 55, "Apr": 54, "May": 55, "Jun": 47, "Jul": 36, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "Americas": {"_total": {"2024": {"Jan": 427, "Feb": 394, "Mar": 392, "Apr": 485, "May": 423, "Jun": 589, "Jul": 560, "Aug": 529, "Sep": 524, "Oct": 331, "Nov": 391, "Dec": 443}, "2025": {"Jan": 366, "Feb": 426, "Mar": 503, "Apr": 536, "May": 500, "Jun": 480, "Jul": 452, "Aug": 504, "Sep": 421, "Oct": 502, "Nov": 528, "Dec": 424}, "2026": {"Jan": 343, "Feb": 437, "Mar": 545, "Apr": 492, "May": 409, "Jun": 432, "Jul": 526, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 110, "Feb": 95, "Mar": 69, "Apr": 142, "May": 142, "Jun": 289, "Jul": 293, "Aug": 279, "Sep": 281, "Oct": 95, "Nov": 117, "Dec": 110}, "2025": {"Jan": 82, "Feb": 114, "Mar": 146, "Apr": 244, "May": 206, "Jun": 187, "Jul": 142, "Aug": 138, "Sep": 74, "Oct": 98, "Nov": 130, "Dec": 101}, "2026": {"Jan": 57, "Feb": 103, "Mar": 193, "Apr": 111, "May": 69, "Jun": 74, "Jul": 67, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 280, "Feb": 268, "Mar": 294, "Apr": 305, "May": 257, "Jun": 275, "Jul": 254, "Aug": 240, "Sep": 237, "Oct": 232, "Nov": 271, "Dec": 322}, "2025": {"Jan": 273, "Feb": 300, "Mar": 344, "Apr": 274, "May": 293, "Jun": 292, "Jul": 301, "Aug": 356, "Sep": 343, "Oct": 402, "Nov": 397, "Dec": 322}, "2026": {"Jan": 285, "Feb": 333, "Mar": 351, "Apr": 381, "May": 332, "Jun": 351, "Jul": 458, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 19, "Feb": 10, "Mar": 10, "Apr": 10, "May": 10, "Jun": 15, "Jul": 4, "Aug": 2, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 10}, "2025": {"Jan": 10, "Feb": 10, "Mar": 13, "Apr": 18, "May": 1, "Jun": 1, "Jul": 6, "Aug": 2, "Sep": 1, "Oct": 1, "Nov": 1, "Dec": 1}, "2026": {"Jan": 0, "Feb": 1, "Mar": 1, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 18, "Feb": 21, "Mar": 19, "Apr": 28, "May": 14, "Jun": 10, "Jul": 9, "Aug": 8, "Sep": 6, "Oct": 4, "Nov": 3, "Dec": 1}, "2025": {"Jan": 1, "Feb": 2, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 3, "Aug": 8, "Sep": 3, "Oct": 1, "Nov": 0, "Dec": 0}, "2026": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 0, "May": 8, "Jun": 7, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "APJ": {"_total": {"2024": {"Jan": 89, "Feb": 109, "Mar": 124, "Apr": 120, "May": 116, "Jun": 144, "Jul": 153, "Aug": 119, "Sep": 133, "Oct": 116, "Nov": 158, "Dec": 146}, "2025": {"Jan": 106, "Feb": 106, "Mar": 113, "Apr": 105, "May": 87, "Jun": 99, "Jul": 111, "Aug": 108, "Sep": 104, "Oct": 102, "Nov": 95, "Dec": 131}, "2026": {"Jan": 147, "Feb": 94, "Mar": 95, "Apr": 102, "May": 136, "Jun": 109, "Jul": 90, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 2, "Feb": 11, "Mar": 43, "Apr": 43, "May": 56, "Jun": 59, "Jul": 79, "Aug": 32, "Sep": 34, "Oct": 27, "Nov": 17, "Dec": 12}, "2025": {"Jan": 3, "Feb": 8, "Mar": 13, "Apr": 8, "May": 3, "Jun": 17, "Jul": 16, "Aug": 10, "Sep": 13, "Oct": 21, "Nov": 10, "Dec": 10}, "2026": {"Jan": 11, "Feb": 1, "Mar": 14, "Apr": 17, "May": 27, "Jun": 14, "Jul": 10, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 79, "Feb": 90, "Mar": 76, "Apr": 72, "May": 56, "Jun": 84, "Jul": 73, "Aug": 83, "Sep": 88, "Oct": 88, "Nov": 109, "Dec": 104}, "2025": {"Jan": 72, "Feb": 84, "Mar": 96, "Apr": 96, "May": 83, "Jun": 81, "Jul": 94, "Aug": 98, "Sep": 91, "Oct": 81, "Nov": 85, "Dec": 96}, "2026": {"Jan": 111, "Feb": 87, "Mar": 76, "Apr": 85, "May": 109, "Jun": 95, "Jul": 80, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 7, "Feb": 7, "Mar": 3, "Apr": 3, "May": 2, "Jun": 0, "Jul": 0, "Aug": 4, "Sep": 11, "Oct": 1, "Nov": 1, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 1, "Feb": 1, "Mar": 2, "Apr": 2, "May": 2, "Jun": 1, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 31, "Dec": 30}, "2025": {"Jan": 31, "Feb": 14, "Mar": 4, "Apr": 1, "May": 1, "Jun": 1, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 25}, "2026": {"Jan": 25, "Feb": 6, "Mar": 5, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "EMEA": {"_total": {"2024": {"Jan": 173, "Feb": 190, "Mar": 172, "Apr": 148, "May": 128, "Jun": 107, "Jul": 111, "Aug": 116, "Sep": 128, "Oct": 113, "Nov": 119, "Dec": 186}, "2025": {"Jan": 139, "Feb": 180, "Mar": 163, "Apr": 155, "May": 121, "Jun": 129, "Jul": 116, "Aug": 100, "Sep": 103, "Oct": 117, "Nov": 104, "Dec": 90}, "2026": {"Jan": 107, "Feb": 128, "Mar": 122, "Apr": 138, "May": 171, "Jun": 158, "Jul": 146, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 48, "Feb": 74, "Mar": 55, "Apr": 51, "May": 38, "Jun": 20, "Jul": 29, "Aug": 33, "Sep": 34, "Oct": 28, "Nov": 15, "Dec": 16}, "2025": {"Jan": 18, "Feb": 46, "Mar": 47, "Apr": 52, "May": 37, "Jun": 51, "Jul": 45, "Aug": 21, "Sep": 26, "Oct": 48, "Nov": 31, "Dec": 34}, "2026": {"Jan": 19, "Feb": 28, "Mar": 28, "Apr": 27, "May": 45, "Jun": 37, "Jul": 46, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 121, "Feb": 113, "Mar": 112, "Apr": 90, "May": 86, "Jun": 83, "Jul": 78, "Aug": 81, "Sep": 93, "Oct": 85, "Nov": 104, "Dec": 170}, "2025": {"Jan": 121, "Feb": 123, "Mar": 105, "Apr": 100, "May": 81, "Jun": 75, "Jul": 71, "Aug": 79, "Sep": 77, "Oct": 69, "Nov": 73, "Dec": 55}, "2026": {"Jan": 87, "Feb": 100, "Mar": 94, "Apr": 111, "May": 126, "Jun": 121, "Jul": 100, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 3, "May": 3, "Jun": 3, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 3, "Feb": 3, "Mar": 5, "Apr": 7, "May": 4, "Jun": 4, "Jul": 4, "Aug": 2, "Sep": 1, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 11, "Mar": 11, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 1}, "2026": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}}, "Internal Fulfilment": {"India": {"_total": {"2024": {"Jan": 975, "Feb": 1105, "Mar": 1072, "Apr": 869, "May": 936, "Jun": 940, "Jul": 1106, "Aug": 1090, "Sep": 964, "Oct": 956, "Nov": 748, "Dec": 791}, "2025": {"Jan": 999, "Feb": 1030, "Mar": 1282, "Apr": 1171, "May": 1293, "Jun": 1206, "Jul": 1279, "Aug": 974, "Sep": 1050, "Oct": 926, "Nov": 759, "Dec": 938}, "2026": {"Jan": 1199, "Feb": 1134, "Mar": 1159, "Apr": 1356, "May": 1308, "Jun": 1517, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 82, "Feb": 121, "Mar": 156, "Apr": 99, "May": 103, "Jun": 65, "Jul": 86, "Aug": 119, "Sep": 117, "Oct": 114, "Nov": 60, "Dec": 137}, "2025": {"Jan": 119, "Feb": 234, "Mar": 115, "Apr": 164, "May": 135, "Jun": 161, "Jul": 171, "Aug": 63, "Sep": 76, "Oct": 107, "Nov": 56, "Dec": 129}, "2026": {"Jan": 90, "Feb": 117, "Mar": 134, "Apr": 163, "May": 92, "Jun": 68, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 850, "Feb": 949, "Mar": 874, "Apr": 735, "May": 787, "Jun": 839, "Jul": 988, "Aug": 949, "Sep": 828, "Oct": 808, "Nov": 677, "Dec": 640}, "2025": {"Jan": 861, "Feb": 783, "Mar": 1152, "Apr": 992, "May": 1133, "Jun": 1025, "Jul": 1090, "Aug": 889, "Sep": 965, "Oct": 810, "Nov": 702, "Dec": 804}, "2026": {"Jan": 1105, "Feb": 1003, "Mar": 1013, "Apr": 1188, "May": 1203, "Jun": 1444, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 4, "Feb": 2, "Mar": 1, "Apr": 2, "May": 0, "Jun": 0, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 1, "Feb": 0, "Mar": 1, "Apr": 0, "May": 2, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 1, "Feb": 1, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 39, "Feb": 33, "Mar": 41, "Apr": 33, "May": 46, "Jun": 36, "Jul": 31, "Aug": 22, "Sep": 19, "Oct": 34, "Nov": 11, "Dec": 14}, "2025": {"Jan": 18, "Feb": 13, "Mar": 14, "Apr": 15, "May": 23, "Jun": 20, "Jul": 18, "Aug": 22, "Sep": 9, "Oct": 9, "Nov": 1, "Dec": 5}, "2026": {"Jan": 3, "Feb": 13, "Mar": 12, "Apr": 5, "May": 13, "Jun": 5, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "Americas": {"_total": {"2024": {"Jan": 154, "Feb": 130, "Mar": 113, "Apr": 113, "May": 110, "Jun": 96, "Jul": 95, "Aug": 110, "Sep": 120, "Oct": 92, "Nov": 72, "Dec": 89}, "2025": {"Jan": 100, "Feb": 99, "Mar": 125, "Apr": 107, "May": 110, "Jun": 87, "Jul": 95, "Aug": 104, "Sep": 77, "Oct": 83, "Nov": 63, "Dec": 64}, "2026": {"Jan": 99, "Feb": 124, "Mar": 116, "Apr": 110, "May": 142, "Jun": 120, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 15, "Feb": 7, "Mar": 11, "Apr": 10, "May": 6, "Jun": 7, "Jul": 11, "Aug": 30, "Sep": 11, "Oct": 16, "Nov": 12, "Dec": 11}, "2025": {"Jan": 18, "Feb": 20, "Mar": 16, "Apr": 18, "May": 11, "Jun": 9, "Jul": 12, "Aug": 13, "Sep": 5, "Oct": 7, "Nov": 3, "Dec": 4}, "2026": {"Jan": 5, "Feb": 29, "Mar": 11, "Apr": 13, "May": 12, "Jun": 15, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 135, "Feb": 119, "Mar": 101, "Apr": 101, "May": 102, "Jun": 88, "Jul": 83, "Aug": 80, "Sep": 109, "Oct": 76, "Nov": 58, "Dec": 78}, "2025": {"Jan": 82, "Feb": 77, "Mar": 109, "Apr": 89, "May": 99, "Jun": 78, "Jul": 79, "Aug": 88, "Sep": 72, "Oct": 76, "Nov": 60, "Dec": 60}, "2026": {"Jan": 94, "Feb": 95, "Mar": 105, "Apr": 97, "May": 128, "Jun": 104, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 4, "Feb": 4, "Mar": 1, "Apr": 2, "May": 2, "Jun": 1, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 2, "Dec": 0}, "2025": {"Jan": 0, "Feb": 2, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 4, "Aug": 3, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 2, "Jun": 1, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "APJ": {"_total": {"2024": {"Jan": 39, "Feb": 37, "Mar": 29, "Apr": 32, "May": 39, "Jun": 33, "Jul": 30, "Aug": 31, "Sep": 40, "Oct": 34, "Nov": 35, "Dec": 26}, "2025": {"Jan": 32, "Feb": 25, "Mar": 39, "Apr": 27, "May": 16, "Jun": 22, "Jul": 26, "Aug": 35, "Sep": 35, "Oct": 19, "Nov": 15, "Dec": 20}, "2026": {"Jan": 28, "Feb": 16, "Mar": 25, "Apr": 18, "May": 32, "Jun": 31, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 0, "Feb": 1, "Mar": 2, "Apr": 2, "May": 1, "Jun": 2, "Jul": 1, "Aug": 2, "Sep": 4, "Oct": 0, "Nov": 3, "Dec": 0}, "2025": {"Jan": 1, "Feb": 1, "Mar": 5, "Apr": 1, "May": 1, "Jun": 2, "Jul": 4, "Aug": 0, "Sep": 2, "Oct": 0, "Nov": 1, "Dec": 2}, "2026": {"Jan": 1, "Feb": 0, "Mar": 1, "Apr": 1, "May": 1, "Jun": 2, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 38, "Feb": 36, "Mar": 25, "Apr": 30, "May": 37, "Jun": 31, "Jul": 29, "Aug": 29, "Sep": 36, "Oct": 34, "Nov": 32, "Dec": 26}, "2025": {"Jan": 31, "Feb": 24, "Mar": 34, "Apr": 26, "May": 15, "Jun": 19, "Jul": 22, "Aug": 35, "Sep": 33, "Oct": 19, "Nov": 14, "Dec": 18}, "2026": {"Jan": 27, "Feb": 16, "Mar": 24, "Apr": 17, "May": 31, "Jun": 29, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 1, "Feb": 0, "Mar": 2, "Apr": 0, "May": 1, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 1, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "EMEA": {"_total": {"2024": {"Jan": 49, "Feb": 49, "Mar": 70, "Apr": 39, "May": 34, "Jun": 47, "Jul": 45, "Aug": 49, "Sep": 48, "Oct": 49, "Nov": 27, "Dec": 38}, "2025": {"Jan": 30, "Feb": 34, "Mar": 60, "Apr": 61, "May": 38, "Jun": 52, "Jul": 40, "Aug": 49, "Sep": 31, "Oct": 32, "Nov": 36, "Dec": 22}, "2026": {"Jan": 31, "Feb": 43, "Mar": 20, "Apr": 38, "May": 53, "Jun": 53, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 6, "Feb": 3, "Mar": 4, "Apr": 3, "May": 3, "Jun": 10, "Jul": 3, "Aug": 6, "Sep": 2, "Oct": 3, "Nov": 1, "Dec": 5}, "2025": {"Jan": 0, "Feb": 4, "Mar": 5, "Apr": 5, "May": 3, "Jun": 16, "Jul": 2, "Aug": 2, "Sep": 4, "Oct": 4, "Nov": 2, "Dec": 2}, "2026": {"Jan": 3, "Feb": 12, "Mar": 0, "Apr": 1, "May": 4, "Jun": 2, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 43, "Feb": 45, "Mar": 65, "Apr": 36, "May": 31, "Jun": 37, "Jul": 41, "Aug": 42, "Sep": 46, "Oct": 46, "Nov": 25, "Dec": 33}, "2025": {"Jan": 28, "Feb": 30, "Mar": 55, "Apr": 56, "May": 35, "Jun": 36, "Jul": 37, "Aug": 47, "Sep": 27, "Oct": 28, "Nov": 34, "Dec": 20}, "2026": {"Jan": 28, "Feb": 31, "Mar": 20, "Apr": 36, "May": 49, "Jun": 51, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 0, "Feb": 1, "Mar": 1, "Apr": 0, "May": 0, "Jun": 0, "Jul": 1, "Aug": 1, "Sep": 0, "Oct": 0, "Nov": 1, "Dec": 0}, "2025": {"Jan": 2, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 1, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}}, "External Fulfilment": {"India": {"_total": {"2024": {"Jan": 173, "Feb": 152, "Mar": 143, "Apr": 62, "May": 57, "Jun": 46, "Jul": 54, "Aug": 73, "Sep": 70, "Oct": 96, "Nov": 189, "Dec": 166}, "2025": {"Jan": 207, "Feb": 206, "Mar": 311, "Apr": 325, "May": 392, "Jun": 365, "Jul": 288, "Aug": 179, "Sep": 63, "Oct": 51, "Nov": 79, "Dec": 148}, "2026": {"Jan": 207, "Feb": 201, "Mar": 181, "Apr": 188, "May": 115, "Jun": 62, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 5, "Feb": 10, "Mar": 4, "Apr": 2, "May": 3, "Jun": 2, "Jul": 6, "Aug": 7, "Sep": 21, "Oct": 18, "Nov": 24, "Dec": 24}, "2025": {"Jan": 16, "Feb": 23, "Mar": 47, "Apr": 25, "May": 32, "Jun": 26, "Jul": 23, "Aug": 14, "Sep": 6, "Oct": 1, "Nov": 3, "Dec": 16}, "2026": {"Jan": 8, "Feb": 6, "Mar": 7, "Apr": 7, "May": 3, "Jun": 2, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 48, "Feb": 39, "Mar": 34, "Apr": 19, "May": 24, "Jun": 35, "Jul": 44, "Aug": 62, "Sep": 48, "Oct": 73, "Nov": 154, "Dec": 125}, "2025": {"Jan": 159, "Feb": 154, "Mar": 207, "Apr": 193, "May": 208, "Jun": 157, "Jul": 117, "Aug": 81, "Sep": 39, "Oct": 49, "Nov": 66, "Dec": 58}, "2026": {"Jan": 76, "Feb": 67, "Mar": 45, "Apr": 59, "May": 56, "Jun": 47, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 120, "Feb": 103, "Mar": 104, "Apr": 41, "May": 27, "Jun": 8, "Jul": 2, "Aug": 1, "Sep": 0, "Oct": 5, "Nov": 10, "Dec": 15}, "2025": {"Jan": 31, "Feb": 28, "Mar": 55, "Apr": 102, "May": 147, "Jun": 179, "Jul": 146, "Aug": 83, "Sep": 17, "Oct": 1, "Nov": 10, "Dec": 74}, "2026": {"Jan": 123, "Feb": 128, "Mar": 129, "Apr": 121, "May": 55, "Jun": 13, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 0, "Feb": 0, "Mar": 1, "Apr": 0, "May": 3, "Jun": 1, "Jul": 2, "Aug": 3, "Sep": 1, "Oct": 0, "Nov": 1, "Dec": 2}, "2025": {"Jan": 1, "Feb": 1, "Mar": 2, "Apr": 5, "May": 5, "Jun": 3, "Jul": 2, "Aug": 1, "Sep": 1, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 1, "May": 1, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "Americas": {"_total": {"2024": {"Jan": 63, "Feb": 39, "Mar": 52, "Apr": 47, "May": 45, "Jun": 38, "Jul": 44, "Aug": 32, "Sep": 57, "Oct": 74, "Nov": 60, "Dec": 49}, "2025": {"Jan": 36, "Feb": 61, "Mar": 70, "Apr": 68, "May": 60, "Jun": 67, "Jul": 64, "Aug": 32, "Sep": 34, "Oct": 46, "Nov": 52, "Dec": 55}, "2026": {"Jan": 54, "Feb": 47, "Mar": 33, "Apr": 54, "May": 50, "Jun": 70, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 2, "Feb": 7, "Mar": 1, "Apr": 3, "May": 2, "Jun": 1, "Jul": 0, "Aug": 2, "Sep": 6, "Oct": 5, "Nov": 3, "Dec": 8}, "2025": {"Jan": 8, "Feb": 16, "Mar": 15, "Apr": 12, "May": 12, "Jun": 10, "Jul": 11, "Aug": 1, "Sep": 6, "Oct": 7, "Nov": 12, "Dec": 13}, "2026": {"Jan": 4, "Feb": 3, "Mar": 11, "Apr": 13, "May": 1, "Jun": 3, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 51, "Feb": 32, "Mar": 51, "Apr": 44, "May": 43, "Jun": 31, "Jul": 44, "Aug": 29, "Sep": 50, "Oct": 69, "Nov": 57, "Dec": 41}, "2025": {"Jan": 28, "Feb": 38, "Mar": 55, "Apr": 49, "May": 48, "Jun": 57, "Jul": 48, "Aug": 30, "Sep": 28, "Oct": 39, "Nov": 40, "Dec": 42}, "2026": {"Jan": 38, "Feb": 42, "Mar": 22, "Apr": 41, "May": 49, "Jun": 67, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 10, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 6, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 7, "Mar": 0, "Apr": 7, "May": 0, "Jun": 0, "Jul": 5, "Aug": 1, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 12, "Feb": 2, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 1, "Sep": 1, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "APJ": {"_total": {"2024": {"Jan": 19, "Feb": 20, "Mar": 17, "Apr": 16, "May": 5, "Jun": 14, "Jul": 8, "Aug": 13, "Sep": 17, "Oct": 14, "Nov": 23, "Dec": 7}, "2025": {"Jan": 25, "Feb": 15, "Mar": 16, "Apr": 9, "May": 20, "Jun": 11, "Jul": 13, "Aug": 3, "Sep": 7, "Oct": 5, "Nov": 5, "Dec": 11}, "2026": {"Jan": 31, "Feb": 15, "Mar": 10, "Apr": 24, "May": 11, "Jun": 14, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 0, "Feb": 3, "Mar": 1, "Apr": 2, "May": 0, "Jun": 1, "Jul": 0, "Aug": 0, "Sep": 1, "Oct": 2, "Nov": 1, "Dec": 1}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 3, "Jun": 0, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 19, "Feb": 13, "Mar": 16, "Apr": 13, "May": 5, "Jun": 13, "Jul": 7, "Aug": 12, "Sep": 14, "Oct": 12, "Nov": 21, "Dec": 6}, "2025": {"Jan": 8, "Feb": 5, "Mar": 13, "Apr": 9, "May": 17, "Jun": 11, "Jul": 12, "Aug": 3, "Sep": 7, "Oct": 5, "Nov": 5, "Dec": 11}, "2026": {"Jan": 13, "Feb": 13, "Mar": 5, "Apr": 24, "May": 11, "Jun": 14, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 0, "Feb": 4, "Mar": 0, "Apr": 1, "May": 0, "Jun": 0, "Jul": 0, "Aug": 1, "Sep": 2, "Oct": 0, "Nov": 1, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 17, "Feb": 10, "Mar": 3, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 18, "Feb": 2, "Mar": 5, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "EMEA": {"_total": {"2024": {"Jan": 13, "Feb": 19, "Mar": 21, "Apr": 11, "May": 10, "Jun": 10, "Jul": 6, "Aug": 8, "Sep": 15, "Oct": 13, "Nov": 15, "Dec": 9}, "2025": {"Jan": 20, "Feb": 22, "Mar": 13, "Apr": 8, "May": 22, "Jun": 9, "Jul": 10, "Aug": 3, "Sep": 3, "Oct": 5, "Nov": 3, "Dec": 5}, "2026": {"Jan": 7, "Feb": 5, "Mar": 5, "Apr": 6, "May": 13, "Jun": 9, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 2, "Feb": 4, "Mar": 8, "Apr": 1, "May": 1, "Jun": 2, "Jul": 1, "Aug": 3, "Sep": 1, "Oct": 1, "Nov": 0, "Dec": 0}, "2025": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 0, "May": 1, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 1, "Oct": 1, "Nov": 1, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 1, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 10, "Feb": 15, "Mar": 12, "Apr": 10, "May": 8, "Jun": 8, "Jul": 5, "Aug": 5, "Sep": 13, "Oct": 12, "Nov": 15, "Dec": 9}, "2025": {"Jan": 19, "Feb": 22, "Mar": 13, "Apr": 8, "May": 21, "Jun": 6, "Jul": 10, "Aug": 3, "Sep": 2, "Oct": 4, "Nov": 2, "Dec": 5}, "2026": {"Jan": 7, "Feb": 5, "Mar": 5, "Apr": 5, "May": 13, "Jun": 9, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 3, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 0, "Feb": 0, "Mar": 1, "Apr": 0, "May": 1, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 1, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}}, "Cancelled": {"India": {"_total": {"2024": {"Jan": 1020, "Feb": 1296, "Mar": 762, "Apr": 875, "May": 1185, "Jun": 666, "Jul": 785, "Aug": 767, "Sep": 713, "Oct": 728, "Nov": 702, "Dec": 650}, "2025": {"Jan": 971, "Feb": 899, "Mar": 973, "Apr": 1844, "May": 1258, "Jun": 2130, "Jul": 1364, "Aug": 1085, "Sep": 1233, "Oct": 1040, "Nov": 811, "Dec": 625}, "2026": {"Jan": 881, "Feb": 863, "Mar": 1539, "Apr": 940, "May": 1034, "Jun": 994, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 193, "Feb": 163, "Mar": 214, "Apr": 250, "May": 400, "Jun": 190, "Jul": 218, "Aug": 119, "Sep": 156, "Oct": 231, "Nov": 239, "Dec": 201}, "2025": {"Jan": 240, "Feb": 264, "Mar": 172, "Apr": 284, "May": 190, "Jun": 472, "Jul": 333, "Aug": 262, "Sep": 171, "Oct": 209, "Nov": 193, "Dec": 101}, "2026": {"Jan": 179, "Feb": 214, "Mar": 335, "Apr": 114, "May": 164, "Jun": 191, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 760, "Feb": 644, "Mar": 482, "Apr": 533, "May": 670, "Jun": 461, "Jul": 555, "Aug": 627, "Sep": 528, "Oct": 474, "Nov": 447, "Dec": 447}, "2025": {"Jan": 713, "Feb": 611, "Mar": 729, "Apr": 635, "May": 655, "Jun": 690, "Jul": 922, "Aug": 765, "Sep": 836, "Oct": 813, "Nov": 600, "Dec": 509}, "2026": {"Jan": 701, "Feb": 645, "Mar": 841, "Apr": 725, "May": 820, "Jun": 790, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 37, "Feb": 456, "Mar": 57, "Apr": 22, "May": 65, "Jun": 13, "Jul": 1, "Aug": 0, "Sep": 18, "Oct": 6, "Nov": 1, "Dec": 0}, "2025": {"Jan": 0, "Feb": 11, "Mar": 4, "Apr": 920, "May": 410, "Jun": 956, "Jul": 98, "Aug": 43, "Sep": 134, "Oct": 11, "Nov": 18, "Dec": 10}, "2026": {"Jan": 0, "Feb": 0, "Mar": 358, "Apr": 97, "May": 43, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 30, "Feb": 33, "Mar": 9, "Apr": 70, "May": 50, "Jun": 2, "Jul": 11, "Aug": 21, "Sep": 11, "Oct": 17, "Nov": 15, "Dec": 2}, "2025": {"Jan": 18, "Feb": 13, "Mar": 68, "Apr": 5, "May": 3, "Jun": 12, "Jul": 11, "Aug": 15, "Sep": 92, "Oct": 7, "Nov": 0, "Dec": 5}, "2026": {"Jan": 1, "Feb": 4, "Mar": 5, "Apr": 4, "May": 7, "Jun": 13, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "Americas": {"_total": {"2024": {"Jan": 307, "Feb": 247, "Mar": 224, "Apr": 243, "May": 267, "Jun": 341, "Jul": 238, "Aug": 303, "Sep": 350, "Oct": 272, "Nov": 183, "Dec": 203}, "2025": {"Jan": 226, "Feb": 238, "Mar": 342, "Apr": 293, "May": 212, "Jun": 265, "Jul": 207, "Aug": 274, "Sep": 179, "Oct": 223, "Nov": 254, "Dec": 207}, "2026": {"Jan": 197, "Feb": 230, "Mar": 360, "Apr": 299, "May": 235, "Jun": 314, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 25, "Feb": 48, "Mar": 55, "Apr": 43, "May": 74, "Jun": 143, "Jul": 101, "Aug": 63, "Sep": 182, "Oct": 84, "Nov": 65, "Dec": 42}, "2025": {"Jan": 55, "Feb": 50, "Mar": 94, "Apr": 96, "May": 60, "Jun": 143, "Jul": 59, "Aug": 70, "Sep": 36, "Oct": 54, "Nov": 58, "Dec": 62}, "2026": {"Jan": 31, "Feb": 73, "Mar": 97, "Apr": 60, "May": 31, "Jun": 31, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 272, "Feb": 195, "Mar": 168, "Apr": 180, "May": 184, "Jun": 193, "Jul": 133, "Aug": 234, "Sep": 165, "Oct": 184, "Nov": 118, "Dec": 161}, "2025": {"Jan": 171, "Feb": 187, "Mar": 209, "Apr": 188, "May": 146, "Jun": 122, "Jul": 146, "Aug": 202, "Sep": 141, "Oct": 168, "Nov": 195, "Dec": 142}, "2026": {"Jan": 165, "Feb": 157, "Mar": 262, "Apr": 239, "May": 198, "Jun": 277, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 2, "Jun": 5, "Jul": 2, "Aug": 2, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 9, "May": 6, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 1}, "2026": {"Jan": 0, "Feb": 0, "Mar": 1, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 10, "Feb": 4, "Mar": 1, "Apr": 20, "May": 7, "Jun": 0, "Jul": 2, "Aug": 4, "Sep": 3, "Oct": 4, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 1, "Mar": 39, "Apr": 0, "May": 0, "Jun": 0, "Jul": 2, "Aug": 2, "Sep": 2, "Oct": 1, "Nov": 1, "Dec": 2}, "2026": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 0, "May": 6, "Jun": 6, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "APJ": {"_total": {"2024": {"Jan": 38, "Feb": 61, "Mar": 52, "Apr": 44, "May": 113, "Jun": 52, "Jul": 93, "Aug": 72, "Sep": 62, "Oct": 50, "Nov": 53, "Dec": 45}, "2025": {"Jan": 23, "Feb": 46, "Mar": 44, "Apr": 61, "May": 34, "Jun": 49, "Jul": 48, "Aug": 41, "Sep": 42, "Oct": 59, "Nov": 41, "Dec": 52}, "2026": {"Jan": 58, "Feb": 46, "Mar": 50, "Apr": 61, "May": 57, "Jun": 66, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 3, "Feb": 7, "Mar": 10, "Apr": 9, "May": 69, "Jun": 8, "Jul": 40, "Aug": 27, "Sep": 20, "Oct": 8, "Nov": 11, "Dec": 8}, "2025": {"Jan": 0, "Feb": 15, "Mar": 3, "Apr": 9, "May": 11, "Jun": 20, "Jul": 4, "Aug": 6, "Sep": 7, "Oct": 13, "Nov": 12, "Dec": 3}, "2026": {"Jan": 6, "Feb": 5, "Mar": 14, "Apr": 18, "May": 6, "Jun": 12, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 35, "Feb": 54, "Mar": 42, "Apr": 35, "May": 41, "Jun": 44, "Jul": 53, "Aug": 37, "Sep": 34, "Oct": 42, "Nov": 41, "Dec": 37}, "2025": {"Jan": 22, "Feb": 30, "Mar": 41, "Apr": 52, "May": 23, "Jun": 28, "Jul": 43, "Aug": 35, "Sep": 35, "Oct": 46, "Nov": 29, "Dec": 49}, "2026": {"Jan": 52, "Feb": 41, "Mar": 36, "Apr": 43, "May": 51, "Jun": 54, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 2, "Jun": 0, "Jul": 0, "Aug": 8, "Sep": 8, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 1, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 1, "Dec": 0}, "2025": {"Jan": 1, "Feb": 1, "Mar": 0, "Apr": 0, "May": 0, "Jun": 1, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "EMEA": {"_total": {"2024": {"Jan": 104, "Feb": 92, "Mar": 81, "Apr": 101, "May": 99, "Jun": 45, "Jul": 63, "Aug": 72, "Sep": 79, "Oct": 73, "Nov": 85, "Dec": 82}, "2025": {"Jan": 49, "Feb": 96, "Mar": 115, "Apr": 93, "May": 58, "Jun": 70, "Jul": 72, "Aug": 44, "Sep": 58, "Oct": 87, "Nov": 52, "Dec": 51}, "2026": {"Jan": 63, "Feb": 58, "Mar": 70, "Apr": 72, "May": 122, "Jun": 61, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 38, "Feb": 30, "Mar": 13, "Apr": 38, "May": 39, "Jun": 7, "Jul": 10, "Aug": 13, "Sep": 20, "Oct": 18, "Nov": 9, "Dec": 10}, "2025": {"Jan": 3, "Feb": 36, "Mar": 25, "Apr": 41, "May": 23, "Jun": 37, "Jul": 30, "Aug": 8, "Sep": 22, "Oct": 26, "Nov": 16, "Dec": 14}, "2026": {"Jan": 15, "Feb": 4, "Mar": 9, "Apr": 16, "May": 48, "Jun": 15, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 65, "Feb": 62, "Mar": 68, "Apr": 60, "May": 60, "Jun": 37, "Jul": 52, "Aug": 59, "Sep": 59, "Oct": 55, "Nov": 76, "Dec": 72}, "2025": {"Jan": 46, "Feb": 60, "Mar": 76, "Apr": 52, "May": 35, "Jun": 33, "Jul": 41, "Aug": 36, "Sep": 36, "Oct": 61, "Nov": 36, "Dec": 36}, "2026": {"Jan": 46, "Feb": 54, "Mar": 61, "Apr": 56, "May": 74, "Jun": 46, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 3, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 3, "May": 0, "Jun": 1, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 11, "Apr": 0, "May": 0, "Jun": 0, "Jul": 1, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 1}, "2026": {"Jan": 2, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}}, "Closing": {"India": {"_total": {"2024": {"Jan": 2869, "Feb": 2107, "Mar": 2318, "Apr": 2165, "May": 1842, "Jun": 1939, "Jul": 2036, "Aug": 2225, "Sep": 2511, "Oct": 2775, "Nov": 3459, "Dec": 3788}, "2025": {"Jan": 4026, "Feb": 5184, "Mar": 5421, "Apr": 5797, "May": 5459, "Jun": 4932, "Jul": 3193, "Aug": 2513, "Sep": 2478, "Oct": 2595, "Nov": 3788, "Dec": 3762}, "2026": {"Jan": 3383, "Feb": 3466, "Mar": 2533, "Apr": 2527, "May": 2465, "Jun": 2552, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 460, "Feb": 527, "Mar": 909, "Apr": 787, "May": 591, "Jun": 606, "Jul": 516, "Aug": 608, "Sep": 622, "Oct": 590, "Nov": 809, "Dec": 785}, "2025": {"Jan": 806, "Feb": 915, "Mar": 1083, "Apr": 1054, "May": 1196, "Jun": 978, "Jul": 686, "Aug": 338, "Sep": 534, "Oct": 398, "Nov": 619, "Dec": 691}, "2026": {"Jan": 517, "Feb": 729, "Mar": 611, "Apr": 743, "May": 493, "Jun": 428, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 1353, "Feb": 1112, "Mar": 1096, "Apr": 1183, "May": 1140, "Jun": 1265, "Jul": 1466, "Aug": 1485, "Sep": 1738, "Oct": 1956, "Nov": 2264, "Dec": 2451}, "2025": {"Jan": 2548, "Feb": 2623, "Mar": 2583, "Apr": 2506, "May": 2532, "Jun": 2465, "Jul": 2152, "Aug": 1968, "Sep": 1895, "Oct": 1844, "Nov": 2033, "Dec": 1981}, "2026": {"Jan": 1891, "Feb": 1848, "Mar": 1529, "Apr": 1560, "May": 1877, "Jun": 2033, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 915, "Feb": 356, "Mar": 199, "Apr": 138, "May": 50, "Jun": 14, "Jul": 11, "Aug": 86, "Sep": 96, "Oct": 175, "Nov": 342, "Dec": 509}, "2025": {"Jan": 630, "Feb": 1586, "Mar": 1702, "Apr": 2180, "May": 1681, "Jun": 1447, "Jul": 297, "Aug": 176, "Sep": 20, "Oct": 335, "Nov": 1114, "Dec": 1073}, "2026": {"Jan": 952, "Feb": 834, "Mar": 335, "Apr": 169, "May": 45, "Jun": 55, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 141, "Feb": 112, "Mar": 114, "Apr": 57, "May": 61, "Jun": 54, "Jul": 43, "Aug": 46, "Sep": 55, "Oct": 54, "Nov": 44, "Dec": 43}, "2025": {"Jan": 42, "Feb": 60, "Mar": 53, "Apr": 57, "May": 50, "Jun": 42, "Jul": 58, "Aug": 31, "Sep": 29, "Oct": 18, "Nov": 22, "Dec": 17}, "2026": {"Jan": 23, "Feb": 55, "Mar": 58, "Apr": 55, "May": 50, "Jun": 36, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "Americas": {"_total": {"2024": {"Jan": 373, "Feb": 396, "Mar": 481, "Apr": 424, "May": 586, "Jun": 567, "Jul": 507, "Aug": 529, "Sep": 341, "Oct": 398, "Nov": 439, "Dec": 368}, "2025": {"Jan": 415, "Feb": 498, "Mar": 540, "Apr": 498, "May": 481, "Jun": 440, "Jul": 500, "Aug": 421, "Sep": 509, "Oct": 524, "Nov": 424, "Dec": 345}, "2026": {"Jan": 428, "Feb": 563, "Mar": 497, "Apr": 409, "May": 427, "Jun": 540, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 91, "Feb": 63, "Mar": 140, "Apr": 147, "May": 284, "Jun": 301, "Jul": 276, "Aug": 280, "Sep": 99, "Oct": 114, "Nov": 113, "Dec": 82}, "2025": {"Jan": 125, "Feb": 140, "Mar": 243, "Apr": 211, "May": 184, "Jun": 134, "Jul": 136, "Aug": 81, "Sep": 102, "Oct": 133, "Nov": 105, "Dec": 57}, "2026": {"Jan": 94, "Feb": 201, "Mar": 125, "Apr": 76, "May": 74, "Jun": 73, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 251, "Feb": 304, "Mar": 303, "Apr": 253, "May": 278, "Jun": 251, "Jul": 221, "Aug": 243, "Sep": 239, "Oct": 282, "Nov": 315, "Dec": 275}, "2025": {"Jan": 278, "Feb": 345, "Mar": 279, "Apr": 280, "May": 296, "Jun": 297, "Jul": 354, "Aug": 335, "Sep": 405, "Oct": 390, "Nov": 318, "Dec": 287}, "2026": {"Jan": 331, "Feb": 361, "Mar": 372, "Apr": 333, "May": 346, "Jun": 460, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 10, "Feb": 10, "Mar": 10, "Apr": 10, "May": 15, "Jun": 6, "Jul": 2, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 10, "Dec": 10}, "2025": {"Jan": 10, "Feb": 13, "Mar": 18, "Apr": 7, "May": 1, "Jun": 6, "Jul": 2, "Aug": 1, "Sep": 1, "Oct": 1, "Nov": 1, "Dec": 0}, "2026": {"Jan": 3, "Feb": 1, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 21, "Feb": 19, "Mar": 28, "Apr": 14, "May": 9, "Jun": 9, "Jul": 8, "Aug": 6, "Sep": 3, "Oct": 2, "Nov": 1, "Dec": 1}, "2025": {"Jan": 2, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 3, "Jul": 8, "Aug": 4, "Sep": 1, "Oct": 0, "Nov": 0, "Dec": 1}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 7, "Jun": 7, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "APJ": {"_total": {"2024": {"Jan": 113, "Feb": 120, "Mar": 121, "Apr": 118, "May": 136, "Jun": 150, "Jul": 122, "Aug": 142, "Sep": 112, "Oct": 156, "Nov": 151, "Dec": 108}, "2025": {"Jan": 105, "Feb": 111, "Mar": 106, "Apr": 87, "May": 103, "Jun": 114, "Jul": 114, "Aug": 104, "Sep": 101, "Oct": 98, "Nov": 139, "Dec": 147}, "2026": {"Jan": 120, "Feb": 94, "Mar": 104, "Apr": 134, "May": 114, "Jun": 91, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 11, "Feb": 39, "Mar": 43, "Apr": 56, "May": 64, "Jun": 77, "Jul": 33, "Aug": 36, "Sep": 27, "Oct": 17, "Nov": 11, "Dec": 3}, "2025": {"Jan": 8, "Feb": 9, "Mar": 8, "Apr": 3, "May": 18, "Jun": 15, "Jul": 12, "Aug": 13, "Sep": 21, "Oct": 14, "Nov": 17, "Dec": 11}, "2026": {"Jan": 1, "Feb": 14, "Mar": 17, "Apr": 26, "May": 15, "Jun": 10, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 94, "Feb": 76, "Mar": 74, "Apr": 58, "May": 71, "Jun": 72, "Jul": 85, "Aug": 95, "Sep": 83, "Oct": 107, "Nov": 110, "Dec": 75}, "2025": {"Jan": 83, "Feb": 98, "Mar": 97, "Apr": 83, "May": 84, "Jun": 98, "Jul": 102, "Aug": 91, "Sep": 80, "Oct": 84, "Nov": 97, "Dec": 111}, "2026": {"Jan": 112, "Feb": 75, "Mar": 87, "Apr": 108, "May": 99, "Jun": 81, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 7, "Feb": 3, "Mar": 3, "Apr": 2, "May": 0, "Jun": 0, "Jul": 4, "Aug": 11, "Sep": 2, "Oct": 1, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 1, "Feb": 2, "Mar": 1, "Apr": 2, "May": 1, "Jun": 1, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 31, "Nov": 30, "Dec": 30}, "2025": {"Jan": 14, "Feb": 4, "Mar": 1, "Apr": 1, "May": 1, "Jun": 1, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 25, "Dec": 25}, "2026": {"Jan": 7, "Feb": 5, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}, "EMEA": {"_total": {"2024": {"Jan": 190, "Feb": 178, "Mar": 150, "Apr": 128, "May": 116, "Jun": 114, "Jul": 113, "Aug": 123, "Sep": 114, "Oct": 114, "Nov": 189, "Dec": 142}, "2025": {"Jan": 182, "Feb": 164, "Mar": 161, "Apr": 131, "May": 128, "Jun": 114, "Jul": 99, "Aug": 100, "Sep": 116, "Oct": 103, "Nov": 96, "Dec": 111}, "2026": {"Jan": 120, "Feb": 125, "Mar": 134, "Apr": 153, "May": 158, "Jun": 145, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "subs": {"EXANT": {"2024": {"Jan": 75, "Feb": 57, "Mar": 51, "Apr": 37, "May": 24, "Jun": 30, "Jul": 33, "Aug": 30, "Sep": 28, "Oct": 18, "Nov": 27, "Dec": 19}, "2025": {"Jan": 47, "Feb": 47, "Mar": 52, "Apr": 42, "May": 53, "Jun": 42, "Jul": 20, "Aug": 26, "Sep": 43, "Oct": 31, "Nov": 33, "Dec": 19}, "2026": {"Jan": 20, "Feb": 29, "Mar": 27, "Apr": 46, "May": 52, "Jun": 45, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "EXTN": {"2024": {"Jan": 112, "Feb": 116, "Mar": 92, "Apr": 87, "May": 88, "Jun": 80, "Jul": 78, "Aug": 92, "Sep": 86, "Oct": 96, "Nov": 162, "Dec": 123}, "2025": {"Jan": 124, "Feb": 106, "Mar": 106, "Apr": 86, "May": 72, "Jun": 72, "Jul": 79, "Aug": 74, "Sep": 73, "Oct": 72, "Nov": 62, "Dec": 91}, "2026": {"Jan": 99, "Feb": 96, "Mar": 107, "Apr": 107, "May": 106, "Jun": 100, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "PDP": {"2024": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 0, "Feb": 0, "Mar": 3, "Apr": 3, "May": 3, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2026": {"Jan": 0, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}, "Others": {"2024": {"Jan": 3, "Feb": 5, "Mar": 7, "Apr": 4, "May": 4, "Jun": 4, "Jul": 2, "Aug": 1, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}, "2025": {"Jan": 11, "Feb": 11, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 1, "Dec": 1}, "2026": {"Jan": 1, "Feb": 0, "Mar": 0, "Apr": 0, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 0}}}}}};
+
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const YEARS  = ['2024','2025','2026'];
+const TABS   = ['opening','closing','internal','external','cancelled'];
+const KEY_MAP = {opening:'Opening', closing:'Closing', internal:'Internal Fulfilment', external:'External Fulfilment', cancelled:'Cancelled'};
+
+let filterYr = 'all', filterGeo = 'all', activeTab = 'opening';
+
+function setFY(yr, btn) {
+  filterYr = yr;
+  btn.parentElement.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
+}
+function setGeo(geo, btn) {
+  filterGeo = geo;
+  btn.parentElement.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
+}
+
+function switchTab(name) {
+  // deactivate all
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  // activate
+  document.getElementById('panel-'+name).classList.add('active');
+  document.querySelector('.tab.'+name).classList.add('active');
+  activeTab = name;
+  if (name === 'trends') renderTrends(); else renderTable(name);
+}
+
+function fmt(v) { return v > 0 ? v.toLocaleString() : '<span class="zero">–</span>'; }
+
+function renderTable(tabName) {
+  const sheetKey = KEY_MAP[tabName];
+  const sheetData = RAW[sheetKey];
+  const years = filterYr === 'all' ? YEARS : [filterYr];
+  const geos  = filterGeo === 'all' ? Object.keys(sheetData) : (sheetData[filterGeo] ? [filterGeo] : []);
+
+  function liveM(yr) {
+    return MONTHS.filter(m => (Object.values(sheetData)[0]?.['_total']?.[yr]?.[m] ?? -1) >= 0);
+  }
+
+  let h = '<table>';
+
+  // Year header row — no Total column
+  h += '<thead><tr class="yr-row"><th class="geo-hd">Geo / Project Type</th>';
+  years.forEach(yr => {
+    const cls = yr==='2024'?'y24':yr==='2025'?'y25':'y26';
+    h += `<th class="${cls} ysep" colspan="${liveM(yr).length}">${yr}</th>`;
+  });
+  h += '</tr>';
+
+  // Month header row — no Total column
+  h += '<tr class="mo-row"><th class="geo-hd">Geo / Project Type</th>';
+  years.forEach(yr => {
+    liveM(yr).forEach((m, mi) => {
+      h += `<th class="${mi===0?'ysep':''}">${m}</th>`;
+    });
+  });
+  h += '</tr></thead><tbody>';
+
+  // Accumulate month-wise grand totals across all geos
+  const monthTotals = {};
+  years.forEach(yr => { liveM(yr).forEach(m => { monthTotals[yr+m] = 0; }); });
+
+  geos.forEach(geo => {
+    const gd = sheetData[geo];
+    if (!gd) return;
+    const subs = Object.keys(gd.subs);
+
+    // Geo row
+    h += `<tr class="geo-row"><td class="gcell">${geo}</td>`;
+    years.forEach(yr => {
+      liveM(yr).forEach((m, mi) => {
+        const v = gd['_total'][yr][m] || 0;
+        monthTotals[yr+m] += v;
+        h += `<td class="${mi===0?'ysep':''}">${fmt(v)}</td>`;
+      });
+    });
+    h += '</tr>';
+
+    // Sub rows
+    subs.forEach(sub => {
+      h += `<tr><td class="gcell">${sub}</td>`;
+      years.forEach(yr => {
+        liveM(yr).forEach((m, mi) => {
+          const v = (gd.subs[sub]?.[yr]?.[m]) || 0;
+          h += `<td class="${mi===0?'ysep':''}">${fmt(v)}</td>`;
+        });
+      });
+      h += '</tr>';
+    });
+  });
+
+  // Grand Total row at the bottom — one total per month column
+  h += `<tr class="grand-total-row"><td class="gcell gt-label">Grand Total</td>`;
+  years.forEach(yr => {
+    liveM(yr).forEach((m, mi) => {
+      const v = monthTotals[yr+m] || 0;
+      h += `<td class="gt-month-cell${mi===0?' ysep':''}">${fmt(v)}</td>`;
+    });
+  });
+  h += '</tr>';
+
+  h += '</tbody></table>';
+  document.getElementById('tbl-'+tabName).innerHTML = h;
+}
+
+function renderAll() { TABS.forEach(t => renderTable(t)); }
+
+// ─── TRENDS ────────────────────────────────────────────────────────────────
+const TREND_CATS = ['Internal Fulfilment','External Fulfilment','Cancelled'];
+const TREND_COLORS = {'Internal Fulfilment':'#0E7C5B','External Fulfilment':'#B86A00','Cancelled':'#B02020'};
+const GEOS = ['India','Americas','APJ','EMEA'];
+const GEO_C = {India:'#1B4F8A',Americas:'#0E7C5B',APJ:'#B86A00',EMEA:'#0E6E8A'};
+const PT_C  = {EXANT:'#1B4F8A',EXTN:'#2563B0',PDP:'#B86A00',Others:'#7A90A8'};
+const QS    = [{q:'Q1',m:['Jan','Feb','Mar']},{q:'Q2',m:['Apr','May','Jun']},{q:'Q3',m:['Jul','Aug','Sep']},{q:'Q4',m:['Oct','Nov','Dec']}];
+const YR_C  = {'2024':'#7A9AB8','2025':'#1B4F8A','2026':'#2563B0'};
+let activeTCat = 'Internal Fulfilment';
+
+// helpers
+function allGeoSum(sh,yr,mo){ return Object.values(RAW[sh]).reduce((t,g)=>t+(g._total[yr][mo]||0),0); }
+function yrTot(sh,yr){ return MONTHS.reduce((t,m)=>t+allGeoSum(sh,yr,m),0); }
+function qTot(sh,yr,qi){ return QS[qi].m.reduce((t,m)=>t+allGeoSum(sh,yr,m),0); }
+function geoYrTot(sh,geo,yr){ return MONTHS.reduce((t,m)=>t+(RAW[sh][geo]?._total[yr][m]||0),0); }
+function ptYrTot(sh,pt,yr){
+  return GEOS.reduce((t,g)=>t+MONTHS.reduce((tt,m)=>tt+(RAW[sh][g]?.subs[pt]?.[yr][m]||0),0),0);
+}
+function pct(a,b){ return b>0?((a-b)/b*100):null; }
+function fmtPct(v){ if(v===null) return '<span class="gz">—</span>';
+  return v>0?`<span class="gp">▲${v.toFixed(1)}%</span>`:`<span class="gn">▼${Math.abs(v).toFixed(1)}%</span>`; }
+function fmtN(v){ return v>0?v.toLocaleString():'—'; }
+
+// determine live months for 2026
+function live26(sh){ let n=0; MONTHS.forEach(m=>{ if(allGeoSum(sh,'2026',m)>0)n++; }); return n; }
+
+// ── category selector ──
+function setTCat(cat){
+  activeTCat=cat;
+  TREND_CATS.forEach(c=>{
+    const b=document.getElementById('tcat-'+c);
+    if(b) b.classList.toggle('tcat-active',c===cat);
+  });
+  renderTrends();
+}
+
+// ── SVG grouped bar helper ──
+function svgGroupedBar(groups, series, W, H, pL, pR, pT, pB){
+  const pw=W-pL-pR, ph=H-pT-pB;
+  const maxV=Math.max(...series.flatMap(s=>s.vals),1);
+  const nG=groups.length, nS=series.length;
+  const grpW=pw/nG, bW=(grpW*0.8)/nS;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;">`;
+  // grid
+  for(let i=0;i<=4;i++){
+    const y=pT+ph-(i/4)*ph,v=Math.round(maxV*i/4);
+    svg+=`<line x1="${pL}" y1="${y}" x2="${W-pR}" y2="${y}" stroke="#E4EAF2" stroke-width="1"/>`;
+    svg+=`<text x="${pL-5}" y="${y+3.5}" font-size="9" fill="#7A90A8" text-anchor="end">${v>=1000?(v/1000).toFixed(1)+'k':v}</text>`;
+  }
+  groups.forEach((g,gi)=>{
+    const gx=pL+gi*grpW+grpW*0.1;
+    series.forEach((s,si)=>{
+      const v=s.vals[gi]||0;
+      const bx=gx+si*bW;
+      const bh=Math.max((v/maxV)*ph,2);
+      const by=pT+ph-bh;
+      svg+=`<rect x="${bx.toFixed(1)}" y="${by.toFixed(1)}" width="${(bW*0.88).toFixed(1)}" height="${bh.toFixed(1)}" fill="${s.color}" rx="2" opacity="0.9"/>`;
+      if(bh>14) svg+=`<text x="${(bx+bW*0.44).toFixed(1)}" y="${(by+bh/2+3.5).toFixed(1)}" font-size="7.5" fill="#fff" text-anchor="middle" font-weight="600">${v>=1000?(v/1000).toFixed(1)+'k':v}</text>`;
+    });
+    svg+=`<text x="${(pL+gi*grpW+grpW/2).toFixed(1)}" y="${H-6}" font-size="9" fill="#7A90A8" text-anchor="middle">${g}</text>`;
+  });
+  // legend
+  series.forEach((s,i)=>{
+    svg+=`<rect x="${pL+i*60}" y="${H-22}" width="10" height="6" fill="${s.color}" rx="1"/>`;
+    svg+=`<text x="${pL+i*60+13}" y="${H-15}" font-size="8.5" fill="#354A63">${s.label}</text>`;
+  });
+  svg+='</svg>';
+  return svg;
+}
+
+// ── YoY ──
+function renderYoY(){
+  const sh=activeTCat, lv=live26(sh);
+  const cmp=MONTHS.slice(0,lv);
+  const y24f=yrTot(sh,'2024'), y25f=yrTot(sh,'2025');
+  const y24p=cmp.reduce((t,m)=>t+allGeoSum(sh,'2024',m),0);
+  const y25p=cmp.reduce((t,m)=>t+allGeoSum(sh,'2025',m),0);
+  const y26 =cmp.reduce((t,m)=>t+allGeoSum(sh,'2026',m),0);
+  const col=TREND_COLORS[sh];
+
+  // bar
+  const maxV=Math.max(y24f,y25f,y26,1);
+  const W=360,H=180,pL=42,pR=10,pT=14,pB=34;
+  const bData=[{l:'2024 (Full)',v:y24f,c:YR_C['2024']},{l:'2025 (Full)',v:y25f,c:YR_C['2025']},{l:`2026 (Jan–${cmp[lv-1]||'Jun'})`,v:y26,c:YR_C['2026']}];
+  const pw=W-pL-pR,ph=H-pT-pB;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:360px;height:auto;">`;
+  for(let i=0;i<=4;i++){
+    const y=pT+ph-(i/4)*ph,v=Math.round(maxV*i/4);
+    svg+=`<line x1="${pL}" y1="${y}" x2="${W-pR}" y2="${y}" stroke="#E4EAF2" stroke-width="1"/>`;
+    svg+=`<text x="${pL-5}" y="${y+3.5}" font-size="9" fill="#7A90A8" text-anchor="end">${v>=1000?(v/1000).toFixed(1)+'k':v}</text>`;
+  }
+  const bw=pw/(bData.length*2);
+  bData.forEach(({l,v,c},i)=>{
+    const bx=pL+i*(bw*2)+bw*0.5;
+    const bh=Math.max((v/maxV)*ph,2);
+    const by=pT+ph-bh;
+    svg+=`<rect x="${bx.toFixed(1)}" y="${by.toFixed(1)}" width="${(bw*1.2).toFixed(1)}" height="${bh.toFixed(1)}" fill="${c}" rx="3"/>`;
+    svg+=`<text x="${(bx+bw*0.6).toFixed(1)}" y="${(by-4).toFixed(1)}" font-size="9" fill="${c}" text-anchor="middle" font-weight="700">${v.toLocaleString()}</text>`;
+    svg+=`<text x="${(bx+bw*0.6).toFixed(1)}" y="${H-8}" font-size="8" fill="#7A90A8" text-anchor="middle">${l}</text>`;
+  });
+  svg+='</svg>';
+  document.getElementById('tr-yoy-bar').innerHTML=svg;
+
+  // table
+  const p2425=pct(y25p,y24p), p2526=pct(y26,y25p);
+  document.getElementById('tr-yoy-tbl').innerHTML=`<table class="tr-tbl">
+    <thead><tr><th>Year</th><th>Total</th><th>YoY Change</th></tr></thead>
+    <tbody>
+      <tr><td class="rn">2024 (Full Year)</td><td>${y24f.toLocaleString()}</td><td class="gz">—</td></tr>
+      <tr><td class="rn">2025 (Full Year)</td><td>${y25f.toLocaleString()}</td><td>${fmtPct(pct(y25f,y24f))}</td></tr>
+      <tr><td class="rn">2026 Jan–${cmp[lv-1]||'Jun'}</td><td>${y26.toLocaleString()}</td><td>${fmtPct(p2526)} <span style="color:var(--text3);font-size:9px;">vs same period 2025 (${y25p.toLocaleString()})</span></td></tr>
+    </tbody></table>`;
+}
+
+// ── QoQ ──
+function renderMoM(){
+  const sh=activeTCat;
+  const col=TREND_COLORS[sh];
+  const data={};
+  YEARS.forEach(yr=>{ data[yr]=MONTHS.map(m=>allGeoSum(sh,yr,m)); });
+  const maxV=Math.max(...Object.values(data).flat(),1);
+  const live26months=data['2026'].filter(v=>v>0).length;
+
+  function hslCell(v){
+    const base=col.replace('#','');
+    const r=parseInt(base.slice(0,2),16),g=parseInt(base.slice(2,4),16),b=parseInt(base.slice(4,6),16);
+    const intensity=v/maxV;
+    const rl=Math.round(r+(240-r)*(1-intensity));
+    const gl=Math.round(g+(240-g)*(1-intensity));
+    const bl=Math.round(b+(240-b)*(1-intensity));
+    return `rgb(${rl},${gl},${bl})`;
+  }
+  function textCol(v){ return v/maxV>0.55?'#fff':'#1A1F2E'; }
+
+  let html=`<table class="heat-tbl" style="width:100%;">
+    <thead><tr><th class="rhd">Year / Month</th>${MONTHS.map(m=>`<th>${m}</th>`).join('')}<th>Total</th></tr></thead>
+    <tbody>`;
+  YEARS.forEach(yr=>{
+    const vals=data[yr];
+    const rowTotal=vals.reduce((t,v)=>t+v,0);
+    const cells=vals.map((v,i)=>{
+      if(v===0&&yr==='2026'&&i>=live26months) return `<td style="background:#F8FAFF;color:var(--text3);">—</td>`;
+      const bg=hslCell(v),tc=textCol(v);
+      const mom=i>0&&vals[i-1]>0?pct(v,vals[i-1]):null;
+      const momStr=mom===null?'':(mom>0?`▲${mom.toFixed(0)}%`:`▼${Math.abs(mom).toFixed(0)}%`);
+      const momCol=mom===null?'':(mom>0?'#15803D':'#DC2626');
+      return `<td style="background:${bg};color:${tc};">
+        <div>${v.toLocaleString()}</div>
+        ${momStr?`<div style="font-size:8px;color:${tc==='#fff'?'rgba(255,255,255,.8)':momCol};margin-top:1px;">${momStr}</div>`:''}
+      </td>`;
+    });
+    html+=`<tr><td class="heat-yr">${yr}</td>${cells.join('')}<td style="background:#F1F5F9;font-weight:700;color:var(--text);text-align:right;font-size:10.5px;padding:5px 8px;">${rowTotal.toLocaleString()}</td></tr>`;
+  });
+  html+=`</tbody></table>`;
+  document.getElementById('tr-mom-heat').innerHTML=html;
+}
+
+function renderQoQ(){
+  const sh=activeTCat, lv=live26(sh);
+  const allQ=YEARS.map(yr=>QS.map((_,qi)=>qTot(sh,yr,qi)));
+  let rows='';
+  YEARS.forEach((yr,yi)=>{
+    const qs=allQ[yi];
+    const cells=qs.map((v,qi)=>{
+      const prev=qs[qi-1];
+      const g=qi>0&&prev>0?pct(v,prev):null;
+      const skip=yr==='2026'&&qi*3+3>lv&&v===0;
+      return skip?'<td>—</td><td>—</td>':`<td>${fmtN(v)}</td><td>${qi>0?fmtPct(g):'—'}</td>`;
+    });
+    rows+=`<tr><td class="rn">${yr}</td>${cells.join('')}</tr>`;
+  });
+  document.getElementById('tr-qoq-tbl').innerHTML=`<table class="tr-tbl">
+    <thead><tr><th>Year</th><th>Q1</th><th>vs prev Q</th><th>Q2</th><th>vs prev Q</th><th>Q3</th><th>vs prev Q</th><th>Q4</th><th>vs prev Q</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+}
+
+function renderGeo(){
+  const sh=activeTCat;
+  const rows=GEOS.map(g=>{
+    const v24=geoYrTot(sh,g,'2024'),v25=geoYrTot(sh,g,'2025'),v26=geoYrTot(sh,g,'2026');
+    return `<tr><td class="rn">${g}</td><td>${fmtN(v24)}</td><td>${fmtN(v25)}</td><td>${fmtPct(pct(v25,v24))}</td><td>${v26>0?v26.toLocaleString():'—'}</td><td>${v26>0?fmtPct(pct(v26,v25)):'—'}</td></tr>`;
+  }).join('');
+  document.getElementById('tr-geo-tbl').innerHTML=`<table class="tr-tbl">
+    <thead><tr><th>Geo</th><th>2024</th><th>2025</th><th>YoY</th><th>2026*</th><th>YoY</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <div style="font-size:9.5px;color:var(--text3);margin-top:6px;">* 2026 Jan–Jun</div>`;
+}
+
+function renderPT(){
+  const sh=activeTCat;
+  const ptSet=new Set();
+  GEOS.forEach(g=>Object.keys(RAW[sh][g]?.subs||{}).forEach(p=>ptSet.add(p)));
+  const pts=[...ptSet];
+  const ptData=pts.map(pt=>({pt,v24:ptYrTot(sh,pt,'2024'),v25:ptYrTot(sh,pt,'2025'),v26:ptYrTot(sh,pt,'2026')}));
+  ptData.sort((a,b)=>b.v25-a.v25);
+  const rows=ptData.map(({pt,v24,v25,v26})=>`<tr>
+    <td class="rn">${pt}</td>
+    <td>${fmtN(v24)}</td><td>${fmtN(v25)}</td><td>${fmtPct(pct(v25,v24))}</td>
+    <td>${v26>0?v26.toLocaleString():'—'}</td><td>${v26>0?fmtPct(pct(v26,v25)):'—'}</td>
+  </tr>`).join('');
+  document.getElementById('tr-pt-tbl').innerHTML=`<table class="tr-tbl">
+    <thead><tr><th>Project Type</th><th>2024</th><th>2025</th><th>YoY</th><th>2026*</th><th>YoY</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <div style="font-size:9.5px;color:var(--text3);margin-top:6px;">* 2026 Jan–Jun</div>`;
+}
+
+function renderTrends(){
+  renderYoY();
+  renderMoM();
+  renderQoQ();
+  renderGeo();
+  renderPT();
+}
+
+// ─── EXCEL DOWNLOAD ─────────────────────────────────────────────────────────
+function downloadExcel() {
+  if (typeof XLSX !== 'undefined') { _buildAndDownload(); return; }
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+  script.onload = _buildAndDownload;
+  script.onerror = () => alert('Could not load export library. Please check your internet connection.');
+  document.head.appendChild(script);
+}
+
+function _buildAndDownload() {
+  const btn = document.querySelector('.btn-excel');
+  btn.textContent = 'Preparing…';
+  btn.disabled = true;
+
+  const SHEETS_CFG = [
+    {key:'Opening',             label:'Opening Demand'},
+    {key:'Internal Fulfilment', label:'Internal Fulfilment'},
+    {key:'External Fulfilment', label:'External Fulfilment'},
+    {key:'Cancelled',           label:'Cancelled'},
+    {key:'Closing',             label:'Closing Demand'},
+  ];
+
+  function liveMonths(sd, yr) {
+    return MONTHS.filter(m => Object.values(sd).some(g => (g._total[yr][m]||0) > 0));
+  }
+
+  const wb = XLSX.utils.book_new();
+
+  SHEETS_CFG.forEach(({key, label}) => {
+    const sd = RAW[key];
+    const geos = Object.keys(sd);
+    const lv = {};
+    YEARS.forEach(yr => { lv[yr] = liveMonths(sd, yr); });
+
+    const rows = [];
+
+    // Year header row
+    const yr_row = ['Geo / Project Type'];
+    YEARS.forEach(yr => lv[yr].forEach(() => yr_row.push(yr)));
+    rows.push(yr_row);
+
+    // Month header row
+    const mo_row = ['Geo / Project Type'];
+    YEARS.forEach(yr => lv[yr].forEach(m => mo_row.push(m)));
+    rows.push(mo_row);
+
+    // Data rows
+    geos.forEach(geo => {
+      const gd = sd[geo];
+      const geo_row = [geo];
+      YEARS.forEach(yr => lv[yr].forEach(m => geo_row.push(gd._total[yr][m]||0)));
+      rows.push(geo_row);
+      Object.keys(gd.subs).forEach(sub => {
+        const sub_row = ['  ' + sub];
+        YEARS.forEach(yr => lv[yr].forEach(m => sub_row.push(gd.subs[sub]?.[yr]?.[m]||0)));
+        rows.push(sub_row);
+      });
+      rows.push([]);
+    });
+
+    const ws = XLSX.utils.aoa_to_sheet(rows);
+
+    // Column widths
+    ws['!cols'] = rows[1].map((_, i) => ({wch: i === 0 ? 24 : 8}));
+
+    // Freeze pane: 2 header rows + 1 col
+    ws['!freeze'] = {xSplit:1, ySplit:2};
+
+    const sheetName = label.substring(0, 31);
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+  });
+
+  const wbout = XLSX.write(wb, {bookType:'xlsx', type:'array'});
+  const blob  = new Blob([wbout], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  const url   = URL.createObjectURL(blob);
+  const a     = document.createElement('a');
+  a.href = url; a.download = 'Demands_Dashboard.xlsx';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+
+  btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><polyline points="9 14 12 17 15 14"/></svg> Download Excel`;
+  btn.disabled = false;
+}
+
+
+
+renderAll();
+
+</script>
+</body>
+</html>

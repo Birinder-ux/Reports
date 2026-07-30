@@ -692,22 +692,27 @@ const MONTH_DATA = {
   },
 
   'Jul': {
-    label:'July 2026', asOf:'15-Jul-2026',
+    label:'July 2026', asOf:'30-Jul-2026',
     dates:['Jul-26'],
-    totals:[{d:'Jul-26',opening:1,movedIn:0,newHire:4,deployed:0,resigned:0,still:5}],
+    totals:[{d:'Jul-26',opening:1,movedIn:0,newHire:10,deployed:3,resigned:0,still:8}],
     verts:[
-      {name:'BFS',      cls:'v-bfs', dot:'#1558d6', rows:[{o:0,mi:0,n:3,d:0,r:0}]},
-      {name:'Insurance',cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:1,d:0,r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:0,mi:0,n:6,d:2,r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:0,mi:0,n:1,d:0,r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:2,d:1,r:0}]},
+      {name:'TechCoE',                      cls:'v-tech2',dot:'#0369a1',rows:[{o:0,mi:0,n:1,d:0,r:0}]},
     ],
     clusters:{
-      'Jul-26':[{l:'QEA-API & Webservices',c:3},{l:'QEA-Automation',c:2}],
+      'Jul-26':[{l:'QEA-API & Webservices',c:7},{l:'QEA-Automation',c:1}],
     },
     assoc:[
-      {id:'2522189', name:'Amarashetti, Savita',   grade:'A', vertical:'BFS',      cluster:'QEA-API & Webservices', loc:'Bangalore', entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
-      {id:'2522208', name:'Kumari, Kavita',        grade:'A', vertical:'BFS',      cluster:'QEA-API & Webservices', loc:'Bangalore', entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
-      {id:'2522206', name:'L, Vinothini',          grade:'A', vertical:'BFS',      cluster:'QEA-API & Webservices', loc:'Bangalore', entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
-      {id:'257945',  name:'Barveeskhan, Rasika',   grade:'SA',vertical:'Insurance',cluster:'QEA-Automation',        loc:'Chennai',   entry:'2026-07-06', proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2518327', name:'Dharmireddi, Syamala',  grade:'A', vertical:'Insurance',cluster:'QEA-Automation',        loc:'Hyderabad', entry:'2026-06-26', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2522189', name:'Amarashetti, Savita',        grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Bangalore',  entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2525747', name:'Begam, Shaik Shamshad',      grade:'SA',vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Hyderabad',  entry:'2026-07-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2524005', name:'Maliakal, Rosemary S',       grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Hyderabad',  entry:'2026-07-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2525969', name:'Nayak, Nithi Ashwin',        grade:'SA',vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Bangalore',  entry:'2026-07-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2526347', name:'Krishnamoorthy, Vidhya',     grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-API & Webservices', loc:'Coimbatore', entry:'2026-07-28', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2526493', name:'Kakileti, Pavani Satyavathi',grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices', loc:'Hyderabad',  entry:'2026-07-29', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2525798', name:'P, Suganya',                 grade:'SA',vertical:'Insurance',                    cluster:'QEA-API & Webservices', loc:'Chennai',    entry:'2026-07-27', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2525728', name:'Palepu, Praneeth Kumar',     grade:'SM',vertical:'TechCoE',                      cluster:'QEA-Automation',        loc:'Bangalore',  entry:'2026-07-27', proj:'QEA_D_PDP_M2S_TECH'},
     ],
     cfwd:3
   }
