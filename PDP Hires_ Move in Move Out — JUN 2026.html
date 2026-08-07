@@ -204,11 +204,6 @@ table.at{width:100%;border-collapse:collapse}
     </div>
     <div class="divider-v"></div>
     <div class="meta-item">
-      <span class="meta-label">Data as of</span>
-      <span class="meta-val" id="data-as-of">29-Jun-2026</span>
-    </div>
-    <div class="divider-v"></div>
-    <div class="meta-item">
       <span class="meta-label">Active Month</span>
       <span class="meta-val" id="active-month-label">Jun 2026</span>
     </div>
@@ -223,7 +218,8 @@ table.at{width:100%;border-collapse:collapse}
   <button class="month-tab" onclick="selectMonth('Apr')">April 2026</button>
   <button class="month-tab" onclick="selectMonth('May')">May 2026</button>
   <button class="month-tab" onclick="selectMonth('Jun')">June 2026</button>
-  <button class="month-tab active" onclick="selectMonth('Jul')">July 2026</button>
+  <button class="month-tab" onclick="selectMonth('Jul')">July 2026</button>
+  <button class="month-tab active" onclick="selectMonth('Aug')">August 2026</button>
 </div>
 
 <!-- CLOSING COUNT CARDS -->
@@ -271,21 +267,11 @@ table.at{width:100%;border-collapse:collapse}
   </div>
 </div>
 
-<!-- WATERFALL -->
-<div class="slabel">M2S Joiners Tracking</div>
-<div class="chart-card" style="margin-bottom:10px">
-  <div class="chart-card-header">
-    <h3 id="wf-title">PDP – M2S Joiners Tracking</h3>
-    <div class="tlegend">
-      <div class="tleg"><div class="tleg-sw" style="background:#1558d6"></div>Joiners</div>
       <div class="tleg"><div class="tleg-sw" style="background:#c75000"></div>Deployed</div>
       <div class="tleg"><div class="tleg-sw" style="background:#1a7a3c"></div>CFWD / Closing</div>
     </div>
   </div>
-  <div class="chart-scroll"><svg id="tsv"></svg></div>
-</div>
-
-<!-- ASSOC TABLE -->
+  <!-- ASSOC TABLE -->
 <div class="slabel" id="assoc-slabel">Still in PDP — Associate &amp; Vertical Detail</div>
 <div class="assoc-wrap">
   <div class="assoc-head">
@@ -325,17 +311,17 @@ const MONTH_DATA = {
     dates:['Jan-26'],
     totals:[{d:'Jan-26',opening:13,movedIn:0,newHire:102,deployed:53,resigned:1,still:61}],
     verts:[
-      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:10,mi:0,n:41,d:21,r:1}]},
-      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:1, mi:0,n:7, d:5, r:0}]},
-      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:0, mi:0,n:2, d:2, r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:0, mi:0,n:12,d:8, r:0}]},
-      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:2, mi:0,n:18,d:9, r:0}]},
-      {name:'LS',        cls:'v-ls',  dot:'#065f46', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
-      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:0, mi:0,n:3, d:1, r:0}]},
-      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:0, mi:0,n:7, d:4, r:0}]},
-      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:0, mi:0,n:6, d:3, r:0}]},
-      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:0, mi:0,n:3, d:0, r:0}]},
-      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:0, mi:0,n:2, d:0, r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:10,mi:0,n:41,d:21,r:1}]},
+      {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:1, mi:0,n:7, d:5, r:0}]},
+      {name:'EPS',                          cls:'v-eps', dot:'#1a7a3c', rows:[{o:0, mi:0,n:2, d:2, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:0, mi:0,n:12,d:8, r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:2, mi:0,n:18,d:9, r:0}]},
+      {name:'LS',                           cls:'v-ls',  dot:'#065f46', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
+      {name:'MLEU',                         cls:'v-mleu',dot:'#b45309', rows:[{o:0, mi:0,n:3, d:1, r:0}]},
+      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:0, mi:0,n:7, d:4, r:0}]},
+      {name:'RCG',                          cls:'v-rcg', dot:'#0b7285', rows:[{o:0, mi:0,n:6, d:3, r:0}]},
+      {name:'T&H',                          cls:'v-tnh', dot:'#0f766e', rows:[{o:0, mi:0,n:3, d:0, r:0}]},
+      {name:'TECH',                         cls:'v-tech',dot:'#0369a1', rows:[{o:0, mi:0,n:2, d:0, r:0}]},
     ],
     clusters:{'Jan-26':[{l:'QEA-Automation',c:22},{l:'QEA-Cypress, Playwright',c:8},{l:'QEA-SDET',c:7},{l:'QEA-API & Webservices',c:6},{l:'QEA-Product Testing',c:4},{l:'QEA-EPS - SAP Skills',c:3},{l:'QEA-NFT Skills',c:3},{l:'QEA-Robot Automation',c:3},{l:'QEA-Functional Testing',c:2},{l:'QEA-Mobile testing',c:2},{l:'QEA-Database',c:1}]},
     assoc:[
@@ -409,16 +395,16 @@ const MONTH_DATA = {
     dates:['Feb-26'],
     totals:[{d:'Feb-26',opening:24,movedIn:0,newHire:102,deployed:64,resigned:0,still:62}],
     verts:[
-      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:10,mi:0,n:42,d:24,r:0}]},
-      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:2, mi:0,n:4, d:2, r:0}]},
-      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:0, mi:0,n:6, d:3, r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:1, mi:0,n:11,d:6, r:0}]},
-      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:5, mi:0,n:20,d:15,r:0}]},
-      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:1, mi:0,n:3, d:1, r:0}]},
-      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:3, mi:0,n:11,d:8, r:0}]},
-      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:1, mi:0,n:1, d:2, r:0}]},
-      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:0, mi:0,n:2, d:1, r:0}]},
-      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:1, mi:0,n:2, d:2, r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:10,mi:0,n:42,d:24,r:0}]},
+      {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:2, mi:0,n:4, d:2, r:0}]},
+      {name:'EPS',                          cls:'v-eps', dot:'#1a7a3c', rows:[{o:0, mi:0,n:6, d:3, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:1, mi:0,n:11,d:6, r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:5, mi:0,n:20,d:15,r:0}]},
+      {name:'MLEU',                         cls:'v-mleu',dot:'#b45309', rows:[{o:1, mi:0,n:3, d:1, r:0}]},
+      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:3, mi:0,n:11,d:8, r:0}]},
+      {name:'RCG',                          cls:'v-rcg', dot:'#0b7285', rows:[{o:1, mi:0,n:1, d:2, r:0}]},
+      {name:'T&H',                          cls:'v-tnh', dot:'#0f766e', rows:[{o:0, mi:0,n:2, d:1, r:0}]},
+      {name:'TECH',                         cls:'v-tech',dot:'#0369a1', rows:[{o:1, mi:0,n:2, d:2, r:0}]},
     ],
     clusters:{'Feb-26':[{l:'QEA-Automation',c:19},{l:'QEA-API & Webservices',c:14},{l:'QEA-SDET',c:5},{l:'QEA-NFT Skills',c:5},{l:'QEA-Robot Automation',c:4},{l:'QEA-Cypress, Playwright',c:3},{l:'QEA-EPS - BPM Skills',c:2},{l:'QEA-EPS - SAP Skills',c:2},{l:'QEA-EPS - CRM Skills',c:2},{l:'QEA-Product Testing',c:2},{l:'QEA-Mobile testing',c:2},{l:'QEA-Database',c:1},{l:'QEA-Functional Testing',c:1}]},
     assoc:[
@@ -491,18 +477,18 @@ const MONTH_DATA = {
   'Mar': {
     label:'March 2026', asOf:'31-Mar-2026',
     dates:['Mar-26'],
-    totals:[{d:'Mar-26',opening:44,movedIn:4,newHire:92,deployed:83,resigned:0,still:53}],
+    totals:[{d:'Mar-26',opening:44,movedIn:4,newHire:92,deployed:87,resigned:0,still:53}],
     verts:[
-      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:18,mi:1,n:34,d:29,r:0}]},
-      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:3, mi:0,n:11,d:9, r:0}]},
-      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:1, mi:0,n:3, d:2, r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:4, mi:0,n:12,d:7, r:0}]},
-      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:6, mi:1,n:14,d:17,r:0}]},
-      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:2, mi:0,n:6, d:4, r:0}]},
-      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:4, mi:2,n:7, d:12,r:0}]},
-      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:0, mi:0,n:3, d:0, r:0}]},
-      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:1, mi:0,n:2, d:2, r:0}]},
-      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:1, mi:0,n:0, d:1, r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:19,mi:1,n:34,d:30,r:0}]},
+      {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:3, mi:0,n:11,d:9, r:0}]},
+      {name:'EPS',                          cls:'v-eps', dot:'#1a7a3c', rows:[{o:1, mi:0,n:3, d:2, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:4, mi:0,n:12,d:7, r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:7, mi:1,n:14,d:18,r:0}]},
+      {name:'MLEU',                         cls:'v-mleu',dot:'#b45309', rows:[{o:2, mi:0,n:6, d:4, r:0}]},
+      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:6, mi:2,n:7, d:14,r:0}]},
+      {name:'RCG',                          cls:'v-rcg', dot:'#0b7285', rows:[{o:0, mi:0,n:3, d:0, r:0}]},
+      {name:'T&H',                          cls:'v-tnh', dot:'#0f766e', rows:[{o:1, mi:0,n:2, d:2, r:0}]},
+      {name:'TECH',                         cls:'v-tech',dot:'#0369a1', rows:[{o:1, mi:0,n:0, d:1, r:0}]},
     ],
     clusters:{'Mar-26':[{l:'QEA-Automation',c:21},{l:'QEA-Cypress, Playwright',c:8},{l:'QEA-Mobile testing',c:5},{l:'QEA-API & Webservices',c:4},{l:'QEA-SDET',c:4},{l:'QEA-Product Testing',c:3},{l:'QEA-EPS - SAP Skills',c:3},{l:'QEA-EPS - CRM Skills',c:2},{l:'QEA-Database',c:1},{l:'QEA-NFT Skills',c:1},{l:'QEA-Robot Automation',c:1}]},
     assoc:[
@@ -568,14 +554,14 @@ const MONTH_DATA = {
     dates:['Apr-26'],
     totals:[{d:'Apr-26',opening:23,movedIn:1,newHire:80,deployed:64,resigned:0,still:40}],
     verts:[
-      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:14,mi:0,n:26,d:21,r:0}]},
-      {name:'EPS',       cls:'v-eps', dot:'#1a7a3c', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:1, mi:0,n:18,d:12,r:0}]},
-      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:2, mi:0,n:18,d:12,r:0}]},
-      {name:'MLEU',      cls:'v-mleu',dot:'#b45309', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
-      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:1, mi:1,n:12,d:9, r:0}]},
-      {name:'RCG',       cls:'v-rcg', dot:'#0b7285', rows:[{o:1, mi:0,n:3, d:4, r:0}]},
-      {name:'TECH',      cls:'v-tech',dot:'#0369a1', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:14,mi:0,n:26,d:21,r:0}]},
+      {name:'EPS',                          cls:'v-eps', dot:'#1a7a3c', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:1, mi:0,n:18,d:12,r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:2, mi:0,n:18,d:12,r:0}]},
+      {name:'MLEU',                         cls:'v-mleu',dot:'#b45309', rows:[{o:2, mi:0,n:1, d:3, r:0}]},
+      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:1, mi:1,n:12,d:9, r:0}]},
+      {name:'RCG',                          cls:'v-rcg', dot:'#0b7285', rows:[{o:1, mi:0,n:3, d:4, r:0}]},
+      {name:'TECH',                         cls:'v-tech',dot:'#0369a1', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
     ],
     clusters:{'Apr-26':[{l:'QEA-Automation',c:13},{l:'QEA-API & Webservices',c:8},{l:'QEA-EPS - SAP Skills',c:6},{l:'QEA-NFT Skills',c:6},{l:'QEA-Cypress, Playwright',c:4},{l:'QEA-Database',c:2},{l:'QEA-Robot Automation',c:1}]},
     assoc:[
@@ -628,13 +614,13 @@ const MONTH_DATA = {
     dates:['May-26'],
     totals:[{d:'May-26',opening:17,movedIn:0,newHire:44,deployed:36,resigned:2,still:23}],
     verts:[
-      {name:'BFS',       cls:'v-bfs', dot:'#1558d6', rows:[{o:3,mi:0,n:15,d:10,r:1}]},
-      {name:'Communications Media',cls:'v-comm',dot:'#92400e', rows:[{o:0,mi:0,n:3, d:2, r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',dot:'#5b21b6', rows:[{o:5,mi:0,n:11,d:6, r:0}]},
-      {name:'Insurance', cls:'v-ins', dot:'#c75000', rows:[{o:6,mi:0,n:10,d:13,r:1}]},
-      {name:'LS',        cls:'v-ls',  dot:'#065f46', rows:[{o:0,mi:0,n:1, d:0, r:0}]},
-      {name:'NFT',       cls:'v-nft', dot:'#9d174d', rows:[{o:3,mi:0,n:3, d:5, r:0}]},
-      {name:'T&H',       cls:'v-tnh', dot:'#0f766e', rows:[{o:0,mi:0,n:1, d:0, r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:3, mi:0,n:15,d:10,r:1}]},
+      {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:0, mi:0,n:3, d:2, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:5, mi:0,n:11,d:6, r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:6, mi:0,n:10,d:13,r:1}]},
+      {name:'LS',                           cls:'v-ls',  dot:'#065f46', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
+      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:3, mi:0,n:3, d:5, r:0}]},
+      {name:'T&H',                          cls:'v-tnh', dot:'#0f766e', rows:[{o:0, mi:0,n:1, d:0, r:0}]},
     ],
     clusters:{
       'May-26':[{l:'QEA-Automation',c:15},{l:'QEA-API & Webservices',c:2},{l:'QEA-SDET',c:2},{l:'QEA-Cypress, Playwright',c:1},{l:'QEA-Domain Skills',c:1},{l:'QEA-Mobile testing',c:1},{l:'QEA-NFT Skills',c:1}],
@@ -670,15 +656,15 @@ const MONTH_DATA = {
   'Jun': {
     label:'June 2026', asOf:'29-Jun-2026',
     dates:['Jun-26'],
-    totals:[{d:'Jun-26',opening:14,movedIn:0,newHire:10,deployed:21,resigned:0,still:3}],
+    totals:[{d:'Jun-26',opening:13,movedIn:1,newHire:10,deployed:21,resigned:0,still:3}],
     verts:[
-      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:5,mi:0,n:2,d:7,r:0}]},
-      {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:4,mi:0,n:0,d:4,r:0}]},
-      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:8,d:6,r:0}]},
-      {name:'LS',                           cls:'v-ls',  dot:'#065f46', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
-      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
-      {name:'T&H',                          cls:'v-tnh', dot:'#0f766e', rows:[{o:1,mi:0,n:0,d:1,r:0}]},
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:4, mi:1,n:2, d:7, r:0}]},
+      {name:'Communications Media',         cls:'v-comm',dot:'#92400e', rows:[{o:1, mi:0,n:0, d:1, r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:4, mi:0,n:0, d:4, r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:1, mi:0,n:8, d:6, r:0}]},
+      {name:'LS',                           cls:'v-ls',  dot:'#065f46', rows:[{o:1, mi:0,n:0, d:1, r:0}]},
+      {name:'NFT',                          cls:'v-nft', dot:'#9d174d', rows:[{o:1, mi:0,n:0, d:1, r:0}]},
+      {name:'T&H',                          cls:'v-tnh', dot:'#0f766e', rows:[{o:1, mi:0,n:0, d:1, r:0}]},
     ],
     clusters:{
       'Jun-26':[{l:'QEA-Automation',c:3}],
@@ -694,15 +680,15 @@ const MONTH_DATA = {
   'Jul': {
     label:'July 2026', asOf:'30-Jul-2026',
     dates:['Jul-26'],
-    totals:[{d:'Jul-26',opening:1,movedIn:0,newHire:10,deployed:3,resigned:0,still:8}],
+    totals:[{d:'Jul-26',opening:1,movedIn:0,newHire:10,deployed:4,resigned:0,still:7}],
     verts:[
-      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:0,mi:0,n:6,d:2,r:0}]},
-      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:0,mi:0,n:1,d:0,r:0}]},
-      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:1,mi:0,n:2,d:1,r:0}]},
-      {name:'TechCoE',                      cls:'v-tech2',dot:'#0369a1',rows:[{o:0,mi:0,n:1,d:0,r:0}]},
+      {name:'BFS',                          cls:'v-bfs',  dot:'#1558d6', rows:[{o:0,mi:0,n:6,d:2,r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',   dot:'#5b21b6', rows:[{o:0,mi:0,n:1,d:0,r:0}]},
+      {name:'Insurance',                    cls:'v-ins',  dot:'#c75000', rows:[{o:1,mi:0,n:2,d:1,r:0}]},
+      {name:'TechCoE',                      cls:'v-tech2',dot:'#0369a1', rows:[{o:0,mi:0,n:1,d:1,r:0}]},
     ],
     clusters:{
-      'Jul-26':[{l:'QEA-API & Webservices',c:7},{l:'QEA-Automation',c:1}],
+      'Jul-26':[{l:'QEA-API & Webservices',c:7}],
     },
     assoc:[
       {id:'2522189', name:'Amarashetti, Savita',        grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Bangalore',  entry:'2026-07-13', proj:'QEA_D_PDP_M2S_BFS'},
@@ -712,16 +698,39 @@ const MONTH_DATA = {
       {id:'2526347', name:'Krishnamoorthy, Vidhya',     grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-API & Webservices', loc:'Coimbatore', entry:'2026-07-28', proj:'QEA_D_PDP_M2S_HC'},
       {id:'2526493', name:'Kakileti, Pavani Satyavathi',grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices', loc:'Hyderabad',  entry:'2026-07-29', proj:'QEA_D_PDP_M2S_INS'},
       {id:'2525798', name:'P, Suganya',                 grade:'SA',vertical:'Insurance',                    cluster:'QEA-API & Webservices', loc:'Chennai',    entry:'2026-07-27', proj:'QEA_D_PDP_M2S_INS'},
-      {id:'2525728', name:'Palepu, Praneeth Kumar',     grade:'SM',vertical:'TechCoE',                      cluster:'QEA-Automation',        loc:'Bangalore',  entry:'2026-07-27', proj:'QEA_D_PDP_M2S_TECH'},
     ],
-    cfwd:3
+    cfwd:8
+  },
+
+  'Aug': {
+    label:'August 2026', asOf:'05-Aug-2026',
+    dates:['Aug-26'],
+    totals:[{d:'Aug-26',opening:6,movedIn:0,newHire:1,deployed:0,resigned:0,still:7}],
+    verts:[
+      {name:'BFS',                          cls:'v-bfs', dot:'#1558d6', rows:[{o:3,mi:0,n:0,d:0,r:0}]},
+      {name:'Healthcare- Plans & Providers',cls:'v-hc',  dot:'#5b21b6', rows:[{o:1,mi:0,n:0,d:0,r:0}]},
+      {name:'Insurance',                    cls:'v-ins', dot:'#c75000', rows:[{o:2,mi:0,n:1,d:0,r:0}]},
+    ],
+    clusters:{
+      'Aug-26':[{l:'QEA-API & Webservices',c:6},{l:'QEA-Domain Skills',c:1}],
+    },
+    assoc:[
+      {id:'2525747', name:'Begam, Shaik Shamshad',       grade:'SA',vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Hyderabad',  entry:'2026-07-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2524005', name:'Maliakal, Rosemary S',        grade:'A', vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Hyderabad',  entry:'2026-07-20', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2525969', name:'Nayak, Nithi Ashwin',         grade:'SA',vertical:'BFS',                          cluster:'QEA-API & Webservices', loc:'Bangalore',  entry:'2026-07-27', proj:'QEA_D_PDP_M2S_BFS'},
+      {id:'2526347', name:'Krishnamoorthy, Vidhya',      grade:'A', vertical:'Healthcare- Plans & Providers',cluster:'QEA-API & Webservices', loc:'Coimbatore', entry:'2026-07-28', proj:'QEA_D_PDP_M2S_HC'},
+      {id:'2526493', name:'Kakileti, Pavani Satyavathi', grade:'A', vertical:'Insurance',                    cluster:'QEA-API & Webservices', loc:'Hyderabad',  entry:'2026-07-29', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2525798', name:'P, Suganya',                  grade:'SA',vertical:'Insurance',                    cluster:'QEA-API & Webservices', loc:'Chennai',    entry:'2026-07-27', proj:'QEA_D_PDP_M2S_INS'},
+      {id:'2526838', name:'Patibandla, Harika',          grade:'A', vertical:'Insurance',                    cluster:'QEA-Domain Skills',     loc:'Hyderabad',  entry:'2026-08-01', proj:'QEA_D_PDP_M2S_INS'},
+    ],
+    cfwd:8
   }
 };
 
 // ═══════════════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════════════
-let activeMonth = 'Jul';
+let activeMonth = 'Aug';
 let activeDateIdx = 0;
 let currentAssoc = [];
 
@@ -747,18 +756,15 @@ function selectMonth(m){
   activeMonth = m;
   activeDateIdx = MONTH_DATA[m].dates.length - 1;
   document.querySelectorAll('.month-tab').forEach((t,i)=>{
-    const months=['Jan','Feb','Mar','Apr','May','Jun','Jul'];
+    const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'];
     t.classList.toggle('active', months[i]===m);
   });
   document.getElementById('active-month-label').textContent = MONTH_DATA[m].label.replace(' 2026',' 26');
-  document.getElementById('data-as-of').textContent = MONTH_DATA[m].asOf;
-  document.getElementById('wf-title').textContent = `PDP – M2S Joiners Tracking — ${MONTH_DATA[m].label}`;
   document.getElementById('assoc-slabel').textContent = `Still in PDP — Associate & Vertical Detail (as of ${MONTH_DATA[m].asOf})`;
   buildCards();
   buildTabs();
   buildVT();
   drawSkillChart();
-  drawWaterfall();
   renderAssoc(MONTH_DATA[m].assoc);
 }
 
@@ -873,64 +879,7 @@ function drawSkillChart(){
   svg.innerHTML=out;
 }
 
-// ═══════════════════════════════════════════════════════════════
-// WATERFALL CHART (3D)
-// ═══════════════════════════════════════════════════════════════
-function drawWaterfall(){
-  const md = MONTH_DATA[activeMonth];
-  const lastT = md.totals[md.totals.length-1];
-  const CFWD = md.cfwd;
-  const closingVal = lastT.still;
-  const prevMonth = {Jan:'Start',Feb:'Jan',Mar:'Feb',Apr:'Mar',May:'Apr',Jun:'May'};
-  const seq=[{label:`CFWD\nfrom ${prevMonth[activeMonth]}`,value:CFWD,type:'cfwd'}];
-  md.totals.forEach(t=>{
-    seq.push({label:`Joiners\n${t.d}`,value:t.movedIn+t.newHire,type:'joiner'});
-    seq.push({label:`Deployed\n${t.d}`,value:t.deployed,type:'deployed'});
-  });
-  seq.push({label:`Closing\n${lastT.d}`,value:closingVal,type:'closing'});
 
-  const barW=38,gap=9,padL=34,padR=14,padT=32,padB=80,chartH=190;
-  const W=padL+seq.length*(barW+gap)-gap+padR, H=chartH+padT+padB;
-  const svg=document.getElementById('tsv');
-  svg.setAttribute('width',W); svg.setAttribute('height',H);
-  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
-  svg.style.minWidth=W+'px';
-
-  const maxVal=Math.max(CFWD,closingVal,...md.totals.map(t=>t.movedIn+t.newHire),...md.totals.map(t=>t.deployed));
-  const yMax=Math.ceil(maxVal/10)*10+10, scale=chartH/yMax, baseY=padT+chartH;
-  const dx=7,dy=-5;
-  const COL={
-    cfwd:   {front:'#1a7a3c',top:'#4caf71',side:'#0d4a23'},
-    joiner: {front:'#1558d6',top:'#4d80f0',side:'#0b3a9e'},
-    deployed:{front:'#c75000',top:'#f07030',side:'#7a2f00'},
-    closing:{front:'#1a7a3c',top:'#4caf71',side:'#0d4a23'}
-  };
-  let out='';
-  out+=`<rect x="${padL}" y="${padT}" width="${W-padL-padR}" height="${chartH}" fill="#fafbff" rx="2"/>`;
-  for(let v=0;v<=yMax;v+=10){
-    const gy=baseY-v*scale;
-    out+=`<line x1="${padL}" y1="${gy}" x2="${W-padR}" y2="${gy}" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="${padL-5}" y="${gy+4}" fill="#9ca3af" font-size="9" text-anchor="end" font-family="Inter,sans-serif">${v}</text>`;
-  }
-  seq.forEach((bar,i)=>{
-    const x=padL+i*(barW+gap), bh=Math.max(bar.value*scale,2), by=baseY-bh;
-    const c=COL[bar.type], x2=x+barW;
-    out+=`<polygon points="${x2},${by} ${x2+dx},${by+dy} ${x2+dx},${baseY+dy} ${x2},${baseY}" fill="${c.side}"/>`;
-    out+=`<polygon points="${x},${by} ${x+dx},${by+dy} ${x2+dx},${by+dy} ${x2},${by}" fill="${c.top}"/>`;
-    out+=`<rect x="${x}" y="${by}" width="${barW}" height="${bh}" fill="${c.front}"/>`;
-    if(bar.value>0){
-      const lbl=bar.type==='deployed'?`-${bar.value}`:`${bar.value}`;
-      const lc=bar.type==='deployed'?'#7a2f00':(bar.type==='joiner'?'#0b3a9e':'#0d4a23');
-      out+=`<text x="${x+barW/2}" y="${by+dy-4}" fill="${lc}" font-size="9" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">${lbl}</text>`;
-    }
-    const parts=bar.label.split('\n'), lx=x+barW/2, ly=baseY+12;
-    out+=`<text transform="rotate(-45,${lx},${ly})" fill="#374151" font-size="9" text-anchor="end" font-family="Inter,sans-serif">
-      <tspan x="${lx}" y="${ly}">${parts[0]}</tspan>
-      <tspan x="${lx}" dy="10">${parts[1]}</tspan></text>`;
-  });
-  out+=`<line x1="${padL}" y1="${baseY}" x2="${W-padR}" y2="${baseY}" stroke="#d1d5db" stroke-width="1.5"/>`;
-  svg.innerHTML=out;
-}
 
 // ═══════════════════════════════════════════════════════════════
 // ASSOCIATE TABLE
@@ -985,7 +934,7 @@ function filterAssoc(q){
 // ═══════════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════════
-selectMonth('Jul');
+selectMonth('Aug');
 </script>
 </body>
 </html>
