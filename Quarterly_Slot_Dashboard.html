@@ -11,9 +11,8 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#F8FAFC;color:#0F172A;lin
 .hdr{background:#0D1B2A;padding:26px 36px;display:flex;align-items:flex-end;justify-content:space-between}
 .hdr h1{font-size:20px;font-weight:600;color:#fff;letter-spacing:-0.02em}
 .hdr .sub{font-size:11px;color:#94A3B8;margin-top:4px;font-family:'DM Mono',monospace}
-.wrap{padding:24px 36px 48px;max-width:1320px;margin:0 auto}
+.wrap{padding:24px 36px 48px;max-width:1280px;margin:0 auto}
 .bdg{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace}
-.bdg-q2{background:rgba(37,99,235,.25);color:#93C5FD;border:1px solid rgba(147,197,253,.3)}
 .bdg-q3{background:rgba(22,163,74,.25);color:#86EFAC;border:1px solid rgba(134,239,172,.3)}
 .bdg-q4{background:rgba(168,85,247,.25);color:#E9D5FF;border:1px solid rgba(233,213,255,.3)}
 .fbar{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 20px;margin-top:24px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -25,20 +24,19 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#F8FAFC;color:#0F172A;lin
 .fb.ageo{background:#EDE9FE;color:#4C1D95;border-color:#C4B5FD;font-weight:600}
 .fdiv{width:1px;height:28px;background:#E2E8F0}
 .frst{font-size:11px;color:#94A3B8;cursor:pointer;padding:4px 8px;border:none;background:none;font-family:'DM Sans',sans-serif}
-.kg{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:10px;margin-bottom:24px}
-.kc{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:12px 14px;border-top:3px solid transparent}
-.kc.q2{border-top-color:#2563EB}.kc.q3{border-top-color:#16A34A}.kc.q4{border-top-color:#A855F7}
-.kl{font-size:9px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
-.kv{font-size:21px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1}
+.kg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.kc{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;border-top:3px solid transparent}
+.kc.q3{border-top-color:#16A34A}.kc.q4{border-top-color:#A855F7}
+.kl{font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+.kv{font-size:24px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1}
 .kv.pos{color:#16A34A}.kv.neg{color:#DC2626}
-.km{font-size:9px;color:#94A3B8;margin-top:4px}
+.km{font-size:10px;color:#94A3B8;margin-top:5px}
 .ck{display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;font-family:'DM Mono',monospace;margin-right:3px}
-.ck2{background:#DBEAFE;color:#1E3A5F}.ck3{background:#DCFCE7;color:#14532D}.ck4{background:#F3E8FF;color:#6B21A8}
+.ck3{background:#DCFCE7;color:#14532D}.ck4{background:#F3E8FF;color:#6B21A8}
 .slbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#94A3B8;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .slbl::after{content:'';flex:1;height:1px;background:#E2E8F0}
 .tabs{display:flex;gap:6px;margin-bottom:14px}
 .tb{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;border:1px solid #CBD5E1;background:#fff;color:#475569;cursor:pointer}
-.tb.aq2{background:#DBEAFE;color:#1E3A5F;border-color:#93C5FD}
 .tb.aq3{background:#DCFCE7;color:#16A34A;border-color:#86EFAC}
 .tb.aq4{background:#F3E8FF;color:#6B21A8;border-color:#C4B5FD}
 .tp{display:none}.tp.act{display:block}
@@ -63,10 +61,9 @@ tbody tr:hover td{background:#F8FAFC}
 <div class="hdr">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 27 Aug'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
+    <div class="sub">As on 28 Aug'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
-    <span class="bdg bdg-q2">Q2 FY26</span>
     <span class="bdg bdg-q3">Q3 FY26</span>
     <span class="bdg bdg-q4">Q4 FY26</span>
   </div>
@@ -97,43 +94,23 @@ tbody tr:hover td{background:#F8FAFC}
     <button class="frst" onclick="resetF()">&#x21BA; Reset</button>
   </div>
   <div class="kg">
-    <div class="kc q2"><div class="kl">Q2 Target</div><div class="kv" id="kq2t">2,102</div><div class="km"><span class="ck ck2">Q2</span>Closed</div></div>
-    <div class="kc q2"><div class="kl">Q2 Utilized</div><div class="kv" id="kq2u">2,071</div><div class="km"><span class="ck ck2">Q2</span><span id="kq2p">99%</span> of target</div></div>
-    <div class="kc q2"><div class="kl">Q2 Balance</div><div class="kv pos" id="kq2b">+31</div><div class="km"><span class="ck ck2">Q2</span>Final</div></div>
     <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">1,374</div><div class="km"><span class="ck ck3">Q3</span>Jul&ndash;Sep</div></div>
-    <div class="kc q3"><div class="kl">Q3 Utilized</div><div class="kv" id="kq3u">1,627</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">118%</span> of target</div></div>
-    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-253</div><div class="km"><span class="ck ck3">Q3</span>Over-utilized</div></div>
+    <div class="kc q3"><div class="kl">Q3 Utilized</div><div class="kv" id="kq3u">1,649</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">120%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-275</div><div class="km"><span class="ck ck3">Q3</span>Over-utilized</div></div>
     <div class="kc q4"><div class="kl">Q4 Target</div><div class="kv" id="kq4t">401</div><div class="km"><span class="ck ck4">Q4</span>India only set</div></div>
-    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">155</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">39%</span> of target</div></div>
-    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv pos" id="kq4b">+246</div><div class="km"><span class="ck ck4">Q4</span>Oct&ndash;Dec</div></div>
+    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">160</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">40%</span> of target</div></div>
+    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv pos" id="kq4b">+241</div><div class="km"><span class="ck ck4">Q4</span>Oct&ndash;Dec</div></div>
   </div>
   <div class="slbl">Geo &times; service line detail</div>
   <div class="tabs">
-    <button class="tb aq2" id="tq2" onclick="showTab('q2')">Q2&apos;26 &mdash; Apr &middot; May &middot; Jun</button>
-    <button class="tb" id="tq3" onclick="showTab('q3')">Q3&apos;26 &mdash; Jul &middot; Aug &middot; Sep</button>
+    <button class="tb aq3" id="tq3" onclick="showTab('q3')">Q3&apos;26 &mdash; Jul &middot; Aug &middot; Sep</button>
     <button class="tb" id="tq4" onclick="showTab('q4')">Q4&apos;26 &mdash; Oct &middot; Nov &middot; Dec</button>
   </div>
-  <div id="pq2" class="tp act">
-    <div class="tc">
-      <div class="tc-h">
-        <h3>Q2&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q2tag">All SL &middot; All Geo &nbsp;|&nbsp; Q2 closed &mdash; data as of 2 Jul&apos;26</span>
-      </div>
-      <div class="tsc"><table>
-        <thead><tr>
-          <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
-          <th>Target</th><th>Apr&apos;26 Joiners</th><th>May&apos;26 Joiners</th><th>Jun&apos;26 Pipeline</th>
-          <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
-        </tr></thead>
-        <tbody id="q2tb"></tbody>
-      </table></div>
-    </div>
-  </div>
-  <div id="pq3" class="tp">
+  <div id="pq3" class="tp act">
     <div class="tc">
       <div class="tc-h">
         <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 27 Aug'26</span>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 28 Aug'26</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -149,7 +126,7 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q4&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 27 Aug'26 &nbsp;|&nbsp; Targets set for India only</span>
+        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 28 Aug'26 &nbsp;|&nbsp; Targets set for India only</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -163,54 +140,39 @@ tbody tr:hover td{background:#F8FAFC}
   </div>
   <div class="note">
     <strong>Notes:</strong>&nbsp;
-    Q2 closed — data as of 2 Jul&apos;26. &nbsp;&middot;&nbsp;
     Q3 Slots Utilized = Jul + Aug + Sep Pipeline. &nbsp;&middot;&nbsp;
     Q4 Slots Utilized = Oct + Nov + Dec Pipeline. &nbsp;&middot;&nbsp;
     Balance = Target &minus; Slots Utilized. &nbsp;&middot;&nbsp;
     <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized &nbsp;&middot;&nbsp;
     <span style="color:#16A34A;font-weight:600">Green</span> = surplus &nbsp;&middot;&nbsp;
-    <span style="color:#94A3B8;font-style:italic">Italic/TBD</span> = no target set yet. &nbsp;&middot;&nbsp;
-    Q3 targets per 14 Aug&apos;26 revision. Q4 targets set for India only as of 27 Aug'26.
+    <span style="color:#94A3B8;font-style:italic">TBD</span> = no target set yet. &nbsp;&middot;&nbsp;
+    Q3 targets per 14 Aug&apos;26 revision. Q4 targets set for India only as of 28 Aug'26.
   </div>
 </div>
 <script>
-var Q2 = [
-{geo:"India",sl:"DE",target:653,m1:308,m2:162,m3:171,bal:12,pct:98},
-{geo:"India",sl:"ADM",target:370,m1:186,m2:104,m3:66,bal:14,pct:96},
-{geo:"India",sl:"QEA",target:360,m1:187,m2:105,m3:51,bal:17,pct:95},
-{geo:"Americas",sl:"DE",target:186,m1:84,m2:56,m3:53,bal:-7,pct:104},
-{geo:"Americas",sl:"ADM",target:111,m1:54,m2:52,m3:41,bal:-36,pct:132},
-{geo:"Americas",sl:"QEA",target:182,m1:53,m2:50,m3:69,bal:10,pct:95},
-{geo:"APJ",sl:"DE",target:14,m1:1,m2:8,m3:12,bal:-7,pct:150},
-{geo:"APJ",sl:"ADM",target:43,m1:16,m2:12,m3:12,bal:3,pct:93},
-{geo:"APJ",sl:"QEA",target:73,m1:18,m2:10,m3:12,bal:33,pct:55},
-{geo:"EMEA",sl:"DE",target:76,m1:26,m2:43,m3:16,bal:-9,pct:112},
-{geo:"EMEA",sl:"ADM",target:3,m1:0,m2:9,m3:3,bal:-9,pct:400},
-{geo:"EMEA",sl:"QEA",target:31,m1:8,m2:4,m3:9,bal:10,pct:68}
-];
 var Q3 = [
-{geo:"India",sl:"DE",target:507,m1:243,m2:168,m3:77,bal:19,pct:96},
-{geo:"India",sl:"ADM",target:189,m1:87,m2:58,m3:29,bal:15,pct:92},
-{geo:"India",sl:"QEA",target:230,m1:115,m2:92,m3:47,bal:-24,pct:110},
-{geo:"Americas",sl:"DE",target:123,m1:78,m2:139,m3:24,bal:-118,pct:196},
-{geo:"Americas",sl:"ADM",target:60,m1:48,m2:37,m3:10,bal:-35,pct:158},
-{geo:"Americas",sl:"QEA",target:91,m1:77,m2:98,m3:19,bal:-103,pct:213},
-{geo:"APJ",sl:"DE",target:21,m1:4,m2:5,m3:4,bal:8,pct:62},
+{geo:"India",sl:"DE",target:507,m1:243,m2:172,m3:78,bal:14,pct:97},
+{geo:"India",sl:"ADM",target:189,m1:87,m2:58,m3:30,bal:14,pct:93},
+{geo:"India",sl:"QEA",target:230,m1:115,m2:93,m3:50,bal:-28,pct:112},
+{geo:"Americas",sl:"DE",target:123,m1:78,m2:140,m3:30,bal:-125,pct:202},
+{geo:"Americas",sl:"ADM",target:60,m1:48,m2:37,m3:11,bal:-36,pct:160},
+{geo:"Americas",sl:"QEA",target:91,m1:77,m2:95,m3:23,bal:-104,pct:214},
+{geo:"APJ",sl:"DE",target:21,m1:4,m2:5,m3:5,bal:7,pct:67},
 {geo:"APJ",sl:"ADM",target:20,m1:17,m2:8,m3:8,bal:-13,pct:165},
 {geo:"APJ",sl:"QEA",target:23,m1:10,m2:7,m3:1,bal:5,pct:78},
 {geo:"EMEA",sl:"DE",target:64,m1:30,m2:29,m3:12,bal:-7,pct:111},
-{geo:"EMEA",sl:"ADM",target:21,m1:14,m2:3,m3:5,bal:-1,pct:105},
-{geo:"EMEA",sl:"QEA",target:25,m1:16,m2:4,m3:4,bal:1,pct:96}
+{geo:"EMEA",sl:"ADM",target:21,m1:14,m2:3,m3:6,bal:-2,pct:110},
+{geo:"EMEA",sl:"QEA",target:25,m1:16,m2:5,m3:4,bal:0,pct:100}
 ];
 var Q4 = [
 {geo:"India",sl:"DE",target:194,m1:53,m2:12,m3:0,bal:129,pct:34},
-{geo:"India",sl:"ADM",target:101,m1:20,m2:5,m3:0,bal:76,pct:25},
+{geo:"India",sl:"ADM",target:101,m1:20,m2:6,m3:0,bal:75,pct:26},
 {geo:"India",sl:"QEA",target:106,m1:31,m2:18,m3:0,bal:57,pct:46},
 {geo:"Americas",sl:"DE",target:0,m1:0,m2:0,m3:0,bal:null,pct:null},
 {geo:"Americas",sl:"ADM",target:0,m1:0,m2:1,m3:0,bal:null,pct:null},
-{geo:"Americas",sl:"QEA",target:0,m1:0,m2:0,m3:0,bal:null,pct:null},
+{geo:"Americas",sl:"QEA",target:0,m1:3,m2:0,m3:0,bal:null,pct:null},
 {geo:"APJ",sl:"DE",target:0,m1:0,m2:0,m3:0,bal:null,pct:null},
-{geo:"APJ",sl:"ADM",target:0,m1:0,m2:0,m3:0,bal:null,pct:null},
+{geo:"APJ",sl:"ADM",target:0,m1:1,m2:0,m3:0,bal:null,pct:null},
 {geo:"APJ",sl:"QEA",target:0,m1:4,m2:0,m3:0,bal:null,pct:null},
 {geo:"EMEA",sl:"DE",target:0,m1:2,m2:1,m3:0,bal:null,pct:null},
 {geo:"EMEA",sl:"ADM",target:0,m1:0,m2:0,m3:0,bal:null,pct:null},
@@ -265,17 +227,13 @@ function render(data, tbId, pc) {
     html+="<td style='text-align:right;font-weight:600;color:"+tc+"'>"+(totbal>=0?"+":"-")+N(totbal)+"</td>";
     html+="<td style='text-align:right;font-family:DM Mono,monospace'>"+P(tu,tt)+"</td>";
   } else {
-    html+="<td style='text-align:right;color:#94A3B8;font-style:italic'>—</td><td style='text-align:right;color:#94A3B8;font-style:italic'>—</td>";
+    html+="<td style='text-align:right;color:#94A3B8'>—</td><td style='text-align:right;color:#94A3B8'>—</td>";
   }
   html+="</tr>";
   tb.innerHTML=html;
   return {t:tt,u:tu,b:totbal};
 }
-function updateKPIs(q2,q3,q4) {
-  document.getElementById("kq2t").textContent=N(q2.t);
-  document.getElementById("kq2u").textContent=N(q2.u);
-  document.getElementById("kq2p").textContent=P(q2.u,q2.t);
-  var b2=document.getElementById("kq2b"); b2.textContent=(q2.b>=0?"+":"-")+N(q2.b); b2.className="kv "+(q2.b>=0?"pos":"neg");
+function updateKPIs(q3,q4) {
   document.getElementById("kq3t").textContent=N(q3.t);
   document.getElementById("kq3u").textContent=N(q3.u);
   document.getElementById("kq3p").textContent=P(q3.u,q3.t);
@@ -287,15 +245,13 @@ function updateKPIs(q2,q3,q4) {
 }
 function updateTags() {
   var s=(SL==="All")?"All SL":SL, g=(GEO==="All")?"All Geo":GEO;
-  document.getElementById("q2tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Q2 closed &mdash; data as of 2 Jul'26";
-  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 27 Aug'26";
-  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 27 Aug'26 &nbsp;|&nbsp; Targets set for India only";
+  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 28 Aug'26";
+  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 28 Aug'26 &nbsp;|&nbsp; Targets set for India only";
 }
 function refresh() {
-  var q2=render(Q2,"q2tb","#2563EB");
   var q3=render(Q3,"q3tb","#16A34A");
   var q4=render(Q4,"q4tb","#A855F7");
-  updateKPIs(q2,q3,q4); updateTags();
+  updateKPIs(q3,q4); updateTags();
 }
 function setSL(val) {
   SL=val; document.querySelectorAll("#slF .fb").forEach(function(b){b.classList.toggle("asl",b.textContent.trim()===val);}); refresh();
@@ -310,10 +266,8 @@ function resetF() {
   refresh();
 }
 function showTab(t) {
-  document.getElementById("pq2").className="tp"+(t==="q2"?" act":"");
   document.getElementById("pq3").className="tp"+(t==="q3"?" act":"");
   document.getElementById("pq4").className="tp"+(t==="q4"?" act":"");
-  document.getElementById("tq2").className="tb"+(t==="q2"?" aq2":"");
   document.getElementById("tq3").className="tb"+(t==="q3"?" aq3":"");
   document.getElementById("tq4").className="tb"+(t==="q4"?" aq4":"");
 }
