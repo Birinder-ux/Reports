@@ -61,7 +61,7 @@ tbody tr:hover td{background:#F8FAFC}
 <div class="hdr">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 16 Sep'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
+    <div class="sub">As on 17 Sep'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
     <span class="bdg bdg-q3">Q3 FY26</span>
@@ -95,11 +95,11 @@ tbody tr:hover td{background:#F8FAFC}
   </div>
   <div class="kg">
     <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">1,374</div><div class="km"><span class="ck ck3">Q3</span>Jul&ndash;Sep</div></div>
-    <div class="kc q3"><div class="kl">Q3 Utilized</div><div class="kv" id="kq3u">1,906</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">139%</span> of target</div></div>
-    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-532</div><div class="km"><span class="ck ck3">Q3</span>Over-utilized</div></div>
-    <div class="kc q4"><div class="kl">Q4 Target</div><div class="kv" id="kq4t">401</div><div class="km"><span class="ck ck4">Q4</span>India only set</div></div>
-    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">446</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">111%</span> of target</div></div>
-    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv neg" id="kq4b">-45</div><div class="km"><span class="ck ck4">Q4</span>Over-utilized</div></div>
+    <div class="kc q3"><div class="kl">Q3 Utilized</div><div class="kv" id="kq3u">1,920</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">140%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-546</div><div class="km"><span class="ck ck3">Q3</span>Over-utilized</div></div>
+    <div class="kc q4"><div class="kl">Q4 Target</div><div class="kv" id="kq4t">917</div><div class="km"><span class="ck ck4">Q4</span>All geos set</div></div>
+    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">472</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">51%</span> of target</div></div>
+    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv pos" id="kq4b">+445</div><div class="km"><span class="ck ck4">Q4</span>Remaining</div></div>
   </div>
   <div class="slbl">Geo &times; service line detail</div>
   <div class="tabs">
@@ -110,7 +110,7 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 16 Sep'26</span>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 17 Sep'26</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -126,7 +126,7 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q4&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 16 Sep'26 &nbsp;|&nbsp; Targets set for India only</span>
+        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 17 Sep'26 &nbsp;|&nbsp; Targets now set for all geographies</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -145,38 +145,37 @@ tbody tr:hover td{background:#F8FAFC}
     Balance = Target &minus; Slots Utilized. &nbsp;&middot;&nbsp;
     <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized &nbsp;&middot;&nbsp;
     <span style="color:#16A34A;font-weight:600">Green</span> = surplus &nbsp;&middot;&nbsp;
-    <span style="color:#94A3B8;font-style:italic">TBD</span> = no target set yet. &nbsp;&middot;&nbsp;
-    Q3 targets per 14 Aug&apos;26 revision. Q4 targets set for India only as of 16 Sep'26.
+    Q3 targets per 14 Aug&apos;26 revision. Q4 targets set for all geographies as of 17 Sep'26.
   </div>
 </div>
 <script>
 var Q3 = [
-{geo:"India",sl:"DE",target:507,m1:243,m2:171,m3:152,bal:-59,pct:112},
-{geo:"India",sl:"ADM",target:189,m1:87,m2:52,m3:82,bal:-32,pct:117},
+{geo:"India",sl:"DE",target:507,m1:243,m2:171,m3:154,bal:-61,pct:112},
+{geo:"India",sl:"ADM",target:189,m1:87,m2:52,m3:84,bal:-34,pct:118},
 {geo:"India",sl:"QEA",target:230,m1:115,m2:94,m3:88,bal:-67,pct:129},
-{geo:"Americas",sl:"DE",target:123,m1:78,m2:129,m3:79,bal:-163,pct:233},
-{geo:"Americas",sl:"ADM",target:60,m1:48,m2:31,m3:45,bal:-64,pct:207},
-{geo:"Americas",sl:"QEA",target:91,m1:77,m2:91,m3:52,bal:-129,pct:242},
-{geo:"APJ",sl:"DE",target:21,m1:4,m2:5,m3:3,bal:9,pct:57},
+{geo:"Americas",sl:"DE",target:123,m1:78,m2:129,m3:82,bal:-166,pct:235},
+{geo:"Americas",sl:"ADM",target:60,m1:48,m2:31,m3:48,bal:-67,pct:212},
+{geo:"Americas",sl:"QEA",target:91,m1:77,m2:91,m3:53,bal:-130,pct:243},
+{geo:"APJ",sl:"DE",target:21,m1:4,m2:5,m3:4,bal:8,pct:62},
 {geo:"APJ",sl:"ADM",target:20,m1:17,m2:8,m3:6,bal:-11,pct:155},
 {geo:"APJ",sl:"QEA",target:23,m1:10,m2:7,m3:2,bal:4,pct:83},
-{geo:"EMEA",sl:"DE",target:64,m1:30,m2:30,m3:23,bal:-19,pct:130},
+{geo:"EMEA",sl:"DE",target:64,m1:30,m2:30,m3:25,bal:-21,pct:133},
 {geo:"EMEA",sl:"ADM",target:21,m1:14,m2:3,m3:4,bal:0,pct:100},
 {geo:"EMEA",sl:"QEA",target:25,m1:16,m2:5,m3:5,bal:-1,pct:104}
 ];
 var Q4 = [
-{geo:"India",sl:"DE",target:194,m1:116,m2:30,m3:8,bal:40,pct:79},
-{geo:"India",sl:"ADM",target:101,m1:56,m2:25,m3:10,bal:10,pct:90},
-{geo:"India",sl:"QEA",target:106,m1:91,m2:34,m3:26,bal:-45,pct:142},
-{geo:"Americas",sl:"DE",target:0,m1:2,m2:1,m3:0,bal:null,pct:null},
-{geo:"Americas",sl:"ADM",target:0,m1:4,m2:1,m3:0,bal:null,pct:null},
-{geo:"Americas",sl:"QEA",target:0,m1:5,m2:0,m3:0,bal:null,pct:null},
-{geo:"APJ",sl:"DE",target:0,m1:1,m2:0,m3:0,bal:null,pct:null},
-{geo:"APJ",sl:"ADM",target:0,m1:2,m2:2,m3:0,bal:null,pct:null},
-{geo:"APJ",sl:"QEA",target:0,m1:4,m2:1,m3:0,bal:null,pct:null},
-{geo:"EMEA",sl:"DE",target:0,m1:6,m2:1,m3:0,bal:null,pct:null},
-{geo:"EMEA",sl:"ADM",target:0,m1:1,m2:0,m3:0,bal:null,pct:null},
-{geo:"EMEA",sl:"QEA",target:0,m1:13,m2:6,m3:0,bal:null,pct:null}
+{geo:"India",sl:"DE",target:238,m1:119,m2:31,m3:8,bal:80,pct:66},
+{geo:"India",sl:"ADM",target:142,m1:57,m2:27,m3:14,bal:44,pct:69},
+{geo:"India",sl:"QEA",target:228,m1:95,m2:35,m3:31,bal:67,pct:71},
+{geo:"Americas",sl:"DE",target:68,m1:3,m2:1,m3:1,bal:63,pct:7},
+{geo:"Americas",sl:"ADM",target:41,m1:4,m2:1,m3:0,bal:36,pct:12},
+{geo:"Americas",sl:"QEA",target:60,m1:6,m2:0,m3:0,bal:54,pct:10},
+{geo:"APJ",sl:"DE",target:34,m1:1,m2:0,m3:0,bal:33,pct:3},
+{geo:"APJ",sl:"ADM",target:12,m1:2,m2:2,m3:0,bal:8,pct:33},
+{geo:"APJ",sl:"QEA",target:21,m1:4,m2:1,m3:0,bal:16,pct:24},
+{geo:"EMEA",sl:"DE",target:35,m1:8,m2:1,m3:0,bal:26,pct:26},
+{geo:"EMEA",sl:"ADM",target:11,m1:1,m2:0,m3:0,bal:10,pct:9},
+{geo:"EMEA",sl:"QEA",target:27,m1:13,m2:6,m3:0,bal:8,pct:70}
 ];
 var SL = "All", GEO = "All";
 function N(n) { return Math.round(Math.abs(n)).toLocaleString("en-IN"); }
@@ -245,8 +244,8 @@ function updateKPIs(q3,q4) {
 }
 function updateTags() {
   var s=(SL==="All")?"All SL":SL, g=(GEO==="All")?"All Geo":GEO;
-  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 16 Sep'26";
-  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 16 Sep'26 &nbsp;|&nbsp; Targets set for India only";
+  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 17 Sep'26";
+  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 17 Sep'26 &nbsp;|&nbsp; Targets now set for all geographies";
 }
 function refresh() {
   var q3=render(Q3,"q3tb","#16A34A");
