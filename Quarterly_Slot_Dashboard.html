@@ -61,7 +61,7 @@ tbody tr:hover td{background:#F8FAFC}
 <div class="hdr">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 17 Sep'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
+    <div class="sub">As on 18 Sep'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
     <span class="bdg bdg-q3">Q3 FY26</span>
@@ -97,9 +97,9 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">1,374</div><div class="km"><span class="ck ck3">Q3</span>Jul&ndash;Sep</div></div>
     <div class="kc q3"><div class="kl">Q3 Utilized</div><div class="kv" id="kq3u">1,920</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">140%</span> of target</div></div>
     <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-546</div><div class="km"><span class="ck ck3">Q3</span>Over-utilized</div></div>
-    <div class="kc q4"><div class="kl">Q4 Target</div><div class="kv" id="kq4t">917</div><div class="km"><span class="ck ck4">Q4</span>All geos set</div></div>
-    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">472</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">51%</span> of target</div></div>
-    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv pos" id="kq4b">+445</div><div class="km"><span class="ck ck4">Q4</span>Remaining</div></div>
+    <div class="kc q4"><div class="kl">Q4 Target</div><div class="kv" id="kq4t">1,509</div><div class="km"><span class="ck ck4">Q4</span>All geos set</div></div>
+    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">472</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">31%</span> of target</div></div>
+    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv pos" id="kq4b">+1,037</div><div class="km"><span class="ck ck4">Q4</span>Remaining</div></div>
   </div>
   <div class="slbl">Geo &times; service line detail</div>
   <div class="tabs">
@@ -110,7 +110,7 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 17 Sep'26</span>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 18 Sep'26</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -126,7 +126,7 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q4&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 17 Sep'26 &nbsp;|&nbsp; Targets now set for all geographies</span>
+        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 18 Sep'26 &nbsp;|&nbsp; Targets set for all geographies</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -145,7 +145,7 @@ tbody tr:hover td{background:#F8FAFC}
     Balance = Target &minus; Slots Utilized. &nbsp;&middot;&nbsp;
     <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized &nbsp;&middot;&nbsp;
     <span style="color:#16A34A;font-weight:600">Green</span> = surplus &nbsp;&middot;&nbsp;
-    Q3 targets per 14 Aug&apos;26 revision. Q4 targets set for all geographies as of 17 Sep'26.
+    Q3 targets per 14 Aug&apos;26 revision. Q4 targets per 18 Sep&apos;26 revision (India DE 600, India ADM 372).
   </div>
 </div>
 <script>
@@ -164,8 +164,8 @@ var Q3 = [
 {geo:"EMEA",sl:"QEA",target:25,m1:16,m2:5,m3:5,bal:-1,pct:104}
 ];
 var Q4 = [
-{geo:"India",sl:"DE",target:238,m1:119,m2:31,m3:8,bal:80,pct:66},
-{geo:"India",sl:"ADM",target:142,m1:57,m2:27,m3:14,bal:44,pct:69},
+{geo:"India",sl:"DE",target:600,m1:119,m2:31,m3:8,bal:442,pct:26},
+{geo:"India",sl:"ADM",target:372,m1:57,m2:27,m3:14,bal:274,pct:26},
 {geo:"India",sl:"QEA",target:228,m1:95,m2:35,m3:31,bal:67,pct:71},
 {geo:"Americas",sl:"DE",target:68,m1:3,m2:1,m3:1,bal:63,pct:7},
 {geo:"Americas",sl:"ADM",target:41,m1:4,m2:1,m3:0,bal:36,pct:12},
@@ -244,8 +244,8 @@ function updateKPIs(q3,q4) {
 }
 function updateTags() {
   var s=(SL==="All")?"All SL":SL, g=(GEO==="All")?"All Geo":GEO;
-  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 17 Sep'26";
-  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 17 Sep'26 &nbsp;|&nbsp; Targets now set for all geographies";
+  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 18 Sep'26";
+  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 18 Sep'26 &nbsp;|&nbsp; Targets set for all geographies";
 }
 function refresh() {
   var q3=render(Q3,"q3tb","#16A34A");
