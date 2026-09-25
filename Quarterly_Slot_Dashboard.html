@@ -13,7 +13,7 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#F8FAFC;color:#0F172A;lin
 .hdr .sub{font-size:11px;color:#94A3B8;margin-top:4px;font-family:'DM Mono',monospace}
 .wrap{padding:24px 36px 48px;max-width:1280px;margin:0 auto}
 .bdg{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace}
-.bdg-q3{background:rgba(22,163,74,.25);color:#86EFAC;border:1px solid rgba(134,239,172,.3)}
+.bdg-q3{background:rgba(220,38,38,.2);color:#FCA5A5;border:1px solid rgba(252,165,165,.3)}
 .bdg-q4{background:rgba(168,85,247,.25);color:#E9D5FF;border:1px solid rgba(233,213,255,.3)}
 .fbar{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px 20px;margin-top:24px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .fl{font-size:11px;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.05em}
@@ -26,18 +26,18 @@ body{font-family:'DM Sans',Arial,sans-serif;background:#F8FAFC;color:#0F172A;lin
 .frst{font-size:11px;color:#94A3B8;cursor:pointer;padding:4px 8px;border:none;background:none;font-family:'DM Sans',sans-serif}
 .kg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:24px}
 .kc{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;border-top:3px solid transparent}
-.kc.q3{border-top-color:#16A34A}.kc.q4{border-top-color:#A855F7}
+.kc.q3{border-top-color:#DC2626}.kc.q4{border-top-color:#A855F7}
 .kl{font-size:10px;color:#94A3B8;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
 .kv{font-size:24px;font-weight:600;color:#0F172A;font-family:'DM Mono',monospace;line-height:1}
 .kv.pos{color:#16A34A}.kv.neg{color:#DC2626}
 .km{font-size:10px;color:#94A3B8;margin-top:5px}
 .ck{display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:10px;font-family:'DM Mono',monospace;margin-right:3px}
-.ck3{background:#DCFCE7;color:#14532D}.ck4{background:#F3E8FF;color:#6B21A8}
+.ck3{background:#FEE2E2;color:#991B1B}.ck4{background:#F3E8FF;color:#6B21A8}
 .slbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#94A3B8;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .slbl::after{content:'';flex:1;height:1px;background:#E2E8F0}
 .tabs{display:flex;gap:6px;margin-bottom:14px}
 .tb{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;border:1px solid #CBD5E1;background:#fff;color:#475569;cursor:pointer}
-.tb.aq3{background:#DCFCE7;color:#16A34A;border-color:#86EFAC}
+.tb.aq3{background:#FEE2E2;color:#991B1B;border-color:#FCA5A5}
 .tb.aq4{background:#F3E8FF;color:#6B21A8;border-color:#C4B5FD}
 .tp{display:none}.tp.act{display:block}
 .tc{background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;margin-bottom:16px}
@@ -55,20 +55,24 @@ tbody tr:hover td{background:#F8FAFC}
 .tr-tot td{background:#F1F5F9!important;font-weight:600!important;border-top:1.5px solid #CBD5E1!important}
 .note{font-size:10.5px;color:#94A3B8;padding:10px 14px;background:#fff;border:1px solid #E2E8F0;border-radius:8px;line-height:1.7}
 .no-target{color:#94A3B8;font-style:italic}
+.closed-banner{background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;padding:10px 16px;margin-bottom:20px;display:flex;align-items:center;gap:10px;font-size:12px;color:#991B1B;font-weight:500}
 </style>
 </head>
 <body>
 <div class="hdr">
   <div>
     <h1>Quarterly Slot Analysis</h1>
-    <div class="sub">As on 23 Sep'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
+    <div class="sub">As on 24 Sep'26 &nbsp;&middot;&nbsp; FY26 &nbsp;&middot;&nbsp; All values in headcount</div>
   </div>
   <div style="display:flex;gap:8px">
-    <span class="bdg bdg-q3">Q3 FY26</span>
+    <span class="bdg bdg-q3">Q3 FY26 &mdash; CLOSED</span>
     <span class="bdg bdg-q4">Q4 FY26</span>
   </div>
 </div>
 <div class="wrap">
+  <div class="closed-banner">
+    &#x26A0;&#xFE0F;&nbsp; Q3 FY26 closed as of 24 Sep&apos;26 &nbsp;&middot;&nbsp; Final utilization: <strong>&nbsp;1,998 slots &nbsp;/&nbsp; 144% &nbsp;/&nbsp; &minus;624 balance</strong>
+  </div>
   <div class="fbar">
     <div style="display:flex;align-items:center;gap:10px">
       <span class="fl">Service Line</span>
@@ -94,28 +98,28 @@ tbody tr:hover td{background:#F8FAFC}
     <button class="frst" onclick="resetF()">&#x21BA; Reset</button>
   </div>
   <div class="kg">
-    <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">1,374</div><div class="km"><span class="ck ck3">Q3</span>Jul&ndash;Sep</div></div>
-    <div class="kc q3"><div class="kl">Q3 Utilized</div><div class="kv" id="kq3u">1,979</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">144%</span> of target</div></div>
-    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-605</div><div class="km"><span class="ck ck3">Q3</span>Penultimate day</div></div>
+    <div class="kc q3"><div class="kl">Q3 Target</div><div class="kv" id="kq3t">1,374</div><div class="km"><span class="ck ck3">Q3</span>Final</div></div>
+    <div class="kc q3"><div class="kl">Q3 Utilized</div><div class="kv" id="kq3u">1,998</div><div class="km"><span class="ck ck3">Q3</span><span id="kq3p">145%</span> of target</div></div>
+    <div class="kc q3"><div class="kl">Q3 Balance</div><div class="kv neg" id="kq3b">-624</div><div class="km"><span class="ck ck3">Q3</span>Quarter closed</div></div>
     <div class="kc q4"><div class="kl">Q4 Target</div><div class="kv" id="kq4t">1,509</div><div class="km"><span class="ck ck4">Q4</span>All geos set</div></div>
-    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">579</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">38%</span> of target</div></div>
-    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv pos" id="kq4b">+930</div><div class="km"><span class="ck ck4">Q4</span>Remaining</div></div>
+    <div class="kc q4"><div class="kl">Q4 Utilized</div><div class="kv" id="kq4u">613</div><div class="km"><span class="ck ck4">Q4</span><span id="kq4p">41%</span> of target</div></div>
+    <div class="kc q4"><div class="kl">Q4 Balance</div><div class="kv pos" id="kq4b">+896</div><div class="km"><span class="ck ck4">Q4</span>Remaining</div></div>
   </div>
   <div class="slbl">Geo &times; service line detail</div>
   <div class="tabs">
-    <button class="tb aq3" id="tq3" onclick="showTab('q3')">Q3&apos;26 &mdash; Jul &middot; Aug &middot; Sep</button>
+    <button class="tb aq3" id="tq3" onclick="showTab('q3')">Q3&apos;26 &mdash; Jul &middot; Aug &middot; Sep &mdash; CLOSED</button>
     <button class="tb" id="tq4" onclick="showTab('q4')">Q4&apos;26 &mdash; Oct &middot; Nov &middot; Dec</button>
   </div>
   <div id="pq3" class="tp act">
     <div class="tc">
       <div class="tc-h">
-        <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 23 Sep'26</span>
+        <h3>Q3&apos;26 &middot; Geo &times; Service Line Breakdown &mdash; Final</h3>
+        <span class="tc-tag" id="q3tag">All SL &middot; All Geo &nbsp;|&nbsp; Q3 closed 24 Sep&apos;26</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
           <th style="text-align:left">Geography</th><th style="text-align:left">SL</th>
-          <th>Target</th><th>Jul&apos;26 Joiners</th><th>Aug&apos;26 Joiners</th><th>Sep&apos;26 Pipeline</th>
+          <th>Target</th><th>Jul&apos;26 Joiners</th><th>Aug&apos;26 Joiners</th><th>Sep&apos;26 Joiners</th>
           <th>Slots Utilized</th><th>Balance</th><th>Pipeline %</th>
         </tr></thead>
         <tbody id="q3tb"></tbody>
@@ -126,7 +130,7 @@ tbody tr:hover td{background:#F8FAFC}
     <div class="tc">
       <div class="tc-h">
         <h3>Q4&apos;26 &middot; Geo &times; Service Line Breakdown</h3>
-        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 23 Sep'26 &nbsp;|&nbsp; Targets set for all geographies</span>
+        <span class="tc-tag" id="q4tag">All SL &middot; All Geo &nbsp;|&nbsp; Data as of 24 Sep'26 &nbsp;|&nbsp; Targets set for all geographies</span>
       </div>
       <div class="tsc"><table>
         <thead><tr>
@@ -140,7 +144,7 @@ tbody tr:hover td{background:#F8FAFC}
   </div>
   <div class="note">
     <strong>Notes:</strong>&nbsp;
-    Q3 Jul &amp; Aug are now joiners (actuals); Sep is final pipeline &mdash; Q3 closes today (24 Sep). &nbsp;&middot;&nbsp;
+    Q3 closed 24 Sep&apos;26 &mdash; Jul, Aug &amp; Sep are final joiners. &nbsp;&middot;&nbsp;
     Q4 Slots Utilized = Oct + Nov + Dec Pipeline. &nbsp;&middot;&nbsp;
     Balance = Target &minus; Slots Utilized. &nbsp;&middot;&nbsp;
     <span style="color:#DC2626;font-weight:600">Red</span> = over-utilized &nbsp;&middot;&nbsp;
@@ -150,32 +154,32 @@ tbody tr:hover td{background:#F8FAFC}
 </div>
 <script>
 var Q3 = [
-{geo:"India",sl:"DE",target:507,m1:243,m2:171,m3:171,bal:-78,pct:115},
-{geo:"India",sl:"ADM",target:189,m1:87,m2:52,m3:89,bal:-39,pct:121},
-{geo:"India",sl:"QEA",target:230,m1:115,m2:94,m3:85,bal:-64,pct:128},
-{geo:"Americas",sl:"DE",target:123,m1:78,m2:129,m3:99,bal:-183,pct:249},
-{geo:"Americas",sl:"ADM",target:60,m1:48,m2:31,m3:60,bal:-79,pct:232},
+{geo:"India",sl:"DE",target:507,m1:243,m2:171,m3:179,bal:-86,pct:117},
+{geo:"India",sl:"ADM",target:189,m1:87,m2:52,m3:95,bal:-45,pct:124},
+{geo:"India",sl:"QEA",target:230,m1:115,m2:94,m3:89,bal:-68,pct:130},
+{geo:"Americas",sl:"DE",target:123,m1:78,m2:129,m3:101,bal:-185,pct:250},
+{geo:"Americas",sl:"ADM",target:60,m1:48,m2:31,m3:61,bal:-80,pct:233},
 {geo:"Americas",sl:"QEA",target:91,m1:77,m2:91,m3:59,bal:-136,pct:249},
-{geo:"APJ",sl:"DE",target:21,m1:4,m2:5,m3:5,bal:7,pct:67},
+{geo:"APJ",sl:"DE",target:21,m1:4,m2:5,m3:4,bal:8,pct:62},
 {geo:"APJ",sl:"ADM",target:20,m1:17,m2:8,m3:6,bal:-11,pct:155},
 {geo:"APJ",sl:"QEA",target:23,m1:10,m2:7,m3:2,bal:4,pct:83},
-{geo:"EMEA",sl:"DE",target:64,m1:30,m2:30,m3:26,bal:-22,pct:134},
+{geo:"EMEA",sl:"DE",target:64,m1:30,m2:30,m3:28,bal:-24,pct:138},
 {geo:"EMEA",sl:"ADM",target:21,m1:14,m2:3,m3:4,bal:0,pct:100},
-{geo:"EMEA",sl:"QEA",target:25,m1:16,m2:5,m3:8,bal:-4,pct:116}
+{geo:"EMEA",sl:"QEA",target:25,m1:16,m2:5,m3:5,bal:-1,pct:104}
 ];
 var Q4 = [
-{geo:"India",sl:"DE",target:600,m1:140,m2:35,m3:12,bal:413,pct:31},
-{geo:"India",sl:"ADM",target:372,m1:67,m2:33,m3:16,bal:256,pct:31},
-{geo:"India",sl:"QEA",target:228,m1:108,m2:35,m3:37,bal:48,pct:79},
-{geo:"Americas",sl:"DE",target:68,m1:25,m2:1,m3:0,bal:42,pct:38},
-{geo:"Americas",sl:"ADM",target:41,m1:6,m2:1,m3:0,bal:34,pct:17},
-{geo:"Americas",sl:"QEA",target:60,m1:13,m2:2,m3:0,bal:45,pct:25},
+{geo:"India",sl:"DE",target:600,m1:144,m2:35,m3:13,bal:408,pct:32},
+{geo:"India",sl:"ADM",target:372,m1:68,m2:33,m3:17,bal:254,pct:32},
+{geo:"India",sl:"QEA",target:228,m1:113,m2:35,m3:40,bal:40,pct:82},
+{geo:"Americas",sl:"DE",target:68,m1:30,m2:1,m3:0,bal:37,pct:46},
+{geo:"Americas",sl:"ADM",target:41,m1:8,m2:1,m3:0,bal:32,pct:22},
+{geo:"Americas",sl:"QEA",target:60,m1:18,m2:1,m3:0,bal:41,pct:32},
 {geo:"APJ",sl:"DE",target:34,m1:2,m2:1,m3:0,bal:31,pct:9},
 {geo:"APJ",sl:"ADM",target:12,m1:2,m2:2,m3:0,bal:8,pct:33},
 {geo:"APJ",sl:"QEA",target:21,m1:4,m2:1,m3:0,bal:16,pct:24},
-{geo:"EMEA",sl:"DE",target:35,m1:15,m2:0,m3:1,bal:19,pct:46},
+{geo:"EMEA",sl:"DE",target:35,m1:17,m2:1,m3:1,bal:16,pct:54},
 {geo:"EMEA",sl:"ADM",target:11,m1:1,m2:0,m3:0,bal:10,pct:9},
-{geo:"EMEA",sl:"QEA",target:27,m1:14,m2:4,m3:1,bal:8,pct:70}
+{geo:"EMEA",sl:"QEA",target:27,m1:17,m2:6,m3:1,bal:3,pct:89}
 ];
 var SL = "All", GEO = "All";
 function N(n) { return Math.round(Math.abs(n)).toLocaleString("en-IN"); }
@@ -244,11 +248,11 @@ function updateKPIs(q3,q4) {
 }
 function updateTags() {
   var s=(SL==="All")?"All SL":SL, g=(GEO==="All")?"All Geo":GEO;
-  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 23 Sep'26";
-  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 23 Sep'26 &nbsp;|&nbsp; Targets set for all geographies";
+  document.getElementById("q3tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Q3 closed 24 Sep&apos;26";
+  document.getElementById("q4tag").innerHTML=s+" &middot; "+g+" &nbsp;|&nbsp; Data as of 24 Sep'26 &nbsp;|&nbsp; Targets set for all geographies";
 }
 function refresh() {
-  var q3=render(Q3,"q3tb","#16A34A");
+  var q3=render(Q3,"q3tb","#DC2626");
   var q4=render(Q4,"q4tb","#A855F7");
   updateKPIs(q3,q4); updateTags();
 }
